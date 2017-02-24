@@ -3,8 +3,9 @@ package com.company;
 
 
 
-public class Car {
+public class Car extends Train_Element {
 
+    private Rail actPos;
     private boolean isEmpty;
     private Color color;
 
@@ -15,4 +16,13 @@ public class Car {
     }
 
 
+    @Override
+    void setActPos(Rail newPos) {
+        actPos = newPos;
+    }
+
+    @Override
+    Rail getActPos() {
+        return null;
+    }
 }
