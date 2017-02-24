@@ -1,29 +1,24 @@
 package com.company;
 
+import java.util.List;
+
 /**
  * Created by Veszner D on 2017. 02. 23..
  */
 public class Train {
 
+    private Engine engine;
+    private List<Car> cars;
 
-
-    // vonat aktuális pontja és előző (irány miatt)
-    private Rail actPos;
-    private Rail previousPos;
-
-
+    private int maxCarNumber = 5;
 
 
     public Train(Rail startPos) {
-        setPos(startPos);
+        Engine e = new Engine(startPos);
+        for (int i = 0; i < maxCarNumber; i++)
+            cars.add(new Car());
     }
 
-
-    public void setPos(Rail r) {
-        actPos = r;
-    }
-
-    public Rail getActPos;
 
 
 }
