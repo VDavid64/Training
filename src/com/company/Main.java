@@ -21,21 +21,16 @@ public class Main  {
             game.nextStep();
 
             // ütközéseket / játék végét detektáló függvény
-            if (game.crashdetection())
+            if (game.crashDetection())
                 GameIsOn = false;
 
 
-            // játékos kezelése
-            game.userInteraction();
-
-
             // várakozás
-            t.sleep(100);
+            t.sleep(1000);
         }
 
 
 
-        // játék vége rész
 
 
 

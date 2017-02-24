@@ -4,8 +4,7 @@ import java.util.List;
 
 public class Game {
 
-
-    //
+    private int counter;
     private Map palya;
 
     // vonatok tárolása
@@ -13,15 +12,15 @@ public class Game {
 
 
 
-    //
+    // palya tagváltózó feltöltése
     public void loadMap() {
         // fájlból betöltés
-
     }
 
 
     // default constructor
     public Game() {
+        counter = 0;
         loadMap();
     }
 
@@ -31,17 +30,20 @@ public class Game {
     public void nextStep() {
         // pl a vonatok kezdőpontját lekérjük, végignézzük a szomszédokat
         // ha megtaláltuk a következőt, beállítjuk a vonatnak
+
+        // itt hívódhatna meg a generateTrain is a megfelelő időben, pl:
+        if (counter == 0 || counter == 10)
+            generateTrain();
+
+        counter++;
     }
 
 
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
-    public boolean crashdetection() {
+    public boolean crashDetection() {
         return true;
     }
-
-
-    public void userInteraction() {}
 
 
 
