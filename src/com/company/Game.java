@@ -39,6 +39,8 @@ public class Game {
     }
 
 
+    
+
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
     public boolean crashDetection() {
