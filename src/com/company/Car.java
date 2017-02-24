@@ -25,4 +25,12 @@ public class Car extends Train_Element {
     Rail getActPos() {
         return null;
     }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty() {
+        isEmpty = true;
+    }
 }

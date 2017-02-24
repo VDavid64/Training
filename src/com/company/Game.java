@@ -35,6 +35,12 @@ public class Game {
         if (counter == 0 || counter == 10)
             generateTrain();
 
+        // leszállást végrehajtó függvény
+        emptyCars();
+
+        // for ciklusban vonatokon végiggyaloglunk, a következő
+        // rail-t megkeresve, majd beállítjuk az engine actPos-nak
+
         counter++;
     }
 
@@ -58,7 +64,7 @@ public class Game {
 
 
         // lekérdezzük a lehetséges pontokat, ahol vonat jöhet be
-        Tile[] lehetségeskezdőpontok = palya.getStartpositions();
+        Tile[] lehetségeskezdőpontok = palya.getStartPositions();
         Rail statpos = new Rail(); // bullshit, csak kényelem miatt kell
         // választunk egyet közülük, ...
 
@@ -71,5 +77,9 @@ public class Game {
     }
 
 
+    // utasok leszállítását végrehajtó függvény
+    public void emptyCars() {
+
+    }
 
 }

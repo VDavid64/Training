@@ -14,6 +14,14 @@ public class Tile implements MouseListener{
     private Rail rail;
 
 
+    public boolean isEmpty() {
+        if (rail == null)
+            return true;
+        return false;
+    }
+
+
+
 
     // Felhasználó kattintásának lekezelése
     @Override
