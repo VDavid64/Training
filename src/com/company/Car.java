@@ -10,9 +10,10 @@ public class Car extends Train_Element {
     private Color color;
 
 
-    public Car() {
+    public Car(Rail startPosition) {
         isEmpty = false;
-        // szín beállítása véletlenszerűen
+        color = Color.GREEN;
+        actPos = startPosition;
     }
 
 
@@ -20,6 +21,7 @@ public class Car extends Train_Element {
     void setActPos(Rail newPos) {
         actPos = newPos;
     }
+
 
     @Override
     Rail getActPos() {

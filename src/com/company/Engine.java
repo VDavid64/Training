@@ -8,15 +8,22 @@ public class Engine extends Train_Element {
     private Rail previousPos;
 
 
+
     @Override
     void setActPos(Rail newPos) {
+
         actPos = newPos;
     }
 
+
+
     @Override
     Rail getActPos() {
-        return null;
+
+        return actPos;
     }
+
+
 
     public Engine(Rail startPos) {
         actPos = startPos;

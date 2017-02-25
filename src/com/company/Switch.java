@@ -25,8 +25,10 @@ public class Switch {
 
     // a három lehetséges bemenetre kell megfelelő rail-t visszaadnia
     public Rail getNextRail(Rail incoming) {
-        return new Rail();
+        return new Rail(1, 1, 1);
     }
+
+
 
     public void changeDir() {
         if (dir == true) {

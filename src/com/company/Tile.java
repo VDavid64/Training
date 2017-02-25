@@ -21,6 +21,20 @@ public class Tile implements MouseListener{
     }
 
 
+    // konstruktor
+    public Tile( int i, int k) {
+        x = i;
+        y = k;
+    }
+
+
+    public Rail getRail() {
+        return rail;
+    }
+
+    public void createRail(int x, int y, int type) {
+        rail = new Rail(x, y, type);
+    }
 
 
     // Felhasználó kattintásának lekezelése
