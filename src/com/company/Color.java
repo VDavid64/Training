@@ -1,10 +1,28 @@
 package com.company;
 
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 public enum Color {
 
     // enum a színekhez
     // szürke majd az üres kocsikat reprezentálja
-    GREY, GREEN, BLUE, RED, YELLOW, WHITE
+    GREY, GREEN, BLUE, RED, YELLOW, WHITE;
+
+
+
+    // Stackoverflow segített ebben - attól még használható, nem?
+    private static final List<Color> VALUES =
+            Collections.unmodifiableList(Arrays.asList(values()));
+    private static final int SIZE = VALUES.size();
+    private static final Random RANDOM = new Random();
+
+    public static Color getRandomColor()  {
+        return VALUES.get(RANDOM.nextInt(SIZE));
+    }
 
 }
+

@@ -1,57 +1,100 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Game {
 
-    // számláló (vonat generálásához) és a map
-    private int counter;
-    private Map palya;
-
+    //////////////////////
+    private Map map;
+    private boolean isLastGame;
     // vonatok tárolása
-    private ArrayList<Train> trains = new ArrayList<>();
+    private ArrayList<Engine> engines = new ArrayList<>();
+    //////////////////////
 
 
 
+    ///////////////////////////
     // default constructor
     public Game() {
-        counter = 0;
+        isLastGame = false;
     }
 
 
 
+    ////////////////
+    // nyilván kell tartani, hogy az utolsó pályát játszuk e
+    public boolean getIsLastGame() {
+        return isLastGame;
+    }
 
-    // Map konstruktorát hívja meg
-    // ez fájlból vagy bedrótozva betölt egy pályát
+
+    ////////////////
+    // Map konstruktorát hívja meg, beállítva a ref-t
+    // az pedig fájlból vagy bedrótozva betölt egy pályát
     public void loadMap(int mapNumber) {
-        palya = new Map(mapNumber);
+        map = new Map(mapNumber);
+    }
+
+
+    ////////////////
+    public void generateTrain() {
+        Engine newEngine = new Engine(map.getStartPositions().get(0), 10);
+        engines.add(newEngine);
     }
 
 
 
 
+
+    ////////////////
     // vonatok léptetése
-    public void nextStep() {
-        // pl a vonatok kezdőpontját lekérjük, végignézzük a szomszédokat
-        // ha megtaláltuk a következőt, beállítjuk a vonatnak
+    public void moveTrains() {
+        for (Engine e: engines
+             ) {
+            e.move();
+        }
+    }
 
-        // itt hívódhatna meg a generateTrain is a megfelelő időben, pl:
-        if (counter == 0 || counter == 11)
-            generateTrain();
 
-        // leszállást végrehajtó függvény
-        emptyCars();
-
-        // for ciklusban vonatokon végiggyaloglunk, a következő
-        // rail-t megkeresve, majd beállítjuk az engine actPos-nak
-
-        counter++;
+    /////////////////
+    // vonatok üressgégének vizsgálata
+    // ha minden engine minden kocsija üres, true-val térünk vissza
+    public boolean isWon() {
+        boolean empty = true;
+        while (empty) {
+            for (Engine e: engines
+                    ) {
+                if (e.getFirstNotEmptyCar() != null) {
+                    return false;
+                }
+            }
+            empty = true;
+        }
+        return empty;
     }
 
 
 
 
+
+
+    // TO-DO: ha car-nak lekérdezzük egy pozícióját, az egy railt ad vissza, és hiába tunnel, getColor-t nem tudjuk meghívni rajta
+    // utasok leszállítását végrehajtó függvény
+    public void emptyCars() {
+        for (Engine e: engines
+                ) {
+            Car car = e.getFirstNotEmptyCar();
+
+            // ha van ilyen kocsi, és pont station felett van és a színük is megegyezik
+            if (car != null && car.getActPos().getType()== 4 /* && car.getColor() == car.getActPos().getColor() */ ) {
+                car.setEmpty();
+            }
+        }
+    }
+
+
+
+    // TO-DO
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
     public boolean crashDetection() {
@@ -60,33 +103,7 @@ public class Game {
 
 
 
-    // csinálhatnánk úgy, hogy két vonat lesz egyelőre csak
-    // az elsőt rögtön a játék elején indítjuk
-    // a másodikat kicsivel utána
-    public void generateTrain() {
-
-        // lekérdezzük a lehetséges pontokat, ahol vonat jöhet be
-        ArrayList<Tile> startPositions = palya.getStartPositions();
-        Tile startTile = startPositions.get(counter % 2);               // változó ponton generál vonatot
-        Rail startRail = startTile.getRail();
-        Train nextTrain = new Train(startRail);
-        setNextTrain(nextTrain);                                        // majd hozzáadjuk a trains listánkhoz
-
-    }
-
-    public void setNextTrain(Train t) {
-        trains.add(t);
-    }
 
 
-    // utasok leszállítását végrehajtó függvény
-    public void emptyCars() {
-
-    }
-
-    // vonatok üressgégének vizsgálata
-    public boolean isWon() {
-        return false;
-    }
 
 }

@@ -8,8 +8,12 @@ public class Rail {
     // az elem típusa, pl:  1, ha sima sín
     //                      2, ha váltó
     //                      3, ha alagút
-    private int type;
+    //                      4, ha station
+    private int type = 1;
     private int x, y;
+
+    private Rail nextRail;
+    private Rail prevRail;
 
 
     public int getType() {
@@ -31,5 +35,14 @@ public class Rail {
     }
 
 
+
+
+    public Rail getNextRail() {
+        return nextRail;
+    }
+
+    public Rail getPrevRail() {
+        return prevRail;
+    }
 
 }

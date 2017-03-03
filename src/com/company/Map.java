@@ -10,18 +10,18 @@ public class Map {
     private Tile[][] tiles = new Tile[6][11];
 
     // lehetséges kezdőpontok tömbje
-    private ArrayList<Tile> startPositions = new ArrayList<Tile>();
+    private ArrayList<Rail> startPositions = new ArrayList<Rail>();
 
     // lehetséges alagutak pontjai
     private ArrayList<Tile> tunnelPositions;
 
 
 
-    public ArrayList<Tile> getStartPositions() {
+    public ArrayList<Rail> getStartPositions() {
         return startPositions;
     }
 
-    public void setStartPositions(ArrayList<Tile> sp) {
+    public void setStartPositions(ArrayList<Rail> sp) {
         startPositions = sp;
     }
 

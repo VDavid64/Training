@@ -3,11 +3,40 @@ package com.company;
 
 public abstract class Train_Element {
 
+
     protected Rail actPos;
+    protected Rail prevPos;
+    protected boolean isVisible;
 
 
-    // getter/setter position-re
-    abstract void setActPos(Rail newPos);
-    abstract Rail getActPos();
+    public Rail getActPos() {
+        return actPos;
+    }
+
+    public void setActPos(Rail actPos) {
+        this.actPos = actPos;
+    }
+
+
+
+    public Rail getPrevPos() {
+        return prevPos;
+    }
+
+    public void setPrevPos(Rail prevPos) {
+        this.prevPos = prevPos;
+    }
+
+
+    public boolean isVisible() {
+        return isVisible;
+    }
+
+    public void setVisible(boolean visible) {
+        isVisible = visible;
+    }
+
+
+
 
 }
