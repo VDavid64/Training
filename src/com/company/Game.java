@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Game {
 
@@ -13,12 +15,13 @@ public class Game {
 
 
 
+
+    // Függvények:
     ///////////////////////////
     // default constructor
     public Game() {
         isLastGame = false;
     }
-
 
 
     ////////////////
@@ -44,8 +47,6 @@ public class Game {
 
 
 
-
-
     ////////////////
     // vonatok léptetése
     public void moveTrains() {
@@ -53,6 +54,8 @@ public class Game {
              ) {
             e.move();
         }
+
+
     }
 
 
@@ -74,16 +77,62 @@ public class Game {
     }
 
 
+    /////////////
+    // vonatok törlése új pálya betöltésénél
+    public void deleteTrains() {
+        engines.clear();
+    }
 
 
+    /////////////
+    // ütközéseket / játék végét detektáló függvény
+    // True-val tér vissza, ha a játéknak vége
+    public boolean crashDetection() {
+        ArrayList<Rail> result1 = new ArrayList<>();
+        for (Engine e: engines
+             ) {
+            result1.add(e.getActPos());
+            Car c = e.getFirstCar();
+            while (c != null) {
+                result1.add(c.getActPos());
+                c = c.getNextCar();
+            }
+        }
+
+        // Ha van duplikátum, halmazban az kiszűrődik és kisebb lesz a mérete
+        Set<Rail> result2 = new HashSet<>(result1);
+        if (result2.size() < result1.size()){
+            return true;
+        }
+
+        return false;
+    }
 
 
-    // TO-DO: ha car-nak lekérdezzük egy pozícióját, az egy railt ad vissza, és hiába tunnel, getColor-t nem tudjuk meghívni rajta
+    ///////////////
+    // TO-DO: Kérdés, hogy car.getActPos tunnel-t is visszaad-e
     // utasok leszállítását végrehajtó függvény
     public void emptyCars() {
         for (Engine e: engines
                 ) {
             Car car = e.getFirstNotEmptyCar();
+
+            // az első nem üres kocsi
+            if (car != null ) {
+
+                // lekérjük, hogy actpos benne van-e az állomások között
+                int index = map.getStations().indexOf(car.getActPos());
+                // ha nincs, kilépünk
+                if (index == -1) {
+                    return;
+                }
+                // amúgy meg ha szín is passzol, kiürítjük a kocsit
+                else {
+                    Station station = map.getStations().get(index);
+                    if ( station.getColor() == car.getColor())
+                        car.setEmpty();
+                }
+            }
 
             // ha van ilyen kocsi, és pont station felett van és a színük is megegyezik
             if (car != null && car.getActPos().getType()== 4 /* && car.getColor() == car.getActPos().getColor() */ ) {
@@ -91,19 +140,5 @@ public class Game {
             }
         }
     }
-
-
-
-    // TO-DO
-    // ütközéseket / játék végét detektáló függvény
-    // True-val tér vissza, ha a játéknak vége
-    public boolean crashDetection() {
-        return false;
-    }
-
-
-
-
-
 
 }

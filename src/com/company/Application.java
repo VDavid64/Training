@@ -1,6 +1,6 @@
 package com.company;
 
-public class Main  {
+public class Application {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -54,8 +54,10 @@ public class Main  {
                 if ( game.getIsLastGame())
                     gameIsOn = false;
                 // Amúgy csak a köv pályát töltjük be
-                else
+                else {
+                    game.deleteTrains();
                     game.loadMap(2);
+                }
             }
 
 

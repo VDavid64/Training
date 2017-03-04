@@ -1,72 +1,126 @@
 package com.company;
 
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Map {
 
-    // az NxM-es pálya
-    private Tile[][] tiles = new Tile[6][11];
-
-    // lehetséges kezdőpontok tömbje
-    private ArrayList<Rail> startPositions = new ArrayList<Rail>();
-
-    // lehetséges alagutak pontjai
-    private ArrayList<Tile> tunnelPositions;
+    ///////////
+    // lehetséges kezdőpontok tömbjei
+    private ArrayList<Rail> startPositions = new ArrayList<>();
+    private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
+    private ArrayList<Station> stations = new ArrayList<>();
 
 
+    // tunnel karbantartásához szükséges változók
+    private boolean isActiveTunnel;                                             // számontartja, van-e megépülve alagút
+    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
 
+
+    ////////////
     public ArrayList<Rail> getStartPositions() {
         return startPositions;
     }
 
-    public void setStartPositions(ArrayList<Rail> sp) {
-        startPositions = sp;
+    public ArrayList<Station> getStations() {
+        return stations;
     }
 
-    public ArrayList<Tile> getTunnelPositions() {
+    public ArrayList<Tunnel> getTunnelPositions() {
         return tunnelPositions;
     }
 
-    public Tile getTileByIndex(int i, int k) {
-        return tiles[i][k];
-    }
+    public boolean isActiveTunnel() { return isActiveTunnel; }
+
 
 
     // Fájlból vagy bedrótozva betöltünk egy játékot
     public Map(int mapNumber) {
 
-        // tiles változó feltoltese,  üres tile-okkal
-        // 5X10-es pálya:
-        for (int i = 1; i < 6; i++){
-            for (int k = 1; k < 11; k++)
-                tiles[i][k] = new Tile(i, k);
+        isActiveTunnel = false;
+
+        // mapNumbertől függően töltjük be az adott pályát
+        if(mapNumber == 1) {
+
         }
 
-        // ide pedig a tile feltöltése kéne
-        // itt szedjük szét pályákra
-        if (mapNumber == 1) {
-            // első pálya
-            Tile t1 = getTileByIndex(2,1);
-            Tile t2 = getTileByIndex(5,1);
+        else {
 
-            t1.createRail(2, 1, 1);
-            t2.createRail(5, 1, 1);
+        }
+    }
 
-            ArrayList<Tile> sp = new ArrayList<>();
-            sp.add(getTileByIndex(2,1));
-            sp.add(getTileByIndex(5,1));
-            setStartPositions(sp);
+    ///////////// TO-Do: mouseClicked eventre majd beregisztrálni
+    // Az alagútak kezelését végrehajtó függvény, ami paraméterben
+    // egy Tunnel-t kap (ezt módosította a felhasználó)
+    public void controlTunnel(Tunnel setThisTunnel) {
+
+        // ha még nincs megépülve alagút
+        if (isActiveTunnel == false) {
+
+            // ha egyetlen tunnel sem aktív -  a kérést biztosan ki lehet szolgálni
+            if (activeTunnelPositions.size()==0) {
+                setThisTunnel.setActive(true);
+                activeTunnelPositions.add(setThisTunnel);
+            }
+
+            // ha már van egy aktív tunnel  - vagy ugyanaz, vagy tunnel
+            else {
+                // ugyanaz a tunnel -> active átállítása, pontok törlése
+                if (setThisTunnel == activeTunnelPositions.get(0)) {
+                    activeTunnelPositions.clear();
+                    setThisTunnel.setActive(false);
+                }
+
+                // új tunnel-re kattintottt a felhasználó  - ha az első pontból elérhető a másik, megépül az alagút
+                // ha nem érhető el, nem történik semmi,
+                else {
+
+                    // ha elérhető
+                    if (checkList(activeTunnelPositions.get(0), setThisTunnel)) {
+                        isActiveTunnel = true;
+                        activeTunnelPositions.add(setThisTunnel);
+                        setThisTunnel.setActive(true);
+                    }
+
+                    //  bejárásnak nem eleme az adott tunnel -> nem épül alagút, tunnel active tagváltozója nem változik
+                    // azaz semmi nem történik
+                    else {}
+                }
+            }
+        }
+
+        // ha már van megépült alagút
+        else {
+            // ha olyanra kattintottunk, ami aktív már - rombolunk
+            if (activeTunnelPositions.contains(setThisTunnel)) {
+                isActiveTunnel = false;
+                activeTunnelPositions.remove(setThisTunnel);
+                setThisTunnel.setActive(false);
+            }
+
+            // amúgy semmi nem történik
+            else {}
+
         }
 
 
+    }
 
 
-        if (mapNumber == 2) {
-            // második
-        }
 
+    // TO-DO
+    ///// segédfüggvény - bejárhatóság
+    // startPos-ból megpróbálja elérni tunnel-t, true ha sikerül
+    public boolean checkList(Tunnel startPos, Tunnel tunnel) {
+        return false;
+    }
+
+
+    // TO-DO
+    // felhasználó interakcióját megvalósító függvény
+    // külön kezelei az esetek attól függően, hogy mire kattintott
+    public void onMouseClickedEvent() {
+        // ha tunnel-re, a controlTunnel() hívódik meg
+        // ha váltóra, akkor annak az állítása történik meg
     }
 
 }

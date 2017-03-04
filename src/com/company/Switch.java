@@ -1,13 +1,13 @@
 package com.company;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Switch {
 
     // a három rail, amit összeköt
     // a lista első eleme köthető össze a másodikkal vagy harmadikkal
     // a dir tagváltozótól függően
-    private List<Rail> connects;
+    private ArrayList<Rail> connects = new ArrayList<>();
     // ha dir true, akkor az első van összekötve a másodikkal
     // ha false, az első a harmadikkal
     private boolean dir;
@@ -25,7 +25,7 @@ public class Switch {
 
     // a három lehetséges bemenetre kell megfelelő rail-t visszaadnia
     public Rail getNextRail(Rail incoming) {
-        return new Rail(1, 1, 1);
+        return new Rail();
     }
 
 

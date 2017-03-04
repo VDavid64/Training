@@ -6,8 +6,8 @@ public class Station {
     private Color color;
 
 
-    public Station(Color c) {
-        color = c;
+    public Station() {
+        color = Color.getRandomColor();
     }
 
 

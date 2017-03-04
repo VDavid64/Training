@@ -13,6 +13,7 @@ public class Car extends Train_Element {
 
     public Car(int numberOfCars) {
         color = Color.getRandomColor();
+        isEmpty = false;
         if (numberOfCars > 0)
             nextCar = new Car(numberOfCars-1);
         else

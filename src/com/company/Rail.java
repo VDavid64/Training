@@ -1,7 +1,7 @@
 package com.company;
 
 
-
+import javafx.geometry.Point3D;
 
 public class Rail {
 
@@ -10,30 +10,23 @@ public class Rail {
     //                      3, ha alagút
     //                      4, ha station
     private int type = 1;
-    private int x, y;
-
     private Rail nextRail;
     private Rail prevRail;
+
+    private Point3D position;
+
+
+
+    public Point3D getPosition() {
+        return position;
+    }
+
+
 
 
     public int getType() {
         return type;
     }
-
-
-    public int[] getPos() {
-        int[] pos = new int[2];
-        pos[0]=x; pos[1] = y;
-        return pos; }
-
-
-
-    public Rail( int i, int k, int type) {
-        x = i;
-        y = k;
-        type = 1;
-    }
-
 
 
 

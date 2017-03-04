@@ -26,7 +26,7 @@ public class Engine extends Train_Element {
         // Elinduláskor probléma - prev és valamelyik rail is null
         // Azaz ha a prev pos még null, akkor még nem léptünk
         // ekkor a következő nem null rail-t választjuk
-        if (prevPos == null && railNext != null) {
+        if (this.getPrevPos() == null && railNext != null) {
             if (railNext != null) {
                 setPrevPos(actPos);
                 setActPos(railNext);
@@ -38,7 +38,7 @@ public class Engine extends Train_Element {
         }
 
         // ha a naxtrail-en voltunk az előbb, akkor a rail2 a következő
-        else if (railNext == prevPos) {
+        else if (railNext == this.getPrevPos()) {
             setPrevPos(actPos);
             setActPos(railPrev);
         }
@@ -66,6 +66,8 @@ public class Engine extends Train_Element {
     }
 
 
-
+    public Car getFirstCar() {
+        return firstCar;
+    }
 
 }
