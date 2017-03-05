@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Station {
+public class Station  extends Rail {
 
     private Color color;
 

@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Tunnel {
+public class Tunnel extends Rail {
 
     private boolean isActive;
 
@@ -14,6 +14,8 @@ public class Tunnel {
         isActive = active;
     }
 
-
+    public int getType() {
+        return 3;
+    }
 
 }

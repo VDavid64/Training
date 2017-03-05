@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Switch {
+public class Switch extends Rail {
 
     // a három rail, amit összeköt
     // a lista első eleme köthető össze a másodikkal vagy harmadikkal
@@ -11,6 +11,12 @@ public class Switch {
     // ha dir true, akkor az első van összekötve a másodikkal
     // ha false, az első a harmadikkal
     private boolean dir;
+
+
+
+    public int getType() {
+        return 2;
+    }
 
 
     public Switch() {

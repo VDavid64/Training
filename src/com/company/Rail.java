@@ -25,7 +25,7 @@ public class Rail {
 
 
     public int getType() {
-        return type;
+        return 1;
     }
 
 

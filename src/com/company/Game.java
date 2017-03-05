@@ -63,17 +63,17 @@ public class Game {
     // vonatok üressgégének vizsgálata
     // ha minden engine minden kocsija üres, true-val térünk vissza
     public boolean isWon() {
-        boolean empty = true;
-        while (empty) {
+        boolean allIsEmpty = true;
+        while (allIsEmpty) {
             for (Engine e: engines
                     ) {
                 if (e.getFirstNotEmptyCar() != null) {
                     return false;
                 }
             }
-            empty = true;
+            allIsEmpty = true;
         }
-        return empty;
+        return allIsEmpty;
     }
 
 
@@ -117,27 +117,14 @@ public class Game {
                 ) {
             Car car = e.getFirstNotEmptyCar();
 
-            // az első nem üres kocsi
-            if (car != null ) {
+            // az első nem üres kocsi és állomáson vagyunk
+            if (car != null && car.getActPos().getType()==4 ) {
 
-                // lekérjük, hogy actpos benne van-e az állomások között
-                int index = map.getStations().indexOf(car.getActPos());
-                // ha nincs, kilépünk
-                if (index == -1) {
-                    return;
-                }
-                // amúgy meg ha szín is passzol, kiürítjük a kocsit
-                else {
-                    Station station = map.getStations().get(index);
-                    if ( station.getColor() == car.getColor())
-                        car.setEmpty();
-                }
+                // ha egyezik a szín, kiürítjük a kocsit
+                if ( ((Station) car.getActPos()).getColor() == car.getColor())
+                    car.setEmpty();
             }
 
-            // ha van ilyen kocsi, és pont station felett van és a színük is megegyezik
-            if (car != null && car.getActPos().getType()== 4 /* && car.getColor() == car.getActPos().getColor() */ ) {
-                car.setEmpty();
-            }
         }
     }
 
