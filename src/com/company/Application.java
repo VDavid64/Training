@@ -7,15 +7,12 @@ public class Application {
 
         //////////////////////////////////////////////////////////
         // init:
-        // szál és game példányosítása
-        Thread t = new Thread();
+        Thread t = new Thread();            // szál és game példányosítása
         Game game = new Game();
-        // első pálya betöltése
-        game.loadMap(1);
-        // játék állapotát rögzítő bool (true, ha megy a játék)
-        boolean gameIsOn = true;
-        // számláló (vonat generálásához) és a map
-        int counter = 0;
+        boolean gameIsOn = true;            // játék állapotát rögzítő bool (true, ha megy a játék)
+        int counter = 0;                    // számláló (vonat generálásához) és a map
+        int mapNumber = 1;                  // hányadik pályán járunk
+        game.loadMap(mapNumber);            // első pálya betöltése
         //////////////////////////////////////////////////////////
 
 
@@ -24,6 +21,7 @@ public class Application {
         // játék fő ciklusa:
         // a példányosított játék függvényeit körönként, egy ciklusban hívjuk meg
         while (gameIsOn) {
+
 
             /////////////
             // A megfelelő körökben vonatokat generálunk
@@ -35,7 +33,11 @@ public class Application {
             // léptetést végrehajtó függvény
             game.moveTrains();
 
+
+            /////////////
+            // Utasok leszállítását végrehajtó függvény
             game.emptyCars();
+
 
             /////////////
             // ütközéseket / játék végét detektáló függvény
@@ -46,17 +48,20 @@ public class Application {
 
             /////////////
             // Minden kör végén a játék megnyerését vizsgáló függvény
-            // Ha minden vonat minden kocsija üres átugrunk a következő pályára
+            // Ha minden vonat minden kocsija üres, átugrunk a következő pályára
             // Hogy az elején ne nyerjük meg rögtön, körszámlálót is ellenőrizzük
             if (game.isWon() && counter > 5) {
 
                 // Ha az utolsó pályát nyertük meg, vége a játéknak
                 if ( game.getIsLastGame())
                     gameIsOn = false;
+
                 // Amúgy csak a köv pályát töltjük be
                 else {
                     game.deleteTrains();
-                    game.loadMap(2);
+                    game.loadMap(mapNumber++);
+                    game.setIsLastGame(true);
+                    counter = 0;
                 }
             }
 
