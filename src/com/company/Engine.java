@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Scanner;
+
 public class Engine extends Train_Element {
 
     private Car firstCar;
@@ -16,16 +18,19 @@ public class Engine extends Train_Element {
 
 
 
+    /////////////
+    // TO-DO: Tunnel és Switch lekezelése
     public void move() {
 
-        Rail actRail = getActPos();
 
+        // Lehetséges pontok lekérése
+        Rail actRail = getActPos();
         Rail railNext = actPos.getNextRail();
         Rail railPrev = actPos.getPrevRail();
 
-        // Elinduláskor probléma - prev és valamelyik rail is null
+        // Elinduláskor probléma - prevPos és az actPos valamelyik Rail szomszédja is null
         // Azaz ha a prev pos még null, akkor még nem léptünk
-        // ekkor a következő nem null rail-t választjuk
+        // Ekkor a következő nem null rail-t választjuk
         if (this.getPrevPos() == null && railNext != null) {
             if (railNext != null) {
                 setPrevPos(actPos);
@@ -58,11 +63,13 @@ public class Engine extends Train_Element {
 
 
     // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
-    public Car getFirstNotEmptyCar() {
-        if (firstCar != null)
-            return firstCar.getFirstNotEmptyCar();
-        else
-            return null;
+    public void getFirstNotEmptyCar() {
+
+        System.out.println("        -> [Engine].getFirstNotEmptyCar()");
+
+        firstCar.getFirstNotEmptyCar();
+
+        System.out.println("        <- [Engine].getFirstNotEmptyCar()");
     }
 
 

@@ -90,6 +90,8 @@ public class Map {
 
         // ha már van megépült alagút
         else {
+
+            // TO-DO: ellenőrizni kell, hogy nincs-e bent vonat
             // ha olyanra kattintottunk, ami aktív már - rombolunk
             if (activeTunnelPositions.contains(setThisTunnel)) {
                 isActiveTunnel = false;
@@ -107,10 +109,13 @@ public class Map {
 
 
 
+
+
     // TO-DO
     ///// segédfüggvény - bejárhatóság
     // startPos-ból megpróbálja elérni tunnel-t, true ha sikerül
-    public boolean checkList(Tunnel startPos, Tunnel tunnel) {
+    private boolean checkList(Tunnel startPos, Tunnel tunnel) {
+
         return false;
     }
 

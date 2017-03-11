@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Game {
 
@@ -21,6 +19,7 @@ public class Game {
     // default constructor
     public Game() {
         isLastGame = false;
+        engines.add(new Engine(new Rail(), 2));
     }
 
 
@@ -54,26 +53,28 @@ public class Game {
              ) {
             e.move();
         }
-
-
     }
 
 
     /////////////////
     // vonatok üressgégének vizsgálata
     // ha minden engine minden kocsija üres, true-val térünk vissza
-    public boolean isWon() {
-        boolean allIsEmpty = true;
-        while (allIsEmpty) {
-            for (Engine e: engines
-                    ) {
-                if (e.getFirstNotEmptyCar() != null) {
-                    return false;
-                }
-            }
-            allIsEmpty = true;
-        }
-        return allIsEmpty;
+    public void isWon() {
+
+        System.out.println("    -> [Game].isWon()");
+
+        System.out.println("8.1: Utolsó pályán vagyunk? ");
+
+        String command;
+        Scanner input = new Scanner(System.in);
+        command = input.nextLine();
+
+        if (command.equals("I"))
+            engines.get(0).getFirstNotEmptyCar();
+        else if (command.equals("N"))
+            System.out.println("    <-[Game].isWon()");
+
+        System.out.println("    <- [Game].isWon()");
     }
 
 
@@ -104,19 +105,18 @@ public class Game {
         if (result2.size() < result1.size()){
             return true;
         }
-
         return false;
+
     }
 
 
     ///////////////
-    // TO-DO: Kérdés, hogy car.getActPos tunnel-t is visszaad-e
     // utasok leszállítását végrehajtó függvény
     public void emptyCars() {
         for (Engine e: engines
                 ) {
-            Car car = e.getFirstNotEmptyCar();
-
+            //Car car = e.getFirstNotEmptyCar();
+/*
             // az első nem üres kocsi és állomáson vagyunk
             if (car != null && car.getActPos().getType()==4 ) {
 
@@ -124,6 +124,7 @@ public class Game {
                 if ( ((Station) car.getActPos()).getColor() == car.getColor())
                     car.setEmpty();
             }
+            */
 
         }
     }

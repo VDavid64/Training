@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.util.Scanner;
 
 public class Car extends Train_Element {
 
@@ -21,8 +22,9 @@ public class Car extends Train_Element {
     }
 
 
-    public boolean isEmpty() {
-        return isEmpty;
+    public void isEmpty() {
+        System.out.println("                -> [Car].isEmpty()");
+        System.out.println("                <- [Car].isEmpty()");
     }
 
 
@@ -57,15 +59,21 @@ public class Car extends Train_Element {
 
 
     // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
-    public Car getFirstNotEmptyCar() {
+    public void getFirstNotEmptyCar() {
 
-        if (!isEmpty())
-            return this;
-        else if (isEmpty() && nextCar != null)
-            return nextCar.getFirstNotEmptyCar();
+        System.out.println("            -> [Car].getFirstNotEmptyCar()");
 
-        else
-            return null;
+        System.out.println("8.2: Csak üres kocsikból áll? ");
+
+        String command;
+        Scanner input = new Scanner(System.in);
+        command = input.nextLine();
+
+        if (command.equals("I"))
+            this.isEmpty();
+
+        System.out.println("            <- [Car].getFirstNotEmptyCar()");
+
     }
 
 }
