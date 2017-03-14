@@ -8,9 +8,7 @@ public class Car extends Train_Element {
     private Color color;
     private Car nextCar;
 
-
-
-
+    
     public Car(int numberOfCars) {
         color = Color.getRandomColor();
         isEmpty = false;
@@ -38,34 +36,17 @@ public class Car extends Train_Element {
     public Color getColor() {
         return color;
     }
-
-
-
+    
+    
     // Kocsi mozgatása, rekurzívan meghívja a következő kocsi move függvényét
     public void move(Rail nextRail) {
 
-        Rail actRail = getActPos();
-
-        setActPos(nextRail);
-        setPrevPos(actRail);
+        prevPos = actPos;
+        actPos = nextRail;
 
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is
-        if (nextCar != null && actRail != null)
-            nextCar.move(actRail);
+        if (nextCar != null && prevPos != null)
+            nextCar.move(prevPos);
     }
-
-
-    // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
-    public Car getFirstNotEmptyCar() {
-
-        if (!isEmpty())
-            return this;
-        else if (isEmpty() && nextCar != null)
-            return nextCar.getFirstNotEmptyCar();
-
-        else
-            return null;
-    }
-
 }
