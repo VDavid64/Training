@@ -90,24 +90,19 @@ public class Game {
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
     public boolean crashDetection() {
-        ArrayList<Rail> result1 = new ArrayList<>();
-        for (Engine e: engines
-             ) {
-            result1.add(e.getActPos());
+    //Set.Add() hamissal tér vissza, ha van már olyan elem a halmazban
+        Set<Rail> positions = new HashSet<>();
+        for(int i = 0; i < engines.length() && bool notDuplicate; i++)
+        {   
+            e = engines.get(i);
+            notDuplicate = positions.add(e.getActPos());
             Car c = e.getFirstCar();
-            while (c != null) {
-                result1.add(c.getActPos());
+            while (c != null && notDuplicate) {
+                notDuplicate = positions.add(c.getActPos());
                 c = c.getNextCar();
             }
         }
-
-        // Ha van duplikátum, halmazban az kiszűrődik és kisebb lesz a mérete
-        Set<Rail> result2 = new HashSet<>(result1);
-        if (result2.size() < result1.size()){
-            return true;
-        }
-        return false;
-
+        return !notDuplicate;
     }
 
 
