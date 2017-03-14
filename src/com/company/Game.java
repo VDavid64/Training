@@ -92,12 +92,12 @@ public class Game {
     public boolean crashDetection() {
     //Set.Add() hamissal tér vissza, ha van már olyan elem a halmazban
         Set<Rail> positions = new HashSet<>();
-        for(int i = 0; i < engines.length() && bool notDuplicate = true; i++)
+        for(int i = 0; i < engines.length() && bool notDuplicate == true; i++)
         {   
             e = engines.get(i);
             notDuplicate = positions.add(e.getActPos());
             Car c = e.getFirstCar();
-            while (c != null && notDuplicate = true) {
+            while (c != null && notDuplicate == true) {
                 notDuplicate = positions.add(c.getActPos());
                 c = c.getNextCar();
             }
