@@ -197,7 +197,7 @@ public class Game {
 
     }
 
-    public static boolean getIsTrainInTunnel(int seq) {
+    public static boolean getIsTrainInTunnel(int seq) throws InputMismatchException{
         if (seq == 3) {
             System.out.println("        -> [Game].IsTrainInTunnel()");
             System.out.println("3.3 Üres az alagút?");
@@ -207,7 +207,7 @@ public class Game {
                 System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
                 return false;
             }
-            if (command.equals('N')) {
+            else if (command.equals('N')) {
                 System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
                 return true;
             } else throw new InputMismatchException();

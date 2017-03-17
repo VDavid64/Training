@@ -109,7 +109,7 @@ public class Map {
 
 
     // kisiklás ellenőrzése static változóval
-    static public boolean getIsDerailing() {
+    static public boolean getIsDerailing(){
         System.out.println("        -> [Map].getIsDerailing()");
 
         System.out.println("7.1: Kisiklottunk? ");
