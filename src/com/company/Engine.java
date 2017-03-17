@@ -23,14 +23,11 @@ public class Engine extends Train_Element {
     public void move() {
 
 
-        // Lehetséges pontok lekérése
-        Rail actRail = getActPos();
-        Rail railNext = actPos.getNextRail();
-        Rail railPrev = actPos.getPrevRail();
-
+        ///// TO-DO
         // Elinduláskor probléma - prevPos és az actPos valamelyik Rail szomszédja is null
         // Azaz ha a prev pos még null, akkor még nem léptünk
         // Ekkor a következő nem null rail-t választjuk
+        /*
         if (this.getPrevPos() == null && railNext != null) {
             if (railNext != null) {
                 setPrevPos(actPos);
@@ -41,22 +38,17 @@ public class Engine extends Train_Element {
                 setActPos(railPrev);
             }
         }
+        */
 
-        // ha a naxtrail-en voltunk az előbb, akkor a rail2 a következő
-        else if (railNext == this.getPrevPos()) {
-            setPrevPos(actPos);
-            setActPos(railPrev);
-        }
-
-        // ha prevRail-ben, akkor a rail1 a következő
-        else {
-            setPrevPos(actPos);
-            setActPos(railNext);
-        }
+        // Vonat léptetése
+        Rail tempPrev = prevPos;
+        Rail tempAct = actPos;
+        setPrevPos(actPos);
+        setActPos(tempAct.getNextRail(tempPrev, this));
 
         // végül pedig meghívjuk a fistcar move-ját
         if (firstCar != null)
-            firstCar.move(actRail);
+            firstCar.move(tempAct);
 
 
     }

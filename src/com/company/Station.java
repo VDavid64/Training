@@ -15,7 +15,5 @@ public class Station  extends Rail {
         return color;
     }
 
-    public int getType() {
-        return 4;
-    }
+
 }

@@ -12,7 +12,8 @@ public class Map {
 
 
     // tunnel karbantartásához szükséges változók
-    private boolean isActiveTunnel;                                             // számontartja, van-e megépülve alagút
+    private static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
+    private static boolean isTrainInTunnel;
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
 
 
@@ -128,4 +129,15 @@ public class Map {
         // ha váltóra, akkor annak az állítása történik meg
     }
 
+    static public boolean getIsActiveTunnel() {
+        return isActiveTunnel;
+    }
+
+    static public boolean getIsTrainInTunnel() {
+        return isTrainInTunnel;
+    }
+
+    static public void setIsTrainInTunnel( boolean b) {
+        isActiveTunnel = b;
+    }
 }

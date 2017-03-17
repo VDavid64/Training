@@ -7,8 +7,7 @@ public class Game {
     //////////////////////
     private Map map;
     private boolean isLastGame;
-    // vonatok tárolása
-    private ArrayList<Engine> engines = new ArrayList<>();
+    private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
     //////////////////////
 
 
@@ -39,12 +38,17 @@ public class Game {
 
 
     ////////////////
+    // Vonat generálása:
+    //          Lekérdezzük a lehetséges kezdőpozíciót, majd azt beállítjuk az új engine-nek
+    //          Második paraméterben a kocsik számát adjuk meg
     public void generateTrain() {
-        Engine newEngine = new Engine(map.getStartPositions().get(0), 10);
+        Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
         engines.add(newEngine);
     }
 
-
+    public void setIsLastGame(boolean lastGame) {
+        isLastGame = lastGame;
+    }
 
     ////////////////
     // vonatok léptetése
@@ -118,7 +122,7 @@ public class Game {
             //Car car = e.getFirstNotEmptyCar();
 /*
             // az első nem üres kocsi és állomáson vagyunk
-            if (car != null && car.getActPos().getType()==4 ) {
+            if (car != null ) {
 
                 // ha egyezik a szín, kiürítjük a kocsit
                 if ( ((Station) car.getActPos()).getColor() == car.getColor())
