@@ -203,11 +203,11 @@ public class Game {
             System.out.println("3.3 Üres az alagút?");
             Scanner input = new Scanner(System.in);
             String command = input.nextLine();
-            if (command.equals('I')) {
+            if (command.equals("I")) {
                 System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
                 return false;
             }
-            else if (command.equals('N')) {
+            else if (command.equals("N")) {
                 System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
                 return true;
             } else throw new InputMismatchException();

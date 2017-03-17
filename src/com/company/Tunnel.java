@@ -16,6 +16,7 @@ public class Tunnel extends Rail {
             System.out.println("        -> [Tunnel].setActive(false)");
             System.out.println("        <- [Tunnel].setActive(false)");
         }
+        return;
     }
 
 
