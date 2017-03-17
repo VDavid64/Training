@@ -159,8 +159,7 @@ public class Map {
             return true;
         }
         else if (!command.equals("N")) {
-            System.out.println("Invalid input");
-            return false;
+            throw new IllegalArgumentException();
         }
         else
             System.out.println("        <-[Map].getIsDerailing(false)");

@@ -26,6 +26,9 @@ public class Car extends Train_Element {
     }
 
 
+    public Car(){
+    }
+
     public void setEmpty() {
         isEmpty = true;
     }
@@ -55,7 +58,7 @@ public class Car extends Train_Element {
 
 
     // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
-    public void getFirstNotEmptyCar() {
+    public Car getFirstNotEmptyCar() {
 
         System.out.println("            -> [Car].getFirstNotEmptyCar()");
 
@@ -65,11 +68,17 @@ public class Car extends Train_Element {
         Scanner input = new Scanner(System.in);
         command = input.nextLine();
 
-        if (command.equals("I"))
-            this.isEmpty();
-
-        System.out.println("            <- [Car].getFirstNotEmptyCar()");
-
+        if (command.equals("I")) {
+            System.out.println("            <- [Car].getFirstNotEmptyCar(): null");
+            return null;
+        }
+        else if (!command.equals("N")) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            System.out.println("            <- [Car].getFirstNotEmptyCar(): Car");
+            return new Car();
+        }
     }
 
 }

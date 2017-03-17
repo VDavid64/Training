@@ -60,7 +60,7 @@ public class Game {
     }
 
 
-    ///////////////// Done
+    ///////////////// 8 - Done
     // vonatok üressgégének vizsgálata
     // ha minden engine minden kocsija üres, true-val térünk vissza
     public void isWon() {
@@ -74,11 +74,19 @@ public class Game {
         command = input.nextLine();
 
         if (command.equals("I"))
-            engines.get(0).getFirstNotEmptyCar();
-        else if (command.equals("N"))
-            System.out.println("    <-[Game].isWon()");
+            if (engines.get(0).getFirstNotEmptyCar() != null) {
+                System.out.println("    <-[Game].isWon(): false");
+            }
+            else {
+                System.out.println("    <-[Game].isWon(): true");
+            }
 
-        System.out.println("    <- [Game].isWon()");
+        else if (!command.equals("N")) {
+            throw new IllegalArgumentException();
+        }
+        else
+            System.out.println("    <-[Game].isWon(): false");
+
     }
 
 
@@ -89,7 +97,7 @@ public class Game {
     }
 
 
-    /////////////
+    ///////////// 7 - Done
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
     public boolean crashDetection() {
@@ -115,8 +123,7 @@ public class Game {
             return true;
         }
         else if (!command.equals("N")) {
-            System.out.println("Invalid Input");
-            return false;
+            throw new IllegalArgumentException();
         }
 
         // kezdőpozícióra léptünk
@@ -129,8 +136,7 @@ public class Game {
                 return true;
             }
             else if (!command.equals("N")) {
-                System.out.println("Invalid Input");
-                return false;
+                throw new IllegalArgumentException();
             }
             else {
                 System.out.println("    <-[Game].crashDetection(false)");

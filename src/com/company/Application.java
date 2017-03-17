@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Application {
@@ -75,10 +76,13 @@ public class Application {
                         System.exit(0);
                         break;
                     default:
-                        // The user input an unexpected choice.
+                        throw new InputMismatchException();
                 }
             }
-            catch (Exception e) {}
+            catch ( Exception e) {
+                System.out.println("Invalid input");
+            }
+
 
 
         }
