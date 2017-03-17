@@ -12,6 +12,8 @@ public class Station  extends Rail {
 
 
     public Color getColor() {
+        System.out.println("        -> [Station].getColor()");
+        System.out.println("        <- [Station].getColor()");
         return color;
     }
 
