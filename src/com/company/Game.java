@@ -212,6 +212,6 @@ public class Game {
                 return true;
             } else throw new InputMismatchException();
         }
-        throw new RuntimeException("Unreachable line");
+        else throw new RuntimeException("Unreachable line");
     }
 }
