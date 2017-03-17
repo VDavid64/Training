@@ -1,10 +1,10 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Map {
-
     ///////////
     // lehetséges kezdőpontok tömbjei
     private ArrayList<Rail> startPositions = new ArrayList<>();
@@ -36,8 +36,9 @@ public class Map {
         return tunnelPositions;
     }
 
-    public boolean isActiveTunnel() { return isActiveTunnel; }
-
+    public boolean isActiveTunnel() {
+        return isActiveTunnel;
+    }
 
 
     // Fájlból vagy bedrótozva betöltünk egy játékot
@@ -46,11 +47,9 @@ public class Map {
         isActiveTunnel = false;
 
         // mapNumbertől függően töltjük be az adott pályát
-        if(mapNumber == 1) {
+        if (mapNumber == 1) {
 
-        }
-
-        else {
+        } else {
 
         }
     }
@@ -58,64 +57,29 @@ public class Map {
     ///////////// TO-Do: mouseClicked eventre majd beregisztrálni
     // Az alagútak kezelését végrehajtó függvény, ami paraméterben
     // egy Tunnel-t kap (ezt módosította a felhasználó)
-    public void controlTunnel(Tunnel setThisTunnel) {
+    public void controlTunnel(Tunnel t, int seq) throws InputMismatchException {
+        //3: alagút törlése
+        if (seq == 3) {
+            System.out.println("    -> [Map].controlTunnel(t)");
 
-        // ha még nincs megépülve alagút
-        if (isActiveTunnel == false) {
+            System.out.println("3.1 Van megépült alagút?");
+            Scanner input = new Scanner(System.in);
+            String command = input.nextLine();
 
-            // ha egyetlen tunnel sem aktív -  a kérést biztosan ki lehet szolgálni
-            if (activeTunnelPositions.size()==0) {
-                setThisTunnel.setActive(true);
-                activeTunnelPositions.add(setThisTunnel);
-            }
-
-            // ha már van egy aktív tunnel  - vagy ugyanaz, vagy tunnel
-            else {
-                // ugyanaz a tunnel -> active átállítása, pontok törlése
-                if (setThisTunnel == activeTunnelPositions.get(0)) {
-                    activeTunnelPositions.clear();
-                    setThisTunnel.setActive(false);
-                }
-
-                // új tunnel-re kattintottt a felhasználó  - ha az első pontból elérhető a másik, megépül az alagút
-                // ha nem érhető el, nem történik semmi,
-                else {
-
-                    // ha elérhető
-                    if (checkList(activeTunnelPositions.get(0), setThisTunnel)) {
-                        isActiveTunnel = true;
-                        activeTunnelPositions.add(setThisTunnel);
-                        setThisTunnel.setActive(true);
-                    }
-
-                    //  bejárásnak nem eleme az adott tunnel -> nem épül alagút, tunnel active tagváltozója nem változik
-                    // azaz semmi nem történik
-                    else {}
-                }
-            }
+            //ha van alagút, vizsgáljuk a további feltételeket
+            if (command.equals("I")) {
+                System.out.println("3.2 Aktív alagútszájra kattintottunk?");
+                command = input.nextLine();
+                //ha aktív alagútszájra kattintottunk és nincs bent vonat, akkor törölhető az alagútszáj
+                if (command.equals("I") && !Game.getIsTrainInTunnel(3)) {
+                    t.setActive(false, 3);
+                } else if (!command.equals("H")) throw new InputMismatchException();
+            } else if (!command.equals("H")) throw new InputMismatchException();
         }
-
-        // ha már van megépült alagút
-        else {
-
-            // TO-DO: ellenőrizni kell, hogy nincs-e bent vonat
-            // ha olyanra kattintottunk, ami aktív már - rombolunk
-            if (activeTunnelPositions.contains(setThisTunnel)) {
-                isActiveTunnel = false;
-                activeTunnelPositions.remove(setThisTunnel);
-                setThisTunnel.setActive(false);
-            }
-
-            // amúgy semmi nem történik
-            else {}
-
-        }
-
+        System.out.println("    <- [Map].controlTunnel(t)");
+        return;
 
     }
-
-
-
 
 
     // TO-DO
@@ -157,17 +121,15 @@ public class Map {
         if (command.equals("I")) {
             System.out.println("        <-[Map].getIsDerailing(true)");
             return true;
-        }
-        else if (!command.equals("N")) {
+        } else if (!command.equals("N")) {
             throw new IllegalArgumentException();
-        }
-        else
+        } else
             System.out.println("        <-[Map].getIsDerailing(false)");
-            return false;
+        return false;
     }
 
 
-    static public void setIsTrainInTunnel( boolean b) {
+    static public void setIsTrainInTunnel(boolean b) {
         isActiveTunnel = b;
     }
 }

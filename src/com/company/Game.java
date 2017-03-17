@@ -166,4 +166,21 @@ public class Game {
         }
     }
 
+    public static boolean getIsTrainInTunnel(int seq) {
+        if (seq == 3) {
+            System.out.println("        -> [Game].IsTrainInTunnel()");
+            System.out.println("3.3 Üres az alagút?");
+            Scanner input = new Scanner(System.in);
+            String command = input.nextLine();
+            if (command.equals('I')) {
+                System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
+                return false;
+            }
+            if (command.equals('N')) {
+                System.out.println("        <- [Game].IsTrainInTunnel(): boolean");
+                return true;
+            } else throw new InputMismatchException();
+        }
+        throw new RuntimeException("Unreachable line");
+    }
 }

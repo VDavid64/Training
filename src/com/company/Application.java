@@ -50,7 +50,8 @@ public class Application {
                         // Perform "encrypt number" case.
                         break;
                     case 3:
-                        // Perform "decrypt number" case.
+                        Map map = new Map(0);
+                        map.controlTunnel(new Tunnel(), 3);
                         break;
                     case 4:
                         System.out.println("[Application].Main():");

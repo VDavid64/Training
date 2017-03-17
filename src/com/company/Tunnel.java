@@ -11,8 +11,11 @@ public class Tunnel extends Rail {
     }
 
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setActive(boolean active, int seq) {
+        if (seq == 3){
+            System.out.println("        -> [Tunnel].setActive(false)");
+            System.out.println("        <- [Tunnel].setActive(false)");
+        }
     }
 
 
