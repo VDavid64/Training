@@ -55,17 +55,17 @@ public class Engine extends Train_Element {
 
 
     // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
-    public Car getFirstNotEmptyCar() {
+    public Car getFirstNotEmptyCar(int param) {
 
         System.out.println("        -> [Engine].getFirstNotEmptyCar()");
 
 
-        if ( firstCar.getFirstNotEmptyCar() != null) {
-            System.out.println("        <- [Engine].getFirstNotEmptyCar():Car");
+        if ( firstCar.getFirstNotEmptyCar(param) != null) {
+            System.out.println("        <- [Engine].getFirstNotEmptyCar(): Car");
             return new Car();
         }
         else {
-            System.out.println("        <- [Engine].getFirstNotEmptyCar():null");
+            System.out.println("        <- [Engine].getFirstNotEmptyCar(): null");
             return null;
         }
 

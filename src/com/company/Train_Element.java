@@ -11,7 +11,7 @@ public abstract class Train_Element {
 
     public Rail getActPos() {
         System.out.println("        -> [TrainElement].getActPos()");
-        System.out.println("        <- [TrainElement].getActPos(Rail)");
+        System.out.println("        <- [TrainElement].getActPos() : Rail");
         return actPos;
     }
 

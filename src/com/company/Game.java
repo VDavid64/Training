@@ -74,7 +74,7 @@ public class Game {
         command = input.nextLine();
 
         if (command.equals("I"))
-            if (engines.get(0).getFirstNotEmptyCar() != null) {
+            if (engines.get(0).getFirstNotEmptyCar(8) != null) {
                 System.out.println("    <-[Game].isWon(): false");
             }
             else {
@@ -147,11 +147,42 @@ public class Game {
     }
 
 
-    ///////////////
+    /////////////// 6
     // utasok leszállítását végrehajtó függvény
     public void emptyCars() {
-        for (Engine e: engines
-                ) {
+        String command;
+        Scanner input = new Scanner(System.in);
+        System.out.println("    -> [Game].emptyCars()");
+        for (Engine e: engines)
+        {
+            Car car = e.getFirstNotEmptyCar(6);
+            System.out.println("6.1: Állomáson van a vonat első nem üres kocsija?");
+            command = input.nextLine();
+            if (command.equals("I")) {
+                Rail pos = car.getActPos();
+                car.getColor();
+                System.out.println("6.1.1: Azonos színük?");
+                String command2 = input.nextLine();
+                if (command2.equals("I")) {
+                       car.setEmpty();
+                    System.out.println("    <-[Game].emptyCars()");
+                }
+                else if (!command2.equals("N")) {
+                    throw new IllegalArgumentException();
+                }
+                else {
+                    System.out.println("    <-[Game].emptyCars()");
+                }
+            }
+            else if (!command.equals("N")) {
+                throw new IllegalArgumentException();
+            }
+            else {
+                System.out.println("    <-[Game].emptyCars()");
+            }
+        }
+
+
             //Car car = e.getFirstNotEmptyCar();
 /*
             // az első nem üres kocsi és állomáson vagyunk
@@ -163,7 +194,7 @@ public class Game {
             }
             */
 
-        }
+
     }
 
 }
