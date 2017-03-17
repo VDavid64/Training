@@ -20,7 +20,7 @@ public class Application {
         while (true) {
 
 
-            
+
             /////// Menü
             System.out.println("\n A szkeleton választható funkciói:");
             System.out.println("-------------------------\n");
@@ -35,12 +35,14 @@ public class Application {
             System.out.println("9 - Kilépés");
 
 
+            //TODO: 1-7
             int command;
             Scanner input = new Scanner(System.in);
             try {
                 command = input.nextInt();
                 switch (command) {
                     case 1:
+
                         // Perform "original number" case.
                         break;
                     case 2:

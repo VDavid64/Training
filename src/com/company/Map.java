@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Map {
 
@@ -14,11 +15,16 @@ public class Map {
     // tunnel karbantartásához szükséges változók
     private static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
     private static boolean isTrainInTunnel;
+    private static boolean isDerailing;
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
 
 
     ////////////
     public ArrayList<Rail> getStartPositions() {
+        System.out.println("        -> [Map].getStartPositions()");
+
+        System.out.println("        <- [Map].getStartPositions(List<Rails>)");
+
         return startPositions;
     }
 
@@ -121,7 +127,7 @@ public class Map {
     }
 
 
-    // TO-DO
+    // TODO
     // felhasználó interakcióját megvalósító függvény
     // külön kezelei az esetek attól függően, hogy mire kattintott
     public void onMouseClickedEvent() {
@@ -136,6 +142,31 @@ public class Map {
     static public boolean getIsTrainInTunnel() {
         return isTrainInTunnel;
     }
+
+
+    // kisiklás ellenőrzése static változóval
+    static public boolean getIsDerailing() {
+        System.out.println("        -> [Map].getIsDerailing()");
+
+        System.out.println("7.1: Kisiklottunk? ");
+
+        String command;
+        Scanner input = new Scanner(System.in);
+        command = input.nextLine();
+
+        if (command.equals("I")) {
+            System.out.println("        <-[Map].getIsDerailing(true)");
+            return true;
+        }
+        else if (!command.equals("N")) {
+            System.out.println("Invalid input");
+            return false;
+        }
+        else
+            System.out.println("        <-[Map].getIsDerailing(false)");
+            return false;
+    }
+
 
     static public void setIsTrainInTunnel( boolean b) {
         isActiveTunnel = b;

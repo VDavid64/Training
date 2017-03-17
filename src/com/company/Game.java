@@ -60,7 +60,7 @@ public class Game {
     }
 
 
-    /////////////////
+    ///////////////// Done
     // vonatok üressgégének vizsgálata
     // ha minden engine minden kocsija üres, true-val térünk vissza
     public void isWon() {
@@ -93,23 +93,50 @@ public class Game {
     // ütközéseket / játék végét detektáló függvény
     // True-val tér vissza, ha a játéknak vége
     public boolean crashDetection() {
-        ArrayList<Rail> result1 = new ArrayList<>();
-        for (Engine e: engines
-             ) {
-            result1.add(e.getActPos());
-            Car c = e.getFirstCar();
-            while (c != null) {
-                result1.add(c.getActPos());
-                c = c.getNextCar();
-            }
-        }
 
-        // Ha van duplikátum, halmazban az kiszűrődik és kisebb lesz a mérete
-        Set<Rail> result2 = new HashSet<>(result1);
-        if (result2.size() < result1.size()){
+        System.out.println("    -> [Game].crashDetection()");
+
+        // kisiklás
+        if (Map.getIsDerailing()) {
+            System.out.println("    <- [Game].crashDetection(true)");
             return true;
         }
-        return false;
+
+
+        // ütközés:
+        engines.get(0).getActPos();
+        System.out.println("7.2: Két vonat összeütközött? ");
+        String command;
+        Scanner input = new Scanner(System.in);
+        command = input.nextLine();
+
+        if (command.equals("I")) {
+            System.out.println("    <-[Game].crashDetection(true)");
+            return true;
+        }
+        else if (!command.equals("N")) {
+            System.out.println("Invalid Input");
+            return false;
+        }
+
+        // kezdőpozícióra léptünk
+        else {
+            map.getStartPositions();
+            System.out.println("7.3: A terepasztal szélére jutottunk? ");
+            command = input.nextLine();
+            if (command.equals("I")) {
+                System.out.println("    <-[Game].crashDetection(true)");
+                return true;
+            }
+            else if (!command.equals("N")) {
+                System.out.println("Invalid Input");
+                return false;
+            }
+            else {
+                System.out.println("    <-[Game].crashDetection(false)");
+                return false;
+            }
+        }
 
     }
 
