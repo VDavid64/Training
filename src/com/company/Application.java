@@ -7,11 +7,6 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
 
-
-
-
-        
-
         //////////////////////////////////////////////////////////
         // init:
         Game game = new Game();
@@ -24,6 +19,8 @@ public class Application {
 
         while (true) {
 
+
+            
             /////// Menü
             System.out.println("\n A szkeleton választható funkciói:");
             System.out.println("-------------------------\n");
