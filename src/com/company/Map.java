@@ -73,8 +73,8 @@ public class Map {
                 //ha aktív alagútszájra kattintottunk és nincs bent vonat, akkor törölhető az alagútszáj
                 if (command.equals("I") && !Game.getIsTrainInTunnel(3)) {
                     t.setActive(false, 3);
-                } else if (!command.equals("H")) throw new InputMismatchException();
-            } else if (!command.equals("H")) throw new InputMismatchException();
+                } else if (!command.equals("N")) throw new InputMismatchException();
+            } else if (!command.equals("N")) throw new InputMismatchException();
         }
         System.out.println("    <- [Map].controlTunnel(t)");
         return;
