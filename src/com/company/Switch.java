@@ -41,13 +41,13 @@ public class Switch extends Rail {
 	}
 
 	public void changeDir() {
-		System.out.println("[Switch].changeDir()");
+		System.out.println("	->[Switch].changeDir()");
 		if (dir == true) {
 			dir = false;
 		} else {
 			dir = true;
 		}
-		System.out.println("<-[Switch].changeDir()");
+		System.out.println("	<-[Switch].changeDir()");
 	}
 
 }
