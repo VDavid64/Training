@@ -43,8 +43,18 @@ public class Application {
                 command = input.nextInt();
                 switch (command) {
                     case 1:
-
-                        // Perform "original number" case.
+                    	System.out.println("[Application].Main():");
+                    	Switch sw = new Switch();
+                    	System.out.println("1.1.    Van a váltón vonat? (I / N)");
+                    	String cmd;
+                    	Scanner inp = new Scanner(System.in);
+                    	cmd = inp.nextLine();
+                        if (cmd.equals("I"))
+                    		System.out.println("Semmi nem történik!");
+                        else if (cmd.equals("N")){
+                    	sw.changeDir();
+                        }
+                        else System.out.println("Invalid input");
                         break;
                     case 2:
                         // Perform "encrypt number" case.
