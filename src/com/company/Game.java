@@ -157,7 +157,7 @@ public class Game {
         for (Engine e: engines)
         {
             Car car = e.getFirstNotEmptyCar(6);
-            System.out.println("6.1: Állomáson van a vonat első nem üres kocsija?");
+            System.out.println("6.1: Allomáson van a vonat első nem üres kocsija?");
             command = input.nextLine();
             if (command.equals("I")) {
                 Rail pos = car.getActPos();
