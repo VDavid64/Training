@@ -57,7 +57,9 @@ public class Application {
                         else System.out.println("Invalid input");
                         break;
                     case 2:
-                        // Perform "encrypt number" case.
+                    	System.out.println("[Application].Main():");
+                    	Map m = new Map(0);
+                        m.controlTunnel(new Tunnel(), 1);
                         break;
                     case 3:
                         System.out.println("[Application].Main():");
