@@ -50,9 +50,12 @@ public class Car extends Train_Element {
 
     // Kocsi mozgatása, rekurzívan meghívja a következő kocsi move függvényét
     public void move(Rail nextRail) {
+        System.out.println("            -> [Car].move()");
+        System.out.println("            <- [Car].move()");
 
         prevPos = actPos;
         actPos = nextRail;
+
 
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is

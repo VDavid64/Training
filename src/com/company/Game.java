@@ -51,12 +51,13 @@ public class Game {
     }
 
     ////////////////
-    // vonatok léptetése
+    // vonatok léptetése - 5
     public void moveTrains() {
-        for (Engine e: engines
-             ) {
-            e.move();
-        }
+        System.out.println("    -> [Game].moveTrains()");
+        engines.get(0).move();
+
+        System.out.println("    <- [Game].moveTrains()");
+
     }
 
 
