@@ -39,18 +39,22 @@ public class Rail {
 	/**
 	 * Get the next rail. Returns a Rail object what is the next one.
 	 * 
-	 * @param Previous
+	 * @param previous
 	 *            Rail object where train element was.
-	 * @param Train
+	 * @param t
 	 *            Element which does move.
 	 * @return Rail object where train element will be at next step. If it is
 	 *         null, there is a derailing.
 	 */
-	public Rail getNextRail(Rail previus, Train_Element t) {
-		if (previus == prevRail)
-			return nextRail;
-		else
+	public Rail getNextRail(Rail previous, Train_Element t) {
+		System.out.println("            -> [Rail].getNextRail()");
+		if (previous == prevRail){
+			System.out.println("            <- [Rail].getNextRail()");
+			return nextRail;}
+		else {
+			System.out.println("            <- [Rail].getNextRail()");
 			return prevRail;
+		}
 	}
 
 	/**

@@ -121,7 +121,7 @@ public class Application {
             /**
              * Catching possible exceptions.
              */
-            catch ( Exception e) {
+            catch (Exception e) {
                 System.out.println("Invalid input");
             }
 
