@@ -48,7 +48,7 @@ public class Game {
 	/**
 	 * Function responsible for generating the trains.
 	 */
-	public void generateTrain() throws InputMismatchException{
+	public boolean generateTrain() throws InputMismatchException{
 		System.out.println("    -> [Game].generateTrain()");
 		
 		new Map(0).getStartPositions();
@@ -68,7 +68,9 @@ public class Game {
 		Scanner input = new Scanner(System.in);
 		command = input.nextLine();
 		if (!command.equals("I") && !command.equals("N")) throw new InputMismatchException();
-		System.out.println("    <- [Game].generateTrain()");
+		System.out.println("    <- [Game].generateTrain():bool");
+		
+		return input.equals("N");
 	}
 
 	/**
