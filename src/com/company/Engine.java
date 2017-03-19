@@ -40,15 +40,15 @@ public class Engine extends Train_Element {
          * positions.
          */
         Rail tempPrev = prevPos;
-        Rail tempAct = actPos;
+        Rail tempAct = new Rail();
         /**
          * Set the previous position to the actual position.
          */
-        setPrevPos(actPos);
+        setPrevPos(tempAct);
         /**
          * Set the actual position to the next one.
          */
-        setActPos(tempAct.getNextRail(tempPrev, this));
+        setActPos(tempAct.getNextRail(new Rail(), this));
 
         //TODO alagút és váltó események
 
