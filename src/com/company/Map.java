@@ -112,8 +112,6 @@ public class Map {
 			// van alagút, szóval alagút törlése következik
 			if (command.equals("I")) {
 				System.out.println("		<- [Map].getisActiveTunnel():true");
-				System.out.println("	<- [Map].controlTunnel(t)");
-				this.controlTunnel(new Tunnel(), 3);
 			}
 			// nincs alagút, további kérdések
 			else if (command.equals("N")) {
