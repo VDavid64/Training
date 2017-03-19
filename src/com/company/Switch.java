@@ -2,16 +2,39 @@ package com.company;
 
 import java.util.Scanner;
 
+/**
+ * Represents switch between rails. It has two possible positions.
+ * 
+ * @author i_did_iit team
+ *
+ */
 public class Switch extends Rail {
 
+	/**
+	 * Direction of switch. dir whether it is in first position.
+	 */
 	private boolean dir;
+	/**
+	 * Second possible out of switch.
+	 */
 	private Rail otherRail;
 
+	/**
+	 * Constructs a switch and set dir true.
+	 */
 	public Switch() {
 		dir = true;
 	}
 
-	// a három lehetséges bemenetre kell megfelelő rail-t visszaadnia
+	/**
+	 * Get the next rail. Returns a Rail object what is the next one.
+	 * 
+	 * @param Previous
+	 *            Rail object where train element was.
+	 * @param Train
+	 *            element which does move.
+	 * @return Next rail object.
+	 */
 	public Rail getNextRail(Rail previus, Train_Element t) {
 
 		// ha a fő irányból közelítünk, irányfüggő, merre megyünk tovább
@@ -40,6 +63,9 @@ public class Switch extends Rail {
 
 	}
 
+	/**
+	 * Change the direction.
+	 */
 	public void changeDir() {
 		System.out.println("	->[Switch].changeDir()");
 		if (dir == true) {
