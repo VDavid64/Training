@@ -68,6 +68,8 @@ public class Car extends Train_Element {
      * one, else returns with null.
      */
     public Car getNextCar() {
+    	System.out.println("        -> [Car].getNextCar()");
+        System.out.println("        <- [Car].getNextCar():Car");
         return nextCar;
     }
 

@@ -3,3 +3,4 @@ bin
 .idea/**
 labor.iml
 .project
+out

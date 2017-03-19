@@ -22,7 +22,7 @@ public class Engine extends Train_Element {
     public Engine(Rail startPos, int numberOfCars) {
         actPos = startPos;
         prevPos = null;
-        firstCar = new Car(numberOfCars);
+        firstCar = new Car(numberOfCars-1);
     }
 
 
@@ -160,7 +160,9 @@ public class Engine extends Train_Element {
      * @return: returns the first car of the train.
      */
     public Car getFirstCar() {
-        return firstCar;
+    	System.out.println("        -> [Engine].getFirstCar()");
+    	System.out.println("        <- [Engine].getFirstCar()");
+    	return firstCar;
     }
 
 }
