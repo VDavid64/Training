@@ -3,13 +3,34 @@ package com.company;
 
 import java.util.Scanner;
 
+/**
+ * Class representing a train car, which can carry passengers,
+ * have a color, and drop the passengers off.
+ *
+ * @author i_did_iit team
+ */
 public class Car extends Train_Element {
 
+    /**
+     * Boolean representing whether the car is empty or not.
+     */
     private boolean isEmpty;
+
+    /**
+     * Color object representing the color of the car.
+     */
     private Color color;
+
+    /**
+     * Car object representing the next car to this in the whole train.
+     */
     private Car nextCar;
 
-
+    /**
+     * Constructor, requires one parameter.
+     * @param numberOfCars: the number of cars after this car
+     *                    in the train.
+     */
     public Car(int numberOfCars) {
         color = Color.getRandomColor();
         isEmpty = false;
@@ -19,23 +40,33 @@ public class Car extends Train_Element {
             nextCar = null;
     }
 
-
+    /**
+     * Returns whether the train car is empty or not.
+     */
     public void isEmpty() {
         System.out.println("        -> [Car].isEmpty()");
         System.out.println("        <- [Car].isEmpty()");
     }
 
-
+    /**
+     * Default constructor.
+     */
     public Car(){
     }
 
+    /**
+     * Sets the train car in empty state.
+     */
     public void setEmpty() {
         System.out.println("        -> [Car].setEmpty()");
         System.out.println("        <- [Car].setEmpty()");
         isEmpty = true;
     }
 
-
+    /**
+     * @return: returns the next car in the train if there is
+     * one, else returns with null.
+     */
     public Car getNextCar() {
         return nextCar;
     }
@@ -47,24 +78,38 @@ public class Car extends Train_Element {
     }
 
 
-
-    // Kocsi mozgatása, rekurzívan meghívja a következő kocsi move függvényét
+    /**
+     * Function responsible for moving the train car.
+     * @param nextRail: this is the Rail where this car will be
+     *                moved to.
+     */
     public void move(Rail nextRail) {
         System.out.println("            -> [Car].move()");
         System.out.println("            <- [Car].move()");
 
+        /**
+         * Set the previous position to the actual position
+         * and the actual position to one passed in the function
+         * argument.
+         */
         prevPos = actPos;
         actPos = nextRail;
 
 
-        // ha van még kocsi, és az előző körben ez a kocsi már
-        // a pályán volt, akkor léptetjük a következőt is
+        /**
+         * Call the move function on the next car, if there is one.
+         */
         if (nextCar != null && prevPos != null)
             nextCar.move(prevPos);
     }
 
 
-    // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
+    /**
+     * Function responsible for getting the first not empty car.
+     * @param param
+     * @return: return the first not empty car, if there is none
+     *              returns null.
+     */
     public Car getFirstNotEmptyCar(int param) {
 
         System.out.println("            -> [Car].getFirstNotEmptyCar()");

@@ -78,7 +78,7 @@ public class Map {
 	 * Constructs a map and load a field from file.
 	 * 
 	 * @param mapNumber
-	 *            the number of field to be loaded
+	 *            the number of fields to be loaded
 	 */
 	public Map(int mapNumber) {
 		isActiveTunnel = false;

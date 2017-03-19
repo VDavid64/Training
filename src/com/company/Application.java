@@ -3,26 +3,44 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Main Application class, responsible for running the game
+ * and loading the map.
+ *
+ * @author i_did_iit team
+ */
 public class Application {
 
     public static void main(String[] args) throws InterruptedException {
 
 
-        //////////////////////////////////////////////////////////
-        // init:
+        /**
+         * Initializing the Game object.
+         */
         Game game = new Game();
-        int counter = 0;                    // számláló (vonat generálásához) és a map
-        int mapNumber = 1;                  // hányadik pályán járunk
-        game.loadMap(mapNumber);            // első pálya betöltése
-        //////////////////////////////////////////////////////////
 
+        /**
+         * Initializing counter for generating trains.
+         */
+        int counter = 0;
 
+        /**
+         * Initializing variable which tracks the map number.
+         */
+        int mapNumber = 1;
 
+        /**
+         * Loading the first map.
+         */
+        game.loadMap(mapNumber);
+
+        /**
+         * Main while cycle which handles the menu.
+         */
         while (true) {
-
-
-
-            /////// Menü
+            /**
+             * Printing out the main menu.
+             */
             System.out.println("\n A szkeleton választható funkciói:");
             System.out.println("-------------------------\n");
             System.out.println("1 - Váltó állítása");
@@ -40,7 +58,14 @@ public class Application {
             int command;
             Scanner input = new Scanner(System.in);
             try {
+                /**
+                 * Reading input integer.
+                 */
                 command = input.nextInt();
+
+                /**
+                 * Calling correlating method to the integer and printing to the console.
+                 */
                 switch (command) {
                     case 1:
                     	System.out.println("[Application].Main():");
@@ -93,6 +118,9 @@ public class Application {
                         throw new InputMismatchException();
                 }
             }
+            /**
+             * Catching possible exceptions.
+             */
             catch ( Exception e) {
                 System.out.println("Invalid input");
             }

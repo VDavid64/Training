@@ -3,13 +3,22 @@ package com.company;
 
 import java.util.Scanner;
 
+/**
+ * Class representing the engine of a train.
+ */
 public class Engine extends Train_Element {
 
+    /**
+     * Car variable representing the first car after the engine.
+     */
     private Car firstCar;
 
 
-    // A vonat léterhozásáért felelős konstruktor
-    // ráállítja a startPos-ra az Engine-t, és beállítja az első kocsit
+    /**
+     * Constructor with two required parameters.
+     * @param startPos: the starting position of the Engine.
+     * @param numberOfCars: the number of cars in the train.
+     */
     public Engine(Rail startPos, int numberOfCars) {
         actPos = startPos;
         prevPos = null;
@@ -17,62 +26,66 @@ public class Engine extends Train_Element {
     }
 
 
-
-    /////////////
-    // TO-DO: Tunnel és Switch lekezelése
+    /**
+     * Function responsible for moving the Engine,
+     * and the cars connected to it.
+     */
     public void move() {
 
         System.out.println("        -> [Engine].move()");
 
 
-        ///// TO-DO
-        // Elinduláskor probléma - prevPos és az actPos valamelyik Rail szomszédja is null
-        // Azaz ha a prev pos még null, akkor még nem léptünk
-        // Ekkor a következő nem null rail-t választjuk
-        /*
-        if (this.getPrevPos() == null && railNext != null) {
-            if (railNext != null) {
-                setPrevPos(actPos);
-                setActPos(railNext);
-            }
-            else {
-                setPrevPos(actPos);
-                setActPos(railPrev);
-            }
-        }
-        */
-
-        // Vonat léptetése
+        /**
+         * Temporary variables for storing previous and actual
+         * positions.
+         */
         Rail tempPrev = prevPos;
         Rail tempAct = actPos;
+        /**
+         * Set the previous position to the actual position.
+         */
         setPrevPos(actPos);
-        //setActPos(tempAct.getNextRail(tempPrev, this));
-
-
-        // végül pedig meghívjuk a fistcar move-ját
-        if (firstCar != null)
-            firstCar.move(tempAct);
+        /**
+         * Set the actual position to the next one.
+         */
+        setActPos(tempAct.getNextRail(tempPrev, this));
 
         //TODO alagút és váltó események
 
-        //Alagút esemény
+        /**
+         * Handling printout.
+         */
         System.out.println("5.1: Alagútszájra léptünk? ");
         String command;
         Scanner input = new Scanner(System.in);
         command = input.nextLine();
 
+        /**
+         * Printouts, depending on input case,
+         * whether we enter a tunnel or not, or we
+         * moved to a switch or not.
+         */
         if (command.equals("I"))
         {
             System.out.println("5.1.1: Üres az alagút?");
             String command2;
             command2 = input.nextLine();
+            /**
+             * If we entered a tunnel.
+             */
             if (command2.equals("I"))
             {
                 //Belépünk az alagútba
             }
+            /**
+             * Invalid input.
+             */
             else if (!command2.equals("N")) {
                 throw new IllegalArgumentException();
             }
+            /**
+             * Normal rail.
+             */
             else
             {
                 //A sínen haladunk tovább
@@ -83,9 +96,9 @@ public class Engine extends Train_Element {
         }
         else
         {
-            //Sínen haladunk tovább vagy váltó
-
-            //Váltó esemény
+            /**
+             * If we moved on to a switch.
+             */
             System.out.println("5.2: Váltóra léptünk? ");
             command = input.nextLine();
 
@@ -93,20 +106,39 @@ public class Engine extends Train_Element {
             {
                 //Váltó esemény bekövetkezik
             }
+
+            /**
+             * Invalid input.
+             */
             else if (!command.equals("N")) {
                 throw new IllegalArgumentException();
             }
+
+            /**
+             * Normal rail.
+             */
             else
             {
                 //Sínen haladunk tovább
             }
         }
 
+        /**
+         * Call move function on the first car in the train.
+         */
+        if (firstCar != null)
+            firstCar.move(tempAct);
+
         System.out.println("        <- [Engine].move()");
     }
 
 
-    // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
+    /**
+     * Return the first not empty train car.
+     * @param param
+     * @return: return the first not empty train car, or if every
+     *              train car is empty, return null.
+     */
     public Car getFirstNotEmptyCar(int param) {
 
         System.out.println("        -> [Engine].getFirstNotEmptyCar()");
@@ -123,7 +155,10 @@ public class Engine extends Train_Element {
 
     }
 
-
+    /**
+     * Function responsible for returning the first car of the train.
+     * @return: returns the first car of the train.
+     */
     public Car getFirstCar() {
         return firstCar;
     }
