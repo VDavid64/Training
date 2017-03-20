@@ -74,7 +74,7 @@ public class Application {
         //////////////////////////////////////////////////////////
 
 
-        System.out.println("Game is over");
+        System.out.println("Game over");
 
     }
 }
