@@ -6,7 +6,7 @@ public class Map {
 
     ///////////
     // lehetséges kezdőpontok tömbjei
-    private ArrayList<Rail> startPositions = new ArrayList<>();
+    private Rail startPosition = new Rail();
     private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
     private ArrayList<Station> stations = new ArrayList<>();
 
@@ -24,8 +24,8 @@ public class Map {
 
 
     ////////////
-    public ArrayList<Rail> getStartPositions() {
-        return startPositions;
+    public Rail getStartPosition() {
+        return startPosition;
     }
 
     public ArrayList<Station> getStations() {
