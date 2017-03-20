@@ -45,25 +45,42 @@ public class Game {
 
 
 
-    //////////////// TODO:  mikor.
+    //////////////// TODO:  mikor
     // Vonat generálása:
     //          Lekérdezzük a lehetséges kezdőpozíciót, majd azt beállítjuk az új engine-nek
     //          Második paraméterben a kocsik számát adjuk meg - random between 2 and 5
+    //          Generáláskor ellenőrizni kell, üres-e a startPos
     public void generateTrain(int round) {
-        
+
+        // első körben generálunk
         if (round == 0) {
             Engine newEngine = new Engine(map.getStartPositions().get(0), (int) (Math.random() * (6 - 2)) + 2);
             engines.add(newEngine);
+            return;
         }
 
-        if (round == 10) {
-            Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
-            engines.add(newEngine);
+        // Többi generáláskor már ellenőrizni kell, üres-e a startRail
+        Set<Rail> positions = new HashSet<>();
+        boolean notEmpty = false;
+        for (Engine e : engines) {
+            notEmpty = positions.add(e.getActPos());
+            Car c = e.getFirstCar();
+            while ( c != null) {
+                notEmpty = positions.add(c.getActPos());
+                c = c.getNextCar();
+            }
         }
 
-        if (round == 20) {
+        if (round == 10 && !notEmpty) {
             Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
             engines.add(newEngine);
+            return;
+        }
+
+        if (round == 20 && !notEmpty) {
+            Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
+            engines.add(newEngine);
+            return;
         }
 
 
@@ -124,14 +141,11 @@ public class Game {
         }
 
 
-        // terepasztal szélére ért egy engine
-        Set<Rail> start_pos = new HashSet<>(map.getStartPositions());
-        boolean out = false;
+        // terepasztal szélére ért egy engine -> enginnek null az actpos-ja
         for (Engine e: engines) {
-            out = start_pos.add(e.getActPos());
-        }
-        if (out) {
-            return true;
+            if (e.getActPos() == null) {
+                return true;
+            }
         }
 
 
