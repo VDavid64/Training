@@ -52,10 +52,26 @@ public class Engine extends Train_Element {
     }
 
 
+    // TODO
     // az első nem üres kocsival tér vissza, ha null, mindegyik kocsi üres
     public Car getFirstNotEmptyCar() {
-        if (firstCar != null)
-            return firstCar.getFirstNotEmptyCar();
+        if (firstCar != null) {
+            if (firstCar.isEmpty()) {
+                return firstCar;
+            }
+            else {
+                Car c = firstCar.getNextCar();
+                while ( c != null ) {
+                    if (c.isEmpty()) {
+                        return c;
+                    }
+                    else {
+                        c = c.getNextCar();
+                    }
+                }
+                return null;
+            }
+        }
         else
             return null;
     }

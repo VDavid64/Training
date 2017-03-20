@@ -12,6 +12,17 @@ public class Rail {
     protected boolean isTunnelUnderRail;
 
 
+    // konstruktor
+    public Rail(Rail r1, Rail r2) {
+        isTunnelUnderRail = false;
+        nextRail = r1;
+        prevRail = r2;
+    }
+
+    // default konstruktor
+    public Rail() {}
+
+
     public Point3D getPosition() {
         return position;
     }

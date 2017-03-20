@@ -1,14 +1,30 @@
 package com.company;
 
-
+/**
+ * Represents switch between rails. It has two possible positions.
+ *
+ * @author i_did_iit team
+ *
+ */
 public class Switch extends Rail {
 
+    /**
+     * Direction of switch. dir whether it is in first position.
+     */
     private boolean dir;
+    /**
+     * Second possible out of switch.
+     */
     private Rail otherRail;
 
 
-    public Switch() {
+
+    // konstruktor
+    public Switch(Rail r1, Rail r2, Rail r3) {
         dir = true;
+        nextRail = r1;
+        prevRail = r2;
+        otherRail = r3;
     }
 
 

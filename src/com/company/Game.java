@@ -54,11 +54,13 @@ public class Game {
 
         // első körben generálunk
         if (round == 0) {
-            Engine newEngine = new Engine(map.getStartPositions().get(0), (int) (Math.random() * (6 - 2)) + 2);
+            Engine newEngine = new Engine(map.getStartPosition(), (int) (Math.random() * (6 - 2)) + 2);
             engines.add(newEngine);
             return;
         }
 
+
+        // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
         // Többi generáláskor már ellenőrizni kell, üres-e a startRail
         Set<Rail> positions = new HashSet<>();
         boolean notEmpty = false;
@@ -72,13 +74,13 @@ public class Game {
         }
 
         if (round == 10 && !notEmpty) {
-            Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
+            Engine newEngine = new Engine(map.getStartPosition(), 5);
             engines.add(newEngine);
             return;
         }
 
         if (round == 20 && !notEmpty) {
-            Engine newEngine = new Engine(map.getStartPositions().get(0), 5);
+            Engine newEngine = new Engine(map.getStartPosition(), 5);
             engines.add(newEngine);
             return;
         }
