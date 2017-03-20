@@ -29,8 +29,11 @@ public class Switch extends Rail {
             if (dir == true) {
                 return prevRail;
             }
-            else
+            else {
+                // kisiklás történt:
+                Map.setIsDerailing(true);
                 return null;
+            }
         }
 
         // ha B irányból közelítünk
@@ -38,8 +41,11 @@ public class Switch extends Rail {
             if (dir == false) {
                 return prevRail;
             }
-            else
+            else {
+                // kisiklás történt:
+                Map.setIsDerailing(true);
                 return null;
+            }
         }
 
     }

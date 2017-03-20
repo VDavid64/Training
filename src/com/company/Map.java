@@ -15,6 +15,12 @@ public class Map {
     private static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
     private static boolean isTrainInTunnel;
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
+    private static boolean isDerailing;                                         // volt-e kisiklás - váltó állítja
+
+
+
+
+
 
 
     ////////////
@@ -32,12 +38,19 @@ public class Map {
 
     public boolean isActiveTunnel() { return isActiveTunnel; }
 
+    public static boolean getIsDerailing() {
+        return isDerailing;
+    }
 
+    public static void setIsDerailing(boolean isDerailing) {
+        Map.isDerailing = isDerailing;
+    }
 
     // Fájlból vagy bedrótozva betöltünk egy játékot
     public Map(int mapNumber) {
 
         isActiveTunnel = false;
+        isDerailing = false;
 
         // mapNumbertől függően töltjük be az adott pályát
         if(mapNumber == 1) {

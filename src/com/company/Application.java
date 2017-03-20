@@ -25,8 +25,7 @@ public class Application {
 
             /////////////
             // A megfelelő körökben vonatokat generálunk
-            if (counter == 0 || counter == 11)
-                game.generateTrain();
+            game.generateTrain(counter);
 
 
             /////////////
