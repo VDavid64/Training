@@ -8,15 +8,17 @@ public class Rail {
 
     protected Rail nextRail;
     protected Rail prevRail;
+    public String name;
     private Point3D position;
     protected boolean isTunnelUnderRail;
 
 
     // konstruktor
-    public Rail(Rail r1, Rail r2) {
+    public Rail(Rail r1, Rail r2, String name) {
         isTunnelUnderRail = false;
         nextRail = r1;
         prevRail = r2;
+        this.name = name;
     }
 
     // default konstruktor

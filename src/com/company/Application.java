@@ -43,7 +43,7 @@ public class Application {
             /////////////
             // ütközéseket / játék végét detektáló függvény
             // a true-val tér vissza, ha a játék valamilyen oknál fogva véget ér
-            if (game.crashDetection() && counter >= 6)
+            if (game.crashDetection())
                 gameIsOn = false;
 
 
@@ -69,7 +69,7 @@ public class Application {
 
             /////////////
             // várakozás és a körszámláló növelése
-            t.sleep(1000);
+            t.sleep(500);
             counter++;
 
         }

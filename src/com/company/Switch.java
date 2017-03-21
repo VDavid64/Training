@@ -20,11 +20,12 @@ public class Switch extends Rail {
 
 
     // konstruktor
-    public Switch(Rail r1, Rail r2, Rail r3) {
+    public Switch(Rail r1, Rail r2, Rail r3, String name) {
         dir = true;
         nextRail = r1;
         prevRail = r2;
         otherRail = r3;
+        this.name = name;
     }
 
 

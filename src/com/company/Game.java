@@ -54,7 +54,9 @@ public class Game {
 
         // első körben generálunk
         if (round == 0) {
-            Engine newEngine = new Engine(map.getStartPosition(), (int) (Math.random() * (6 - 2)) + 2);
+            int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
+            System.out.format("Új vonat %d kocsival: ", numberOfCars);
+            Engine newEngine = new Engine(map.getStartPosition(), numberOfCars);
             engines.add(newEngine);
             return;
         }
@@ -139,6 +141,7 @@ public class Game {
 
         ///// kisiklás
         if (Map.getIsDerailing()) {
+            System.out.println("Kisiklás történt!");
             return true;
         }
 
@@ -146,6 +149,7 @@ public class Game {
         // terepasztal szélére ért egy engine -> enginnek null az actpos-ja
         for (Engine e: engines) {
             if (e.getActPos() == null) {
+                System.out.println("Lehajtottunk a pályáról!");
                 return true;
             }
         }
@@ -157,11 +161,12 @@ public class Game {
         for (Engine e: engines) {
             isNotDuplicateRail = train_pos.add(e.getActPos());
             Car c = e.getFirstCar();
-            while ( c != null && isNotDuplicateRail) {
+            while ( c != null && c.getActPos() != null && isNotDuplicateRail) {
                 isNotDuplicateRail = train_pos.add(c.getActPos());
                 c = c.getNextCar();
             }
         }
+        if (!isNotDuplicateRail) System.out.println("Ütközés történt!");
         return !isNotDuplicateRail;
     }
 

@@ -10,6 +10,7 @@ public class Engine extends Train_Element {
     // ráállítja a startPos-ra az Engine-t, és beállítja az első kocsit
     public Engine(Rail startPos, int numberOfCars) {
         actPos = startPos;
+        System.out.print(" Engine at " + actPos.name + " with cars: ");
         prevPos = null;
         firstCar = new Car(numberOfCars);
     }
@@ -20,11 +21,15 @@ public class Engine extends Train_Element {
     // TO-DO: Tunnel és Switch lekezelése
     public void move() {
 
+
         // Vonat léptetése
         Rail tempPrevRail = prevPos;
         Rail tempActRail = actPos;
         this.setPrevPos(actPos);
         this.setActPos(tempActRail.getNextRail(tempPrevRail, this));
+
+        if (! (actPos == null))
+            System.out.println("Engine új pozíciója: " + actPos.name);
 
         // végül pedig meghívjuk a fistcar move-ját
         firstCar.move(tempActRail);

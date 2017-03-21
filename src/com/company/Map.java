@@ -60,34 +60,34 @@ public class Map {
 
             // startpos +5 rail, majd egy váltó, még 5 rail körben, utolsó rail a váltóra illeszkedik szintén
 
-            Rail stp = new Rail(null, null);
-            Rail r1 = new Rail(null, stp);
+            Rail stp = new Rail(null, null, "Start Position");
+            Rail r1 = new Rail(null, stp, "Rail 1");
             stp.setNextRail(r1);
             startPosition = stp;
 
-            Rail r2 = new Rail(null, r1);
+            Rail r2 = new Rail(null, r1, "Rail 2");
             r1.setNextRail(r2);
-            Rail r3 = new Rail(null, r2);
+            Rail r3 = new Rail(null, r2, "Rail 3");
             r2.setNextRail(r3);
-            Rail r4 = new Rail(null, r3);
+            Rail r4 = new Rail(null, r3, "Rail 4");
             r3.setNextRail(r4);
-            Rail r5 = new Rail(null, r4);
+            Rail r5 = new Rail(null, r4, "Rail 5");
             r4.setNextRail(r5);
 
-            Rail r6 = new Rail(null, null);
-            Rail r10 = new Rail(null, null);
+            Rail r6 = new Rail(null, null, "Rail 6");
+            Rail r10 = new Rail(null, null, "Rail 10");
 
             // váltó beállítása
-            Switch sw = new Switch(r6, r5, r10);
+            Switch sw = new Switch(r6, r5, r10, "Első váltó");
             r5.setNextRail(sw);
             r6.setPrevRail(sw);
             r10.setNextRail(sw);
 
-            Rail r7 = new Rail(null, r6);
+            Rail r7 = new Rail(null, r6, "Rail 7");
             r6.setNextRail(r7);
-            Rail r8 = new Rail(null, r7);
+            Rail r8 = new Rail(null, r7, "Rail 8");
             r7.setNextRail(r8);
-            Rail r9 = new Rail(null, r8);
+            Rail r9 = new Rail(null, r8, "Rail 9");
             r8.setNextRail(r9);
             r9.setNextRail(r10);
             r10.setPrevRail(r9);
