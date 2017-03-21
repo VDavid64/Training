@@ -24,13 +24,15 @@ public class Application {
 
 
             /////////////
+            // léptetést végrehajtó függvény
+            game.moveTrains();
+
+
+            /////////////
             // A megfelelő körökben vonatokat generálunk
             game.generateTrain(counter);
 
 
-            /////////////
-            // léptetést végrehajtó függvény
-            game.moveTrains();
 
 
             /////////////
@@ -41,7 +43,7 @@ public class Application {
             /////////////
             // ütközéseket / játék végét detektáló függvény
             // a true-val tér vissza, ha a játék valamilyen oknál fogva véget ér
-            if (game.crashDetection())
+            if (game.crashDetection() && counter >= 6)
                 gameIsOn = false;
 
 
@@ -49,7 +51,7 @@ public class Application {
             // Minden kör végén a játék megnyerését vizsgáló függvény
             // Ha minden vonat minden kocsija üres, átugrunk a következő pályára
             // Hogy az elején ne nyerjük meg rögtön, körszámlálót is ellenőrizzük
-            if (game.isWon() && counter > 5) {
+            if (game.isWon() && (counter >= 5)) {
 
                 // Ha az utolsó pályát nyertük meg, vége a játéknak
                 if ( game.getIsLastGame())

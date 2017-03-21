@@ -153,16 +153,16 @@ public class Game {
 
         ///// ütközés
         Set<Rail> train_pos = new HashSet<>();
-        boolean isDuplicateRail = false;
+        boolean isNotDuplicateRail = true;
         for (Engine e: engines) {
-            isDuplicateRail = train_pos.add(e.getActPos());
+            isNotDuplicateRail = train_pos.add(e.getActPos());
             Car c = e.getFirstCar();
-            while ( c != null && isDuplicateRail) {
-                isDuplicateRail = train_pos.add(c.getActPos());
+            while ( c != null && isNotDuplicateRail) {
+                isNotDuplicateRail = train_pos.add(c.getActPos());
                 c = c.getNextCar();
             }
         }
-        return isDuplicateRail;
+        return !isNotDuplicateRail;
     }
 
 

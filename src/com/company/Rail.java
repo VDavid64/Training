@@ -44,4 +44,12 @@ public class Rail {
         return null;
     }
 
+    public void setNextRail(Rail nextRail) {
+        this.nextRail = nextRail;
+    }
+
+public void setPrevRail(Rail prevRail) {
+    this.prevRail = prevRail;
+}
+
 }

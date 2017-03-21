@@ -41,6 +41,7 @@ public class Car extends Train_Element {
     // Kocsi mozgatása, rekurzívan meghívja a következő kocsi move függvényét
     public void move(Rail nextRail) {
 
+        Rail tempPrevRail = prevPos;
         prevPos = actPos;
         actPos = nextRail;
 
