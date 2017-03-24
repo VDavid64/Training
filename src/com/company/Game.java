@@ -52,42 +52,27 @@ public class Game {
     //          Generáláskor ellenőrizni kell, üres-e a startPos
     public void generateTrain(int round) {
 
+
+
+
+        // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
+        // Többi generáláskor már ellenőrizni kell, üres-e a startRail
+        Set<Rail> positions = new HashSet<>();
+        boolean empty = true;
+        for (Engine e : engines) {
+            if (e.getActPos() == map.getStartPosition())
+                empty = false;
+        }
+
+
         // első körben generálunk
-        if (round == 0) {
+        if ((round == 0 || round == 10 || round == 30) && empty) {
             int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
             System.out.format("Új vonat %d kocsival: ", numberOfCars);
             Engine newEngine = new Engine(map.getStartPosition(), numberOfCars);
             engines.add(newEngine);
             return;
         }
-
-
-        // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
-        // Többi generáláskor már ellenőrizni kell, üres-e a startRail
-        Set<Rail> positions = new HashSet<>();
-        boolean notEmpty = false;
-        for (Engine e : engines) {
-            notEmpty = positions.add(e.getActPos());
-            Car c = e.getFirstCar();
-            while ( c != null) {
-                notEmpty = positions.add(c.getActPos());
-                c = c.getNextCar();
-            }
-        }
-
-        if (round == 10 && !notEmpty) {
-            Engine newEngine = new Engine(map.getStartPosition(), 5);
-            engines.add(newEngine);
-            return;
-        }
-
-        if (round == 20 && !notEmpty) {
-            Engine newEngine = new Engine(map.getStartPosition(), 5);
-            engines.add(newEngine);
-            return;
-        }
-
-
     }
 
 
@@ -98,7 +83,7 @@ public class Game {
     // Vonatok léptetése
     public void moveTrains() {
         for (Engine e: engines) {
-            e.move();
+            e.moveEngine();
         }
     }
 
@@ -160,10 +145,10 @@ public class Game {
         boolean isNotDuplicateRail = true;
         for (Engine e: engines) {
             isNotDuplicateRail = train_pos.add(e.getActPos());
-            Car c = e.getFirstCar();
+            Train_Element c = e.getNextTrainElement();
             while ( c != null && c.getActPos() != null && isNotDuplicateRail) {
                 isNotDuplicateRail = train_pos.add(c.getActPos());
-                c = c.getNextCar();
+                c = c.getNextTrainElement();
             }
         }
         if (!isNotDuplicateRail) System.out.println("Ütközés történt!");
@@ -182,7 +167,7 @@ public class Game {
             if (car != null && car.getActPos().getColor() != null ) {
                 // ha egyezik a szín, kiürítjük a kocsit
                 if ( (car.getActPos()).getColor() == car.getColor())
-                    car.setEmpty();
+                    car.setEmpty(true);
             }
         }
     }

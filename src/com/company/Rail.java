@@ -1,15 +1,12 @@
 package com.company;
 
 
-import javafx.geometry.Point3D;
-
 public class Rail {
 
 
     protected Rail nextRail;
     protected Rail prevRail;
     public String name;
-    private Point3D position;
     protected boolean isTunnelUnderRail;
 
 
@@ -23,11 +20,6 @@ public class Rail {
 
     // default konstruktor
     public Rail() {}
-
-
-    public Point3D getPosition() {
-        return position;
-    }
 
 
     // Rail esetén megadjuk az előző pozíciót
@@ -50,8 +42,13 @@ public class Rail {
         this.nextRail = nextRail;
     }
 
-public void setPrevRail(Rail prevRail) {
+    public void setPrevRail(Rail prevRail) {
     this.prevRail = prevRail;
 }
 
+    public int getPassenger() {
+        return 0;
+    }
+
+    public void setPassenger() {}
 }

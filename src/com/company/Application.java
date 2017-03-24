@@ -22,6 +22,9 @@ public class Application {
         // a példányosított játék függvényeit körönként, egy ciklusban hívjuk meg
         while (gameIsOn) {
 
+            // körszámláló kiírása
+            System.out.format("Round: %d \n", counter);
+
 
             /////////////
             // léptetést végrehajtó függvény
@@ -65,6 +68,7 @@ public class Application {
                     counter = 0;
                 }
             }
+
 
 
             /////////////
