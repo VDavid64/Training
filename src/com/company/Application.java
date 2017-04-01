@@ -77,7 +77,6 @@ public class Application {
                                 round--;
                             }
                         } catch (Exception e) {
-                            e.printStackTrace();
                             System.out.println("Useage of Step command: \"Step round_number\". Rund must be a number between 1 and 500");
                         }
 
@@ -93,6 +92,18 @@ public class Application {
 
                         break;
 
+
+                    case ("SETSWITCH"):
+                        try {
+                            String param = inputArray[1];
+                            game.onClicked(param);
+                        }
+                        catch (IllegalArgumentException i) {
+                            System.out.println("There is no switch by that name");
+                        }
+                        catch (Exception e) {
+                            System.out.println("Useage of SetSwitch command: \"SetSwitch switch_name\" "); }
+                        break;
 
                     case ("EXIT"):
                         System.exit(0);

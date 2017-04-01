@@ -52,6 +52,7 @@ public class Rail {
 
     public void setPassenger() {}
 
+    public void changeDir() {}
 
     public void setOtherCrossRails(Rail r2_nextrail, Rail r2_prevrail) {}
 

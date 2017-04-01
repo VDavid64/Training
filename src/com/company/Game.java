@@ -44,6 +44,9 @@ public class Game {
     }
 
 
+    public void onClicked(String name) {
+        map.onMouseClickedEvent(name);
+    }
 
 
     //////////////// TODO:  mikor

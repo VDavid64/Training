@@ -69,12 +69,16 @@ public class Switch extends Rail {
     }
 
 
+    @Override
     public void changeDir() {
         if (dir == true) {
             dir = false;
+            System.out.print("<State: " + dir +">\n");
         }
-        else
+        else {
             dir = true;
+            System.out.print("<State: " + dir +">\n");
+        }
     }
 
 

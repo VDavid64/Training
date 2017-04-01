@@ -11,7 +11,7 @@
         <element name="rail 4" type="rail"/>
         <element name="rail 5" type="rail"/>
 
-        <element name="switch 1" type="switch"/>
+        <element name="switch1" type="switch"/>
 
         <element name="rail 6" type="rail"/>
         <element name="rail 7" type="rail"/>
@@ -29,15 +29,15 @@
         <connection name="rail 2" type="rail" prevRail="rail 1" nextRail="rail 3"/>
         <connection name="rail 3" type="rail" prevRail="rail 2" nextRail="rail 4"/>
         <connection name="rail 4" type="rail" prevRail="rail 3" nextRail="rail 5"/>
-        <connection name="rail 5" type="rail" prevRail="rail 4" nextRail="switch 1"/>
+        <connection name="rail 5" type="rail" prevRail="rail 4" nextRail="switch1"/>
 
-        <connection name="switch 1" type="switch" prevRail="rail 5" nextRail="rail 6" thirdRail="rail 10"/>
+        <connection name="switch1" type="switch" prevRail="rail 5" nextRail="rail 6" thirdRail="rail 10"/>
 
-        <connection name="rail 6" type="rail" prevRail="switch 1" nextRail="rail 7"/>
+        <connection name="rail 6" type="rail" prevRail="switch1" nextRail="rail 7"/>
         <connection name="rail 7" type="rail" prevRail="rail 6" nextRail="rail 8"/>
         <connection name="rail 8" type="rail" prevRail="rail 7" nextRail="rail 9"/>
         <connection name="rail 9" type="rail" prevRail="rail 8" nextRail="rail 10"/>
-        <connection name="rail 10" type="rail" prevRail="rail 9" nextRail="switch 1"/>
+        <connection name="rail 10" type="rail" prevRail="rail 9" nextRail="switch1"/>
 
         <!-- A connection elemek szerkezete:
         Rail esetén:

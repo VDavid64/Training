@@ -221,7 +221,7 @@ public class Map {
 
 
     // TODO
-    ///// segédfüggvény - bejárhatóság
+    // Segédfüggvény - bejárhatóság
     // startPos-ból megpróbálja elérni tunnel-t, true ha sikerül
     private boolean checkList(Tunnel startPos, Tunnel tunnel) {
 
@@ -229,11 +229,19 @@ public class Map {
     }
 
 
-    // TO-DO
-    // felhasználó interakcióját megvalósító függvény
-    // külön kezelei az esetek attól függően, hogy mire kattintott
-    public void onMouseClickedEvent() {
-        // ha tunnel-re, a controlTunnel() hívódik meg
+    // TODO
+    // A felhasználó interakcióját megvalósító függvény: külön kezelei az esetek attól függően, hogy milyen típusra kattintottunk
+    // Proto-hoz átalakítás: String paramétert kap
+    public void onMouseClickedEvent(String name) {
+
+        // Ha van ilyen nevű elemünk a sínek listájában
+        if ( getIndexByName(name) != -1) {
+            if (name.contains("switch")) {
+                System.out.print("<" + name + "> ");
+                rails.get(getIndexByName(name)).changeDir();
+            }
+        }
+        else throw new IllegalArgumentException();
         // ha váltóra, akkor annak az állítása történik meg
     }
 
