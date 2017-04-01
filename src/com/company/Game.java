@@ -38,8 +38,9 @@ public class Game {
     ////////////////    Done
     // Map konstruktorát hívja meg, beállítva a ref-t
     // az pedig fájlból vagy bedrótozva betölt egy pályát
-    public void loadMap(int mapNumber) {
-        map = new Map(mapNumber);
+    public void loadMap(String mapName) {
+        map = new Map();
+        map.loadMap("testmap");
     }
 
 

@@ -6,6 +6,12 @@ public class Tunnel extends Rail {
     private boolean isActive;
 
 
+    //TODO: tunnel konstruktor
+    public Tunnel() {
+        isActive = false;
+    }
+
+
     public boolean isActive() {
         return isActive;
     }

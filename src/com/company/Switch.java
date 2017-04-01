@@ -30,6 +30,7 @@ public class Switch extends Rail {
 
 
     // a három lehetséges bemenetre kell megfelelő rail-t visszaadnia
+    @Override
     public Rail getNextRail(Rail previus, Train_Element t) {
 
         // ha a fő irányból közelítünk, irányfüggő, merre megyünk tovább
@@ -68,7 +69,6 @@ public class Switch extends Rail {
     }
 
 
-
     public void changeDir() {
         if (dir == true) {
             dir = false;
@@ -78,5 +78,9 @@ public class Switch extends Rail {
     }
 
 
+    @Override
+    public void setSwitchThirdRail(Rail r3) {
+        this.otherRail = r3;
+    }
 
 }

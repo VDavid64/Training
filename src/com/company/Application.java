@@ -12,9 +12,8 @@ public class Application {
         boolean gameIsOn = true;            // játék állapotát rögzítő bool (true, ha megy a játék)
         int counter = 0;                    // számláló (vonat generálásához) és a map
         int mapNumber = 1;                  // hányadik pályán járunk
-        game.loadMap(mapNumber);            // első pálya betöltése
+        game.loadMap("testmap");            // első pálya betöltése - paraméterben az xml fájl neve
         //////////////////////////////////////////////////////////
-
 
 
         //////////////////////////////////////////////////////////
@@ -63,7 +62,7 @@ public class Application {
                 // Amúgy csak a köv pályát töltjük be
                 else {
                     game.deleteTrains();
-                    game.loadMap(mapNumber++);
+                    //game.loadMap(mapNumber++);
                     game.setIsLastGame(true);
                     counter = 0;
                 }
@@ -78,7 +77,6 @@ public class Application {
 
         }
         //////////////////////////////////////////////////////////
-
 
         System.out.println("Game over");
 

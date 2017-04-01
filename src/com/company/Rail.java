@@ -51,4 +51,9 @@ public class Rail {
     }
 
     public void setPassenger() {}
+
+
+    public void setOtherCrossRails(Rail r2_nextrail, Rail r2_prevrail) {}
+
+    public void setSwitchThirdRail(Rail r3) {}
 }

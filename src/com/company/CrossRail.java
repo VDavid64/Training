@@ -26,4 +26,10 @@ public class CrossRail extends Rail {
         else
             return otherRailA;
     }
+
+    @Override
+    public void setOtherCrossRails( Rail r2_nextrail, Rail r2_prevrail) {
+        this.otherRailA = r2_nextrail;
+        this.otherRailB = r2_prevrail;
+    }
 }
