@@ -40,7 +40,7 @@ public class Game {
     // az pedig fájlból vagy bedrótozva betölt egy pályát
     public void loadMap(String mapName) {
         map = new Map();
-        map.loadMap("testmap");
+        map.loadMap(mapName);
     }
 
 

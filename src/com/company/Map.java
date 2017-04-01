@@ -9,6 +9,7 @@ import javax.swing.plaf.PanelUI;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,56 +58,11 @@ public class Map {
         Map.isDerailing = isDerailing;
     }
 
-    // Fájlból vagy bedrótozva betöltünk egy játékot
-    public Map() {
 
+    // Done
+    public Map() {
         isActiveTunnel = false;
         isDerailing = false;
-        /*
-        // mapNumbertől függően töltjük be az adott pályát
-        // tesztpálya
-        if(mapNumber == 1) {
-
-            // startpos +5 rail, majd egy váltó, még 5 rail körben, utolsó rail a váltóra illeszkedik szintén
-
-            Rail stp = new Rail(null, null, "Start Position");
-            Rail r1 = new Rail(null, stp, "Rail 1");
-            stp.setNextRail(r1);
-            startPosition = stp;
-
-            Rail r2 = new Rail(null, r1, "Rail 2");
-            r1.setNextRail(r2);
-            Rail r3 = new Rail(null, r2, "Rail 3");
-            r2.setNextRail(r3);
-            Rail r4 = new Rail(null, r3, "Rail 4");
-            r3.setNextRail(r4);
-            Rail r5 = new Rail(null, r4, "Rail 5");
-            r4.setNextRail(r5);
-
-            Rail r6 = new Rail(null, null, "Rail 6");
-            Rail r10 = new Rail(null, null, "Rail 10");
-
-            // váltó beállítása
-            Switch sw = new Switch(r6, r5, r10, "Első váltó");
-            r5.setNextRail(sw);
-            r6.setPrevRail(sw);
-            r10.setNextRail(sw);
-
-            Rail r7 = new Rail(null, r6, "Rail 7");
-            r6.setNextRail(r7);
-            Rail r8 = new Rail(null, r7, "Rail 8");
-            r7.setNextRail(r8);
-            Rail r9 = new Rail(null, r8, "Rail 9");
-            r8.setNextRail(r9);
-            r9.setNextRail(r10);
-            r10.setPrevRail(r9);
-
-            rails.add(r1); rails.add(r2); rails.add(r3); rails.add(r4);
-            rails.add(r5); rails.add(r6); rails.add(r7); rails.add(r8);
-            rails.add(r9); rails.add(r10); rails.add(sw);
-
-        }
-        */
     }
 
     ///////////// TODO: mouseClicked eventre majd beregisztrálni
@@ -170,17 +126,15 @@ public class Map {
 
 
 
-
+    // betölti XML-ből a pályát
     public void loadMap(String mapName) {
         try {
-
 
             String path = System.getProperty("user.dir");
             File fXmlFile = new File(path + "\\maps\\" + mapName + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
-            
             doc.getDocumentElement().normalize();
 
 
@@ -248,12 +202,19 @@ public class Map {
 
             }
 
-            System.out.println();
             startPosition = rails.get(0);
+            System.out.println("<Map loaded successfully: " +mapName +">");
+
         }
 
-        catch (Exception e){
+        catch (FileNotFoundException e){
+            System.out.println("Invalid file name");
+            return;
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred");
             e.printStackTrace();
+            return;
         }
     }
 
