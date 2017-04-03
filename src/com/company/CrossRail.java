@@ -6,12 +6,12 @@ public class CrossRail extends Rail {
     private Rail otherRailA, otherRailB;
 
 
-    public CrossRail(Rail r1_nextrail, Rail r1_prevrail, Rail r2_nextrail, Rail r2_prevrail) {
+    public CrossRail(Rail r1_nextrail, Rail r1_prevrail, Rail r2_nextrail, Rail r2_prevrail, String name) {
         this.nextRail = r1_nextrail;
         this.prevRail = r1_prevrail;
         this.otherRailA = r2_nextrail;
         this.otherRailB = r2_prevrail;
-
+        this.name = name;
     }
 
 

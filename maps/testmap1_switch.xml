@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<testMapName>
+
+    <!-- Példányosítás -->
+    <mapElements>
+
+        <element name="startpos" type="rail"/>
+        <element name="rail_1" type="rail"/>
+        <element name="rail_2" type="rail"/>
+        <element name="rail_3" type="rail"/>
+        <element name="rail_4" type="rail"/>
+        <element name="rail_5" type="rail"/>
+
+        <element name="switch1" type="switch"/>
+
+        <element name="rail_6" type="rail"/>
+        <element name="rail_7" type="rail"/>
+        <element name="rail_8" type="rail"/>
+        <element name="rail_9" type="rail"/>
+        <element name="rail_10" type="rail"/>
+
+    </mapElements>>
+
+    <!-- Összeköttetések beállítása -->
+    <connections>
+
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
+        <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
+        <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="rail_5"/>
+        <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="switch1"/>
+
+        <connection name="switch1" type="switch" prevRail="rail_5" nextRail="rail_6" thirdRail="rail_10"/>
+
+        <connection name="rail_6" type="rail" prevRail="switch1" nextRail="rail_7"/>
+        <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
+        <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
+        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="switch1"/>
+
+        <!-- A connection elemek szerkezete:
+        Rail esetén:
+        <connection name="rail_neve" type="rail" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        CrossRail esetén:
+        <connection name="crossrail_neve" type="crossrail" prevRail="előző rail neve" nextRail="következő rail neve" otherprevRail="előző rail neve" othernextRail="következő rail neve"/>
+
+        Állomás:
+        <connection name="station_neve" type="station" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        Alagútszáj:
+        <connection name="tunnel_neve" type="tunnel" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        Váltó:
+        <connection name="váltó_neve" type="switch" prevRail="előző rail neve" nextRail="következő rail neve" thirdRail="harmadik rail neve"/>
+
+        -->
+    </connections>
+
+</testMapName>

@@ -6,13 +6,13 @@ import java.util.Set;
 
 public class Game {
 
+
     //////////////////////
     private Map map;
     private boolean isLastGame;
     private final int maxTrainNumber = 3;
     private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
     //////////////////////
-
 
 
 

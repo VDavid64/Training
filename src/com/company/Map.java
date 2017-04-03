@@ -15,15 +15,14 @@ import java.util.List;
 
 public class Map {
 
-    ///////////
-    // lehetséges kezdőpontok tömbjei
+
+
+    ///////////////////////
+    // Tagváltozók:
     private Rail startPosition = new Rail();
     private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
     private ArrayList<Station> stations = new ArrayList<>();
     private List<Rail> rails = new ArrayList<>();
-
-
-    // tunnel karbantartásához szükséges változók
     private static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
     private static boolean isTrainInTunnel;
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
@@ -34,8 +33,8 @@ public class Map {
 
 
 
-
-    ////////////
+    ///////////////////////
+    // Függvények:
     public Rail getStartPosition() {
         return startPosition;
     }
@@ -63,6 +62,8 @@ public class Map {
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;
+        isTrainInTunnel = false;
+        activeTunnelPositions.clear();
     }
 
     ///////////// TODO: mouseClicked eventre majd beregisztrálni
@@ -154,7 +155,7 @@ public class Map {
                     Tunnel tunnel = new Tunnel();
                     rails.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
-                    CrossRail crossRail = new CrossRail(null, null, null, null);
+                    CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
                     rails.add(crossRail);
                 } else if (eElement.getAttribute("type").equals("station")) {
                     Station station = new Station(null, null);
@@ -180,7 +181,7 @@ public class Map {
                 }
 
                 // kereszteződő sínekre
-                if (eElement.getAttribute("type").equals("crossrail")) {
+                else if (eElement.getAttribute("type").equals("crossRail")) {
                     if (!eElement.getAttribute("nextRail").equals("null"))
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setNextRail(rails.get(getIndexByName(eElement.getAttribute("nextRail"))));
                     if (!eElement.getAttribute("prevRail").equals("null"))
@@ -191,7 +192,7 @@ public class Map {
                 }
 
                 // váltó
-                if (eElement.getAttribute("type").equals("switch")) {
+                else if (eElement.getAttribute("type").equals("switch")) {
                     if (!eElement.getAttribute("nextRail").equals("null"))
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setNextRail(rails.get(getIndexByName(eElement.getAttribute("nextRail"))));
                     if (!eElement.getAttribute("prevRail").equals("null"))
@@ -259,7 +260,7 @@ public class Map {
 
 
     // segédfüggvény az xml feldolgozásához
-    public int getIndexByName(String name) {
+    private int getIndexByName(String name) {
         for (int i = 0; i < rails.size(); i++) {
             if (rails.get(i).name.equals(name)) {
                 return i;

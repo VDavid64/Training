@@ -82,6 +82,8 @@ public class Switch extends Rail {
     }
 
 
+
+
     @Override
     public void setSwitchThirdRail(Rail r3) {
         this.otherRail = r3;
