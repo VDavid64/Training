@@ -138,28 +138,31 @@ public class Map {
             Document doc = dBuilder.parse(fXmlFile);
             doc.getDocumentElement().normalize();
 
-
-            // végigmegyünk az összes példányosításon - rail / switch / tunnel / crossRail / station
             NodeList elementList = doc.getElementsByTagName("element");
 
+            // TODO: Switchek listája?
             for (int i = 0; i < elementList.getLength(); i++) {
                 Node nNode = elementList.item(i);
                 Element eElement = (Element) nNode;
                 if (eElement.getAttribute("type").equals("rail")) {
                     Rail rail = new Rail(null, null, eElement.getAttribute("name"));
                     rails.add(rail);
+                    if (eElement.getAttribute("name").equals("startpos"))
+                        startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {
                     Switch sw = new Switch(null, null, null, eElement.getAttribute("name"));
                     rails.add(sw);
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
-                    Tunnel tunnel = new Tunnel();
+                    Tunnel tunnel = new Tunnel(eElement.getAttribute("name"));
                     rails.add(tunnel);
+                    tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
                     CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
                     rails.add(crossRail);
                 } else if (eElement.getAttribute("type").equals("station")) {
-                    Station station = new Station(null, null);
+                    Station station = new Station(eElement.getAttribute("name"));
                     rails.add(station);
+                    stations.add(station);
                 }
             }
 
@@ -203,7 +206,6 @@ public class Map {
 
             }
 
-            startPosition = rails.get(0);
             System.out.println("<Map loaded successfully: " +mapName +">");
 
         }
@@ -243,7 +245,6 @@ public class Map {
             }
         }
         else throw new IllegalArgumentException();
-        // ha váltóra, akkor annak az állítása történik meg
     }
 
     static public boolean getIsActiveTunnel() {

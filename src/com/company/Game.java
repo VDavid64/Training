@@ -70,7 +70,7 @@ public class Game {
 
 
         // első körben generálunk
-        if ((round == 0 || round == 10 || round == 30) && empty) {
+        if ((round == 0 || round == 10) && empty) {
             int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
             System.out.format("Új vonat %d kocsival: ", numberOfCars);
             Engine newEngine = new Engine(map.getStartPosition(), numberOfCars);
@@ -161,19 +161,35 @@ public class Game {
 
 
 
-    ///////////////     Done
+    /////////////// Done
     // Kocsik kiürítése
     // utasok leszállítását végrehajtó függvény
     public void emptyCars() {
         for (Engine e: engines) {
             Car car = e.getFirstNotEmptyCar();
             // az első nem üres kocsi és állomáson vagyunk
-            if (car != null && car.getActPos().getColor() != null ) {
-                // ha egyezik a szín, kiürítjük a kocsit
-                if ( (car.getActPos()).getColor() == car.getColor())
-                    car.setEmpty(true);
+            if (car != null) {
+                if ((car.getActPos() != null)) {
+                    if ((car.getActPos().getColor() != null)) {
+                        // ha egyezik a szín, kiürítjük a kocsit
+                        if ((car.getActPos()).getColor() == car.getColor()) {
+                            car.setEmpty(true);
+                            System.out.println("    <Leszállás történt: " + car.getActPos().name +" >");
+                        }
+                    }
+                }
             }
         }
     }
 
+    public void printStationData(String param) {
+        for (Station s: map.getStations()
+             ) {
+            if (s.name.equals(param)) {
+                System.out.println("<" + s.name + " " + s.getColor() + " " + s.getPassenger() + ">");
+                return;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
 }

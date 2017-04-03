@@ -77,6 +77,7 @@ public class Application {
                                 round--;
                             }
                         } catch (Exception e) {
+                            e.printStackTrace();
                             System.out.println("Useage of Step command: \"Step round_number\". Rund must be a number between 1 and 500");
                         }
 
@@ -107,6 +108,20 @@ public class Application {
 
                     case ("EXIT"):
                         System.exit(0);
+
+
+
+                    case ("STATIONSTATE"):
+                        try {
+                            String param = inputArray[1];
+                            game.printStationData(param);
+                        }
+                        catch (IllegalArgumentException i) {
+                            System.out.println("There is no station by that name");
+                        }
+                        catch (Exception e) {
+                            System.out.println("Useage of StationState command: \"StationState station_name\" "); }
+                        break;
 
 
 

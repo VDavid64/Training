@@ -10,7 +10,8 @@ public class Car extends Train_Element {
     // TODO
     // Konstruktor
     public Car(int numberOfCars) {
-        color = Color.getRandomColor();
+        // color = Color.getRandomColor();
+        color = Color.GREEN;
         System.out.format(" %s ", color);
         isEmpty = false;
         if (numberOfCars > 1)
@@ -44,6 +45,7 @@ public class Car extends Train_Element {
         if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0) {
             this.setEmpty(false);
             actPos.setPassenger();
+
         }
 
         /*

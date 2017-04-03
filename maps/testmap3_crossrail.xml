@@ -20,7 +20,7 @@
         <element name="rail_14" type="rail"/>
         <element name="rail_15" type="rail"/>
 
-    </mapElements>>
+    </mapElements>
 
     <connections>
         <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>

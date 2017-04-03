@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <testMapName>
-
-    <!-- Példányosítás -->
     <mapElements>
-
-        <!-- The name of the first element must be "startpos" (position for generating trains) -->
         <element name="startpos" type="rail"/>
         <element name="rail_1" type="rail"/>
         <element name="rail_2" type="rail"/>
@@ -12,7 +8,7 @@
         <element name="rail_4" type="rail"/>
         <element name="rail_5" type="rail"/>
 
-        <element name="switch1" type="switch"/>
+        <element name="switch_1" type="switch"/>
 
         <element name="rail_6" type="rail"/>
         <element name="rail_7" type="rail"/>
@@ -20,9 +16,23 @@
         <element name="rail_9" type="rail"/>
         <element name="rail_10" type="rail"/>
 
-    </mapElements>>
+        <element name="station_1" type="station"/>
 
-    <!-- Összeköttetések beállítása -->
+        <element name="rail_11" type="rail"/>
+        <element name="rail_12" type="rail"/>
+        <element name="rail_13" type="rail"/>
+        <element name="rail_14" type="rail"/>
+        <element name="rail_15" type="rail"/>
+
+        <element name="station_2" type="station"/>
+
+        <element name="rail_16" type="rail"/>
+        <element name="rail_17" type="rail"/>
+        <element name="rail_18" type="rail"/>
+        <element name="rail_19" type="rail"/>
+        <element name="rail_20" type="rail"/>
+
+    </mapElements>>
     <connections>
 
         <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
@@ -30,15 +40,31 @@
         <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
         <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
         <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="rail_5"/>
-        <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="switch1"/>
+        <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="switch_1"/>
 
-        <connection name="switch1" type="switch" prevRail="rail_5" nextRail="rail_6" thirdRail="rail_10"/>
+        <connection name="switch_1" type="switch" prevRail="rail_6" nextRail="rail_5" thirdRail="rail_20"/>
 
-        <connection name="rail_6" type="rail" prevRail="switch1" nextRail="rail_7"/>
+        <connection name="rail_6" type="rail" prevRail="switch_1" nextRail="rail_7"/>
         <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
         <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
         <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
-        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="switch1"/>
+        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="station_1"/>
+
+        <connection name="station_1" type="station" prevRail="rail_10" nextRail="rail_11"/>
+
+        <connection name="rail_11" type="rail" prevRail="station_1" nextRail="rail_12"/>
+        <connection name="rail_12" type="rail" prevRail="rail_11" nextRail="rail_13"/>
+        <connection name="rail_13" type="rail" prevRail="rail_12" nextRail="rail_14"/>
+        <connection name="rail_14" type="rail" prevRail="rail_13" nextRail="rail_15"/>
+        <connection name="rail_15" type="rail" prevRail="rail_14" nextRail="station_2"/>
+
+        <connection name="station_2" type="station" prevRail="rail_15" nextRail="rail_16"/>
+
+        <connection name="rail_16" type="rail" prevRail="station_2" nextRail="rail_17"/>
+        <connection name="rail_17" type="rail" prevRail="rail_16" nextRail="rail_18"/>
+        <connection name="rail_18" type="rail" prevRail="rail_17" nextRail="rail_19"/>
+        <connection name="rail_19" type="rail" prevRail="rail_18" nextRail="rail_20"/>
+        <connection name="rail_20" type="rail" prevRail="rail_19" nextRail="switch_1"/>
 
         <!-- A connection elemek szerkezete:
         Rail esetén:

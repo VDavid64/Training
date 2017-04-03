@@ -26,7 +26,7 @@ public class Engine extends Train_Element {
     public Car getFirstNotEmptyCar() {
         Train_Element next = nextTrainElement;
         while ( next != null ) {
-            if (next.isEmpty()) {
+            if (!next.isEmpty()) {
                 return (Car) next;
             }
             else {

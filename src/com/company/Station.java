@@ -7,11 +7,12 @@ public class Station  extends Rail {
     private int passenger;
 
 
-    public Station(Rail r1, Rail r2) {
-        color = Color.getRandomColor();
-        nextRail = r1;
-        prevRail = r2;
+    // TODO: állomások színének randomságát kiiktatni. Biztosítani kell hogy ha legyen olyan színű állomás, mint kocsi
+    public Station(String name) {
+        this.name = name;
         passenger = (int) (Math.random() * (4));
+        // color = Color.getRandomColor();
+        color = Color.GREEN;
     }
 
     @Override
@@ -28,6 +29,9 @@ public class Station  extends Rail {
     @Override
     public void setPassenger() {
         passenger = passenger-1;
+
+        // Kiírás sak debug célra, majd törölni kell
+        System.out.println("<Felszállás történt>");
     }
 
 }

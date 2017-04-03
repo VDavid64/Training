@@ -38,6 +38,7 @@ public abstract class Train_Element {
     public boolean isEmpty() {
         return true;
     }
+
     public void setEmpty(boolean b) {
         isEmpty = b;
     }
