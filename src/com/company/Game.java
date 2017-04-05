@@ -72,8 +72,8 @@ public class Game {
         // első körben generálunk
         if ((round == 0 || round == 10) && empty) {
             int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
-            System.out.format("Új vonat %d kocsival: ", numberOfCars);
-            Engine newEngine = new Engine(map.getStartPosition(), numberOfCars);
+            System.out.format("New engine with %d cars: ", numberOfCars);
+            Engine newEngine = new Engine(map.getStartPosition(), numberOfCars, "engine_" + round);
             engines.add(newEngine);
             return;
         }

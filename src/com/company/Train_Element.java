@@ -9,6 +9,7 @@ public abstract class Train_Element {
     protected boolean isVisible;
     protected Train_Element nextTrainElement;
     protected boolean isEmpty;
+    protected String name;
 
 
 

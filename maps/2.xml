@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <testMapName>
+
+    <!-- Testmap 2 - Edge -->
+
     <mapElements>
         <element name="startpos" type="rail"/>
         <element name="rail 1" type="rail"/>

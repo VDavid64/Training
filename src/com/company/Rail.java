@@ -8,6 +8,7 @@ public class Rail {
     protected Rail prevRail;
     public String name;
     protected boolean isTunnelUnderRail;
+    protected boolean occupied = false;
 
 
     // konstruktor

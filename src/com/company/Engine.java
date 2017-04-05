@@ -8,9 +8,10 @@ public class Engine extends Train_Element {
     // TODO: Konstruktor átírása, hogy ne csak Car-okat generáljon
     // A vonat léterhozásáért felelős konstruktor
     // ráállítja a startPos-ra az Engine-t, és beállítja az első kocsit
-    public Engine(Rail startPos, int numberOfCars) {
+    public Engine(Rail startPos, int numberOfCars, String name) {
+        this.name = name;
         actPos = startPos;
-        System.out.print(" Engine at " + actPos.name + " with cars: ");
+        System.out.print("\"" + name + "\" at: \"" + actPos.name + "\" with cars: ");
         prevPos = null;
         nextTrainElement = new Car(numberOfCars);
     }
@@ -43,7 +44,10 @@ public class Engine extends Train_Element {
         Rail tempPrevRail = this.getPrevPos();
         Rail tempActRail = this.getActPos();
         this.setPrevPos(actPos);
-        this.setActPos(tempActRail.getNextRail(tempPrevRail, this));
+        Rail nextPos = tempActRail.getNextRail(tempPrevRail, this);
+        this.setActPos(nextPos);
+        if (nextPos != null)
+            nextPos.occupied = true;
 
         if (! (actPos == null))
             System.out.println("Engine új pozíciója: " + actPos.name);

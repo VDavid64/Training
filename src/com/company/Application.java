@@ -38,7 +38,7 @@ public class Application {
                 String inputString = scanInput.nextLine();
                 String[] inputArray = inputString.split(" ");
                 if (inputArray[0].equals("") || inputArray.length > 2) {
-                    System.out.println("Format must be: \"command param(opt)\" ");
+                    System.out.println("Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
                     continue; }
                 String command = inputArray[0].toUpperCase();
 
@@ -53,7 +53,6 @@ public class Application {
                         catch (Exception e) {
                             System.out.println("Useage of LoadMap command: \"LoadMap map_name\" "); }
                         break;
-
 
                     case ("STEP"):
                         try {
@@ -94,6 +93,7 @@ public class Application {
                         break;
 
 
+                    // TODO: vált, ha van rajta vonat.
                     case ("SETSWITCH"):
                         try {
                             String param = inputArray[1];
@@ -121,6 +121,16 @@ public class Application {
                         }
                         catch (Exception e) {
                             System.out.println("Useage of StationState command: \"StationState station_name\" "); }
+                        break;
+
+
+
+                    case ("HELP"):
+                        System.out.println("Available commands: \n");
+                        System.out.println("    Loadmap map_name                        Loads map from \\map.*.xml");
+                        System.out.println("    Step number_of_steps                    Must be between 1 and 500");
+                        System.out.println("    SetSwitch switch_name                   Change the direction of switch");
+                        System.out.println("    StationState station_name               List data of given station");
                         break;
 
 

@@ -2,6 +2,8 @@
 <testMapName>
     <mapElements>
 
+        <!-- Testmap 3 - CrossRail -->
+
         <element name="startpos" type="rail"/>
         <element name="rail_1" type="rail"/>
         <element name="rail_2" type="rail"/>

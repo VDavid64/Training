@@ -66,6 +66,8 @@ public class Map {
         activeTunnelPositions.clear();
     }
 
+
+
     ///////////// TODO: mouseClicked eventre majd beregisztrálni
     // Az alagútak kezelését végrehajtó függvény, ami paraméterben
     // egy Tunnel-t kap (ezt módosította a felhasználó)

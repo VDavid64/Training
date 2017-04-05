@@ -37,15 +37,21 @@ public class Car extends Train_Element {
     @Override
     public void move(Rail nextRail) {
 
+
+        // Felszabadítjuk a sínt, melyről továbblépünk
+        if (nextTrainElement == null && prevPos != null)
+            prevPos.occupied=false;
+
+        // Lépés
         prevPos = actPos;
         actPos = nextRail;
 
 
-        // felszállás: ha a kocsi nem üres, azonosak a színek és van utas az állomáson
+        // Felszállás:
+        //      Ha nem üres a kocsi, azonosak a színek és van utas az állomáson
         if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0) {
             this.setEmpty(false);
             actPos.setPassenger();
-
         }
 
         /*
@@ -57,6 +63,7 @@ public class Car extends Train_Element {
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos);
+
     }
 
 

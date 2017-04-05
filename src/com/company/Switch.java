@@ -72,7 +72,11 @@ public class Switch extends Rail {
     // TODO: Check, if train is on switch
     @Override
     public void changeDir() {
-        if (dir == true) {
+        if (this.occupied) {
+            System.out.println("<Can not change direction: there is a train on the switch>");
+            return;
+        }
+        else if (dir == true) {
             dir = false;
             System.out.print("<State: " + dir +">\n");
         }

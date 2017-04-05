@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <testMapName>
     <mapElements>
+
+        <!-- Testmap 8 - Stations -->
+
         <element name="startpos" type="rail"/>
         <element name="rail_1" type="rail"/>
         <element name="rail_2" type="rail"/>
