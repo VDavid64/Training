@@ -61,6 +61,7 @@ public class Application {
                             if (round < 1 || round > 500) throw new IllegalArgumentException();
 
                             while (round != 0 && gameIsOn) {
+                                System.out.println("-------------------------------");
                                 System.out.println("<round: " + counter + ">");
                                 game.moveTrains();
                                 game.generateTrain(counter);
@@ -93,7 +94,7 @@ public class Application {
                         break;
 
 
-                    // TODO: vált, ha van rajta vonat.
+
                     case ("SETSWITCH"):
                         try {
                             String param = inputArray[1];
@@ -122,6 +123,21 @@ public class Application {
                         catch (Exception e) {
                             System.out.println("Useage of StationState command: \"StationState station_name\" "); }
                         break;
+
+
+
+                    case ("LISTENGINE"):
+                        try {
+                            String param = inputArray[1];
+                            game.listEngine(param);
+                        }
+                        catch (IllegalArgumentException i) {
+                            System.out.println("There is no engine by that name");
+                        }
+                        catch (Exception e) {
+                            System.out.println("Useage of ListEngine command: \"ListEngine engine_name\" "); }
+                        break;
+
 
 
 

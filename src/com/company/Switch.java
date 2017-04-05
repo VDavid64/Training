@@ -69,7 +69,6 @@ public class Switch extends Rail {
     }
 
 
-    // TODO: Check, if train is on switch
     @Override
     public void changeDir() {
         if (this.occupied) {

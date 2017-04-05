@@ -192,4 +192,20 @@ public class Game {
         }
         throw new IllegalArgumentException();
     }
+
+    public void listEngine(String param) {
+        for (Engine e : engines
+             ) {
+            if (e.name.equals(param)) {
+                System.out.println("<Name: " + e.name + "><Position: " + e.actPos.name + ">");
+                Train_Element te = e.nextTrainElement;
+                while (te != null) {
+                    System.out.println("<Name: " + te.name + " ><Position: " + te.actPos.name + " ><Color: " + te.getColor() + ">");
+                    te = te.getNextTrainElement();
+                }
+                return;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
 }
