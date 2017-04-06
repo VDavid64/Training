@@ -7,14 +7,16 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
 
+        // TODO: tunnel, random, engine from xml, felszállás és leszállás egyszerre, maps
+
         //////////////////////////////////////////////////////////
         // init:
         Thread t = new Thread();            // szál és game példányosítása
         Game game = new Game();
         boolean gameIsOn = true;            // játék állapotát rögzítő bool (true, ha megy a játék)
-        int counter = 0;                    // számláló (vonat generálásához) és a map
-        //int mapNumber = 1;                  // hányadik pályán járunk
-        //game.loadMap("testmap");            // első pálya betöltése - paraméterben az xml fájl neve
+        boolean gameHasWon = false;
+        boolean mapLoaded = false;
+        int counter = 1;                    // számláló (vonat generálásához) és a map
         //////////////////////////////////////////////////////////
 
 
@@ -23,8 +25,8 @@ public class Application {
         System.out.println();
         System.out.println("-------------------------------");
         System.out.println("Start of the Program.");
-        System.out.println("Use \"LoadMap map_name\" to load a map from XML file");
-        System.out.println("Then use command {Step, SetRandom, SetTunnel, SetSwitch, TunnelState, StationState, ListEngine, ListTrains}, ");
+        System.out.println("First, use \"LoadMap map_name\" to load a map from XML file");
+        System.out.println("Then use command {Step, SetRandom, SetTunnel, SetSwitch, TunnelState, StationState, ListEngine, ListTrains},");
         System.out.println("to manipulate the program.");
         System.out.println("-------------------------------");
 
@@ -49,16 +51,20 @@ public class Application {
                         try {
                             String param = inputArray[1];
                             game.loadMap(param);
+                            mapLoaded = true;
                         }
                         catch (Exception e) {
                             System.out.println("Useage of LoadMap command: \"LoadMap map_name\" "); }
                         break;
+
+
 
                     case ("STEP"):
                         try {
                             String param = inputArray[1];
                             int round = Integer.parseInt(param);
                             if (round < 1 || round > 500) throw new IllegalArgumentException();
+                            if (!mapLoaded) throw new IllegalStateException();
 
                             while (round != 0 && gameIsOn) {
                                 System.out.println("-------------------------------");
@@ -67,28 +73,42 @@ public class Application {
                                 game.generateTrain(counter);
                                 game.emptyCars();
 
-                                if (game.crashDetection()) gameIsOn = false;
+                                if (game.crashDetection()) {
+                                    gameIsOn = false;
+                                }
                                 if (game.isWon() && (counter >= 5)) {
-                                    if (game.getIsLastGame())
-                                        gameIsOn = false;
+                                    gameIsOn = false;
+                                    gameHasWon = true;
                                 }
 
                                 counter++;
                                 round--;
                             }
-                        } catch (Exception e) {
+                        }
+                        catch (IllegalStateException i) {
+                            i.printStackTrace();
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
+                        }
+                        catch (Exception e) {
                             e.printStackTrace();
                             System.out.println("Useage of Step command: \"Step round_number\". Rund must be a number between 1 and 500");
                         }
 
-                        // ha a játék véget ért, resetelünk, hogy újra tudjunk indítani egy pályát, programból való kilépés nélkül
-                        if (gameIsOn == false) {
-                            System.out.println("Game over");
-                            System.out.println("-------------------------------");
-                            System.out.println();
+                        // ha a játék véget ért: resetelünk, hogy újra tudjunk indítani egy pályát, programból való kilépés nélkül
+                        if (!gameIsOn) {
+                            if (gameHasWon) {
+                                System.out.println("Congratulations! You Won!");
+                                System.out.println("-------------------------------");
+                            }
+                            else {
+                                System.out.println("Game over");
+                                System.out.println("-------------------------------");
+                            }
+                            mapLoaded = false;
                             game.deleteTrains();
                             counter = 0;
                             gameIsOn = true;
+                            gameHasWon = false;
                         }
 
                         break;
@@ -98,12 +118,18 @@ public class Application {
                     case ("SETSWITCH"):
                         try {
                             String param = inputArray[1];
+                            if (!mapLoaded) throw new IllegalStateException();
                             game.onClicked(param);
                         }
                         catch (IllegalArgumentException i) {
                             System.out.println("There is no switch by that name");
                         }
+                        catch (IllegalStateException i) {
+                            i.printStackTrace();
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
+                        }
                         catch (Exception e) {
+                            e.printStackTrace();
                             System.out.println("Useage of SetSwitch command: \"SetSwitch switch_name\" "); }
                         break;
 
@@ -115,10 +141,15 @@ public class Application {
                     case ("STATIONSTATE"):
                         try {
                             String param = inputArray[1];
+                            if (!mapLoaded) throw new IllegalStateException();
                             game.printStationData(param);
                         }
                         catch (IllegalArgumentException i) {
                             System.out.println("There is no station by that name");
+                        }
+                        catch (IllegalStateException i) {
+                            i.printStackTrace();
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
                         }
                         catch (Exception e) {
                             System.out.println("Useage of StationState command: \"StationState station_name\" "); }
@@ -129,15 +160,33 @@ public class Application {
                     case ("LISTENGINE"):
                         try {
                             String param = inputArray[1];
+                            if (!mapLoaded) throw new IllegalStateException();
                             game.listEngine(param);
                         }
                         catch (IllegalArgumentException i) {
                             System.out.println("There is no engine by that name");
                         }
+                        catch (IllegalStateException i) {
+                            i.printStackTrace();
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
+                        }
                         catch (Exception e) {
                             System.out.println("Useage of ListEngine command: \"ListEngine engine_name\" "); }
                         break;
 
+
+                    case ("LISTTRAINS"):
+                        try {
+                            if (!mapLoaded) throw new IllegalStateException();
+                            game.listTrains();
+                        }
+                        catch (IllegalStateException i) {
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("Useage of ListEngine command: \"ListEngine engine_name\" "); }
+                        break;
 
 
 
@@ -145,8 +194,9 @@ public class Application {
                         System.out.println("Available commands: \n");
                         System.out.println("    Loadmap map_name                        Loads map from \\map.*.xml");
                         System.out.println("    Step number_of_steps                    Must be between 1 and 500");
-                        System.out.println("    SetSwitch switch_name                   Change the direction of switch");
+                        System.out.println("    SetSwitch switch_name                   Change the direction of a switch");
                         System.out.println("    StationState station_name               List data of given station");
+                        System.out.println("    ListEngine engine_name                  List all information about an engine");
                         break;
 
 

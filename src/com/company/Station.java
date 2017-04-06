@@ -20,7 +20,6 @@ public class Station  extends Rail {
         return color;
     }
 
-
     @Override
     public int getPassenger() {
         return passenger;
@@ -29,9 +28,6 @@ public class Station  extends Rail {
     @Override
     public void setPassenger() {
         passenger = passenger-1;
-
-        // Kiírás sak debug célra, majd törölni kell
-        System.out.println("<Felszállás történt>");
     }
 
 }

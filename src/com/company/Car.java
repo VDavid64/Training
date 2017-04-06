@@ -5,17 +5,20 @@ package com.company;
 public class Car extends Train_Element {
 
     private Color color;
+    private boolean canEmpty;
 
-
-    // TODO
     // Konstruktor
-    public Car(int numberOfCars) {
+    public Car(int numberOfCars, int i) {
         // color = Color.getRandomColor();
-        color = Color.GREEN;
+        this.color = Color.GREEN;
+        this.name = "car_"+ i;
+        this.isEmpty = false;
+        this.canEmpty = true;
+
         System.out.format(" %s ", color);
-        isEmpty = false;
+
         if (numberOfCars > 1)
-            nextTrainElement = new Car(numberOfCars-1);
+            nextTrainElement = new Car(numberOfCars-1, ++i);
         else {
             nextTrainElement = null;
             System.out.println();
@@ -49,15 +52,13 @@ public class Car extends Train_Element {
 
         // Felszállás:
         //      Ha nem üres a kocsi, azonosak a színek és van utas az állomáson
-        if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0) {
+        if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0 ) {
             this.setEmpty(false);
             actPos.setPassenger();
+            System.out.println("    <Felszállás történt: " + this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
+            canEmpty = false;
         }
 
-        /*
-        if (! (actPos == null))
-            System.out.println("kocsi új pozíciója: " + actPos.name);
-        */
 
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is

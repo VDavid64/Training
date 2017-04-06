@@ -20,7 +20,7 @@ public class Game {
     ///////////////////////////
     // default constructor
     public Game() {
-        isLastGame = false;
+        isLastGame = true;
     }
 
 
@@ -49,14 +49,12 @@ public class Game {
     }
 
 
-    //////////////// TODO:  mikor
+    ////////////////
     // Vonat generálása:
     //          Lekérdezzük a lehetséges kezdőpozíciót, majd azt beállítjuk az új engine-nek
     //          Második paraméterben a kocsik számát adjuk meg - random between 2 and 5
     //          Generáláskor ellenőrizni kell, üres-e a startPos
     public void generateTrain(int round) {
-
-
 
 
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
@@ -70,7 +68,7 @@ public class Game {
 
 
         // első körben generálunk
-        if ((round == 0 || round == 10) && empty) {
+        if ((round == 1 || round == 10) && empty) {
             int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
             System.out.format("New engine with %d cars: ", numberOfCars);
             Engine newEngine = new Engine(map.getStartPosition(), numberOfCars, "engine_" + round);
@@ -78,9 +76,6 @@ public class Game {
             return;
         }
     }
-
-
-
 
 
     ////////////////    Done
@@ -94,24 +89,28 @@ public class Game {
 
     /////////////////   Done
     // Nyerés ellenőrzése - true, ha megnyertük a játékot
-    // Megnyerés feltétele: utolsó pályán vagyunk-e és minden kocsi üres
-    // Ha minden engine minden kocsija üres -> null a visszatérési érték, megnyertük
+    // Megnyerés feltétele: minden kocsi és állomás üres
     public boolean isWon() {
-        boolean allIsEmpty = true;
 
+        /*
         // ha nem az utolsó pálya
         if (!getIsLastGame())
             return false;
+        */
 
-        // ha utolsó, a kocsikat ellenőrizzük
-        while (allIsEmpty) {
-            for (Engine e: engines) {
-                if (e.getFirstNotEmptyCar() != null) {
-                    return false;
-                }
+        for (Engine e: engines) {
+            if (e.getFirstNotEmptyCar() != null) {
+                return false;
             }
         }
-        return allIsEmpty;
+
+        for (Station s: map.getStations()
+                ) {
+            if (s.getPassenger() != 0)
+                return false;
+        }
+
+        return true;
     }
 
 
@@ -167,14 +166,12 @@ public class Game {
     public void emptyCars() {
         for (Engine e: engines) {
             Car car = e.getFirstNotEmptyCar();
-            // az első nem üres kocsi és állomáson vagyunk
-            if (car != null) {
+            if (car != null) {                                                              // az első nem üres kocsi és állomáson vagyunk
                 if ((car.getActPos() != null)) {
                     if ((car.getActPos().getColor() != null)) {
-                        // ha egyezik a szín, kiürítjük a kocsit
-                        if ((car.getActPos()).getColor() == car.getColor()) {
+                        if ((car.getActPos()).getColor() == car.getColor()) {               // ha egyezik a szín, kiürítjük a kocsit
                             car.setEmpty(true);
-                            System.out.println("    <Leszállás történt: " + car.getActPos().name +" >");
+                            System.out.println("    <Leszállás történt: " + car.getActPos().name +", " + car.name + " >");
                         }
                     }
                 }
@@ -197,15 +194,38 @@ public class Game {
         for (Engine e : engines
              ) {
             if (e.name.equals(param)) {
-                System.out.println("<Name: " + e.name + "><Position: " + e.actPos.name + ">");
+                System.out.println("<Name: " + e.name + "><Position: " + e.actPos.name + " >");
                 Train_Element te = e.nextTrainElement;
                 while (te != null) {
-                    System.out.println("<Name: " + te.name + " ><Position: " + te.actPos.name + " ><Color: " + te.getColor() + ">");
+                    System.out.println("<Name: " + te.name + " ><Position: " + te.actPos.name + " ><Color: " + te.getColor() + ">< empty: " +te.isEmpty() + " >");
                     te = te.getNextTrainElement();
                 }
                 return;
             }
         }
         throw new IllegalArgumentException();
+    }
+
+    public void listTrains() {
+        if (engines.isEmpty()) {
+            System.out.println("<There is no train to list.>");
+            return;
+        }
+
+        for (int i = 0; i < engines.size(); i++) {
+            Engine e = engines.get(i);
+            System.out.println("Number " + i + " train:");
+            System.out.println("    <Name: " + e.name + "><Position: " + e.actPos.name + " >");
+            if (e.getNextTrainElement() != null) {
+                Train_Element te = e.getNextTrainElement();
+                while (te != null) {
+                    if (te.getActPos() == null) {
+                        break;
+                    }
+                    System.out.println("        <Name: " + te.name + " ><Position: " + te.actPos.name + " ><Color: " + te.getColor() + ">< empty: " +te.isEmpty() + " >");
+                    te = te.getNextTrainElement();
+                }
+            }
+        }
     }
 }
