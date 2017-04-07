@@ -33,7 +33,6 @@ public class Rail {
             return prevRail;
     }
 
-
     // Station osztályhoz szükséges függvény
     public Color getColor() {
         return null;
@@ -58,4 +57,10 @@ public class Rail {
     public void setOtherCrossRails(Rail r2_nextrail, Rail r2_prevrail) {}
 
     public void setSwitchThirdRail(Rail r3) {}
+
+    public boolean getThirdRail() {
+        return false;
+    }
+
+    public void setTunnelRail(Rail r, String d) {}
 }

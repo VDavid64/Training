@@ -7,7 +7,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
 
-        // TODO: tunnel, random, engine from xml, felszállás és leszállás egyszerre, maps
+        // TODO: tunnel kattintás ignorálása ha foglalt, random, engine from xml, felszállás és leszállás egyszerre, maps
 
         //////////////////////////////////////////////////////////
         // init:
@@ -116,13 +116,14 @@ public class Application {
 
 
                     case ("SETSWITCH"):
+                    case ("SETTUNNEL"):
                         try {
                             String param = inputArray[1];
                             if (!mapLoaded) throw new IllegalStateException();
                             game.onClicked(param);
                         }
                         catch (IllegalArgumentException i) {
-                            System.out.println("There is no switch by that name");
+                            System.out.println("There is no switch/tunnel by that name");
                         }
                         catch (IllegalStateException i) {
                             i.printStackTrace();
@@ -130,12 +131,13 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of SetSwitch command: \"SetSwitch switch_name\" "); }
+                            System.out.println("Useage of SetSwitch/SetTunnel command: \"SetSwitch switch_name\" or \"SetTunnel tunnel_name\""); }
                         break;
+
+
 
                     case ("EXIT"):
                         System.exit(0);
-
 
 
                     case ("STATIONSTATE"):
@@ -153,6 +155,21 @@ public class Application {
                         }
                         catch (Exception e) {
                             System.out.println("Useage of StationState command: \"StationState station_name\" "); }
+                        break;
+
+
+                    case ("TUNNELSTATE"):
+                        try {
+                            if (!mapLoaded) throw new IllegalStateException();
+                            game.printTunnelState();
+                        }
+                        catch (IllegalStateException i) {
+                            i.printStackTrace();
+                            System.out.println("You need to load a map first. Use \"LoadMap\" command!");
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("Useage of TunnelState command: \"TunnelState\" "); }
                         break;
 
 
@@ -202,7 +219,7 @@ public class Application {
 
 
                     default:
-                        System.out.println("Invalid command");
+                        System.out.println("Invalid command. Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
                         break;
                 }
             }

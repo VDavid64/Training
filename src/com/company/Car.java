@@ -41,9 +41,9 @@ public class Car extends Train_Element {
     public void move(Rail nextRail) {
 
 
-        // Felszabadítjuk a sínt, melyről továbblépünk
-        if (nextTrainElement == null && prevPos != null)
-            prevPos.occupied=false;
+        // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
+        if (nextTrainElement == null && actPos != null)
+            actPos.occupied=false;
 
         // Lépés
         prevPos = actPos;

@@ -180,14 +180,22 @@ public class Game {
     }
 
     public void printStationData(String param) {
-        for (Station s: map.getStations()
-             ) {
-            if (s.name.equals(param)) {
-                System.out.println("<" + s.name + " " + s.getColor() + " " + s.getPassenger() + ">");
-                return;
+
+        if (param.contains("station")) {
+            for (Station s: map.getStations()
+                ) {
+                if (s.name.equals(param)) {
+                    System.out.println("<" + s.name + " " + s.getColor() + " " + s.getPassenger() + ">");
+                    return;
+                }
             }
         }
+
         throw new IllegalArgumentException();
+    }
+
+    public void printTunnelState() {
+        map.printTunnelState();
     }
 
     public void listEngine(String param) {

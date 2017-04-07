@@ -4,8 +4,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import javax.swing.plaf.PanelUI;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
@@ -16,20 +14,17 @@ import java.util.List;
 public class Map {
 
 
-
     ///////////////////////
     // Tagváltozók:
     private Rail startPosition = new Rail();
     private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
+    List<Rail> tunnel = new ArrayList<>();
     private ArrayList<Station> stations = new ArrayList<>();
     private List<Rail> rails = new ArrayList<>();
-    private static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
-    private static boolean isTrainInTunnel;
+    public static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
+    public static boolean isTrainInTunnel;
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
-    private static boolean isDerailing;                                         // volt-e kisiklás - váltó állítja
-
-
-
+    public static boolean isDerailing;                                         // volt-e kisiklás - váltó állítja
 
 
 
@@ -73,6 +68,7 @@ public class Map {
     // egy Tunnel-t kap (ezt módosította a felhasználó)
     public void controlTunnel(Tunnel setThisTunnel) {
 
+
         // ha még nincs megépülve alagút
         if (isActiveTunnel == false) {
 
@@ -80,53 +76,62 @@ public class Map {
             if (activeTunnelPositions.size()==0) {
                 setThisTunnel.setActive(true);
                 activeTunnelPositions.add(setThisTunnel);
+                System.out.println("Alagútszáj aktiválva");
             }
 
-            // ha már van egy aktív tunnel  - vagy ugyanaz, vagy tunnel
-            else {
+            // ha már van egy aktív tunnel  - vagy ugyanaz, vagy új tunnel
+            else if (activeTunnelPositions.size()== 1){
+
                 // ugyanaz a tunnel -> active átállítása, pontok törlése
                 if (setThisTunnel == activeTunnelPositions.get(0)) {
                     activeTunnelPositions.clear();
                     setThisTunnel.setActive(false);
+                    System.out.println("Alagútszáj deaktiválva");
                 }
 
                 // új tunnel-re kattintottt a felhasználó  - ha az első pontból elérhető a másik, megépül az alagút
                 // ha nem érhető el, nem történik semmi,
                 else {
 
+                    // Alagút építése
                     // ha elérhető
-                    if (checkList(activeTunnelPositions.get(0), setThisTunnel)) {
-                        isActiveTunnel = true;
-                        activeTunnelPositions.add(setThisTunnel);
-                        setThisTunnel.setActive(true);
+                    if (checkList(setThisTunnel)) {
+                        System.out.println("Alagút megépítve");
                     }
 
                     //  bejárásnak nem eleme az adott tunnel -> nem épül alagút, tunnel active tagváltozója nem változik
                     // azaz semmi nem történik
-                    else {}
+                    else {
+                        System.out.println("Bejárás nem volt sikeres");
+                    }
                 }
             }
         }
 
+
         // ha már van megépült alagút
         else {
 
-            // TO-DO: ellenőrizni kell, hogy nincs-e bent vonat
-            // ha olyanra kattintottunk, ami aktív már - rombolunk
-            if (activeTunnelPositions.contains(setThisTunnel)) {
-                isActiveTunnel = false;
-                activeTunnelPositions.remove(setThisTunnel);
-                setThisTunnel.setActive(false);
+            // Alagút törlése
+            // Ha már aktív alagútszájra kattintottunk, és nincs vonat az alagútban
+            if (activeTunnelPositions.contains(setThisTunnel) && !isTrainInTunnel) {
+                                                                                    // Alagút törlése:
+                rails.removeAll(tunnel);                                            // töröljük rails-ből
+                activeTunnelPositions.get(0).setTunnelRail(null, null);             // két alagútszáj elvarrása
+                activeTunnelPositions.get(1).setTunnelRail(null, null);
+                tunnel.clear();                                                     // tunnel kiürítése
+                isActiveTunnel = false;                                             // nincs megépült alagút
+                activeTunnelPositions.remove(setThisTunnel);                        // aktív pontok listájából törölni kell
+                setThisTunnel.setActive(false);                                     // alagútszáj aktivításának törlése
+                System.out.println("Alagút törölve");
             }
 
             // amúgy semmi nem történik
-            else {}
-
+            else {
+                System.out.println("Hatástalan interakció");
+            }
         }
-
-
     }
-
 
 
     // betölti XML-ből a pályát
@@ -225,42 +230,150 @@ public class Map {
 
 
 
-    // TODO
+
     // Segédfüggvény - bejárhatóság
     // startPos-ból megpróbálja elérni tunnel-t, true ha sikerül
-    private boolean checkList(Tunnel startPos, Tunnel tunnel) {
+    private boolean checkList(Tunnel newTunnel) {
 
-        return false;
+        int lengthA = 0;
+        int lengthB = 0;
+        boolean dirAsuccess = false;
+        boolean dirBsuccess = false;
+        Tunnel startTunnel = activeTunnelPositions.get(0);
+        Rail nextRail = startTunnel.nextRail;
+        Rail prevRail = startTunnel.prevRail;
+
+
+        // Bejárás a két irányból (váltóknál szakadás):
+        while (nextRail != null && nextRail.getThirdRail() == false) {
+            if (newTunnel == nextRail) {
+                dirAsuccess = true;
+                break;
+            }
+            lengthA++;
+            nextRail = nextRail.nextRail;
+        }
+
+        while (prevRail != null && prevRail.getThirdRail() == false) {
+            if (newTunnel == prevRail) {
+                dirBsuccess = true;
+                break;
+            }
+            lengthB++;
+            prevRail = prevRail.prevRail;
+        }
+
+
+        // Ha az alagút megépülhet:
+        if (dirAsuccess || dirBsuccess) {
+
+            // Alagút megépítése:
+            //      beállítás, hogy van megépült alagút
+            //      aktív alagútszájak listájához hozzáadás
+            //      aktivitás beállítása
+            //      majd tunnel lista megépítése és összekötése, hozzáadás a rails-hez
+            isActiveTunnel = true;
+            activeTunnelPositions.add(newTunnel);
+            newTunnel.setActive(true);
+
+            if (dirAsuccess)
+                createTunnel(lengthA, "next");
+            else
+                createTunnel(lengthB, "prev");
+
+            return true;
+        }
+
+        // ha nem volt sikeres a bejárás
+        else
+            return false;
     }
 
 
-    // TODO
-    // A felhasználó interakcióját megvalósító függvény: külön kezelei az esetek attól függően, hogy milyen típusra kattintottunk
-    // Proto-hoz átalakítás: String paramétert kap
+    // Alagút megépítése
+    // megadott mennyiségű railt példányosít,
+    // majd összeköti a két aktív tunnel-el és berakja a rails-be
+    private void createTunnel(int length, String dir) {
+
+        // sínek példányosítása
+        for (int i = 0; i < length; i++) {
+            Rail r = new Rail(null, null, "tunnelRail_" + i);
+            tunnel.add(r);
+        }
+
+        // sínek összekötése
+        for (int i = 0; i < length; i++) {
+            if (i == 0) {
+                // az első elem összekötése
+                tunnel.get(0).setPrevRail(activeTunnelPositions.get(0));
+                tunnel.get(0).setNextRail(tunnel.get(1));
+                activeTunnelPositions.get(0).setTunnelRail(tunnel.get(0), dir);
+            }
+            else if (i == length-1) {
+                // az utolsó elem összekötése
+                tunnel.get(i).setNextRail(activeTunnelPositions.get(1));
+                tunnel.get(i).setPrevRail(tunnel.get(i-1));
+                if (dir.equals("next"))
+                    activeTunnelPositions.get(1).setTunnelRail(tunnel.get(i), "prev");
+                else
+                    activeTunnelPositions.get(1).setTunnelRail(tunnel.get(i), "next");
+            }
+            else {
+                tunnel.get(i).setPrevRail(tunnel.get(i-1));
+                tunnel.get(i).setNextRail(tunnel.get(i+1));
+            }
+        }
+
+
+        // hozzáadás a sínekhez
+        rails.addAll(tunnel);
+
+    }
+
+
+
+    // A felhasználó interakcióját megvalósító függvény:
+    //      külön kezelei az esetek attól függően, hogy mire kattintottunk
+    //      proto-hoz átalakítás: String paramétert kap
     public void onMouseClickedEvent(String name) {
 
         // Ha van ilyen nevű elemünk a sínek listájában
         if ( getIndexByName(name) != -1) {
+
+            // váltó esetén váltunk
             if (name.contains("switch")) {
                 System.out.print("<" + name + "> ");
                 rails.get(getIndexByName(name)).changeDir();
+            }
+
+            // alagútszáj esetén az alagútkezelő függvényt hívjuk meg
+            if (name.contains("tunnel")) {
+                System.out.println("<" + name + "> ");
+                if (rails.get(getIndexByName(name)).occupied) {
+                    System.out.println("<Tunnel \"" + name + "\" occupied> ");
+                    return;
+                }
+                else
+                    controlTunnel( (Tunnel) rails.get(getIndexByName(name)));
             }
         }
         else throw new IllegalArgumentException();
     }
 
+
     static public boolean getIsActiveTunnel() {
         return isActiveTunnel;
     }
+
 
     static public boolean getIsTrainInTunnel() {
         return isTrainInTunnel;
     }
 
-    static public void setIsTrainInTunnel( boolean b) {
-        isActiveTunnel = b;
-    }
 
+    static public void setIsTrainInTunnel( boolean b) {
+        isTrainInTunnel = b;
+    }
 
     // segédfüggvény az xml feldolgozásához
     private int getIndexByName(String name) {
@@ -270,5 +383,26 @@ public class Map {
             }
         }
         return -1;
+    }
+
+
+    public void printTunnelState() {
+
+        // Ha van megépült alagút:
+        //  print state + alagútszájak
+        if (getIsActiveTunnel()) {
+            System.out.println("<There is one active tunnel, with tunnel positions: >");
+            System.out.println("    <" + activeTunnelPositions.get(0).name + ">");
+            System.out.println("    <" + activeTunnelPositions.get(1).name + ">");
+        }
+
+
+        else if (activeTunnelPositions.size()==1) {
+            System.out.println("<There is one active tunnel position: >");
+            System.out.println("    <" + activeTunnelPositions.get(0).name + ">");
+        }
+
+        else
+            System.out.println("<There is no tunnel or active tunnelposition>");
     }
 }

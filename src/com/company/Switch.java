@@ -86,7 +86,10 @@ public class Switch extends Rail {
     }
 
 
-
+    @Override
+    public boolean getThirdRail() {
+        return true;
+    }
 
     @Override
     public void setSwitchThirdRail(Rail r3) {
