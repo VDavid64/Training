@@ -80,9 +80,9 @@ public class Game {
 
     ////////////////    Done
     // Vonatok léptetése
-    public void moveTrains() {
+    public void moveTrains(int counter) {
         for (Engine e: engines) {
-            e.moveEngine();
+            e.moveEngine(counter);
         }
     }
 
@@ -163,15 +163,17 @@ public class Game {
     /////////////// Done
     // Kocsik kiürítése
     // utasok leszállítását végrehajtó függvény
-    public void emptyCars() {
+    public void emptyCars(int counter) {
         for (Engine e: engines) {
             Car car = e.getFirstNotEmptyCar();
             if (car != null) {                                                              // az első nem üres kocsi és állomáson vagyunk
                 if ((car.getActPos() != null)) {
                     if ((car.getActPos().getColor() != null)) {
-                        if ((car.getActPos()).getColor() == car.getColor()) {               // ha egyezik a szín, kiürítjük a kocsit
-                            car.setEmpty(true);
-                            System.out.println("    <Leszállás történt: " + car.getActPos().name +", " + car.name + " >");
+                        if (car.roundLastEmpty != counter) {                                // Kizárjuk az egy körben történő felszállást majd leszállást
+                            if ((car.getActPos()).getColor() == car.getColor()) {           // ha egyezik a szín, kiürítjük a kocsit
+                                car.setEmpty(true);
+                                System.out.println("    <Leszállás történt: " + car.getActPos().name + ", " + car.name + " >");
+                            }
                         }
                     }
                 }

@@ -34,7 +34,7 @@ public class Engine extends Train_Element {
 
 
 
-    public void moveEngine() {
+    public void moveEngine(int counter) {
         // Vonat léptetése
         Rail tempPrevRail = this.getPrevPos();
         Rail tempActRail = this.getActPos();
@@ -48,7 +48,7 @@ public class Engine extends Train_Element {
             System.out.println( "<" + this.name + " at " + actPos.name + ">");
 
         // Következő TrainElement mozgatása
-        nextTrainElement.move(tempActRail);
+        nextTrainElement.move(tempActRail, counter);
 
     }
 }

@@ -76,7 +76,7 @@ public class Map {
             if (activeTunnelPositions.size()==0) {
                 setThisTunnel.setActive(true);
                 activeTunnelPositions.add(setThisTunnel);
-                System.out.println("Alagútszáj aktiválva");
+                System.out.println("<Tunnel position set to active>");
             }
 
             // ha már van egy aktív tunnel  - vagy ugyanaz, vagy új tunnel
@@ -86,7 +86,7 @@ public class Map {
                 if (setThisTunnel == activeTunnelPositions.get(0)) {
                     activeTunnelPositions.clear();
                     setThisTunnel.setActive(false);
-                    System.out.println("Alagútszáj deaktiválva");
+                    System.out.println("<Tunnel position set to deactive>");
                 }
 
                 // új tunnel-re kattintottt a felhasználó  - ha az első pontból elérhető a másik, megépül az alagút
@@ -96,13 +96,13 @@ public class Map {
                     // Alagút építése
                     // ha elérhető
                     if (checkList(setThisTunnel)) {
-                        System.out.println("Alagút megépítve");
+                        System.out.println("<Tunnel constructed>");
                     }
 
                     //  bejárásnak nem eleme az adott tunnel -> nem épül alagút, tunnel active tagváltozója nem változik
                     // azaz semmi nem történik
                     else {
-                        System.out.println("Bejárás nem volt sikeres");
+                        System.out.println("<Can not build tunnel between the two tunnel positions>");
                     }
                 }
             }
@@ -123,12 +123,12 @@ public class Map {
                 isActiveTunnel = false;                                             // nincs megépült alagút
                 activeTunnelPositions.remove(setThisTunnel);                        // aktív pontok listájából törölni kell
                 setThisTunnel.setActive(false);                                     // alagútszáj aktivításának törlése
-                System.out.println("Alagút törölve");
+                System.out.println("<Tunnel demolished>");
             }
 
             // amúgy semmi nem történik
             else {
-                System.out.println("Hatástalan interakció");
+                System.out.println("<Can not demolish tunnel>");
             }
         }
     }

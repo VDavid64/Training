@@ -5,7 +5,7 @@ package com.company;
 public class Car extends Train_Element {
 
     private Color color;
-    private boolean canEmpty;
+    public int roundLastEmpty;
 
     // Konstruktor
     public Car(int numberOfCars, int i) {
@@ -13,7 +13,7 @@ public class Car extends Train_Element {
         this.color = Color.GREEN;
         this.name = "car_"+ i;
         this.isEmpty = false;
-        this.canEmpty = true;
+        this.roundLastEmpty = 0;
 
         System.out.format(" %s ", color);
 
@@ -38,7 +38,7 @@ public class Car extends Train_Element {
 
 
     @Override
-    public void move(Rail nextRail) {
+    public void move(Rail nextRail, int counter) {
 
 
         // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
@@ -55,16 +55,15 @@ public class Car extends Train_Element {
         if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0 ) {
             this.setEmpty(false);
             actPos.setPassenger();
-            System.out.println("    <Felszállás történt: " + this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
-            canEmpty = false;
+            System.out.println("    <Felszállás történt: " + this.getActPos().name + ", "+ this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
+            roundLastEmpty = counter;
         }
 
 
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
-            nextTrainElement.move(prevPos);
-
+            nextTrainElement.move(prevPos, counter);
     }
 
 

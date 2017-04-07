@@ -51,7 +51,7 @@ public abstract class Train_Element {
 
 
 
-    public void move(Rail nextRail) {
+    public void move(Rail nextRail, int i) {
 
         Rail tempPrevRail = prevPos;
         prevPos = actPos;
@@ -65,7 +65,7 @@ public abstract class Train_Element {
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
-            nextTrainElement.move(prevPos);
+            nextTrainElement.move(prevPos, i);
     }
 
     public Color getColor() {

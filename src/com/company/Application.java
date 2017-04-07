@@ -7,7 +7,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
 
-        // TODO: tunnel kattintás ignorálása ha foglalt, random, engine from xml, felszállás és leszállás egyszerre, maps
+        // TODO: random, engine from xml, maps
 
         //////////////////////////////////////////////////////////
         // init:
@@ -69,9 +69,9 @@ public class Application {
                             while (round != 0 && gameIsOn) {
                                 System.out.println("-------------------------------");
                                 System.out.println("<round: " + counter + ">");
-                                game.moveTrains();
+                                game.moveTrains(counter);
                                 game.generateTrain(counter);
-                                game.emptyCars();
+                                game.emptyCars(counter);
 
                                 if (game.crashDetection()) {
                                     gameIsOn = false;
@@ -209,11 +209,13 @@ public class Application {
 
                     case ("HELP"):
                         System.out.println("Available commands: \n");
-                        System.out.println("    Loadmap map_name                        Loads map from \\map.*.xml");
+                        System.out.println("    LoadMap map_name                        Loads map from \\map.*.xml");
                         System.out.println("    Step number_of_steps                    Must be between 1 and 500");
                         System.out.println("    SetSwitch switch_name                   Change the direction of a switch");
                         System.out.println("    StationState station_name               List data of given station");
                         System.out.println("    ListEngine engine_name                  List all information about an engine");
+                        System.out.println("    TunnelState                             Print the state of the tunnel and active tunnel positions");
+                        System.out.println("    SetTunnel tunnel_name                   Set tunnel position activity");
                         break;
 
 
