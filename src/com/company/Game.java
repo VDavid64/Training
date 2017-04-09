@@ -1,6 +1,9 @@
 package com.company;
 
+import com.sun.deploy.util.ArrayUtil;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,7 +57,7 @@ public class Game {
     //          Lekérdezzük a lehetséges kezdőpozíciót, majd azt beállítjuk az új engine-nek
     //          Második paraméterben a kocsik számát adjuk meg - random between 2 and 5
     //          Generáláskor ellenőrizni kell, üres-e a startPos
-    public void generateTrain(int round) {
+    public void generateTrain(int round, boolean random) {
 
 
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
@@ -67,13 +70,39 @@ public class Game {
         }
 
 
-        // első körben generálunk
-        if ((round == 1 || round == 10) && empty) {
-            int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
-            System.out.format("New engine with %d cars: ", numberOfCars);
-            Engine newEngine = new Engine(map.getStartPosition(), numberOfCars, "engine_" + round);
-            engines.add(newEngine);
-            return;
+        // ha a véletlenszerűség nincs bekapcsolva, az xml-ből betöltött vonatokat használjuk
+        if (!random) {
+            /*
+            if (Arrays.asList(map.engineStartTimes).contains(round)) {
+                //Arrays.asList(map.engineStartTimes).contains(round);
+                int index = engines.size();
+                engines.add(map.mapEngines.get(index));
+                engines.get(index).actPos = map.getStartPosition();
+                System.out.format("New engine at startPosition");
+
+            }*/
+
+            for (int i = 0; i < map.engineStartTimes.length; i++) {
+                if (round == map.engineStartTimes[i]) {
+                    int index = engines.size();
+                    engines.add(map.mapEngines.get(index));
+                    engines.get(index).actPos = map.getStartPosition();
+                    System.out.println("New engine at startPosition");
+                }
+            }
+
+        }
+
+        // amúgy generálunk újat
+        else {
+            // első körben generálunk
+            if ((round == 1 || round == 10) && empty) {
+                int numberOfCars = (int) (Math.random() * (6 - 2)) + 2;
+                System.out.format("New engine with %d cars: ", numberOfCars);
+                Engine newEngine = new Engine(map.getStartPosition(), numberOfCars, "engine_" + round);
+                engines.add(newEngine);
+                return;
+            }
         }
     }
 

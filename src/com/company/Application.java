@@ -17,6 +17,7 @@ public class Application {
         boolean gameHasWon = false;
         boolean mapLoaded = false;
         int counter = 1;                    // számláló (vonat generálásához) és a map
+        boolean random = false;             // véletlenszerűséget állító kapcsoló
         //////////////////////////////////////////////////////////
 
 
@@ -70,7 +71,7 @@ public class Application {
                                 System.out.println("-------------------------------");
                                 System.out.println("<round: " + counter + ">");
                                 game.moveTrains(counter);
-                                game.generateTrain(counter);
+                                game.generateTrain(counter, random);
                                 game.emptyCars(counter);
 
                                 if (game.crashDetection()) {
@@ -206,6 +207,20 @@ public class Application {
                         break;
 
 
+                    case ("SETRANDOM"):
+                        try {
+                            if (mapLoaded) throw new IllegalStateException();
+                            if (random) random=false;
+                            else random= true;
+                        }
+                        catch (IllegalStateException i) {
+                            System.out.println("You can not set random after loading the map.");
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("Useage of SetRandom command: \"SetRandom\" "); }
+                        break;
+
 
                     case ("HELP"):
                         System.out.println("Available commands: \n");
@@ -216,6 +231,8 @@ public class Application {
                         System.out.println("    ListEngine engine_name                  List all information about an engine");
                         System.out.println("    TunnelState                             Print the state of the tunnel and active tunnel positions");
                         System.out.println("    SetTunnel tunnel_name                   Set tunnel position activity");
+                        System.out.println("    SetRandom                               Set the random generations of cars, stations, etc. Editable before loading the map!");
+                        System.out.println("-------------------------------");
                         break;
 
 
@@ -228,66 +245,6 @@ public class Application {
             catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
-
-        /*
-
-        //////////////////////////////////////////////////////////
-        // játék fő ciklusa:
-        // a példányosított játék függvényeit körönként, egy ciklusban hívjuk meg
-        while (gameIsOn) {
-
-            // körszámláló kiírása
-            System.out.format("Round: %d \n", counter);
-
-            /////////////
-            // léptetést végrehajtó függvény
-            game.moveTrains();
-
-            /////////////
-            // A megfelelő körökben vonatokat generálunk
-            game.generateTrain(counter);
-
-
-            /////////////
-            // Utasok leszállítását végrehajtó függvény
-            game.emptyCars();
-
-
-            /////////////
-            // ütközéseket / játék végét detektáló függvény
-            // a true-val tér vissza, ha a játék valamilyen oknál fogva véget ér
-            if (game.crashDetection())
-                gameIsOn = false;
-
-
-            /////////////
-            // Minden kör végén a játék megnyerését vizsgáló függvény
-            // Ha minden vonat minden kocsija üres, átugrunk a következő pályára
-            // Hogy az elején ne nyerjük meg rögtön, körszámlálót is ellenőrizzük
-            if (game.isWon() && (counter >= 5)) {
-
-                // Ha az utolsó pályát nyertük meg, vége a játéknak
-                if ( game.getIsLastGame())
-                    gameIsOn = false;
-
-                // Amúgy csak a köv pályát töltjük be
-                else {
-                    game.deleteTrains();
-                    //game.loadMap(mapNumber++);
-                    game.setIsLastGame(true);
-                    counter = 0;
-                }
-            }
-
-            /////////////
-            // várakozás és a körszámláló növelése
-            t.sleep(500);
-            counter++;
-
-        }
-        //////////////////////////////////////////////////////////
-    */
     }
 }

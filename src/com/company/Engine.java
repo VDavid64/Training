@@ -1,6 +1,9 @@
 package com.company;
 
 
+import java.util.HashMap;
+import java.util.List;
+
 public class Engine extends Train_Element {
 
 
@@ -13,6 +16,20 @@ public class Engine extends Train_Element {
         System.out.print("\"" + name + "\" at: \"" + actPos.name + "\" with cars: ");
         prevPos = null;
         nextTrainElement = new Car(numberOfCars, 1);
+    }
+
+
+    // Konstruktor a map-nek xml-ből való betöltéshez
+    public Engine(String name, int numberOfTrainElement, HashMap<Integer, String> trainElements) {
+        this.name = name;
+        this.actPos = null;
+
+        // ha kocsit kell példányosítanunk
+
+        if (!trainElements.get(1).equals(""))
+            nextTrainElement = new Car(numberOfTrainElement, trainElements, 1);
+        else
+            nextTrainElement = new Cargo(numberOfTrainElement, trainElements, 1);
     }
 
 
@@ -35,6 +52,7 @@ public class Engine extends Train_Element {
 
 
     public void moveEngine(int counter) {
+
         // Vonat léptetése
         Rail tempPrevRail = this.getPrevPos();
         Rail tempActRail = this.getActPos();

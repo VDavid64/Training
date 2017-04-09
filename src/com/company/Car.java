@@ -1,11 +1,15 @@
 package com.company;
 
 
+import java.util.HashMap;
+import java.util.List;
 
 public class Car extends Train_Element {
 
     private Color color;
     public int roundLastEmpty;
+
+
 
     // Konstruktor
     public Car(int numberOfCars, int i) {
@@ -22,6 +26,33 @@ public class Car extends Train_Element {
         else {
             nextTrainElement = null;
             System.out.println();
+        }
+    }
+
+
+
+    public Car(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
+        this.name = "car_"+counter;
+        this.color = Color.valueOf(trainElements.get(counter));
+        this.isEmpty = false;
+        this.roundLastEmpty = 0;
+
+        counter++;
+
+        // ha nem kell több elemet generálni
+        if (numberOfTrainElement == 1) {
+            nextTrainElement = null;
+        }
+
+
+        // ha kocsit kell generálni:
+        else if (numberOfTrainElement > 1 && !trainElements.get(counter).equals("")) {
+            nextTrainElement = new Car(numberOfTrainElement-1, trainElements, counter);
+        }
+
+        // ha teherkocsit:
+        else {
+            nextTrainElement = new Cargo(numberOfTrainElement-1, trainElements, counter);
         }
     }
 

@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Map {
@@ -16,16 +17,17 @@ public class Map {
 
     ///////////////////////
     // Tagváltozók:
-    private Rail startPosition = new Rail();
+    private Rail startPosition = new Rail();                                            // a vonatok kezdőpozíciója generálásukkor
     private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
     List<Rail> tunnel = new ArrayList<>();
     private ArrayList<Station> stations = new ArrayList<>();
-    private List<Rail> rails = new ArrayList<>();
-    public static boolean isActiveTunnel;                                      // számontartja, van-e megépülve alagút
-    public static boolean isTrainInTunnel;
-    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();        // tároljuk, hogy mely két pont között van aktív alagút
-    public static boolean isDerailing;                                         // volt-e kisiklás - váltó állítja
-
+    private List<Rail> rails = new ArrayList<>();                                       // sínek listája
+    public static boolean isActiveTunnel;                                               // számontartja, van-e megépülve alagút
+    public static boolean isTrainInTunnel;                                              // Üres-e az alagút
+    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();                // tároljuk, hogy mely két pont között van aktív alagút
+    public static boolean isDerailing;                                                  // volt-e kisiklás - váltó állítja
+    public int[] engineStartTimes;                                                      // ha map-ből töltjük be a vonatokat, itt tároljuk a kezdőidejüket
+    public ArrayList<Engine> mapEngines = new ArrayList<>();
 
 
     ///////////////////////
@@ -52,8 +54,6 @@ public class Map {
         Map.isDerailing = isDerailing;
     }
 
-
-    // Done
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;
@@ -62,8 +62,6 @@ public class Map {
     }
 
 
-
-    ///////////// TODO: mouseClicked eventre majd beregisztrálni
     // Az alagútak kezelését végrehajtó függvény, ami paraméterben
     // egy Tunnel-t kap (ezt módosította a felhasználó)
     public void controlTunnel(Tunnel setThisTunnel) {
@@ -147,7 +145,6 @@ public class Map {
 
             NodeList elementList = doc.getElementsByTagName("element");
 
-            // TODO: Switchek listája?
             for (int i = 0; i < elementList.getLength(); i++) {
                 Node nNode = elementList.item(i);
                 Element eElement = (Element) nNode;
@@ -212,6 +209,32 @@ public class Map {
                 }
 
             }
+
+
+
+            // Betöltjük a vonatokat
+            NodeList engineList = doc.getElementsByTagName("engine");
+            engineStartTimes = new int[engineList.getLength()];
+            for (int i = 0; i < engineList.getLength(); i++) {
+
+                Node nNode = engineList.item(i);
+                Element eElement = (Element) nNode;
+
+                engineStartTimes[i] = Integer.parseInt(eElement.getAttribute("startRound"));
+                int numberOfTrainElement = Integer.parseInt(eElement.getAttribute("length"));
+
+                HashMap<Integer, String> trainElements = new HashMap<Integer, String>();
+
+                // hashmap-et építünk az elemekből és azok színéből
+                for (int k = 1; k < numberOfTrainElement+1; k++) {
+                    String e = eElement.getElementsByTagName("trainElement_"+k).item(0).getTextContent();
+                    trainElements.put(k, e);
+                }
+
+                Engine e = new Engine(eElement.getAttribute("name"), numberOfTrainElement, trainElements);
+                mapEngines.add(e);
+            }
+
 
             System.out.println("<Map loaded successfully: " +mapName +">");
 
