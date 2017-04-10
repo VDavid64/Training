@@ -1,62 +1,97 @@
 package com.company;
 
-import com.sun.deploy.util.ArrayUtil;
+//import com.sun.deploy.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Represents the game control. Responsible for moving, generating, emptying and deleting trains, loading map, checking crash and winning.
+ * 
+ * @author i_did_iit team
+ *
+ */
 public class Game {
 
 
-    //////////////////////
+    
+    /**
+     * Storing the current map.
+     */
     private Map map;
+    /**
+     * isLastGame whether it is the last game.
+     */
     private boolean isLastGame;
+    /**
+     * Maximum number of trains.
+     */
     private final int maxTrainNumber = 3;
+    /**
+     * List of engines.
+     */
     private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
-    //////////////////////
 
 
 
-    // Függvények:
-    ///////////////////////////
-    // default constructor
+    /**
+     * Default construstor of Game class. Set isLastGame true.
+     */
     public Game() {
         isLastGame = true;
     }
 
 
-    ////////////////
-    // nyílván kell tartani, hogy az utolsó pályát játszuk e
+    /**
+     * Getter of isLastGame. Check that this is the last map. Returns with boolean type.
+     * @return isLastGame.
+     */
     public boolean getIsLastGame() {
         return isLastGame;
     }
 
+    
+    /**
+     * Setter of isLastGame. Set isLastGame value of parameter.
+     * @param lastGame
+     *					 True whether it is the last game.
+     */
     public void setIsLastGame(boolean lastGame) {
         isLastGame = lastGame;
     }
 
 
-    ////////////////    Done
-    // Map konstruktorát hívja meg, beállítva a ref-t
-    // az pedig fájlból vagy bedrótozva betölt egy pályát
+    /**
+     * Loads map. Calls default constructor and loadMap function of Map class. 
+     * @param mapName
+     * 					Name of map.
+     */
     public void loadMap(String mapName) {
         map = new Map();
         map.loadMap(mapName);
     }
 
 
+    /**
+     * Controls click. Calls onMouseClickedEvent function of Map class.
+     * @param name
+     * 				Name of object what was clicked.
+     */
     public void onClicked(String name) {
         map.onMouseClickedEvent(name);
     }
 
-
-    ////////////////
-    // Vonat generálása:
-    //          Lekérdezzük a lehetséges kezdőpozíciót, majd azt beállítjuk az új engine-nek
-    //          Második paraméterben a kocsik számát adjuk meg - random between 2 and 5
-    //          Generáláskor ellenőrizni kell, üres-e a startPos
+    /**
+     * Generates trains. Gets possible start position and set it to new engine. Checks the emptiness of start position.
+     * If random is true, than generates new train, else loads it from xml file.
+     * 
+     * @param round
+     * 				Number of rounds.
+     * @param random
+     * 				Activity of random.
+     */
     public void generateTrain(int round, boolean random) {
 
 
@@ -107,8 +142,11 @@ public class Game {
     }
 
 
-    ////////////////    Done
-    // Vonatok léptetése
+
+    /**
+     * Moves trains. Calls moveEngine function of all engines.
+     * @param counter
+     */
     public void moveTrains(int counter) {
         for (Engine e: engines) {
             e.moveEngine(counter);
@@ -116,9 +154,11 @@ public class Game {
     }
 
 
-    /////////////////   Done
-    // Nyerés ellenőrzése - true, ha megnyertük a játékot
-    // Megnyerés feltétele: minden kocsi és állomás üres
+    /**
+     * Checks winning. Checks the conditions of winning. These are empty cars and empty stations. 
+     * @return
+     * 			True whether there is a winning.
+     */
     public boolean isWon() {
 
         /*
@@ -143,17 +183,21 @@ public class Game {
     }
 
 
-    /////////////       Done
-    // vonatok törlése új pálya betöltésénél
+    /**
+     * Deletes trains whether there is a new map. Calls clear function of list of engines. 
+     */
     public void deleteTrains() {
         engines.clear();
     }
 
-
-    /////////////       Done
-    // Játék végének ellenőrzése: true, ha volt ütközés, kisiklás, terepasztal szélére hajtás
-    // ütközéseket / játék végét detektáló függvény
-    // A vonatok pozícióját egy halmazba gyűjti. Ha volt duplikátum, tudjuk, hogy ütközés volt
+    /**
+     * Detects crash. If there is derailing then write it out and returns true.
+     * If we move out of map, write it out and returns true.
+     * If there is a crash, write it out and returns true.
+     * Else returns false. 
+     * @return
+     * 			Result of checking.
+     */
     public boolean crashDetection() {
 
         ///// kisiklás
@@ -189,9 +233,10 @@ public class Game {
 
 
 
-    /////////////// Done
-    // Kocsik kiürítése
-    // utasok leszállítását végrehajtó függvény
+    /**
+     * Delivery of passengers. If first not empty car is on station and station's color equals with car's color then passengers get off and write it out.
+     * @param counter
+     */
     public void emptyCars(int counter) {
         for (Engine e: engines) {
             Car car = e.getFirstNotEmptyCar();
@@ -210,6 +255,11 @@ public class Game {
         }
     }
 
+    /**
+     * Writes out name, color and number of passengers of all stations. 
+     * @param param
+     * 				Name of object. It should contains "station" string.
+     */
     public void printStationData(String param) {
 
         if (param.contains("station")) {
@@ -225,10 +275,19 @@ public class Game {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Writes out the state off tunnel. Calls printTunnelState function of Map class.
+     */
     public void printTunnelState() {
         map.printTunnelState();
     }
 
+    /**
+     * Lists one train. Name of engine is given in parameter. 
+     * Write out number and position of engine, number, position, color and emptiness of other train element(s) if there is any.
+     * @param param
+     * 				Name of engine.
+     */
     public void listEngine(String param) {
         for (Engine e : engines
              ) {
@@ -245,6 +304,9 @@ public class Game {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Lists trains. If there is not any trains, write it. Write out number and position of engines, number, position, color and emptiness of other train element(s) if there is any.  
+     */
     public void listTrains() {
         if (engines.isEmpty()) {
             System.out.println("<There is no train to list.>");

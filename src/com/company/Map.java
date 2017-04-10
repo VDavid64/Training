@@ -12,48 +12,131 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Represents the game board. Controls tunnels, stations, derailing and start
+ * positions.
+ * 
+ * @author i_did_iit team
+ *
+ */
 public class Map {
 
 
-    ///////////////////////
-    // Tagváltozók:
+	/**
+	 * Positions where trains can start moving.
+	 */
     private Rail startPosition = new Rail();                                            // a vonatok kezdőpozíciója generálásukkor
+    
+    /**
+	 * Positions where the player can build tunnel.
+	 */
     private ArrayList<Tunnel> tunnelPositions = new ArrayList<>();
+    
+    
+    /**
+     *List of tunnel points. 
+     */
     List<Rail> tunnel = new ArrayList<>();
+    
+	/**
+	 * Positions where passengers can get off and get on.
+	 */
     private ArrayList<Station> stations = new ArrayList<>();
+    
+    
+    /**
+     * List of rails under the ground.
+     */
     private List<Rail> rails = new ArrayList<>();                                       // sínek listája
+    
+    /**
+	 * isTrainInTunnel whether there is a train in tunnel.
+	 */
     public static boolean isActiveTunnel;                                               // számontartja, van-e megépülve alagút
+    
+    /**
+	 * isTrainInTunnel whether there is a train in tunnel.
+	 */
     public static boolean isTrainInTunnel;                                              // Üres-e az alagút
+    
+    /**
+	 * Positions where tunnel point is active.
+	 */
     private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();                // tároljuk, hogy mely két pont között van aktív alagút
+    
+	/**
+	 * isDerailing whether two parts of any train is on the same rail.
+	 */
     public static boolean isDerailing;                                                  // volt-e kisiklás - váltó állítja
+    
+    /**
+     *List of start times of engines.
+     */
     public int[] engineStartTimes;                                                      // ha map-ből töltjük be a vonatokat, itt tároljuk a kezdőidejüket
+    
+    /**
+     * List of engines.
+     */
     public ArrayList<Engine> mapEngines = new ArrayList<>();
 
 
-    ///////////////////////
-    // Függvények:
+	/**
+	 * Getter of start positions. Returns with ArrayList of Rail objects.
+	 * 
+	 * @return The positions where trains can start moving.
+	 */
     public Rail getStartPosition() {
         return startPosition;
     }
 
+	/**
+	 * Getter of stations. Return with ArrayList of Station objects.
+	 * 
+	 * @return The positions of stations where passengers can get off and get on.
+	 */
     public ArrayList<Station> getStations() {
         return stations;
     }
 
+	/**
+	 * Getter of tunnel points. Return with ArrayList of Tunnel objects.
+	 * 
+	 * @return The positions of tunnel points where player can build tunnel.
+	 */
     public ArrayList<Tunnel> getTunnelPositions() {
         return tunnelPositions;
     }
 
+	/**
+	 * Getter of isActiveTunnel. Returns true whether there is an active tunnel.
+	 * 
+	 * @return isActiveTunnel
+	 */
     public boolean isActiveTunnel() { return isActiveTunnel; }
 
+	/**
+	 * Getter of isDerailing. Returns true if whether there is derailing.
+	 * 
+	 * @return True whether there is a derailing.
+	 */
     public static boolean getIsDerailing() {
         return isDerailing;
     }
 
+    /**
+     * Setter of isDerailing. Set isDerailing value of parameter.
+     * @param isDerailing
+     * 					True is there is a derailing.
+     */
     public static void setIsDerailing(boolean isDerailing) {
         Map.isDerailing = isDerailing;
     }
 
+    /**
+     * Default constructor of Map class.
+     * Set isActiveTunnel, isDerailing and isTrainInTunnel false.
+     * Clears activeTunnelPositions.
+     */
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;
@@ -62,8 +145,11 @@ public class Map {
     }
 
 
-    // Az alagútak kezelését végrehajtó függvény, ami paraméterben
-    // egy Tunnel-t kap (ezt módosította a felhasználó)
+    /**
+     * Control of a tunnel point. Writes out what happened.
+     * @param setThisTunnel
+     * 						Tunnel point what map controls after user modified it.
+     */
     public void controlTunnel(Tunnel setThisTunnel) {
 
 
@@ -132,7 +218,11 @@ public class Map {
     }
 
 
-    // betölti XML-ből a pályát
+    /**
+     * Loads map from xml file. 
+     * @param mapName
+     * 					Name of map.
+     */
     public void loadMap(String mapName) {
         try {
 
@@ -253,9 +343,13 @@ public class Map {
 
 
 
-
-    // Segédfüggvény - bejárhatóság
-    // startPos-ból megpróbálja elérni tunnel-t, true ha sikerül
+    /**
+     * Check the route between two tunnel points. Returns the result of
+	 * check.True weather checking was successful. 
+     * @param newTunnel
+     * 					Tunnel point where need to arrive.
+     * @return Result of check.
+     */
     private boolean checkList(Tunnel newTunnel) {
 
         int lengthA = 0;
@@ -312,10 +406,13 @@ public class Map {
             return false;
     }
 
-
-    // Alagút megépítése
-    // megadott mennyiségű railt példányosít,
-    // majd összeköti a két aktív tunnel-el és berakja a rails-be
+    /**
+     * Build tunnel. Creates Rail objects and makes connection between these.
+     * @param length
+     * 				Length of tunnel.
+     * @param dir
+     * 			  Direction of tunnel.
+     */
     private void createTunnel(int length, String dir) {
 
         // sínek példányosítása
@@ -355,9 +452,11 @@ public class Map {
 
 
 
-    // A felhasználó interakcióját megvalósító függvény:
-    //      külön kezelei az esetek attól függően, hogy mire kattintottunk
-    //      proto-hoz átalakítás: String paramétert kap
+    /**
+     * Represents user interactions. Writes out what we clicked and depending of type executes the necessary steps. 
+     * @param name
+     * 				Name of object we clicked.
+     */
     public void onMouseClickedEvent(String name) {
 
         // Ha van ilyen nevű elemünk a sínek listájában
@@ -384,21 +483,41 @@ public class Map {
     }
 
 
+	/**
+	 * Getter of isActiveTunnel. Returns true whether there is an active tunnel.
+	 * 
+	 * @return isActiveTunnel
+	 */
     static public boolean getIsActiveTunnel() {
         return isActiveTunnel;
     }
 
-
+	/**
+	 * Getter of isTrainInTunnel.
+	 * 
+	 * @return True whether there is a train in tunnel.
+	 */
     static public boolean getIsTrainInTunnel() {
         return isTrainInTunnel;
     }
 
-
-    static public void setIsTrainInTunnel( boolean b) {
+	/**
+	 * Setter of isTrainInTunnel.
+	 * 
+	 * @param b
+	 *            True whether there is a train in tunnel.
+	 */
+    static public void setIsTrainInTunnel(boolean b) {
         isTrainInTunnel = b;
     }
 
-    // segédfüggvény az xml feldolgozásához
+    /**
+     * Gets index by name. It helps working with XML.
+     * @param name
+     * 			Name of Rail object.
+     * @return
+     * 			Number of index we need.
+     */
     private int getIndexByName(String name) {
         for (int i = 0; i < rails.size(); i++) {
             if (rails.get(i).name.equals(name)) {
@@ -409,6 +528,9 @@ public class Map {
     }
 
 
+    /**
+     * Writes out the state off tunnel.
+     */
     public void printTunnelState() {
 
         // Ha van megépült alagút:
