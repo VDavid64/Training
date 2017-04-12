@@ -86,7 +86,7 @@ public class Car extends Train_Element {
         if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0 ) {
             this.setEmpty(false);
             actPos.setPassenger();
-            System.out.println("    <Felszállás történt: " + this.getActPos().name + ", "+ this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
+            System.out.println("    <Passengers got on the train: " + this.getActPos().name + ", "+ this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
             roundLastEmpty = counter;
         }
 

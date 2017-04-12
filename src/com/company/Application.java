@@ -29,6 +29,7 @@ public class Application {
         System.out.println("First, use \"LoadMap map_name\" to load a map from XML file");
         System.out.println("Then use command {Step, SetRandom, SetTunnel, SetSwitch, TunnelState, StationState, ListEngine, ListTrains},");
         System.out.println("to manipulate the program.");
+        System.out.println("You can use the Help command anytime, to list the valid commands and their required parameters.");
         System.out.println("-------------------------------");
 
         while (true) {
@@ -55,7 +56,7 @@ public class Application {
                             mapLoaded = true;
                         }
                         catch (Exception e) {
-                            System.out.println("Useage of LoadMap command: \"LoadMap map_name\" "); }
+                            System.out.println("Usage of LoadMap command: \"LoadMap map_name\" "); }
                         break;
 
 
@@ -92,7 +93,7 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of Step command: \"Step round_number\". Rund must be a number between 1 and 500");
+                            System.out.println("Usage of Step command: \"Step round_number\". Round must be a number between 1 and 500");
                         }
 
                         // ha a játék véget ért: resetelünk, hogy újra tudjunk indítani egy pályát, programból való kilépés nélkül
@@ -132,7 +133,7 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of SetSwitch/SetTunnel command: \"SetSwitch switch_name\" or \"SetTunnel tunnel_name\""); }
+                            System.out.println("Usage of SetSwitch/SetTunnel command: \"SetSwitch switch_name\" or \"SetTunnel tunnel_name\""); }
                         break;
 
 
@@ -155,7 +156,7 @@ public class Application {
                             System.out.println("You need to load a map first. Use \"LoadMap\" command!");
                         }
                         catch (Exception e) {
-                            System.out.println("Useage of StationState command: \"StationState station_name\" "); }
+                            System.out.println("Usage of StationState command: \"StationState station_name\" "); }
                         break;
 
 
@@ -170,7 +171,7 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of TunnelState command: \"TunnelState\" "); }
+                            System.out.println("Usage of TunnelState command: \"TunnelState\" "); }
                         break;
 
 
@@ -189,7 +190,7 @@ public class Application {
                             System.out.println("You need to load a map first. Use \"LoadMap\" command!");
                         }
                         catch (Exception e) {
-                            System.out.println("Useage of ListEngine command: \"ListEngine engine_name\" "); }
+                            System.out.println("Usage of ListEngine command: \"ListEngine engine_name\" "); }
                         break;
 
 
@@ -203,7 +204,7 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of ListEngine command: \"ListEngine engine_name\" "); }
+                            System.out.println("Usage of ListEngine command: \"ListEngine engine_name\" "); }
                         break;
 
 

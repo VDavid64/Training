@@ -202,7 +202,7 @@ public class Game {
 
         ///// kisiklás
         if (Map.getIsDerailing()) {
-            System.out.println("Kisiklás történt!");
+            System.out.println("Passangers got on the train!");
             return true;
         }
 
@@ -210,7 +210,7 @@ public class Game {
         // terepasztal szélére ért egy engine -> enginnek null az actpos-ja
         for (Engine e: engines) {
             if (e.getActPos() == null) {
-                System.out.println("Lehajtottunk a pályáról!");
+                System.out.println("The has train left the map!");
                 return true;
             }
         }
@@ -227,7 +227,7 @@ public class Game {
                 c = c.getNextTrainElement();
             }
         }
-        if (!isNotDuplicateRail) System.out.println("Ütközés történt!");
+        if (!isNotDuplicateRail) System.out.println("Train crashed!");
         return !isNotDuplicateRail;
     }
 
@@ -246,7 +246,7 @@ public class Game {
                         if (car.roundLastEmpty != counter) {                                // Kizárjuk az egy körben történő felszállást majd leszállást
                             if ((car.getActPos()).getColor() == car.getColor()) {           // ha egyezik a szín, kiürítjük a kocsit
                                 car.setEmpty(true);
-                                System.out.println("    <Leszállás történt: " + car.getActPos().name + ", " + car.name + " >");
+                                System.out.println("    <Passangers left the train: " + car.getActPos().name + ", " + car.name + " >");
                             }
                         }
                     }

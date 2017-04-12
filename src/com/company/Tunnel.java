@@ -94,7 +94,7 @@ public class Tunnel extends Rail {
                 }
             }
         }
-        System.out.println("Hiba az alagútszáj léptetésénél");
+        System.out.println("Error with the tunnel entrance");
         return null;
     }
 }
