@@ -108,7 +108,7 @@ public class Application {
                             }
                             mapLoaded = false;
                             game.deleteTrains();
-                            counter = 0;
+                            counter = 1;
                             gameIsOn = true;
                             gameHasWon = false;
                         }
