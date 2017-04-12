@@ -202,7 +202,7 @@ public class Game {
 
         ///// kisiklás
         if (Map.getIsDerailing()) {
-            System.out.println("Passangers got on the train!");
+            System.out.println("Train derailed!");
             return true;
         }
 
