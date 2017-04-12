@@ -210,7 +210,7 @@ public class Game {
         // terepasztal szélére ért egy engine -> enginnek null az actpos-ja
         for (Engine e: engines) {
             if (e.getActPos() == null) {
-                System.out.println("The has train left the map!");
+                System.out.println("The train has left the map!");
                 return true;
             }
         }

@@ -219,7 +219,7 @@ public class Application {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            System.out.println("Useage of SetRandom command: \"SetRandom\" "); }
+                            System.out.println("Usage of SetRandom command: \"SetRandom\" "); }
                         break;
 
 
