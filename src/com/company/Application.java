@@ -1,8 +1,21 @@
 package com.company;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
+
+    /**
+     *   Defines from where we get the commands
+     *   false, if from console, true if from text
+     */
+    public static boolean inputMethod = false;
+    public static BufferedWriter output = null;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -11,40 +24,106 @@ public class Application {
 
         //////////////////////////////////////////////////////////
         // init:
-        Thread t = new Thread();            // szál és game példányosítása
+        Thread t = new Thread();                    // szál és game példányosítása
         Game game = new Game();
-        boolean gameIsOn = true;            // játék állapotát rögzítő bool (true, ha megy a játék)
+        boolean gameIsOn = true;                    // játék állapotát rögzítő bool (true, ha megy a játék)
         boolean gameHasWon = false;
         boolean mapLoaded = false;
-        int counter = 1;                    // számláló (vonat generálásához) és a map
-        boolean random = false;             // véletlenszerűséget állító kapcsoló
+        int counter = 1;                            // számláló (vonat generálásához) és a map
+        boolean random = false;                     // véletlenszerűséget állító kapcsoló
+        final String inputFileName;                 // ha parancssori indítás esetén a parancsokat tartalmazó txt file
+        final String outputFileName;                // kimenetet tartalmazó file
+        List<String> commands = new ArrayList<>();  // parancsokat tartalmazó lista
         //////////////////////////////////////////////////////////
 
 
-        //////////////////////////////////////////////////////////
-        // Üdvözlő szöveg:
-        System.out.println();
-        System.out.println("-------------------------------");
-        System.out.println("Start of the Program.");
-        System.out.println("First, use \"LoadMap map_name\" to load a map from XML file");
-        System.out.println("Then use command {Step, SetRandom, SetTunnel, SetSwitch, TunnelState, StationState, ListEngine, ListTrains},");
-        System.out.println("to manipulate the program.");
-        System.out.println("You can use the Help command anytime, to list the valid commands and their required parameters.");
-        System.out.println("-------------------------------");
+        // Control input/output method
+        if (args.length != 0) {                                 // if args is not empty, we check the two parameters if valid
+            try {
+                inputMethod = true;
+                inputFileName = args[0];                                    // Get the filenames from args
+                outputFileName = args[1];                                   // if the program is called with less than two parameters we get error
+                String[] partsInput = inputFileName.split("\\.");           // Checking filetype
+                String[] partsOutput = outputFileName.split("\\.");
+                if ( !partsInput[1].equals("txt") || !partsOutput[1].equals("txt"))
+                    throw new IllegalArgumentException();
 
+                // Load commands from file into a String array
+                String path = System.getProperty("user.dir");
+                commands = Files.readAllLines(Paths.get( path + "\\test\\" + inputFileName), StandardCharsets.UTF_8);
+
+                // Create output file
+                File file = new File(path + "\\test\\" + outputFileName);
+                output = new BufferedWriter(new FileWriter(file));          // write to output: "output.write(string)"
+            }
+            // Error for not valid filetype
+            catch (IllegalArgumentException ie) {
+                ie.printStackTrace();
+            }
+            // Error for not valid number of arguments
+            catch (ArrayIndexOutOfBoundsException ae) {
+                ae.printStackTrace();
+            }
+            // Error for file actions
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {                                                  // if args is empty, the program will read the commands from the console
+            inputMethod=false;
+        }
+
+
+        if (inputMethod == false) {
+            //////////////////////////////////////////////////////////
+            // Welcoming text for console:
+            System.out.println();
+            System.out.println("-------------------------------");
+            System.out.println("Start of the Program.");
+            System.out.println("First, use \"LoadMap map_name\" to load a map from XML file");
+            System.out.println("Then use command {Step, SetRandom, SetTunnel, SetSwitch, TunnelState, StationState, ListEngine, ListTrains},");
+            System.out.println("to manipulate the program.");
+            System.out.println("See command \"Help\" to list the valid commands and their required parameters.");
+            System.out.println("-------------------------------");
+        }
+
+
+        // variables for processing the commands
+        String command;
+        String[] inputArray;
+        int command_counter=0;
+
+        // main cycle
         while (true) {
 
+            // Processing the commands
             try {
+                if (inputMethod == false) {
 
-                //////////////////////////////////////////////////////////
-                // Parancs beolvasása:
-                Scanner scanInput = new Scanner(System.in);
-                String inputString = scanInput.nextLine();
-                String[] inputArray = inputString.split(" ");
-                if (inputArray[0].equals("") || inputArray.length > 2) {
-                    System.out.println("Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
-                    continue; }
-                String command = inputArray[0].toUpperCase();
+                    // Read command from console
+                    Scanner scanInput = new Scanner(System.in);
+                    String inputString = scanInput.nextLine();
+                    inputArray = inputString.split(" ");
+                    if (inputArray[0].equals("") || inputArray.length > 2) {
+                        System.out.println("Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
+                        continue;
+                    }
+                    command = inputArray[0].toUpperCase();
+                }
+
+                else {
+
+                    // Read command from text (commands list)
+                    command = commands.get(command_counter);
+                    inputArray = command.split(" ");
+                    if (inputArray[0].equals("") || inputArray.length > 2) {
+                        System.out.println("Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
+                        continue;
+                    }
+                    command = inputArray[0].toUpperCase();
+                    command_counter++;
+                }
+
 
 
                 switch (command) {
@@ -69,8 +148,14 @@ public class Application {
                             if (!mapLoaded) throw new IllegalStateException();
 
                             while (round != 0 && gameIsOn) {
-                                System.out.println("-------------------------------");
-                                System.out.println("<round: " + counter + ">");
+                                if (Application.inputMethod) {
+                                    Application.output.write("-------------------------------\n");
+                                    Application.output.write("<round: " + counter + ">\n");
+                                }
+                                else {
+                                    System.out.println("-------------------------------");
+                                    System.out.println("<round: " + counter + ">");
+                                }
                                 game.moveTrains(counter);
                                 game.generateTrain(counter, random);
                                 game.emptyCars(counter);
@@ -98,13 +183,23 @@ public class Application {
 
                         // ha a játék véget ért: resetelünk, hogy újra tudjunk indítani egy pályát, programból való kilépés nélkül
                         if (!gameIsOn) {
-                            if (gameHasWon) {
-                                System.out.println("Congratulations! You Won!");
-                                System.out.println("-------------------------------");
+                            if (Application.inputMethod) {
+                                if (gameHasWon) {
+                                    Application.output.write("<Congratulations! You Won!>\n");
+                                    Application.output.write("-------------------------------");
+                                } else {
+                                    Application.output.write("<Game over!>\n");
+                                    Application.output.write("-------------------------------\n");
+                                }
                             }
                             else {
-                                System.out.println("Game over");
-                                System.out.println("-------------------------------");
+                                if (gameHasWon) {
+                                    System.out.println("<Congratulations! You Won!>");
+                                    System.out.println("-------------------------------");
+                                } else {
+                                    System.out.println("<Game over!>");
+                                    System.out.println("-------------------------------");
+                                }
                             }
                             mapLoaded = false;
                             game.deleteTrains();
@@ -112,7 +207,6 @@ public class Application {
                             gameIsOn = true;
                             gameHasWon = false;
                         }
-
                         break;
 
 
@@ -139,6 +233,13 @@ public class Application {
 
 
                     case ("EXIT"):
+                        if (Application.inputMethod) {
+                            Application.output.write("<Exit>");
+                        }
+                        else {
+                            System.out.println("<Exit>");
+                        }
+                        output.close();
                         System.exit(0);
 
 
