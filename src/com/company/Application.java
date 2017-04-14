@@ -20,12 +20,14 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
 
-        // TODO: random, engine from xml, maps
+        // TODO: maps + tests
+        // TODO: random működése, pl: train generálásnál csak Car-ok példányosodnak
+        // TODO: xml-be a station-ok színét is le kell kötni
+        // TODO: kiírások lekezelése: console vagy file
 
         //////////////////////////////////////////////////////////
         // init:
-        Thread t = new Thread();                    // szál és game példányosítása
-        Game game = new Game();
+        Game game = new Game();                     // game példányosítása
         boolean gameIsOn = true;                    // játék állapotát rögzítő bool (true, ha megy a játék)
         boolean gameHasWon = false;
         boolean mapLoaded = false;
@@ -233,13 +235,15 @@ public class Application {
 
 
                     case ("EXIT"):
+
                         if (Application.inputMethod) {
                             Application.output.write("<Exit>");
+                            output.close();
                         }
                         else {
                             System.out.println("<Exit>");
                         }
-                        output.close();
+
                         System.exit(0);
 
 
@@ -291,6 +295,7 @@ public class Application {
                             System.out.println("You need to load a map first. Use \"LoadMap\" command!");
                         }
                         catch (Exception e) {
+                            e.printStackTrace();
                             System.out.println("Usage of ListEngine command: \"ListEngine engine_name\" "); }
                         break;
 
@@ -312,8 +317,26 @@ public class Application {
                     case ("SETRANDOM"):
                         try {
                             if (mapLoaded) throw new IllegalStateException();
-                            if (random) random=false;
-                            else random= true;
+                            if (random) {
+                                random = false;
+                                if (Application.inputMethod) {
+                                    Application.output.write("<Random off>");
+                                    output.close();
+                                }
+                                else {
+                                    System.out.println("<Random off>");
+                                }
+                            }
+                            else {
+                                random= true;
+                                if (Application.inputMethod) {
+                                    Application.output.write("<Random on>");
+                                    output.close();
+                                }
+                                else {
+                                    System.out.println("<Random on>");
+                                }
+                            }
                         }
                         catch (IllegalStateException i) {
                             System.out.println("You can not set random after loading the map.");

@@ -13,10 +13,7 @@ public enum Color {
     GREEN, BLUE, RED, YELLOW, WHITE;
 
 
-
-    // Stackoverflow segített ebben - attól még használható, nem?
-    private static final List<Color> VALUES =
-            Collections.unmodifiableList(Arrays.asList(values()));
+    private static final List<Color> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
     private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
