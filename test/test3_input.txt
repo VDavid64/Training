@@ -1,0 +1,5 @@
+LoadMap 2
+Step 11
+SetSwitch switch_1
+Step 7
+Exit

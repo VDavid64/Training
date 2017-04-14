@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Represents the game control. Responsible for moving, generating, emptying and deleting trains, loading map, checking crash and winning.
  * 
- * @author i_did_iit team
+ * @author i_did_iit team 
  *
  */
 public class Game {
@@ -54,7 +54,7 @@ public class Game {
 
     
     /**
-     * Setter of isLastGame. Set isLastGame value of parameter.
+     * Setter of isLastGame. Sets isLastGame value what was given in parameter.
      * @param lastGame
      *					 True whether it is the last game.
      */

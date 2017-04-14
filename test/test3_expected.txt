@@ -1,0 +1,59 @@
+<Map loaded successfully: 2>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at switch_1>
+-------------------------------
+<round: 7>
+<engine_1 at rail_5>
+-------------------------------
+<round: 8>
+<engine_1 at rail_6>
+-------------------------------
+<round: 9>
+<engine_1 at rail_7>
+-------------------------------
+<round: 10>
+<engine_1 at rail_8>
+-------------------------------
+<round: 11>
+<engine_1 at rail_9>
+<switch_1> <State: false>
+-------------------------------
+<round: 12>
+<engine_1 at switch_1>
+-------------------------------
+<round: 13>
+<engine_1 at rail_4>
+-------------------------------
+<round: 14>
+<engine_1 at rail_3>
+-------------------------------
+<round: 15>
+<engine_1 at rail_2>
+-------------------------------
+<round: 16>
+<engine_1 at rail_1>
+-------------------------------
+<round: 17>
+<engine_1 at startpos>
+-------------------------------
+<round: 18>
+The train has left the map!
+<Game over!>
+-------------------------------
+<Exit>
