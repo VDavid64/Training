@@ -295,6 +295,8 @@ public class Game {
                 System.out.println("<Name: " + e.name + "><Position: " + e.actPos.name + " >");
                 Train_Element te = e.nextTrainElement;
                 while (te != null) {
+                    if (te.getActPos() == null)
+                        break;
                     System.out.println("<Name: " + te.name + " ><Position: " + te.actPos.name + " ><Color: " + te.getColor() + ">< empty: " +te.isEmpty() + " >");
                     te = te.getNextTrainElement();
                 }

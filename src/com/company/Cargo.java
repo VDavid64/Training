@@ -6,8 +6,7 @@ import java.util.HashMap;
 public class Cargo extends Train_Element {
 
 
-    // TODO
-    // Konstruktor
+    // Konstruktor randomhoz
     public Cargo(int numberOfCars) {
 
         System.out.println("Cargo");
@@ -22,10 +21,10 @@ public class Cargo extends Train_Element {
     }
 
 
+    // Konstruktor xml-hez
     public Cargo(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
         this.name = "cargo_"+counter;
         this.isEmpty = false;
-
 
         counter++;
 
