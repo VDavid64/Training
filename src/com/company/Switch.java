@@ -19,7 +19,11 @@ public class Switch extends Rail {
 
 
 
-    // konstruktor
+	/**
+	 * Constructs a switch and sets dir true. 
+	 * Sets object's name which was  given in parameter. 
+	 * Sets nextRail, prevRail and otherRail values what were given in parameters.
+	 */
     public Switch(Rail r1, Rail r2, Rail r3, String name) {
         dir = true;
         nextRail = r1;
@@ -29,7 +33,15 @@ public class Switch extends Rail {
     }
 
 
-    // a három lehetséges bemenetre kell megfelelő rail-t visszaadnia
+	/**
+	 * Gets the next rail. Returns a Rail object what is the next one. There are three possible solutions.
+	 * 
+	 * @param previous
+	 *            Rail object where train element was.
+	 * @param t
+	 *            element which does move.
+	 * @return Next rail object.
+	 */
     @Override
     public Rail getNextRail(Rail previus, Train_Element t) {
 
@@ -68,7 +80,11 @@ public class Switch extends Rail {
 
     }
 
-
+	/**
+	 * Change the direction of switch. 
+	 * If there is a train on switch write it out and nothing happening.
+	 * Else changes the direction and writes out the state.
+	 */
     @Override
     public void changeDir() {
         if (this.occupied) {
@@ -86,11 +102,20 @@ public class Switch extends Rail {
     }
 
 
+    /*
+     * Return true, because there is a third rail.
+     */
     @Override
     public boolean getThirdRail() {
         return true;
     }
 
+    /* 
+     * Sets otherRail value which was given in parameter.
+     * 
+     * @param r3
+	 *            Rail object which will be set.
+     */
     @Override
     public void setSwitchThirdRail(Rail r3) {
         this.otherRail = r3;

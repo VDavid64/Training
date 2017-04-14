@@ -124,7 +124,7 @@ public class Map {
     }
 
     /**
-     * Setter of isDerailing. Set isDerailing value of parameter.
+     * Setter of isDerailing. Sets isDerailing value what was given in parameter.
      * @param isDerailing
      * 					True is there is a derailing.
      */
@@ -134,7 +134,7 @@ public class Map {
 
     /**
      * Default constructor of Map class.
-     * Set isActiveTunnel, isDerailing and isTrainInTunnel false.
+     * Sets isActiveTunnel, isDerailing and isTrainInTunnel false.
      * Clears activeTunnelPositions.
      */
     public Map() {

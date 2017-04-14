@@ -54,7 +54,7 @@ public class Game {
 
     
     /**
-     * Setter of isLastGame. Set isLastGame value of parameter.
+     * Setter of isLastGame. Sets isLastGame value what was given in parameter.
      * @param lastGame
      *					 True whether it is the last game.
      */
