@@ -1,0 +1,3 @@
+LoadMap 1
+Step 20
+Exit
