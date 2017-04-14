@@ -330,6 +330,7 @@ public class Application {
                                 random= true;
                                 if (Application.inputMethod) {
                                     Application.output.write("<Random on>");
+                                    
                                 }
                                 else {
                                     System.out.println("<Random on>");
