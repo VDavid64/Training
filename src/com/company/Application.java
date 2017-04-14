@@ -321,7 +321,6 @@ public class Application {
                                 random = false;
                                 if (Application.inputMethod) {
                                     Application.output.write("<Random off>");
-                                    output.close();
                                 }
                                 else {
                                     System.out.println("<Random off>");
@@ -331,7 +330,6 @@ public class Application {
                                 random= true;
                                 if (Application.inputMethod) {
                                     Application.output.write("<Random on>");
-                                    output.close();
                                 }
                                 else {
                                     System.out.println("<Random on>");
