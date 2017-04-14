@@ -1,0 +1,60 @@
+<Map loaded successfully: 3>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at crossrail_1>
+-------------------------------
+<round: 7>
+<engine_1 at rail_5>
+-------------------------------
+<round: 8>
+<engine_1 at rail_6>
+-------------------------------
+<round: 9>
+<engine_1 at rail_7>
+-------------------------------
+<round: 10>
+<engine_1 at rail_8>
+New engine at startPosition
+-------------------------------
+<round: 11>
+<engine_1 at rail_9>
+<engine_2 at rail_1>
+-------------------------------
+<round: 12>
+<engine_1 at rail_10>
+<engine_2 at rail_2>
+-------------------------------
+<round: 13>
+<engine_1 at rail_11>
+<engine_2 at rail_3>
+-------------------------------
+<round: 14>
+<engine_1 at rail_12>
+<engine_2 at rail_4>
+-------------------------------
+<round: 15>
+<engine_1 at rail_13>
+<engine_2 at crossrail_1>
+-------------------------------
+<round: 16>
+<engine_1 at crossrail_1>
+<engine_2 at rail_5>
+Train crashed!
+<Game over!>
+-------------------------------
+<Exit>
