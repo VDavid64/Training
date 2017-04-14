@@ -13,7 +13,7 @@ public class Switch extends Rail {
      */
     private boolean dir;
     /**
-     * Second possible out of switch.
+     * Second possible out of switch. 
      */
     private Rail otherRail;
 

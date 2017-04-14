@@ -13,7 +13,7 @@ public class Station  extends Rail {
     private Color color;
     
     /**
-     *Number of passengers who are waiting. 
+     *Number of passengers who are waiting.  
      */
     private int passenger;
 

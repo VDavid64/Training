@@ -9,7 +9,7 @@ package com.company;
 public class Rail {
 
 	/**
-	 * Next rail object.
+	 * Next rail object. 
 	 */
     protected Rail nextRail;
     

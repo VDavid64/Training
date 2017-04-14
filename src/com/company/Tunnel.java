@@ -76,7 +76,7 @@ public class Tunnel extends Rail {
 	 * Get the next rail. Returns a Rail object what is the next one.
 	 * If there is a problem with tunnel entrance write it out.
 	 * @param previous
-	 *            Rail object where train element was.
+	 *            Rail object where train element was. 
 	 * @param train
 	 *            element which does move.
 	 * @return 

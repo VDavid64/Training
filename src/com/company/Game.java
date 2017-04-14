@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Represents the game control. Responsible for moving, generating, emptying and deleting trains, loading map, checking crash and winning.
  * 
- * @author i_did_iit team
+ * @author i_did_iit team 
  *
  */
 public class Game {

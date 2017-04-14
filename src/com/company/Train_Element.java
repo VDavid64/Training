@@ -14,7 +14,7 @@ public abstract class Train_Element {
 	 */
     protected Rail actPos;
     /**
-	 * Position of rail where was train element at last step.
+	 * Position of rail where was train element at last step. 
 	 */
     protected Rail prevPos;
     /**
