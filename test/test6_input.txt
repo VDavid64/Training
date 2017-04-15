@@ -1,0 +1,3 @@
+LoadMap 4
+SetTunnel tunnel_1
+SetTunnel tunnel_2

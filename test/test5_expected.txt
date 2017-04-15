@@ -1,0 +1,23 @@
+<Map loaded successfully: 1>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at rail_5>
+-------------------------------
+<round: 7>
+<engine_1 at switch_1>
+<switch_1> <Can not change direction: there is a train on the switch>
