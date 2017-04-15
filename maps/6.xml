@@ -40,7 +40,7 @@
         <connection name="rail_6" type="rail" prevRail="rail_5" nextRail="rail_7"/>
         <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
         <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
-        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="tunnel_1"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
         <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="rail_11"/>
         <connection name="rail_11" type="rail" prevRail="rail_10" nextRail="tunnel_2"/>
 
