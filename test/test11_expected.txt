@@ -1,0 +1,41 @@
+<Map loaded successfully: 3>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at crossrail_1>
+-------------------------------
+<round: 7>
+<engine_1 at rail_5>
+-------------------------------
+<round: 8>
+<engine_1 at rail_6>
+-------------------------------
+<round: 9>
+<engine_1 at rail_7>
+-------------------------------
+<round: 10>
+<engine_1 at rail_8>
+New engine at startPosition
+Number 0 train:
+    <Name: engine_1><Position: rail_8 >
+        <Name: car_1 ><Position: rail_7 ><Color: YELLOW>< empty: false >
+        <Name: car_2 ><Position: rail_6 ><Color: RED>< empty: false >
+        <Name: cargo_3 ><Position: rail_5 ><Color: null>< empty: true >
+        <Name: car_4 ><Position: crossrail_1 ><Color: GREEN>< empty: false >
+Number 1 train:
+    <Name: engine_2><Position: startpos >
+<Exit>

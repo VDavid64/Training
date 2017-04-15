@@ -1,0 +1,12 @@
+<Map loaded successfully: 4>
+<There is no tunnel or active tunnelposition>
+<tunnel_1>
+<Tunnel position set to active>
+<There is one active tunnel position: >
+    <tunnel_1>
+<tunnel_2>
+<Tunnel constructed>
+<There is one active tunnel, with tunnel positions: >
+    <tunnel_1>
+    <tunnel_2>
+<Exit>

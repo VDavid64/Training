@@ -1,0 +1,7 @@
+LoadMap 4
+TunnelState
+SetTunnel tunnel_1
+TunnelState
+SetTunnel tunnel_2
+TunnelState
+Exit
