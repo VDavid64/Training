@@ -24,12 +24,12 @@ public class Rail {
     public String name;
     
 	/**
-	 * isTunnelUnderRail whether there is a tunnel under rail.
+	 * True if there is a tunnel under the rail.
 	 */
     protected boolean isTunnelUnderRail;
     
     /**
-     * occupied whether there is a train element on rail.
+     * True if there is a train element on rail.
      */
     protected boolean occupied = false;
 
@@ -37,7 +37,7 @@ public class Rail {
     
     /**
      * Constructor of Rail class. Sets isTunnelUnderRail false.
-     * Sets name, nextRail and prevRail. Values was given in parameters.
+     * Sets name, nextRail and prevRail. Values are given in parameters.
      * @param r1
      * 			Next Rail object.
      * @param r2
@@ -69,8 +69,8 @@ public class Rail {
 	 * @return Rail object where train element will be at next step. If it is
 	 *         null, there is a derailing.
 	 */         
-    public Rail getNextRail(Rail previus, Train_Element t) {
-        if (previus == prevRail)
+    public Rail getNextRail(Rail prev, Train_Element t) {
+        if (prev == prevRail)
             return nextRail;
         else
             return prevRail;

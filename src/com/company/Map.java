@@ -148,7 +148,7 @@ public class Map {
     /**
      * Control of a tunnel point. Writes out what happened.
      * @param setThisTunnel
-     * 						Tunnel point what map controls after user modified it.
+     * 						Tunnel point to be modified.
      */
     public void controlTunnel(Tunnel setThisTunnel) {
 
@@ -157,23 +157,23 @@ public class Map {
         if (isActiveTunnel == false) {
 
             // ha egyetlen tunnel sem aktív -  a kérést biztosan ki lehet szolgálni
-            if (activeTunnelPositions.size()==0) {
+            if (activeTunnelPositions.size() == 0) {
                 setThisTunnel.setActive(true);
                 activeTunnelPositions.add(setThisTunnel);
                 System.out.println("<Tunnel position set to active>");
             }
 
             // ha már van egy aktív tunnel  - vagy ugyanaz, vagy új tunnel
-            else if (activeTunnelPositions.size()== 1){
+            else if (activeTunnelPositions.size() == 1){
 
                 // ugyanaz a tunnel -> active átállítása, pontok törlése
                 if (setThisTunnel == activeTunnelPositions.get(0)) {
                     activeTunnelPositions.clear();
                     setThisTunnel.setActive(false);
-                    System.out.println("<Tunnel position set to deactive>");
+                    System.out.println("<Tunnel position set to inactive>");
                 }
 
-                // új tunnel-re kattintottt a felhasználó  - ha az első pontból elérhető a másik, megépül az alagút
+                // új tunnelre kattintott a felhasználó -- ha az első pontból elérhető a másik, megépül az alagút
                 // ha nem érhető el, nem történik semmi,
                 else {
 
@@ -347,11 +347,10 @@ public class Map {
 
 
     /**
-     * Check the route between two tunnel points. Returns the result of
-	 * check.True weather checking was successful. 
+     * Builds a tunnel if there's a valid route between the active tunnel position and the parameter.
      * @param newTunnel
-     * 					Tunnel point where need to arrive.
-     * @return Result of check.
+     * 					Second end of the tunnel to be built.
+     * @return Returns 'true' if the tunnel has been built.
      */
     private boolean checkList(Tunnel newTunnel) {
 
@@ -410,7 +409,7 @@ public class Map {
     }
 
     /**
-     * Build tunnel. Creates Rail objects and makes connection between these.
+     * Builds tunnel. Creates a doubly linked list of Rail objects between the active tunnel points.
      * @param length
      * 				Length of tunnel.
      * @param dir

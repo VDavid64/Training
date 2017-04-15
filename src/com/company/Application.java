@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Application {
 
     /**
-     *   Defines from where we get the commands
-     *   false, if from console, true if from text
+     *   Defines the soruce of commands.
+     *   False if console, true if text file.
      */
     public static boolean inputMethod = false;
     public static BufferedWriter output = null;
@@ -93,7 +93,7 @@ public class Application {
         // variables for processing the commands
         String command;
         String[] inputArray;
-        int command_counter=0;
+        int command_counter = 0;
 
         // main cycle
         while (true) {
@@ -116,6 +116,7 @@ public class Application {
                 else {
 
                     // Read command from text (commands list)
+                	if (command_counter < commands.size()){
                     command = commands.get(command_counter);
                     inputArray = command.split(" ");
                     if (inputArray[0].equals("") || inputArray.length > 2) {
@@ -124,6 +125,8 @@ public class Application {
                     }
                     command = inputArray[0].toUpperCase();
                     command_counter++;
+                	}
+                	else return;
                 }
 
 
