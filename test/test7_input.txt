@@ -1,4 +1,4 @@
-LoadMap 4
+LoadMap 5
 SetTunnel tunnel_1
 SetTunnel tunnel_2
 Exit

@@ -80,7 +80,7 @@
             <trainElement_4>GREEN</trainElement_4>
         </engine>
 
-        <engine name="engine_2" startRound="10" length="5">
+        <engine name="engine_2" startRound="20" length="5">
             <trainElement_1>YELLOW</trainElement_1>
             <trainElement_2>RED</trainElement_2>
             <trainElement_3>RED</trainElement_3>

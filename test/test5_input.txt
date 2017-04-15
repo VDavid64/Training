@@ -1,3 +1,4 @@
 LoadMap 1
 Step 7
 SetSwitch switch_1
+Exit

@@ -21,3 +21,4 @@ New engine at startPosition
 <round: 7>
 <engine_1 at switch_1>
 <switch_1> <Can not change direction: there is a train on the switch>
+<Exit>

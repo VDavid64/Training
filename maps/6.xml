@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<testMapName>
+
+    <!-- Testmap 6 - 2 alagutszaj kozott switch, igy az alagut nem a rovid utvonalon épul meg -->
+
+    <mapElements>
+
+        <element name="startpos" type="rail"/>
+        <element name="rail_1" type="rail"/>
+        <element name="rail_2" type="rail"/>
+        <element name="rail_3" type="rail"/>
+        <element name="rail_4" type="rail"/>
+
+        <element name="switch_1" type="switch"/>
+        <element name="tunnel_1" type="tunnel"/>
+
+        <element name="rail_5" type="rail"/>
+        <element name="rail_6" type="rail"/>
+        <element name="rail_7" type="rail"/>
+        <element name="rail_8" type="rail"/>
+        <element name="rail_9" type="rail"/>
+        <element name="rail_10" type="rail"/>
+        <element name="rail_11" type="rail"/>
+
+        <element name="tunnel_2" type="tunnel"/>
+
+    </mapElements>
+    <connections>
+
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
+        <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
+        <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="switch_1"/>
+
+        <connection name="switch_1" type="switch" prevRail="rail_4" nextRail="tunnel_1" thirdRail="tunnel_2"/>
+        <connection name="tunnel_1" type="tunnel" prevRail="switch_1" nextRail="rail_5"/>
+
+        <connection name="rail_5" type="rail" prevRail="tunnel_1" nextRail="rail_6"/>
+        <connection name="rail_6" type="rail" prevRail="rail_5" nextRail="rail_7"/>
+        <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
+        <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="tunnel_1"/>
+        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="rail_11"/>
+        <connection name="rail_11" type="rail" prevRail="rail_10" nextRail="tunnel_2"/>
+
+        <connection name="tunnel_2" type="tunnel" prevRail="rail_11" nextRail="switch_1"/>
+
+    </connections>
+
+    <engines>
+        <engine name="engine_1" startRound="1" length="4">
+            <trainElement_1>YELLOW</trainElement_1>
+            <trainElement_2>RED</trainElement_2>
+            <trainElement_3></trainElement_3>
+            <trainElement_4>GREEN</trainElement_4>
+        </engine>
+
+        <engine name="engine_2" startRound="20" length="5">
+            <trainElement_1>YELLOW</trainElement_1>
+            <trainElement_2>RED</trainElement_2>
+            <trainElement_3>RED</trainElement_3>
+            <trainElement_4>GREEN</trainElement_4>
+            <trainElement_5></trainElement_5>
+        </engine>
+
+    </engines>
+</testMapName>

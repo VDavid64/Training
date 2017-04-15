@@ -1,0 +1,6 @@
+<Map loaded successfully: 5>
+<tunnel_1>
+<Tunnel position set to active>
+<tunnel_2>
+<Can not build tunnel between the two tunnel positions>
+<Exit>
