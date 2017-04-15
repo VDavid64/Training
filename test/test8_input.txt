@@ -1,0 +1,5 @@
+LoadMap 6
+SetTunnel tunnel_1
+SetTunnel tunnel_2
+Step 20
+Exit
