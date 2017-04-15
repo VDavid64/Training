@@ -1,0 +1,68 @@
+<Map loaded successfully: 8>
+<station_1 GREEN 1>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at rail_5>
+-------------------------------
+<round: 7>
+<engine_1 at switch_1>
+-------------------------------
+<round: 8>
+<engine_1 at rail_6>
+-------------------------------
+<round: 9>
+<engine_1 at rail_7>
+-------------------------------
+<round: 10>
+<engine_1 at rail_8>
+-------------------------------
+<round: 11>
+<engine_1 at rail_9>
+-------------------------------
+<round: 12>
+<engine_1 at rail_10>
+-------------------------------
+<round: 13>
+<engine_1 at station_1>
+-------------------------------
+<round: 14>
+<engine_1 at rail_11>
+    <Passangers left the train: station_1, car_1 >
+-------------------------------
+<round: 15>
+<engine_1 at rail_12>
+    <Passangers left the train: station_1, car_2 >
+-------------------------------
+<round: 16>
+<engine_1 at rail_13>
+-------------------------------
+<round: 17>
+<engine_1 at rail_14>
+    <Passangers left the train: station_1, car_4 >
+-------------------------------
+<round: 18>
+<engine_1 at rail_15>
+-------------------------------
+<round: 19>
+<engine_1 at station_2>
+-------------------------------
+<round: 20>
+<engine_1 at rail_16>
+New engine at startPosition
+<station_1 GREEN 1>
+<Exit>

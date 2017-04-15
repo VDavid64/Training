@@ -1,0 +1,5 @@
+LoadMap 8
+StationState station_1
+Step 20
+StationState station_1
+Exit

@@ -1,0 +1,22 @@
+<Map loaded successfully: 3>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+<Name: engine_1><Position: rail_4 >
+<Name: car_1 ><Position: rail_3 ><Color: YELLOW>< empty: false >
+<Name: car_2 ><Position: rail_2 ><Color: RED>< empty: false >
+<Name: cargo_3 ><Position: rail_1 ><Color: null>< empty: true >
+<Name: car_4 ><Position: startpos ><Color: GREEN>< empty: false >
+<Exit>
