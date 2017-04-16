@@ -135,9 +135,10 @@ public abstract class Train_Element {
      */
     public void move(Rail nextRail, int i) {
 
-        Rail tempPrevRail = prevPos;
         prevPos = actPos;
         actPos = nextRail;
+        
+        if (actPos != null) actPos.occupied = true;
 
         /*
         if (! (actPos == null))
@@ -148,7 +149,6 @@ public abstract class Train_Element {
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos, i);
-    }
 
     /**
      * Gets color of train element.
