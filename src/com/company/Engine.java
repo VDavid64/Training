@@ -54,19 +54,11 @@ public class Engine extends Train_Element {
     public void moveEngine(int counter) {
 
         // Vonat léptetése
-        Rail tempPrevRail = this.getPrevPos();
-        Rail tempActRail = this.getActPos();
-        this.setPrevPos(actPos);
-        Rail nextPos = tempActRail.getNextRail(tempPrevRail, this);
-        this.setActPos(nextPos);
-        if (nextPos != null)
-            nextPos.occupied = true;
-
-        if (! (actPos == null))
+    	Rail nextPos = actPos.getNextRail(prevPos, this);
+    	move(nextPos, counter);
+    	
+        if (actPos != null)
             System.out.println( "<" + this.name + " at " + actPos.name + ">");
-
-        // Következő TrainElement mozgatása
-        nextTrainElement.move(tempActRail, counter);
 
     }
 }
