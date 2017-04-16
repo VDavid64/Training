@@ -24,12 +24,12 @@ public class Rail {
     public String name;
     
 	/**
-	 * True if there is a tunnel under the rail.
+	 * isTunnelUnderRail whether there is a tunnel under rail.
 	 */
     protected boolean isTunnelUnderRail;
     
     /**
-     * True if there is a train element on rail.
+     * occupied whether there is a train element on rail.
      */
     protected boolean occupied = false;
 
