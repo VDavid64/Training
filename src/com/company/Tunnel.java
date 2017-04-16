@@ -9,7 +9,7 @@ package com.company;
 public class Tunnel extends Rail {
 
 	/**
-	 * True if tunnel point is active.
+	 * isActive whether tunnel point is active.
 	 */
     private boolean isActive;
     
