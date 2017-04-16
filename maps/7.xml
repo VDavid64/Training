@@ -42,7 +42,7 @@
         <connection name="rail_6" type="rail" prevRail="rail_5" nextRail="rail_7"/>
         <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="station_1"/>
 
-        <connection name="station_1" type="station" prevRail="rail_7" nextRail="rail_8"/>
+        <connection name="station_1" type="station" prevRail="rail_7" nextRail="rail_8" color="GREEN"/>
 
         <connection name="rail_8" type="rail" prevRail="station_1" nextRail="rail_9"/>
         <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
