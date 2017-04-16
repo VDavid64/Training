@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -78,6 +79,11 @@ public class Map {
      * List of engines.
      */
     public ArrayList<Engine> mapEngines = new ArrayList<>();
+    
+    /**
+     * List of all colors had by at least one station.
+     */
+    public static ArrayList<String> stationColors = new ArrayList<String>();
 
 
 	/**
@@ -326,6 +332,11 @@ public class Map {
                 Engine e = new Engine(eElement.getAttribute("name"), numberOfTrainElement, trainElements);
                 mapEngines.add(e);
             }
+            
+            //létező állomásszínek eltárolása
+            NodeList colors = doc.getElementsByTagName("color");
+            for (int i = 0; i < colors.getLength(); i++) stationColors.add(((Element)colors.item(i)).getAttribute("value"));
+            
 
                 System.out.println("<Map loaded successfully: " +mapName +">");
 

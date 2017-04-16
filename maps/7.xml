@@ -68,4 +68,8 @@
 
     </engines>
 
+    <colors>
+        <color value="GREEN" />
+    </colors>
+
 </testMapName>

@@ -13,8 +13,24 @@ public class Car extends Train_Element {
 
     // Konstruktor
     public Car(int numberOfCars, int i) {
-        // color = Color.getRandomColor();
-        this.color = Color.GREEN;
+    	
+    	//színkezelés
+    	int colorIndex;
+    	String colorName;
+    	
+    	if (!Game.trainColors.isEmpty()){
+    	colorIndex = (int)Math.random() * (Game.trainColors.size() - 1);
+    	colorName = Game.trainColors.get(colorIndex);
+    	Game.trainColors.remove(colorIndex);
+    	}
+    	
+    	else {
+    		colorIndex = (int)Math.random() * (Map.stationColors.size() - 1);
+    		colorName = Map.stationColors.get(colorIndex);
+    	}
+    
+    	this.color = Color.valueOf(colorName);
+    	
         this.name = "car_"+ i;
         this.isEmpty = false;
         this.roundLastEmpty = 0;
@@ -22,7 +38,9 @@ public class Car extends Train_Element {
         System.out.format(" %s ", color);
 
         if (numberOfCars > 1)
+        	if (Game.trainColors.isEmpty())
             nextTrainElement = random.nextBoolean() ? new Car(numberOfCars-1, i++) : new Cargo(numberOfCars-1, i++);
+            else nextTrainElement = new Car(numberOfCars-1, i++);  //Ha van még létrehozandó szín, akkor biztosan kocsi lesz
         else {
             nextTrainElement = null;
             System.out.println();

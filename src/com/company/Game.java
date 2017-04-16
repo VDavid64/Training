@@ -33,6 +33,7 @@ public class Game {
      * List of engines.
      */
     private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
+    public static ArrayList<String> trainColors;
 
 
 
@@ -71,6 +72,7 @@ public class Game {
     public void loadMap(String mapName) {
         map = new Map();
         map.loadMap(mapName);
+        trainColors = new ArrayList<String>(Map.stationColors);
     }
 
 
@@ -103,7 +105,6 @@ public class Game {
             if (e.getActPos() == map.getStartPosition())
                 empty = false;
         }
-
 
         // ha a véletlenszerűség nincs bekapcsolva, az xml-ből betöltött vonatokat használjuk
         if (!random) {

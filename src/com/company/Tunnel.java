@@ -9,7 +9,7 @@ package com.company;
 public class Tunnel extends Rail {
 
 	/**
-	 * True if tunnel point is active.
+	 * isActive whether tunnel point is active.
 	 */
     private boolean isActive;
     
@@ -73,11 +73,7 @@ public class Tunnel extends Rail {
 
 
 	/**
-<<<<<<< HEAD
-	 * Get next rail for a moving trai nelement to move onto.
-=======
 	 * Get next rail for a moving train element to move onto.
->>>>>>> refs/remotes/origin/master
 	 * If there is a problem with tunnel entrance write it out.
 	 * @param previous
 	 *            Rail object where train element was previously. 
