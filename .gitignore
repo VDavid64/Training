@@ -4,3 +4,5 @@ bin
 labor.iml
 .project
 out
+/test8_output2.txt
+/.classpath
