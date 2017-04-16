@@ -149,6 +149,7 @@ public abstract class Train_Element {
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos, i);
+    }
 
     /**
      * Gets color of train element.
