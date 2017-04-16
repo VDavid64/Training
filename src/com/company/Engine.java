@@ -6,8 +6,6 @@ import java.util.List;
 
 public class Engine extends Train_Element {
 
-
-
     // A vonat léterhozásáért felelős konstruktor
     // ráállítja a startPos-ra az Engine-t, és beállítja az első kocsit
     public Engine(Rail startPos, int numberOfCars, String name) {
@@ -15,7 +13,7 @@ public class Engine extends Train_Element {
         actPos = startPos;
         System.out.print("\"" + name + "\" at: \"" + actPos.name + "\" with cars: ");
         prevPos = null;
-        nextTrainElement = new Car(numberOfCars, 1);
+        nextTrainElement = random.nextBoolean() ? new Car(numberOfCars, 1) : new Cargo(numberOfCars, 1);
     }
 
 

@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Random;
 
 /**
  * Abstract class for train elements.
@@ -33,7 +34,10 @@ public abstract class Train_Element {
      * Name of object.
      */
     protected String name;
-
+    /**
+     * Static Random to avoid identical trains.
+     */
+    protected static Random random = new Random();
 
 
 	/**

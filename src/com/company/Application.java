@@ -23,7 +23,6 @@ public class Application {
         // TODO: maps + tests
         // TODO: random működése, pl: train generálásnál csak Car-ok példányosodnak
         // TODO: xml-be a station-ok színét is le kell kötni
-        // TODO: kiírások lekezelése: console vagy file
 
         //////////////////////////////////////////////////////////
         // init:

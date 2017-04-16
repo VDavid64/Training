@@ -7,13 +7,13 @@ public class Cargo extends Train_Element {
 
 
     // Konstruktor randomhoz
-    public Cargo(int numberOfCars) {
+    public Cargo(int numberOfCars, int i) {
 
         System.out.println("Cargo");
         isEmpty = false;
-
+        this.name = "cargo_"+ i;
         if (numberOfCars > 1)
-            nextTrainElement = new Cargo(numberOfCars-1);
+            nextTrainElement = random.nextBoolean() ? new Car(numberOfCars-1, i++) : new Cargo(numberOfCars-1, i++);
         else {
             nextTrainElement = null;
             System.out.println();

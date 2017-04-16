@@ -22,7 +22,7 @@ public class Car extends Train_Element {
         System.out.format(" %s ", color);
 
         if (numberOfCars > 1)
-            nextTrainElement = new Car(numberOfCars-1, ++i);
+            nextTrainElement = random.nextBoolean() ? new Car(numberOfCars-1, i++) : new Cargo(numberOfCars-1, i++);
         else {
             nextTrainElement = null;
             System.out.println();
