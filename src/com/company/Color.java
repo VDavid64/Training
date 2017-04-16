@@ -10,7 +10,7 @@ public enum Color {
 
     // enum a színekhez
 
-    GREEN, BLUE, RED, YELLOW, WHITE;
+    GREEN, YELLOW, RED;
 
 
     private static final List<Color> VALUES = Collections.unmodifiableList(Arrays.asList(values()));

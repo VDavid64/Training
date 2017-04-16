@@ -275,6 +275,8 @@ public class Map {
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setNextRail(rails.get(getIndexByName(eElement.getAttribute("nextRail"))));
                     if (!eElement.getAttribute("prevRail").equals("null"))
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setPrevRail(rails.get(getIndexByName(eElement.getAttribute("prevRail"))));
+                    if (eElement.hasAttribute("color"))
+                    	rails.get(getIndexByName(eElement.getAttribute("name"))).setColor(eElement.getAttribute("color"));
                 }
 
                 // kereszteződő sínekre

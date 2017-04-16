@@ -28,12 +28,12 @@ public class Station  extends Rail {
         this.name = name;
         passenger = (int) (Math.random() * (4));
         // color = Color.getRandomColor();
-        color = Color.GREEN;
+        //color = Color.GREEN;
     }
 
 
 	/**
-	 * Overrided getter of color. Returns the color of station.
+	 * Overridden getter of color. Returns the color of station.
 	 * 
 	 * @return 
 	 * 			Color of station.
@@ -41,6 +41,18 @@ public class Station  extends Rail {
     @Override
     public Color getColor() {
         return color;
+    }
+    
+    
+    /**
+     * Overridden setter of color attribute.
+     * 
+     * @param color
+     * 			Color to set.
+     */
+    @Override
+    public void setColor(String color){
+    	this.color = Color.valueOf(color);
     }
 
 	/**

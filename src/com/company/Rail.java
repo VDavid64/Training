@@ -84,6 +84,11 @@ public class Rail {
     public Color getColor() {
         return null;
     }
+    
+    /**
+     * Setter of color attribute. Station class needs it.
+     */
+    public void setColor(String color){}
 
     /**
      * Setter of nextRail attribute. Sets value what was given in parameter.
@@ -111,12 +116,12 @@ public class Rail {
     }
 
     /**
-     * Setter of passenger attribute. Station class need it.
+     * Setter of passenger attribute. Station class needs it.
      */
     public void setPassenger() {}
 
     /**
-     * Change the direction of switch. Switch class need it.
+     * Change the direction of switch. Switch class needs it.
      */
     public void changeDir() {}
 
