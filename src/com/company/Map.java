@@ -325,10 +325,6 @@ public class Map {
                 mapEngines.add(e);
             }
 
-            if (Application.inputMethod) {
-                Application.output.write("<Map loaded successfully: " +mapName +"> \n");
-            }
-            else
                 System.out.println("<Map loaded successfully: " +mapName +">");
 
         }

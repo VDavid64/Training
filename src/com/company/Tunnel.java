@@ -9,18 +9,18 @@ package com.company;
 public class Tunnel extends Rail {
 
 	/**
-	 * isActive whether tunnel point is active.
+	 * True if tunnel point is active.
 	 */
     private boolean isActive;
     
     /**
-     * Represents rail in tunnel.
+     * Represents adjacent rail in tunnel.
      */
     private Rail tunnelRail;
     
     
     /**
-     * Direction.
+     * Value is 'next' if tunnelRail runs parallel to nextRail, else 'prev'
      */
     private String dir;
 
@@ -28,8 +28,8 @@ public class Tunnel extends Rail {
 
     /**
      * Constructor of Tunnel class.
-     * Sets name what was given in parameter.
-     * Sets tunnelRail attribute null.
+     * Sets name to parameter.
+     * Sets tunnelRail attribute to null.
      * Sets isActive attribute false.
      * @param name
      * 				Name of object.
@@ -52,19 +52,19 @@ public class Tunnel extends Rail {
     /**
      * Setter of isActive attribute.
      * @param active
-     * 				boolean what we want to set
+     * 				Value to set
      */
     public void setActive(boolean active) {
         isActive = active;
     }
 
 
-    /* 
-     * Sets tunnelRail and dir attributes. Values were given in parameters.
+    /**
+     * Sets tunnelRail and dir attributes. Values are given in parameters.
 	 * @param r
-     * 			Rail what we want to set.
+     * 			Rail to set.
      * @param d
-     * 			Direction what we want to set.
+     * 			Direction to set.
      */
     public void setTunnelRail(Rail r, String d) {
         this.tunnelRail = r;
@@ -73,20 +73,16 @@ public class Tunnel extends Rail {
 
 
 	/**
-	 * Get the next rail. Returns a Rail object what is the next one.
+	 * Get next rail for a moving trai nelement to move onto.
 	 * If there is a problem with tunnel entrance write it out.
 	 * @param previous
-	 *            Rail object where train element was. 
-	 * @param train
-	 *            element which does move.
+	 *            Rail object where train element was previously. 
+	 * @param t
+	 *            Moving element requesting its next rail
 	 * @return 
-	 * 			Next rail object.
+	 * 			  Next rail object.
 	 */
     public Rail getNextRail(Rail previous, Train_Element t) {
-
-        // TODO: változtatás volt, párhuzamos síneket használunk már - irányt kell megoldani
-        // Rail esetén megadjuk az előző pozíciót
-        // ezt összehasonlítva a két szomszéddal, tudjuk mivel kell visszatérni
 
         // ha nincs alagút, vagy épp vonat van az alagútban, sínként funkcionál
         if (Map.getIsTrainInTunnel() || tunnelRail == null) {
@@ -115,9 +111,8 @@ public class Tunnel extends Rail {
             // ha megfelelő irányból jövünk, behajtunk az alagútba
             if (previous == prevRail) {
                 if (dir.equals("next")) {
-                    t.setVisible(false);                                // alagútba behajtás: vonaton jelezzük a visible változóval
-                    //Map.setIsTrainInTunnel(true);                       //                    map-nek jelezzük static beállításával
-                    Map.isTrainInTunnel = true;
+                    t.setVisible(false);                                // alagútba behajtás: vonaton jelezzük a visible változóval                   
+                    Map.isTrainInTunnel = true;							 // map-nek jelezzük static beállításával
                     return tunnelRail;
                 } else
                     return nextRail;

@@ -56,7 +56,7 @@ public class Application {
 
                 // Create output file
                 File file = new File(path + "\\test\\" + outputFileName);
-                output = new BufferedWriter(new FileWriter(file));          // write to output: "output.write(string)"
+                System.setOut(new PrintStream(file));
             }
             // Error for not valid filetype
             catch (IllegalArgumentException ie) {
@@ -153,14 +153,10 @@ public class Application {
                             if (!mapLoaded) throw new IllegalStateException();
 
                             while (round != 0 && gameIsOn) {
-                                if (Application.inputMethod) {
-                                    Application.output.write("-------------------------------\n");
-                                    Application.output.write("<round: " + counter + ">\n");
-                                }
-                                else {
+                        
                                     System.out.println("-------------------------------");
                                     System.out.println("<round: " + counter + ">");
-                                }
+                                
                                 game.moveTrains(counter);
                                 game.generateTrain(counter, random);
                                 game.emptyCars(counter);
@@ -188,24 +184,14 @@ public class Application {
 
                         // ha a játék véget ért: resetelünk, hogy újra tudjunk indítani egy pályát, programból való kilépés nélkül
                         if (!gameIsOn) {
-                            if (Application.inputMethod) {
-                                if (gameHasWon) {
-                                    Application.output.write("<Congratulations! You Won!>\n");
-                                    Application.output.write("-------------------------------");
-                                } else {
-                                    Application.output.write("<Game over!>\n");
-                                    Application.output.write("-------------------------------\n");
-                                }
-                            }
-                            else {
-                                if (gameHasWon) {
+                  
+                                if (gameHasWon) 
                                     System.out.println("<Congratulations! You Won!>");
-                                    System.out.println("-------------------------------");
-                                } else {
+                                 else 
                                     System.out.println("<Game over!>");
-                                    System.out.println("-------------------------------");
-                                }
-                            }
+                                
+                                System.out.println("-------------------------------");
+                                
                             mapLoaded = false;
                             game.deleteTrains();
                             counter = 1;
@@ -238,15 +224,8 @@ public class Application {
 
 
                     case ("EXIT"):
-
-                        if (Application.inputMethod) {
-                            Application.output.write("<Exit>");
-                            output.close();
-                        }
-                        else {
+ 
                             System.out.println("<Exit>");
-                        }
-
                         System.exit(0);
 
 
@@ -320,25 +299,10 @@ public class Application {
                     case ("SETRANDOM"):
                         try {
                             if (mapLoaded) throw new IllegalStateException();
-                            if (random) {
-                                random = false;
-                                if (Application.inputMethod) {
-                                    Application.output.write("<Random off>");
-                                }
-                                else {
-                                    System.out.println("<Random off>");
-                                }
-                            }
-                            else {
-                                random= true;
-                                if (Application.inputMethod) {
-                                    Application.output.write("<Random on>");
-                                    
-                                }
-                                else {
-                                    System.out.println("<Random on>");
-                                }
-                            }
+                            random = !random;
+              
+                                    System.out.println("<Random " + (random ? "on" : "off") + " >");
+                       
                         }
                         catch (IllegalStateException i) {
                             System.out.println("You can not set random after loading the map.");
