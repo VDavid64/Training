@@ -138,6 +138,9 @@ public abstract class Train_Element {
      * 			counter
      */
     public void move(Rail nextRail, int i) {
+        // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
+        if (nextTrainElement == null && actPos != null)
+            actPos.occupied=false;
 
         prevPos = actPos;
         actPos = nextRail;

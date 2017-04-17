@@ -3,7 +3,7 @@
     <mapElements>
 
         <!-- Main loop on map with the first starting position -->
-        <element name="startpos_1" type="rail"/>
+        <element name="startpos" type="rail"/>
         <element name="rail_1" type="rail"/>
         <element name="rail_2" type="rail"/>
         <element name="rail_3" type="rail"/>
@@ -61,7 +61,7 @@
         <element name="rail_39" type="rail"/>
         <element name="rail_40" type="rail"/>
 
-        <element name="switch_4" type="switch"/>
+        <element name="rail_131" type="rail"/>
 
         <element name="rail_41" type="rail"/>
         <element name="rail_42" type="rail"/>
@@ -118,13 +118,6 @@
         <element name="rail_81" type="rail"/>
         <element name="rail_82" type="rail"/>
         <!-- Main loop end, rail_82 joins into switch_1 -->
-
-        <!-- Second starting point -->
-        <element name="startpos_2" type="rail"/>
-        <element name="rail_83" type="rail"/>
-        <element name="rail_84" type="rail"/>
-        <element name="rail_85" type="rail"/>
-        <!-- Second starting points joins into switch_4 -->
 
         <!-- The section connecting switch_3 and switch_6
          starting from switch_3 -->
@@ -195,8 +188,8 @@
 
     <connections>
         <!-- Main loop connections and the first startpos -->
-        <connection name="startpos_1" type="rail" prevRail="null" nextRail="rail_1"/>
-        <connection name="rail_1" type="rail" prevRail="startpos_1" nextRail="rail_2"/>
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
         <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
         <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
         <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="switch_1"/>
@@ -246,16 +239,17 @@
         <connection name="rail_35" type="rail" prevRail="rail_34" nextRail="rail_36"/>
         <connection name="rail_36" type="rail" prevRail="rail_35" nextRail="rail_37"/>
         <connection name="rail_37" type="rail" prevRail="rail_36" nextRail="rail_38"/>
-        <connection name="rail_38" type="rail" prevRail="rail_37" nextRail="rail_39"/>
+        <connection name="rail_38" type="rail" prevRail="rail_37" nextRail="switch_3"/>
 
         <connection name="switch_3" type="switch" prevRail="rail_38" nextRail="rail_39" thirdRail="rail_86"/>
 
         <connection name="rail_39" type="rail" prevRail="switch_3" nextRail="rail_40"/>
-        <connection name="rail_40" type="rail" prevRail="rail_39" nextRail="switch_4"/>
+        <connection name="rail_40" type="rail" prevRail="rail_39" nextRail="rail_131"/>
 
-        <connection name="switch_4" type="switch" prevRail="rail_40" nextRail="rail_41" thirdRail="rail_85"/>
+        <!-- removed a switch here, that is the reason for the inconsistent numbering -->
+        <connection name="rail_131" type="rail" prevRail="rail_40" nextRail="rail_41"/>
 
-        <connection name="rail_41" type="rail" prevRail="switch_4" nextRail="rail_42"/>
+        <connection name="rail_41" type="rail" prevRail="rail_131" nextRail="rail_42"/>
         <connection name="rail_42" type="rail" prevRail="rail_41" nextRail="rail_43"/>
         <connection name="rail_43" type="rail" prevRail="rail_42" nextRail="rail_44"/>
         <connection name="rail_44" type="rail" prevRail="rail_43" nextRail="rail_45"/>
@@ -310,13 +304,6 @@
         <connection name="rail_81" type="rail" prevRail="rail_80" nextRail="rail_82"/>
         <connection name="rail_82" type="rail" prevRail="rail_81" nextRail="switch_1"/>
         <!-- Main loopp connections end -->
-
-        <!-- Second startingpos connections -->
-        <connection name="startpos_2" type="rail" prevRail="null" nextRail="rail_83"/>
-        <connection name="rail_83" type="rail" prevRail="startpos_2" nextRail="rail_84"/>
-        <connection name="rail_84" type="rail" prevRail="rail_83" nextRail="rail_85"/>
-        <connection name="rail_85" type="rail" prevRail="rail_84" nextRail="switch_4"/>
-        <!-- Second startingpos connections end -->
 
         <!-- The section's connecting switch_3 and switch_6
          starting from switch_3 connections -->

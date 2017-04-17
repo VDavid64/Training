@@ -90,9 +90,10 @@ public class Car extends Train_Element {
     public void move(Rail nextRail, int counter) {
 
 
-        // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
-        if (nextTrainElement == null && actPos != null)
+        /*// Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
+        if (nextTrainElement == null && actPos != null) {
             actPos.occupied=false;
+        }*/
 
         // Lépés
         prevPos = actPos;
