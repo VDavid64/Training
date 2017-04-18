@@ -348,6 +348,7 @@ public class Application {
 					System.out.println("    Step number_of_steps                    Must be between 1 and 500");
 					System.out.println("    SetSwitch switch_name                   Change the direction of a switch");
 					System.out.println("    StationState station_name               List data of given station");
+					System.out.println("    ListTrains               				List the trains in the game");
 					System.out.println(
 							"    ListEngine engine_name                  List all information about an engine");
 					System.out.println(
@@ -355,6 +356,7 @@ public class Application {
 					System.out.println("    SetTunnel tunnel_name                   Set tunnel position activity");
 					System.out.println(
 							"    SetRandom                               Set the random generations of cars, stations, etc. Editable before loading the map!");
+					System.out.println("    Exit               						Exit the program");
 					System.out.println("-------------------------------");
 					break;
 
