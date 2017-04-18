@@ -89,6 +89,11 @@ public class Application {
 
 				// Load commands from file into a String array
 				String path = System.getProperty("user.dir");
+
+				// If running with args should work as stated in docs, leave this in
+				// this clips the last dir from the path (aka the \src dir, since the test isn't at \src\test )
+				path = path.substring(0, path.lastIndexOf("\\"));
+
 				commands = Files.readAllLines(Paths.get(path + "\\test\\" + inputFileName), StandardCharsets.UTF_8);
 
 				// Create output file
@@ -156,6 +161,7 @@ public class Application {
 					if (command_counter < commands.size()) {
 						command = commands.get(command_counter);
 						inputArray = command.split(" ");
+
 						if (inputArray[0].equals("") || inputArray.length > 2) {
 							System.out.println(
 									"Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
