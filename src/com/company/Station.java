@@ -15,7 +15,7 @@ public class Station  extends Rail {
     /**
      *Number of passengers who are waiting.  
      */
-    private int passenger;
+    private int passenger = 3;
 
 
    
@@ -25,7 +25,7 @@ public class Station  extends Rail {
 	 */
     public Station(String name) {
         this.name = name;
-        passenger = (int) (Math.random() * (4));
+        //passenger = (int) (Math.random() * (4));
         // color = Color.getRandomColor();
         //color = Color.GREEN;
     }
