@@ -1,0 +1,8 @@
+LoadMap testmap
+SetSwitch switch_5
+Step 80
+SetSwitch switch_5
+SetSwitch switch_2
+setswitch switch_1
+Step 30
+Exit

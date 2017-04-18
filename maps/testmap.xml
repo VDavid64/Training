@@ -194,7 +194,7 @@
         <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
         <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="switch_1"/>
 
-        <connection name="switch_1" type="switch" prevRail="rail_4" nextRail="rail_5" thirdRail="rail_82"/>
+        <connection name="switch_1" type="switch" prevRail="rail_5" nextRail="rail_4" thirdRail="rail_82"/>
 
         <connection name="rail_5" type="rail" prevRail="switch_1" nextRail="tunnel_1"/>
         <connection name="tunnel_1" type="tunnel" prevRail="rail_5" nextRail="rail_6"/>

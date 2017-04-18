@@ -17,6 +17,11 @@ public class Application {
 	public static BufferedWriter output = null;
 	public static boolean random = false; // véletlenszerűséget állító kapcsoló
 
+	/**
+	 * Main function.
+	 * @param args Program arguments.
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws InterruptedException {
 
 		// TODO: maps + tests
@@ -26,14 +31,43 @@ public class Application {
 
 		//////////////////////////////////////////////////////////
 		// init:
+		/**
+		 * Creating a new game.
+		 */
 		Game game = new Game(); // game példányosítása
+
+		/**
+		 * Signals if the game is on.
+		 */
 		boolean gameIsOn = true; // játék állapotát rögzítő bool (true, ha megy
 									// a játék)
+
+		/**
+		 * Signals if someone already won.
+		 */
 		boolean gameHasWon = false;
+
+		/**
+		 * Signals if the map is already loaded.
+		 */
 		boolean mapLoaded = false;
+
+		/**
+		 * Counter for trains.
+		 */
 		int counter = 1; // számláló (vonat generálásához) és a map
+
+		/**
+		 * String containing the input file name
+		 * if it is provided.
+		 */
 		final String inputFileName; // ha parancssori indítás esetén a
 									// parancsokat tartalmazó txt file
+
+		/**
+		 * String containing the output file name
+		 * if it is provided.
+		 */
 		final String outputFileName; // kimenetet tartalmazó file
 		List<String> commands = new ArrayList<>(); // parancsokat tartalmazó
 													// lista

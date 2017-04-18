@@ -1,0 +1,431 @@
+<Map loaded successfully: testmap>
+<switch_5> <State: false>
+-------------------------------
+<round: 1>
+New engine at startPosition
+-------------------------------
+<round: 2>
+<engine_1 at rail_1>
+-------------------------------
+<round: 3>
+<engine_1 at rail_2>
+-------------------------------
+<round: 4>
+<engine_1 at rail_3>
+-------------------------------
+<round: 5>
+<engine_1 at rail_4>
+-------------------------------
+<round: 6>
+<engine_1 at switch_1>
+-------------------------------
+<round: 7>
+<engine_1 at rail_5>
+-------------------------------
+<round: 8>
+<engine_1 at tunnel_1>
+-------------------------------
+<round: 9>
+<engine_1 at rail_6>
+-------------------------------
+<round: 10>
+<engine_1 at rail_7>
+-------------------------------
+<round: 11>
+<engine_1 at rail_8>
+-------------------------------
+<round: 12>
+<engine_1 at rail_9>
+-------------------------------
+<round: 13>
+<engine_1 at rail_10>
+-------------------------------
+<round: 14>
+<engine_1 at rail_11>
+-------------------------------
+<round: 15>
+<engine_1 at tunnel_2>
+-------------------------------
+<round: 16>
+<engine_1 at rail_12>
+-------------------------------
+<round: 17>
+<engine_1 at switch_2>
+-------------------------------
+<round: 18>
+<engine_1 at rail_13>
+-------------------------------
+<round: 19>
+<engine_1 at rail_14>
+-------------------------------
+<round: 20>
+<engine_1 at tunnel_3>
+New engine at startPosition
+-------------------------------
+<round: 21>
+<engine_1 at rail_15>
+<engine_2 at rail_1>
+-------------------------------
+<round: 22>
+<engine_1 at rail_16>
+<engine_2 at rail_2>
+-------------------------------
+<round: 23>
+<engine_1 at rail_17>
+<engine_2 at rail_3>
+-------------------------------
+<round: 24>
+<engine_1 at rail_18>
+<engine_2 at rail_4>
+-------------------------------
+<round: 25>
+<engine_1 at rail_19>
+<engine_2 at switch_1>
+-------------------------------
+<round: 26>
+<engine_1 at tunnel_4>
+<engine_2 at rail_5>
+-------------------------------
+<round: 27>
+<engine_1 at rail_20>
+<engine_2 at tunnel_1>
+-------------------------------
+<round: 28>
+<engine_1 at rail_21>
+<engine_2 at rail_6>
+-------------------------------
+<round: 29>
+<engine_1 at rail_22>
+<engine_2 at rail_7>
+-------------------------------
+<round: 30>
+<engine_1 at rail_23>
+<engine_2 at rail_8>
+-------------------------------
+<round: 31>
+<engine_1 at rail_24>
+<engine_2 at rail_9>
+-------------------------------
+<round: 32>
+<engine_1 at rail_25>
+<engine_2 at rail_10>
+-------------------------------
+<round: 33>
+<engine_1 at rail_26>
+<engine_2 at rail_11>
+-------------------------------
+<round: 34>
+<engine_1 at station_1>
+<engine_2 at tunnel_2>
+-------------------------------
+<round: 35>
+<engine_1 at rail_27>
+<engine_2 at rail_12>
+-------------------------------
+<round: 36>
+<engine_1 at rail_28>
+<engine_2 at switch_2>
+-------------------------------
+<round: 37>
+<engine_1 at rail_29>
+<engine_2 at rail_13>
+-------------------------------
+<round: 38>
+<engine_1 at rail_30>
+<engine_2 at rail_14>
+-------------------------------
+<round: 39>
+<engine_1 at rail_31>
+<engine_2 at tunnel_3>
+-------------------------------
+<round: 40>
+<engine_1 at rail_32>
+<engine_2 at rail_15>
+-------------------------------
+<round: 41>
+<engine_1 at rail_33>
+<engine_2 at rail_16>
+-------------------------------
+<round: 42>
+<engine_1 at rail_34>
+<engine_2 at rail_17>
+-------------------------------
+<round: 43>
+<engine_1 at rail_35>
+<engine_2 at rail_18>
+-------------------------------
+<round: 44>
+<engine_1 at rail_36>
+<engine_2 at rail_19>
+-------------------------------
+<round: 45>
+<engine_1 at rail_37>
+<engine_2 at tunnel_4>
+-------------------------------
+<round: 46>
+<engine_1 at rail_38>
+<engine_2 at rail_20>
+-------------------------------
+<round: 47>
+<engine_1 at switch_3>
+<engine_2 at rail_21>
+-------------------------------
+<round: 48>
+<engine_1 at rail_39>
+<engine_2 at rail_22>
+-------------------------------
+<round: 49>
+<engine_1 at rail_40>
+<engine_2 at rail_23>
+-------------------------------
+<round: 50>
+<engine_1 at rail_131>
+<engine_2 at rail_24>
+-------------------------------
+<round: 51>
+<engine_1 at rail_41>
+<engine_2 at rail_25>
+-------------------------------
+<round: 52>
+<engine_1 at rail_42>
+<engine_2 at rail_26>
+-------------------------------
+<round: 53>
+<engine_1 at rail_43>
+<engine_2 at station_1>
+-------------------------------
+<round: 54>
+<engine_1 at rail_44>
+<engine_2 at rail_27>
+-------------------------------
+<round: 55>
+<engine_1 at rail_45>
+<engine_2 at rail_28>
+-------------------------------
+<round: 56>
+<engine_1 at station_2>
+<engine_2 at rail_29>
+-------------------------------
+<round: 57>
+<engine_1 at rail_46>
+<engine_2 at rail_30>
+-------------------------------
+<round: 58>
+<engine_1 at rail_47>
+<engine_2 at rail_31>
+-------------------------------
+<round: 59>
+<engine_1 at rail_48>
+<engine_2 at rail_32>
+-------------------------------
+<round: 60>
+<engine_1 at rail_49>
+<engine_2 at rail_33>
+-------------------------------
+<round: 61>
+<engine_1 at rail_50>
+<engine_2 at rail_34>
+-------------------------------
+<round: 62>
+<engine_1 at rail_51>
+<engine_2 at rail_35>
+-------------------------------
+<round: 63>
+<engine_1 at rail_52>
+<engine_2 at rail_36>
+-------------------------------
+<round: 64>
+<engine_1 at rail_53>
+<engine_2 at rail_37>
+-------------------------------
+<round: 65>
+<engine_1 at rail_54>
+<engine_2 at rail_38>
+-------------------------------
+<round: 66>
+<engine_1 at rail_55>
+<engine_2 at switch_3>
+-------------------------------
+<round: 67>
+<engine_1 at rail_56>
+<engine_2 at rail_39>
+-------------------------------
+<round: 68>
+<engine_1 at rail_57>
+<engine_2 at rail_40>
+-------------------------------
+<round: 69>
+<engine_1 at rail_58>
+<engine_2 at rail_131>
+-------------------------------
+<round: 70>
+<engine_1 at rail_59>
+<engine_2 at rail_41>
+-------------------------------
+<round: 71>
+<engine_1 at switch_5>
+<engine_2 at rail_42>
+-------------------------------
+<round: 72>
+<engine_1 at rail_130>
+<engine_2 at rail_43>
+-------------------------------
+<round: 73>
+<engine_1 at rail_129>
+<engine_2 at rail_44>
+-------------------------------
+<round: 74>
+<engine_1 at rail_128>
+<engine_2 at rail_45>
+-------------------------------
+<round: 75>
+<engine_1 at rail_127>
+<engine_2 at station_2>
+-------------------------------
+<round: 76>
+<engine_1 at rail_126>
+<engine_2 at rail_46>
+-------------------------------
+<round: 77>
+<engine_1 at crossrail_1>
+<engine_2 at rail_47>
+-------------------------------
+<round: 78>
+<engine_1 at rail_125>
+<engine_2 at rail_48>
+-------------------------------
+<round: 79>
+<engine_1 at rail_124>
+<engine_2 at rail_49>
+-------------------------------
+<round: 80>
+<engine_1 at rail_123>
+<engine_2 at rail_50>
+<switch_5> <State: true>
+<switch_2> <State: false>
+<switch_1> <State: false>
+-------------------------------
+<round: 81>
+<engine_1 at rail_122>
+<engine_2 at rail_51>
+-------------------------------
+<round: 82>
+<engine_1 at rail_121>
+<engine_2 at rail_52>
+-------------------------------
+<round: 83>
+<engine_1 at station_4>
+<engine_2 at rail_53>
+-------------------------------
+<round: 84>
+<engine_1 at rail_120>
+<engine_2 at rail_54>
+-------------------------------
+<round: 85>
+<engine_1 at rail_119>
+<engine_2 at rail_55>
+-------------------------------
+<round: 86>
+<engine_1 at rail_118>
+<engine_2 at rail_56>
+-------------------------------
+<round: 87>
+<engine_1 at rail_117>
+<engine_2 at rail_57>
+-------------------------------
+<round: 88>
+<engine_1 at rail_116>
+<engine_2 at rail_58>
+-------------------------------
+<round: 89>
+<engine_1 at rail_115>
+<engine_2 at rail_59>
+-------------------------------
+<round: 90>
+<engine_1 at rail_114>
+<engine_2 at switch_5>
+-------------------------------
+<round: 91>
+<engine_1 at rail_113>
+<engine_2 at rail_60>
+-------------------------------
+<round: 92>
+<engine_1 at switch_2>
+<engine_2 at rail_61>
+-------------------------------
+<round: 93>
+<engine_1 at rail_12>
+<engine_2 at rail_62>
+-------------------------------
+<round: 94>
+<engine_1 at tunnel_2>
+<engine_2 at rail_63>
+-------------------------------
+<round: 95>
+<engine_1 at rail_11>
+<engine_2 at rail_64>
+-------------------------------
+<round: 96>
+<engine_1 at rail_10>
+<engine_2 at rail_65>
+-------------------------------
+<round: 97>
+<engine_1 at rail_9>
+<engine_2 at rail_66>
+-------------------------------
+<round: 98>
+<engine_1 at rail_8>
+<engine_2 at rail_67>
+-------------------------------
+<round: 99>
+<engine_1 at rail_7>
+<engine_2 at rail_68>
+-------------------------------
+<round: 100>
+<engine_1 at rail_6>
+<engine_2 at rail_69>
+-------------------------------
+<round: 101>
+<engine_1 at tunnel_1>
+<engine_2 at rail_70>
+-------------------------------
+<round: 102>
+<engine_1 at rail_5>
+<engine_2 at rail_71>
+-------------------------------
+<round: 103>
+<engine_1 at switch_1>
+<engine_2 at switch_6>
+-------------------------------
+<round: 104>
+<engine_1 at rail_82>
+<engine_2 at rail_72>
+-------------------------------
+<round: 105>
+<engine_1 at rail_81>
+<engine_2 at rail_73>
+-------------------------------
+<round: 106>
+<engine_1 at rail_80>
+<engine_2 at station_3>
+-------------------------------
+<round: 107>
+<engine_1 at rail_79>
+<engine_2 at rail_74>
+    <Passangers left the train: station_3, car_1 >
+-------------------------------
+<round: 108>
+<engine_1 at rail_78>
+<engine_2 at rail_75>
+-------------------------------
+<round: 109>
+<engine_1 at rail_77>
+<engine_2 at rail_76>
+-------------------------------
+<round: 110>
+<engine_1 at rail_76>
+<engine_2 at rail_77>
+Train crashed!
+<Game over!>
+-------------------------------
+<Exit>

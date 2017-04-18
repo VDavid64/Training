@@ -145,7 +145,7 @@ public class Game {
 
 
     /**
-     * Moves trains. Calls moveEngine function of all engines.
+     * Moves trains. Calls moveEngine function on all engines.
      * @param counter
      */
     public void moveTrains(int counter) {

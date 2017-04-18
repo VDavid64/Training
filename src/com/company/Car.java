@@ -4,14 +4,24 @@ package com.company;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class representing a passenger car.
+ */
 public class Car extends Train_Element {
 
+    /**
+     * The color of the car.
+     */
     private Color color;
+
     public int roundLastEmpty;
 
 
-
-    // Konstruktor
+    /**
+     * Cunstructor, used if random is on.
+     * @param numberOfCars the number of cars yet to be generated.
+     * @param i the number of the train car.
+     */
     public Car(int numberOfCars, int i) {
     	
     	//színkezelés
@@ -48,7 +58,12 @@ public class Car extends Train_Element {
     }
 
 
-
+    /**
+     * Constructor, used when loading from XML.
+     * @param numberOfTrainElement the number of train elements yet to be generated.
+     * @param trainElements a hashmap containing the train elements, read from XML.
+     * @param counter the number of the train car.
+     */
     public Car(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
         this.name = "car_"+counter;
         this.color = Color.valueOf(trainElements.get(counter));
@@ -74,26 +89,35 @@ public class Car extends Train_Element {
         }
     }
 
-
+    /**
+     * Function responsible of returning the color of the car.
+     * @return returns the color.
+     */
     @Override
     public Color getColor() {
         return color;
     }
 
+    /**
+     * Function responsible of returning whether the car is empty.
+     * @return returns whether the car is empty.
+     */
     @Override
     public boolean isEmpty() {
         return isEmpty;
     }
 
-
+    /**
+     * Function responsible of moving the car.
+     */
     @Override
     public void move(Rail nextRail, int counter) {
 
 
-        /*// Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
+        // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
         if (nextTrainElement == null && actPos != null) {
             actPos.occupied=false;
-        }*/
+        }
 
         // Lépés
         prevPos = actPos;
