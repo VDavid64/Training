@@ -14,6 +14,9 @@ public class Car extends Train_Element {
      */
     private Color color;
 
+    /**
+     * Shows when was car empty last time.
+     */
     public int roundLastEmpty;
 
 
@@ -125,7 +128,7 @@ public class Car extends Train_Element {
 
 
         // Felszállás:
-        //      Ha nem üres a kocsi, azonosak a színek és van utas az állomáson
+        //      Ha üres a kocsi, azonosak a színek és van utas az állomáson
         if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0 ) {
             this.setEmpty(false);
             actPos.setPassenger();

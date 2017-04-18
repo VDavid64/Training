@@ -41,11 +41,6 @@ public class Engine extends Train_Element {
             nextTrainElement = new Cargo(numberOfTrainElement, trainElements, 1);
     }
 
-
-    // Az első nem üres kocsival tér vissza:
-    //      csak a Car tud true-val visszatérni
-    //      Null, ha mindegyik kocsi üres
-
     /**
      * Function responsible of returning the first not empty car.
      * @return returns the first empty car, if there is none, return null.

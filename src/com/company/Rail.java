@@ -29,7 +29,7 @@ public class Rail {
     protected boolean isTunnelUnderRail;
     
     /**
-     * occupied when there is a train element on rail.
+     * occupied when there is a train element on rail. DEfault value is false.
      */
     protected boolean occupied = false;
 

@@ -6,6 +6,10 @@ package com.company;
  */
 public class CrossRail extends Rail {
 
+    /**
+     * The next a rail in the other direction.
+     * The previous a rail in the other direction.
+     */
     private Rail otherRailA, otherRailB;
 
     /**

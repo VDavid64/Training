@@ -26,13 +26,16 @@ public class Game {
      */
     private boolean isLastGame;
     /**
-     * Maximum number of trains.
+     * Maximum number of trains. Default value is 3.
      */
     private final int maxTrainNumber = 3;
     /**
      * List of engines.
      */
-    private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
+    private ArrayList<Engine> engines = new ArrayList<>();              
+    /**
+     * List of trains colors.
+     */
     public static ArrayList<String> trainColors;
 
 

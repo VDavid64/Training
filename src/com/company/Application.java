@@ -11,11 +11,17 @@ import java.util.Scanner;
 public class Application {
 
 	/**
-	 * Defines the soruce of commands. False if console, true if text file.
+	 * Defines the source of commands. False if console, true if text file. Default value is false.
 	 */
 	public static boolean inputMethod = false;
+	/**
+	 * Output for writing to file. Default value is null.
+	 */
 	public static BufferedWriter output = null;
-	public static boolean random = false; // véletlenszerűséget állító kapcsoló
+	/**
+	 * Switch of randomization. Default value is false.
+	 */
+	public static boolean random = false; 
 
 	/**
 	 * Main function.
@@ -24,54 +30,44 @@ public class Application {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 
-		// TODO: maps + tests
-		// TODO: random működése, pl: train generálásnál csak Car-ok
-		// példányosodnak
-		// TODO: xml-be a station-ok színét is le kell kötni
 
-		//////////////////////////////////////////////////////////
-		// init:
 		/**
 		 * Creating a new game.
 		 */
-		Game game = new Game(); // game példányosítása
+		Game game = new Game(); 
 
 		/**
-		 * Signals if the game is on.
+		 * Signals if the game is on. 
 		 */
-		boolean gameIsOn = true; // játék állapotát rögzítő bool (true, ha megy
-									// a játék)
+		boolean gameIsOn = true; 
 
 		/**
-		 * Signals if someone already won.
+		 * Signals if someone already won. 
 		 */
 		boolean gameHasWon = false;
 
 		/**
-		 * Signals if the map is already loaded.
+		 * Signals if the map is already loaded. 
 		 */
 		boolean mapLoaded = false;
 
 		/**
-		 * Counter for trains.
+		 * Counter for trains. 
 		 */
-		int counter = 1; // számláló (vonat generálásához) és a map
+		int counter = 1; 
 
 		/**
 		 * String containing the input file name
 		 * if it is provided.
 		 */
-		final String inputFileName; // ha parancssori indítás esetén a
-									// parancsokat tartalmazó txt file
+		final String inputFileName; 
 
 		/**
 		 * String containing the output file name
 		 * if it is provided.
 		 */
-		final String outputFileName; // kimenetet tartalmazó file
-		List<String> commands = new ArrayList<>(); // parancsokat tartalmazó
-													// lista
-		//////////////////////////////////////////////////////////
+		final String outputFileName; 
+		List<String> commands = new ArrayList<>(); 
 
 		// Control input/output method
 		if (args.length != 0) { // if args is not empty, we check the two

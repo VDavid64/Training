@@ -17,8 +17,17 @@ public enum Color {
     GREEN, YELLOW, RED;
 
 
+    /**
+     * List of colors.
+     */
     private static final List<Color> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+    /**
+     * Size of list of colors.
+     */
     private static final int SIZE = VALUES.size();
+    /**
+     * Randomness.
+     */
     private static final Random RANDOM = new Random();
 
     /**

@@ -8,7 +8,6 @@ import java.util.HashMap;
  */
 public class Cargo extends Train_Element {
 
-    // Konstruktor randomhoz
 
     /**
      * Constructor, used if random is on.

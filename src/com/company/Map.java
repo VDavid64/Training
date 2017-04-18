@@ -48,32 +48,32 @@ public class Map {
     /**
      * List of rails under the ground.
      */
-    private List<Rail> rails = new ArrayList<>();                                       // sínek listája
+    private List<Rail> rails = new ArrayList<>();                                       
     
     /**
 	 * isTrainInTunnel whether there is a train in tunnel.
 	 */
-    public static boolean isActiveTunnel;                                               // számontartja, van-e megépülve alagút
+    public static boolean isActiveTunnel;                                              
     
     /**
 	 * isTrainInTunnel whether there is a train in tunnel.
 	 */
-    public static boolean isTrainInTunnel;                                              // Üres-e az alagút
+    public static boolean isTrainInTunnel;                                              
     
     /**
 	 * Positions where tunnel point is active.
 	 */
-    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();                // tároljuk, hogy mely két pont között van aktív alagút
+    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();               
     
 	/**
 	 * isDerailing whether two parts of any train is on the same rail.
 	 */
-    public static boolean isDerailing;                                                  // volt-e kisiklás - váltó állítja
+    public static boolean isDerailing;                                                  
     
     /**
      *List of start times of engines.
      */
-    public int[] engineStartTimes;                                                      // ha map-ből töltjük be a vonatokat, itt tároljuk a kezdőidejüket
+    public int[] engineStartTimes;                                                   
     
     /**
      * List of engines.

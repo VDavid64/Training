@@ -24,7 +24,6 @@ public class Station  extends Rail {
 	 * Constructs station and sets a color, sets name which was given in parameter, sets number of passengers random between 0 and 3
 	 */
     public Station(String name) {
-    	 // TODO: állomások színének randomságát kiiktatni. Biztosítani kell hogy ha legyen olyan színű állomás, mint kocsi
         this.name = name;
         passenger = (int) (Math.random() * (4));
         // color = Color.getRandomColor();
@@ -56,7 +55,7 @@ public class Station  extends Rail {
     }
 
 	/**
-	 * Overrided getter of passengers attribute. Returns the number of them.
+	 * Overridden getter of passengers attribute. Returns the number of them.
 	 * 
 	 * @return 
 	 * 			Number of passengers
@@ -67,7 +66,7 @@ public class Station  extends Rail {
     }
 
 	/**
-	 * Overrided setter of passengers attribute. Decrease number of passengers by one.
+	 * Overridden setter of passengers attribute. Decrease number of passengers by one.
 	 * 
 	 */
     @Override
