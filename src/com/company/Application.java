@@ -29,7 +29,8 @@ public class Application {
 	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws InterruptedException {
-
+		Scene s = new Scene();
+		s.setVisible(true);
 
 		/**
 		 * Creating a new game.
