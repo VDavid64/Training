@@ -2,6 +2,8 @@ package com.company;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -11,6 +13,9 @@ import javax.swing.JRadioButtonMenuItem;
 public class Scene extends JFrame{
 	
 	private final static int WIDTH = 1000, HEIGHT = 600;
+
+	ArrayList<Drawable> objects = new ArrayList<Drawable>();
+
 	public Scene(){
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(WIDTH, HEIGHT);
@@ -30,4 +35,6 @@ public class Scene extends JFrame{
 			}
 		});
 	}
+
+	public void drawAll() {};
 }
