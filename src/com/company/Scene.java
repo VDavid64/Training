@@ -75,7 +75,5 @@ public class Scene extends JFrame{
 	}
 
 	public void drawAll(Graphics2D g) {
-		Draw_Rail dr = new Draw_Rail();
-		dr.drawElement(g);
 	};
 }
