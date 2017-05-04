@@ -9,8 +9,9 @@ public class Draw_Rail implements Drawable {
     public Point2D pos;
     private Rail myRail;
 
-    public Draw_Rail(){
+    public Draw_Rail(Rail r){
     	pos = new Point(3,2); //csak proba
+    	myRail = r;
     }
 
     @Override

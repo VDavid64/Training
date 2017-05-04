@@ -8,13 +8,17 @@ public class Draw_Car implements Drawable {
     public Point2D pos;
     private Car myCar;
     
-    public Draw_Car(){
-    	
+    public Draw_Car(Car c){
+    	myCar = c;
     }
 
 	@Override
 	public void drawElement(Graphics2D g) {
-		// TODO Auto-generated method stub
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    java.awt.Color color = java.awt.Color.getColor(myCar.getColor().toString());
+	    g.setColor(color);
+	    g.fillRect(x,y, 40, 20);
 		
 	}
 }
