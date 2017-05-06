@@ -15,14 +15,13 @@ public class Scene extends JComponent {
 	
 	private final static int WIDTH = 1000, HEIGHT = 600;
 
-	private Game game;
-	ArrayList<Drawable> objects = new ArrayList<Drawable>();
 
-	public Scene(Game game){
+	private static ArrayList<Drawable> objects = new ArrayList<Drawable>();
+
+	public static void InitScene(Game game){
+		Scene newScene = new Scene();
 		JFrame f = new JFrame();
-
-		this.game = game;
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.setSize(WIDTH, HEIGHT);
 		f.setResizable(false);
 
@@ -37,7 +36,7 @@ public class Scene extends JComponent {
 
 		f.add(menuBar);
 		f.setJMenuBar(menuBar);
-		f.getContentPane().add(this);
+		f.getContentPane().add(newScene);
 
 		exit.addMenuListener(new MenuListener() {
 			@Override

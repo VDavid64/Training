@@ -143,6 +143,9 @@ public class Map {
      * Sets isActiveTunnel, isDerailing and isTrainInTunnel false.
      * Clears activeTunnelPositions.
      */
+
+    Scene mainscene;
+
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;

@@ -68,8 +68,7 @@ public class Application {
 		final String outputFileName; 
 		List<String> commands = new ArrayList<>();
 
-		Scene s = new Scene(game);
-
+		Scene.InitScene(game);
 
 		// Control input/output method
 		if (args.length != 0) { // if args is not empty, we check the two
