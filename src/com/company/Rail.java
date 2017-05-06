@@ -52,7 +52,6 @@ public class Rail {
         this.name = name;
     }
 
-    
     /**
      *Default constructor of Rail class. 
      */

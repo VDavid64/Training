@@ -29,8 +29,6 @@ public class Application {
 	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws InterruptedException {
-		Scene s = new Scene();
-		s.setVisible(true);
 
 		/**
 		 * Creating a new game.
@@ -68,7 +66,10 @@ public class Application {
 		 * if it is provided.
 		 */
 		final String outputFileName; 
-		List<String> commands = new ArrayList<>(); 
+		List<String> commands = new ArrayList<>();
+
+		Scene s = new Scene(game);
+
 
 		// Control input/output method
 		if (args.length != 0) { // if args is not empty, we check the two
@@ -134,6 +135,10 @@ public class Application {
 		int command_counter = 0;
 
 		// main cycle
+		while(gameHasWon != true) {
+		}
+
+		/*
 		while (true) {
 
 			// Processing the commands
@@ -366,5 +371,6 @@ public class Application {
 				e.printStackTrace();
 			}
 		}
+		*/
 	}
 }

@@ -235,7 +235,7 @@ public class Game {
         return !isNotDuplicateRail;
     }
 
-
+    public Map getMap(){ return this.map; }
 
     /**
      * Delivery of passengers. If first not empty car is on station and station's color equals with car's color then passengers get off and write it out.

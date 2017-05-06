@@ -236,7 +236,7 @@ public class Map {
 
             // If running with args should work as stated in docs, leave this in
             // this clips the last dir from the path (aka the \src dir, since the test isn't at \src\test )
-            path = path.substring(0, path.lastIndexOf("\\"));
+            //path = path.substring(0, path.lastIndexOf("\\"));
 
             File fXmlFile = new File(path + "\\maps\\" + mapName + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

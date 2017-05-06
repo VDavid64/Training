@@ -19,8 +19,6 @@ public class Draw_Rail implements Drawable {
 	    int x = (int)pos.getX();
 	    int y = (int)(pos.getY());
 	    g.setColor(java.awt.Color.black);
-	    g.fillRect(x,y, 40, 10);
+	    g.fillRect(x,y, 400, 10);
 	}
-    
-
 }
