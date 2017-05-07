@@ -25,4 +25,6 @@
     <engines>
         <engine name="engine_1" startRound="1" length="4">
             <trainElement_1>YELLOW</trainElement_1>
+        </engine>
+        </engines>
 </testMapName>
