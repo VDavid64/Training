@@ -104,7 +104,7 @@ public class Scene extends JComponent {
 			@Override
 			public void menuSelected(MenuEvent e) {
 				// TODO Auto-generated method stub
-				game.loadMap("gridmap_1");
+				game.loadMap("start_r1_r2_e1");
 				mapLoaded = true;
 			}
 		});
