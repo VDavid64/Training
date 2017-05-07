@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<testMapName>
+    <mapElements>
+
+        <!-- Main loop on map with the first starting position -->
+        <element name="startpos" type="rail" x="0" y="15" vertical="n"/>
+        <element name="rail_1" type="rail" x="1" y="15"/>
+        <element name="rail_2" type="rail" x="2" y="15"/>
+
+        <!-- The section connecting switch_3 and switch_5
+         starting from switch_3 joining into switch_5 -->
+    </mapElements>
+
+    <connections>
+        <!-- Main loop connections and the first startpos -->
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="null"/>
+
+       
+        <!-- The section's connecting switch_2 and switch_4
+         starting from switch_2 connections end -->
+    </connections>
+
+    <engines>
+        <engine name="engine_1" startRound="1" length="4">
+            <trainElement_1>YELLOW</trainElement_1>
+</testMapName>
