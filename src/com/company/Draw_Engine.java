@@ -55,6 +55,7 @@ public class Draw_Engine implements Drawable {
 		    int x = (int)pos.getX();
 		    int y = (int)(pos.getY());
 		    g.setColor(java.awt.Color.white);
+		    if (myRail.nextRail != null && myRail.prevRail != null){
 		    if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 		    		&& (myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
 		    		||
@@ -117,7 +118,7 @@ public class Draw_Engine implements Drawable {
 		    	g.fillRect(x*64+32-18, y*64+17+15-8, 37, 16); //vízszintes téglalap
 		    }
 			}
-	}
+	}}
 
 	/**
 	 * Overridden getter of drawable element's name.
