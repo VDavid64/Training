@@ -72,6 +72,15 @@ public class Station  extends Rail {
     @Override
     public void setPassenger() {
         passenger = passenger-1;
+		this.refreshDrawable();
     }
 
+	@Override
+	public void refreshDrawable() {
+		for(Drawable d : Scene.objects) {
+			if(d.getName().equals(this.name)) {
+				Scene.objects.set(Scene.objects.indexOf(d), new Draw_Station(this));
+			}
+		}
+	}
 }

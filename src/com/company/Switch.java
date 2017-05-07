@@ -43,10 +43,10 @@ public class Switch extends Rail {
 	 * @return Next rail object.
 	 */
     @Override
-    public Rail getNextRail(Rail previus, Train_Element t) {
+    public Rail getNextRail(Rail previous, Train_Element t) {
 
         // ha a fő irányból közelítünk, irányfüggő, merre megyünk tovább
-        if (previus == prevRail) {
+        if (previous == prevRail) {
             if (dir == true) {
                 return nextRail;
             }
@@ -55,7 +55,7 @@ public class Switch extends Rail {
         }
 
         // ha az A irányból közelítünk
-        else if (previus == nextRail) {
+        else if (previous == nextRail) {
             if (dir == true) {
                 return prevRail;
             }
@@ -99,6 +99,7 @@ public class Switch extends Rail {
             dir = true;
             System.out.print("<State: " + dir +">\n");
         }
+        this.refreshDrawable();
     }
 
 
@@ -121,4 +122,12 @@ public class Switch extends Rail {
         this.otherRail = r3;
     }
 
+    @Override
+    public void refreshDrawable() {
+        for(Drawable d : Scene.objects) {
+            if(d.getName().equals(this.name)) {
+                Scene.objects.set(Scene.objects.indexOf(d), new Draw_Switch(this));
+            }
+        }
+    }
 }

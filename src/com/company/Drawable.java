@@ -4,4 +4,5 @@ import java.awt.*;
 
 public interface Drawable {
 	public void drawElement(Graphics2D g);
+	public String getName();
 }

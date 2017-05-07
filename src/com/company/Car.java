@@ -90,6 +90,7 @@ public class Car extends Train_Element {
         else {
             nextTrainElement = new Cargo(numberOfTrainElement-1, trainElements, counter);
         }
+        Scene.addDrawable(new Draw_Car(this));
     }
 
     /**
@@ -115,8 +116,6 @@ public class Car extends Train_Element {
      */
     @Override
     public void move(Rail nextRail, int counter) {
-
-
         // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
         if (nextTrainElement == null && actPos != null) {
             actPos.occupied=false;
@@ -136,11 +135,19 @@ public class Car extends Train_Element {
             roundLastEmpty = counter;
         }
 
-
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos, counter);
+        this.refreshDrawable();
+    }
+
+    public void refreshDrawable() {
+        for(Drawable d : Scene.objects) {
+            if(d.getName().equals(this.name)) {
+                Scene.objects.set(Scene.objects.indexOf(d), new Draw_Car(this));
+            }
+        }
     }
 
 

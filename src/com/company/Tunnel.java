@@ -56,6 +56,7 @@ public class Tunnel extends Rail {
      */
     public void setActive(boolean active) {
         isActive = active;
+        this.refreshDrawable();
     }
 
 
@@ -144,6 +145,15 @@ public class Tunnel extends Rail {
         }
         System.out.println("Error with the tunnel entrance");
         return null;
+    }
+
+    @Override
+    public void refreshDrawable() {
+        for(Drawable d : Scene.objects) {
+            if(d.getName().equals(this.name)) {
+                Scene.objects.set(Scene.objects.indexOf(d), new Draw_Tunnel(this));
+            }
+        }
     }
 }
 

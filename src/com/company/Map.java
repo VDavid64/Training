@@ -255,21 +255,26 @@ public class Map {
                 if (eElement.getAttribute("type").equals("rail")) {
                     Rail rail = new Rail(null, null, eElement.getAttribute("name"));
                     rails.add(rail);
+                    Scene.addDrawable(new Draw_Rail(rail));
                     if (eElement.getAttribute("name").equals("startpos"))
                         startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {
                     Switch sw = new Switch(null, null, null, eElement.getAttribute("name"));
                     rails.add(sw);
+                    Scene.addDrawable(new Draw_Switch(sw));
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
                     Tunnel tunnel = new Tunnel(eElement.getAttribute("name"));
                     rails.add(tunnel);
+                    Scene.addDrawable(new Draw_Tunnel(tunnel));
                     tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
                     CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
                     rails.add(crossRail);
+                    Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
                     Station station = new Station(eElement.getAttribute("name"));
                     rails.add(station);
+                    Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
                 }
             }
@@ -339,6 +344,7 @@ public class Map {
 
                 Engine e = new Engine(eElement.getAttribute("name"), numberOfTrainElement, trainElements);
                 mapEngines.add(e);
+                Scene.addDrawable(new Draw_Engine(e));
             }
             
             //létező állomásszínek eltárolása

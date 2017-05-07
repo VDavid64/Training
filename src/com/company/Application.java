@@ -69,6 +69,7 @@ public class Application {
 		List<String> commands = new ArrayList<>();
 
 		Scene.InitScene(game);
+		mapLoaded = true;
 
 		// Control input/output method
 		if (args.length != 0) { // if args is not empty, we check the two
@@ -133,8 +134,14 @@ public class Application {
 		String[] inputArray;
 		int command_counter = 0;
 
-		// main cycle
-		while(gameHasWon != true) {
+		int round = 0;
+		while(true){
+			if(Scene.mapLoaded) {
+				game.generateTrain(round, false);
+				game.moveTrains(1);
+				round++;
+			}
+			Thread.sleep(200);
 		}
 
 		/*
@@ -370,6 +377,6 @@ public class Application {
 				e.printStackTrace();
 			}
 		}
-		*/
+*/
 	}
 }

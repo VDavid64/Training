@@ -154,4 +154,6 @@ public class Rail {
      * 			Name of Tunnel object
      */
     public void setTunnelRail(Rail r, String d) {}
+
+    public void refreshDrawable(){}
 }

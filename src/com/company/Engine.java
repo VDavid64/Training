@@ -72,4 +72,12 @@ public class Engine extends Train_Element {
             System.out.println( "<" + this.name + " at " + actPos.name + ">");
 
     }
+
+    public void refreshDrawable() {
+        for(Drawable d : Scene.objects) {
+            if(d.getName().equals(this.name)) {
+                Scene.objects.set(Scene.objects.indexOf(d), new Draw_Engine(this));
+            }
+        }
+    }
 }

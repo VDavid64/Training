@@ -99,7 +99,6 @@ public class Game {
      */
     public void generateTrain(int round, boolean random) {
 
-
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
         // Többi generáláskor már ellenőrizni kell, üres-e a startRail
         Set<Rail> positions = new HashSet<>();

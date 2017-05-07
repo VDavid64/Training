@@ -156,6 +156,7 @@ public abstract class Train_Element {
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos, i);
+        this.refreshDrawable();
     }
 
     /**
@@ -166,5 +167,5 @@ public abstract class Train_Element {
         return null;
     }
 
-
+    public abstract void refreshDrawable();
 }
