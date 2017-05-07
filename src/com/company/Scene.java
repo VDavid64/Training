@@ -14,13 +14,39 @@ import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
+/**
+ * Responsible for visualization. Extends from JComponent class.
+ * @author i_did_iit team
+ *
+ */
 public class Scene extends JComponent {
 	
-	private final static int WIDTH = 1000, HEIGHT = 600;
+	/**
+	 * Final static integer value of Window's width. It's value is 1000.
+	 */
+	private final static int WIDTH = 1000;
+	/**
+	 * Final static integer value of Window's height. It's value is 600.
+	 */
+	private final static int HEIGHT = 600;
+	/**
+	 * Arraylist of Drawable objects. Objects need to draw.
+	 */
 	public static ArrayList<Drawable> objects = new ArrayList<Drawable>();
+	/**
+	 * Text for visualization of clicked point.
+	 */
 	private static String text = "X:  " + " Y:  ";
+	/**
+	 * mapLoaded whether map is loaded.
+	 */
 	public static boolean mapLoaded;
 
+	/**
+	 * Initialization of Scene. Create JFrame, JMenubar, JMenus, sets texts, background color, etc.
+	 * @param game
+	 * 				Game object what need a window.
+	 */
 	public static void InitScene(Game game){
 		mapLoaded = false;
 		Scene newScene = new Scene();
@@ -114,6 +140,12 @@ public class Scene extends JComponent {
 		f.setVisible(true);
 	}
 
+	/* 
+	 * Overridden function. Calls the UI delegate's paint method, if the UI delegate is non-null.
+	 * Set font, color and draw string. Calls drawAll, revalidate and repaint functions.
+	 *  @param e 
+	 *  		the Graphics context in which to paint
+	 */
 	@Override
 	public void paintComponent(Graphics e) {
 		super.paintComponent(e);
@@ -129,14 +161,29 @@ public class Scene extends JComponent {
 	}
 
 	//TODO: fv ami visszaadja a klikkelt objektum nevét
+	/**
+	 * Getter of clicked element's name.
+	 * @return
+	 * 			Name of clicked element.
+	 */
 	public static String getClickedElement() {
 		return "";
 	}
 
+	/**
+	 * Adds Drawable object to objects arraylist.
+	 * @param obj
+	 * 				Drawable object what need to add.
+	 */
 	public static void addDrawable(Drawable obj){
 		objects.add(obj);
 	}
 
+	/**
+	 * Paints all components of objects.
+	 * @param g
+	 * 			 the graphics context to use for painting
+	 */
 	public void drawAll(Graphics g) {
 		for(Drawable d : objects){
 			d.drawElement((Graphics2D) g);
