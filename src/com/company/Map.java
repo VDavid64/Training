@@ -48,32 +48,32 @@ public class Map {
     /**
      * List of rails under the ground.
      */
-    private List<Rail> rails = new ArrayList<>();                                       // sínek listája
+    private List<Rail> rails = new ArrayList<>();                                       
     
     /**
 	 * isTrainInTunnel whether there is a train in tunnel.
 	 */
-    public static boolean isActiveTunnel;                                               // számontartja, van-e megépülve alagút
+    public static boolean isActiveTunnel;                                              
     
     /**
 	 * isTrainInTunnel whether there is a train in tunnel.
 	 */
-    public static boolean isTrainInTunnel;                                              // Üres-e az alagút
+    public static boolean isTrainInTunnel;                                              
     
     /**
 	 * Positions where tunnel point is active.
 	 */
-    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();                // tároljuk, hogy mely két pont között van aktív alagút
+    private ArrayList<Tunnel> activeTunnelPositions = new ArrayList<>();               
     
 	/**
 	 * isDerailing whether two parts of any train is on the same rail.
 	 */
-    public static boolean isDerailing;                                                  // volt-e kisiklás - váltó állítja
+    public static boolean isDerailing;                                                  
     
     /**
      *List of start times of engines.
      */
-    public int[] engineStartTimes;                                                      // ha map-ből töltjük be a vonatokat, itt tároljuk a kezdőidejüket
+    public int[] engineStartTimes;                                                   
     
     /**
      * List of engines.
@@ -143,6 +143,9 @@ public class Map {
      * Sets isActiveTunnel, isDerailing and isTrainInTunnel false.
      * Clears activeTunnelPositions.
      */
+
+    Scene mainscene;
+
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;
@@ -233,6 +236,11 @@ public class Map {
         try {
 
             String path = System.getProperty("user.dir");
+
+            // If running with args should work as stated in docs, leave this in
+            // this clips the last dir from the path (aka the \src dir, since the test isn't at \src\test )
+            //path = path.substring(0, path.lastIndexOf("\\"));
+
             File fXmlFile = new File(path + "\\maps\\" + mapName + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -245,23 +253,34 @@ public class Map {
                 Node nNode = elementList.item(i);
                 Element eElement = (Element) nNode;
                 if (eElement.getAttribute("type").equals("rail")) {
-                    Rail rail = new Rail(null, null, eElement.getAttribute("name"));
+                    int x = Integer.valueOf(eElement.getAttribute("x"));
+                    int y = Integer.valueOf(eElement.getAttribute("y"));
+                    boolean vertical = false;
+                    if (eElement.getAttribute("vertical").equals("y")){
+                    	vertical = true;
+                    }
+                    Rail rail = new Rail(null, null, eElement.getAttribute("name"),x,y, vertical);
                     rails.add(rail);
+                    Scene.addDrawable(new Draw_Rail(rail));
                     if (eElement.getAttribute("name").equals("startpos"))
                         startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {
                     Switch sw = new Switch(null, null, null, eElement.getAttribute("name"));
                     rails.add(sw);
+                    Scene.addDrawable(new Draw_Switch(sw));
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
                     Tunnel tunnel = new Tunnel(eElement.getAttribute("name"));
                     rails.add(tunnel);
+                    Scene.addDrawable(new Draw_Tunnel(tunnel));
                     tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
                     CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
                     rails.add(crossRail);
+                    Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
                     Station station = new Station(eElement.getAttribute("name"));
                     rails.add(station);
+                    Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
                 }
             }
@@ -331,6 +350,7 @@ public class Map {
 
                 Engine e = new Engine(eElement.getAttribute("name"), numberOfTrainElement, trainElements);
                 mapEngines.add(e);
+                Scene.addDrawable(new Draw_Engine(e));
             }
             
             //létező állomásszínek eltárolása
@@ -428,7 +448,7 @@ public class Map {
 
         // sínek példányosítása
         for (int i = 0; i < length; i++) {
-            Rail r = new Rail(null, null, "tunnelRail_" + i);
+            Rail r = new Rail(null, null, "tunnelRail_" + i,0,0,true); //0,0 csak próba,ezeket majd át kell írni
             tunnel.add(r);
         }
 

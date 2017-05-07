@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<testMapName>
+    <mapElements>
+
+        <!-- Main loop on map with the first starting position -->
+        <element name="startpos" type="rail"/>
+        <element name="rail_1" type="rail"/>
+        <element name="rail_2" type="rail"/>
+        <element name="rail_3" type="rail"/>
+        <element name="rail_4" type="rail"/>
+
+        <element name="switch_1" type="switch"/>
+
+        <element name="rail_5" type="rail"/>
+        <element name="tunnel_1" type="tunnel"/>
+        <element name="rail_6" type="rail"/>
+        <element name="rail_7" type="rail"/>
+        <element name="rail_8" type="rail"/>
+        <element name="rail_9" type="rail"/>
+        <element name="rail_10" type="rail"/>
+        <element name="rail_11" type="rail"/>
+        <element name="tunnel_2" type="tunnel"/>
+        <element name="rail_12" type="rail"/>
+
+        <element name="switch_2" type="switch"/>
+
+        <element name="rail_13" type="rail"/>
+        <element name="rail_14" type="rail"/>
+        <element name="tunnel_3" type="tunnel"/>
+        <element name="rail_15" type="rail"/>
+        <element name="rail_16" type="rail"/>
+        <element name="rail_17" type="rail"/>
+        <element name="rail_18" type="rail"/>
+        <element name="rail_19" type="rail"/>
+        <element name="tunnel_4" type="tunnel"/>
+        <element name="rail_20" type="rail"/>
+        <element name="rail_21" type="rail"/>
+        <element name="rail_22" type="rail"/>
+        <element name="rail_23" type="rail"/>
+        <element name="rail_24" type="rail"/>
+        <element name="rail_25" type="rail"/>
+        <element name="rail_26" type="rail"/>
+
+        <element name="station_1" type="station"/>
+
+        <element name="rail_27" type="rail"/>
+        <element name="rail_28" type="rail"/>
+        <element name="rail_29" type="rail"/>
+        <element name="rail_30" type="rail"/>
+        <element name="rail_31" type="rail"/>
+        <element name="rail_32" type="rail"/>
+        <element name="rail_33" type="rail"/>
+        <element name="rail_34" type="rail"/>
+        <element name="rail_35" type="rail"/>
+        <element name="rail_36" type="rail"/>
+        <element name="rail_37" type="rail"/>
+        <element name="rail_38" type="rail"/>
+
+        <element name="switch_3" type="switch"/>
+
+        <element name="rail_39" type="rail"/>
+        <element name="rail_40" type="rail"/>
+
+        <element name="rail_131" type="rail"/>
+
+        <element name="rail_41" type="rail"/>
+        <element name="rail_42" type="rail"/>
+        <element name="rail_43" type="rail"/>
+        <element name="rail_44" type="rail"/>
+        <element name="rail_45" type="rail"/>
+
+        <element name="station_2" type="station"/>
+
+        <element name="rail_46" type="rail"/>
+        <element name="rail_47" type="rail"/>
+        <element name="rail_48" type="rail"/>
+        <element name="rail_49" type="rail"/>
+        <element name="rail_50" type="rail"/>
+        <element name="rail_51" type="rail"/>
+        <element name="rail_52" type="rail"/>
+        <element name="rail_53" type="rail"/>
+        <element name="rail_54" type="rail"/>
+        <element name="rail_55" type="rail"/>
+        <element name="rail_56" type="rail"/>
+        <element name="rail_57" type="rail"/>
+        <element name="rail_58" type="rail"/>
+        <element name="rail_59" type="rail"/>
+
+        <element name="switch_5" type="switch"/>
+
+        <element name="rail_60" type="rail"/>
+        <element name="rail_61" type="rail"/>
+        <element name="rail_62" type="rail"/>
+        <element name="rail_63" type="rail"/>
+        <element name="rail_64" type="rail"/>
+        <element name="rail_65" type="rail"/>
+        <element name="rail_66" type="rail"/>
+        <element name="rail_67" type="rail"/>
+        <element name="rail_68" type="rail"/>
+        <element name="rail_69" type="rail"/>
+        <element name="rail_70" type="rail"/>
+        <element name="rail_71" type="rail"/>
+
+        <element name="switch_6" type="switch"/>
+
+        <element name="rail_72" type="rail"/>
+        <element name="rail_73" type="rail"/>
+
+        <element name="station_3" type="station"/>
+
+        <element name="rail_74" type="rail"/>
+        <element name="rail_75" type="rail"/>
+        <element name="rail_76" type="rail"/>
+        <element name="rail_77" type="rail"/>
+        <element name="rail_78" type="rail"/>
+        <element name="rail_79" type="rail"/>
+        <element name="rail_80" type="rail"/>
+        <element name="rail_81" type="rail"/>
+        <element name="rail_82" type="rail"/>
+        <!-- Main loop end, rail_82 joins into switch_1 -->
+
+        <!-- The section connecting switch_3 and switch_6
+         starting from switch_3 -->
+        <element name="rail_86" type="rail"/>
+        <element name="rail_87" type="rail"/>
+        <element name="tunnel_5" type="tunnel"/>
+        <element name="rail_88" type="rail"/>
+        <element name="rail_89" type="rail"/>
+        <element name="rail_90" type="rail"/>
+        <element name="rail_91" type="rail"/>
+        <element name="rail_92" type="rail"/>
+        <element name="rail_93" type="rail"/>
+        <element name="rail_94" type="rail"/>
+        <element name="rail_95" type="rail"/>
+        <element name="rail_96" type="rail"/>
+        <element name="rail_97" type="rail"/>
+        <element name="rail_98" type="rail"/>
+        <element name="rail_99" type="rail"/>
+        <element name="rail_100" type="rail"/>
+        <element name="tunnel_6" type="tunnel"/>
+        <element name="rail_101" type="rail"/>
+        <element name="rail_102" type="rail"/>
+
+        <element name="crossrail_1" type="crossRail"/>
+
+        <element name="rail_103" type="rail"/>
+        <element name="rail_104" type="rail"/>
+        <element name="rail_105" type="rail"/>
+        <element name="rail_106" type="rail"/>
+        <element name="rail_107" type="rail"/>
+        <element name="rail_108" type="rail"/>
+        <element name="rail_109" type="rail"/>
+        <element name="rail_110" type="rail"/>
+        <element name="rail_111" type="rail"/>
+        <element name="rail_112" type="rail"/>
+        <!-- The section connecting switch_3 and switch_6
+         starting from switch_3 joining into switch_6 -->
+
+        <!-- The section connecting switch_2 and switch_5
+         starting from switch_2 -->
+        <element name="rail_113" type="rail"/>
+        <element name="rail_114" type="rail"/>
+        <element name="rail_115" type="rail"/>
+        <element name="rail_116" type="rail"/>
+        <element name="rail_117" type="rail"/>
+        <element name="rail_118" type="rail"/>
+        <element name="rail_119" type="rail"/>
+        <element name="rail_120" type="rail"/>
+
+        <element name="station_4" type="station"/>
+
+        <element name="rail_121" type="rail"/>
+        <element name="rail_122" type="rail"/>
+        <element name="rail_123" type="rail"/>
+        <element name="rail_124" type="rail"/>
+        <element name="rail_125" type="rail"/>
+
+        <!-- the crossrail -->
+
+        <element name="rail_126" type="rail"/>
+        <element name="rail_127" type="rail"/>
+        <element name="rail_128" type="rail"/>
+        <element name="rail_129" type="rail"/>
+        <element name="rail_130" type="rail"/>
+        <!-- The section connecting switch_3 and switch_6
+         starting from switch_3 joining into switch_5 -->
+    </mapElements>
+
+    <connections>
+        <!-- Main loop connections and the first startpos -->
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
+        <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
+        <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="switch_1"/>
+
+        <connection name="switch_1" type="switch" prevRail="rail_5" nextRail="rail_4" thirdRail="rail_82"/>
+
+        <connection name="rail_5" type="rail" prevRail="switch_1" nextRail="tunnel_1"/>
+        <connection name="tunnel_1" type="tunnel" prevRail="rail_5" nextRail="rail_6"/>
+        <connection name="rail_6" type="rail" prevRail="tunnel_1" nextRail="rail_7"/>
+        <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
+        <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
+        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="rail_11"/>
+        <connection name="rail_11" type="rail" prevRail="rail_10" nextRail="tunnel_2"/>
+        <connection name="tunnel_2" type="tunnel" prevRail="rail_11" nextRail="rail_12"/>
+        <connection name="rail_12" type="rail" prevRail="tunnel_2" nextRail="switch_2"/>
+
+        <connection name="switch_2" type="switch" prevRail="rail_12" nextRail="rail_13" thirdRail="rail_113"/>
+
+        <connection name="rail_13" type="rail" prevRail="switch_2" nextRail="rail_14"/>
+        <connection name="rail_14" type="rail" prevRail="rail_13" nextRail="tunnel_3"/>
+        <connection name="tunnel_3" type="tunnel" prevRail="rail_14" nextRail="rail_15"/>
+        <connection name="rail_15" type="rail" prevRail="tunnel_3" nextRail="rail_16"/>
+        <connection name="rail_16" type="rail" prevRail="rail_15" nextRail="rail_17"/>
+        <connection name="rail_17" type="rail" prevRail="rail_16" nextRail="rail_18"/>
+        <connection name="rail_18" type="rail" prevRail="rail_17" nextRail="rail_19"/>
+        <connection name="rail_19" type="rail" prevRail="rail_18" nextRail="tunnel_4"/>
+        <connection name="tunnel_4" type="tunnel" prevRail="rail_19" nextRail="rail_20"/>
+        <connection name="rail_20" type="rail" prevRail="tunnel_4" nextRail="rail_21"/>
+        <connection name="rail_21" type="rail" prevRail="rail_20" nextRail="rail_22"/>
+        <connection name="rail_22" type="rail" prevRail="rail_21" nextRail="rail_23"/>
+        <connection name="rail_23" type="rail" prevRail="rail_22" nextRail="rail_24"/>
+        <connection name="rail_24" type="rail" prevRail="rail_23" nextRail="rail_25"/>
+        <connection name="rail_25" type="rail" prevRail="rail_24" nextRail="rail_26"/>
+        <connection name="rail_26" type="rail" prevRail="rail_25" nextRail="station_1"/>
+
+        <connection name="station_1" type="station" prevRail="rail_26" nextRail="rail_27" color="GREEN"/>
+
+        <connection name="rail_27" type="rail" prevRail="station_1" nextRail="rail_28"/>
+        <connection name="rail_28" type="rail" prevRail="rail_27" nextRail="rail_29"/>
+        <connection name="rail_29" type="rail" prevRail="rail_28" nextRail="rail_30"/>
+        <connection name="rail_30" type="rail" prevRail="rail_29" nextRail="rail_31"/>
+        <connection name="rail_31" type="rail" prevRail="rail_30" nextRail="rail_32"/>
+        <connection name="rail_32" type="rail" prevRail="rail_31" nextRail="rail_33"/>
+        <connection name="rail_33" type="rail" prevRail="rail_32" nextRail="rail_34"/>
+        <connection name="rail_34" type="rail" prevRail="rail_33" nextRail="rail_35"/>
+        <connection name="rail_35" type="rail" prevRail="rail_34" nextRail="rail_36"/>
+        <connection name="rail_36" type="rail" prevRail="rail_35" nextRail="rail_37"/>
+        <connection name="rail_37" type="rail" prevRail="rail_36" nextRail="rail_38"/>
+        <connection name="rail_38" type="rail" prevRail="rail_37" nextRail="switch_3"/>
+
+        <connection name="switch_3" type="switch" prevRail="rail_38" nextRail="rail_39" thirdRail="rail_86"/>
+
+        <connection name="rail_39" type="rail" prevRail="switch_3" nextRail="rail_40"/>
+        <connection name="rail_40" type="rail" prevRail="rail_39" nextRail="rail_131"/>
+
+        <!-- removed a switch here, that is the reason for the inconsistent numbering -->
+        <connection name="rail_131" type="rail" prevRail="rail_40" nextRail="rail_41"/>
+
+        <connection name="rail_41" type="rail" prevRail="rail_131" nextRail="rail_42"/>
+        <connection name="rail_42" type="rail" prevRail="rail_41" nextRail="rail_43"/>
+        <connection name="rail_43" type="rail" prevRail="rail_42" nextRail="rail_44"/>
+        <connection name="rail_44" type="rail" prevRail="rail_43" nextRail="rail_45"/>
+        <connection name="rail_45" type="rail" prevRail="rail_44" nextRail="station_2"/>
+
+        <connection name="station_2" type="station" prevRail="rail_45" nextRail="rail_46" color="RED"/>
+
+        <connection name="rail_46" type="rail" prevRail="station_2" nextRail="rail_47"/>
+        <connection name="rail_47" type="rail" prevRail="rail_46" nextRail="rail_48"/>
+        <connection name="rail_48" type="rail" prevRail="rail_47" nextRail="rail_49"/>
+        <connection name="rail_49" type="rail" prevRail="rail_48" nextRail="rail_50"/>
+        <connection name="rail_50" type="rail" prevRail="rail_49" nextRail="rail_51"/>
+        <connection name="rail_51" type="rail" prevRail="rail_50" nextRail="rail_52"/>
+        <connection name="rail_52" type="rail" prevRail="rail_51" nextRail="rail_53"/>
+        <connection name="rail_53" type="rail" prevRail="rail_52" nextRail="rail_54"/>
+        <connection name="rail_54" type="rail" prevRail="rail_53" nextRail="rail_55"/>
+        <connection name="rail_55" type="rail" prevRail="rail_54" nextRail="rail_56"/>
+        <connection name="rail_56" type="rail" prevRail="rail_55" nextRail="rail_57"/>
+        <connection name="rail_57" type="rail" prevRail="rail_56" nextRail="rail_58"/>
+        <connection name="rail_58" type="rail" prevRail="rail_57" nextRail="rail_59"/>
+        <connection name="rail_59" type="rail" prevRail="rail_58" nextRail="switch_5"/>
+
+        <connection name="switch_5" type="switch" prevRail="rail_59" nextRail="rail_60" thirdRail="rail_130"/>
+
+        <connection name="rail_60" type="rail" prevRail="switch_5" nextRail="rail_61"/>
+        <connection name="rail_61" type="rail" prevRail="rail_60" nextRail="rail_62"/>
+        <connection name="rail_62" type="rail" prevRail="rail_61" nextRail="rail_63"/>
+        <connection name="rail_63" type="rail" prevRail="rail_62" nextRail="rail_64"/>
+        <connection name="rail_64" type="rail" prevRail="rail_63" nextRail="rail_65"/>
+        <connection name="rail_65" type="rail" prevRail="rail_64" nextRail="rail_66"/>
+        <connection name="rail_66" type="rail" prevRail="rail_65" nextRail="rail_67"/>
+        <connection name="rail_67" type="rail" prevRail="rail_66" nextRail="rail_68"/>
+        <connection name="rail_68" type="rail" prevRail="rail_67" nextRail="rail_69"/>
+        <connection name="rail_69" type="rail" prevRail="rail_68" nextRail="rail_70"/>
+        <connection name="rail_70" type="rail" prevRail="rail_69" nextRail="rail_71"/>
+        <connection name="rail_71" type="rail" prevRail="rail_70" nextRail="switch_6"/>
+
+        <connection name="switch_6" type="switch" prevRail="rail_71" nextRail="rail_72" thirdRail="rail_112"/>
+
+        <connection name="rail_72" type="rail" prevRail="switch_6" nextRail="rail_73"/>
+        <connection name="rail_73" type="rail" prevRail="rail_72" nextRail="station_3"/>
+
+        <connection name="station_3" type="station" prevRail="rail_73" nextRail="rail_74" color="YELLOW"/>
+
+        <connection name="rail_74" type="rail" prevRail="station_3" nextRail="rail_75"/>
+        <connection name="rail_75" type="rail" prevRail="rail_74" nextRail="rail_76"/>
+        <connection name="rail_76" type="rail" prevRail="rail_75" nextRail="rail_77"/>
+        <connection name="rail_77" type="rail" prevRail="rail_76" nextRail="rail_78"/>
+        <connection name="rail_78" type="rail" prevRail="rail_77" nextRail="rail_79"/>
+        <connection name="rail_79" type="rail" prevRail="rail_78" nextRail="rail_80"/>
+        <connection name="rail_80" type="rail" prevRail="rail_79" nextRail="rail_81"/>
+        <connection name="rail_81" type="rail" prevRail="rail_80" nextRail="rail_82"/>
+        <connection name="rail_82" type="rail" prevRail="rail_81" nextRail="switch_1"/>
+        <!-- Main loopp connections end -->
+
+        <!-- The section's connecting switch_3 and switch_6
+         starting from switch_3 connections -->
+        <connection name="rail_86" type="rail" prevRail="switch_3" nextRail="rail_87"/>
+        <connection name="rail_87" type="rail" prevRail="rail_86" nextRail="tunnel_5"/>
+        <connection name="tunnel_5" type="tunnel" prevRail="rail_87" nextRail="rail_88"/>
+        <connection name="rail_88" type="rail" prevRail="tunnel_5" nextRail="rail_89"/>
+        <connection name="rail_89" type="rail" prevRail="rail_88" nextRail="rail_90"/>
+        <connection name="rail_90" type="rail" prevRail="rail_89" nextRail="rail_91"/>
+        <connection name="rail_91" type="rail" prevRail="rail_90" nextRail="rail_92"/>
+        <connection name="rail_92" type="rail" prevRail="rail_91" nextRail="rail_93"/>
+        <connection name="rail_93" type="rail" prevRail="rail_92" nextRail="rail_94"/>
+        <connection name="rail_94" type="rail" prevRail="rail_93" nextRail="rail_95"/>
+        <connection name="rail_95" type="rail" prevRail="rail_94" nextRail="rail_96"/>
+        <connection name="rail_96" type="rail" prevRail="rail_95" nextRail="rail_97"/>
+        <connection name="rail_97" type="rail" prevRail="rail_96" nextRail="rail_98"/>
+        <connection name="rail_98" type="rail" prevRail="rail_97" nextRail="rail_99"/>
+        <connection name="rail_99" type="rail" prevRail="rail_98" nextRail="rail_100"/>
+        <connection name="rail_100" type="rail" prevRail="rail_99" nextRail="tunnel_6"/>
+        <connection name="tunnel_6" type="tunnel" prevRail="rail_100" nextRail="rail_101"/>
+        <connection name="rail_101" type="rail" prevRail="tunnel_6" nextRail="rail_102"/>
+        <connection name="rail_102" type="rail" prevRail="rail_101" nextRail="crossrail_1"/>
+
+        <connection name="crossrail_1" type="crossRail" prevRail="rail_102" nextRail="rail_103" otherprevRail="rail_125" othernextRail="rail_126" />
+
+        <connection name="rail_103" type="rail" prevRail="crossrail_1" nextRail="rail_104"/>
+        <connection name="rail_104" type="rail" prevRail="rail_103" nextRail="rail_105"/>
+        <connection name="rail_105" type="rail" prevRail="rail_104" nextRail="rail_106"/>
+        <connection name="rail_106" type="rail" prevRail="rail_105" nextRail="rail_107"/>
+        <connection name="rail_107" type="rail" prevRail="rail_106" nextRail="rail_108"/>
+        <connection name="rail_108" type="rail" prevRail="rail_107" nextRail="rail_109"/>
+        <connection name="rail_109" type="rail" prevRail="rail_108" nextRail="rail_110"/>
+        <connection name="rail_110" type="rail" prevRail="rail_109" nextRail="rail_111"/>
+        <connection name="rail_111" type="rail" prevRail="rail_110" nextRail="rail_112"/>
+        <connection name="rail_112" type="rail" prevRail="rail_111" nextRail="switch_6"/>
+        <!-- The section's connecting switch_3 and switch_6
+         starting from switch_3 connections end -->
+
+        <!-- The section's connecting switch_2 and switch_5
+         starting from switch_2 connections -->
+        <connection name="rail_113" type="rail" prevRail="switch_2" nextRail="rail_114"/>
+        <connection name="rail_114" type="rail" prevRail="rail_113" nextRail="rail_115"/>
+        <connection name="rail_115" type="rail" prevRail="rail_114" nextRail="rail_116"/>
+        <connection name="rail_116" type="rail" prevRail="rail_115" nextRail="rail_117"/>
+        <connection name="rail_117" type="rail" prevRail="rail_116" nextRail="rail_118"/>
+        <connection name="rail_118" type="rail" prevRail="rail_117" nextRail="rail_119"/>
+        <connection name="rail_119" type="rail" prevRail="rail_118" nextRail="rail_120"/>
+        <connection name="rail_120" type="rail" prevRail="rail_119" nextRail="station_4"/>
+
+        <connection name="station_4" type="station" prevRail="rail_120" nextRail="rail_121" color="RED"/>
+
+        <connection name="rail_121" type="rail" prevRail="station_4" nextRail="rail_122"/>
+        <connection name="rail_122" type="rail" prevRail="rail_121" nextRail="rail_123"/>
+        <connection name="rail_123" type="rail" prevRail="rail_122" nextRail="rail_124"/>
+        <connection name="rail_124" type="rail" prevRail="rail_123" nextRail="rail_125"/>
+        <connection name="rail_125" type="rail" prevRail="rail_124" nextRail="crossrail_1"/>
+
+        <!-- Crossrail here -->
+
+        <connection name="rail_126" type="rail" prevRail="crossrail_1" nextRail="rail_127"/>
+        <connection name="rail_127" type="rail" prevRail="rail_126" nextRail="rail_128"/>
+        <connection name="rail_128" type="rail" prevRail="rail_127" nextRail="rail_129"/>
+        <connection name="rail_129" type="rail" prevRail="rail_128" nextRail="rail_130"/>
+        <connection name="rail_130" type="rail" prevRail="rail_129" nextRail="switch_5"/>
+        <!-- The section's connecting switch_2 and switch_5
+         starting from switch_2 connections end -->
+    </connections>
+
+    <engines>
+        <engine name="engine_1" startRound="1" length="4">
+            <trainElement_1>YELLOW</trainElement_1>
+            <trainElement_2>RED</trainElement_2>
+            <trainElement_3></trainElement_3>
+            <trainElement_4>GREEN</trainElement_4>
+        </engine>
+        <engine name="engine_2" startRound="20" length="5">
+            <trainElement_1>YELLOW</trainElement_1>
+            <trainElement_2>RED</trainElement_2>
+            <trainElement_3>RED</trainElement_3>
+            <trainElement_4>GREEN</trainElement_4>
+            <trainElement_5></trainElement_5>
+        </engine>
+    </engines>
+</testMapName>

@@ -138,6 +138,9 @@ public abstract class Train_Element {
      * 			counter
      */
     public void move(Rail nextRail, int i) {
+        // Utolsó kocsi felelőssége: felszabadítjuk a sínt, amelyről továbblépünk
+        if (nextTrainElement == null && actPos != null)
+            actPos.occupied=false;
 
         prevPos = actPos;
         actPos = nextRail;
@@ -153,6 +156,7 @@ public abstract class Train_Element {
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
             nextTrainElement.move(prevPos, i);
+        this.refreshDrawable();
     }
 
     /**
@@ -163,5 +167,5 @@ public abstract class Train_Element {
         return null;
     }
 
-
+    public abstract void refreshDrawable();
 }

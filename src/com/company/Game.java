@@ -26,13 +26,16 @@ public class Game {
      */
     private boolean isLastGame;
     /**
-     * Maximum number of trains.
+     * Maximum number of trains. Default value is 3.
      */
     private final int maxTrainNumber = 3;
     /**
      * List of engines.
      */
-    private ArrayList<Engine> engines = new ArrayList<>();              // vonatok tárolása
+    private ArrayList<Engine> engines = new ArrayList<>();              
+    /**
+     * List of trains colors.
+     */
     public static ArrayList<String> trainColors;
 
 
@@ -96,7 +99,6 @@ public class Game {
      */
     public void generateTrain(int round, boolean random) {
 
-
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
         // Többi generáláskor már ellenőrizni kell, üres-e a startRail
         Set<Rail> positions = new HashSet<>();
@@ -145,7 +147,7 @@ public class Game {
 
 
     /**
-     * Moves trains. Calls moveEngine function of all engines.
+     * Moves trains. Calls moveEngine function on all engines.
      * @param counter
      */
     public void moveTrains(int counter) {
@@ -232,7 +234,7 @@ public class Game {
         return !isNotDuplicateRail;
     }
 
-
+    public Map getMap(){ return this.map; }
 
     /**
      * Delivery of passengers. If first not empty car is on station and station's color equals with car's color then passengers get off and write it out.

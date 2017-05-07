@@ -6,3 +6,4 @@ labor.iml
 out
 /test8_output2.txt
 /.classpath
+*.class

@@ -56,3 +56,4 @@ New engine at startPosition
 Train derailed!
 <Game over!>
 -------------------------------
+<Exit>

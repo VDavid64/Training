@@ -11,33 +11,65 @@ import java.util.Scanner;
 public class Application {
 
 	/**
-	 * Defines the soruce of commands. False if console, true if text file.
+	 * Defines the source of commands. False if console, true if text file. Default value is false.
 	 */
 	public static boolean inputMethod = false;
+	/**
+	 * Output for writing to file. Default value is null.
+	 */
 	public static BufferedWriter output = null;
-	public static boolean random = false; // véletlenszerűséget állító kapcsoló
+	/**
+	 * Switch of randomization. Default value is false.
+	 */
+	public static boolean random = false; 
 
+	/**
+	 * Main function.
+	 * @param args Program arguments.
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws InterruptedException {
 
-		// TODO: maps + tests
-		// TODO: random működése, pl: train generálásnál csak Car-ok
-		// példányosodnak
-		// TODO: xml-be a station-ok színét is le kell kötni
+		/**
+		 * Creating a new game.
+		 */
+		Game game = new Game(); 
 
-		//////////////////////////////////////////////////////////
-		// init:
-		Game game = new Game(); // game példányosítása
-		boolean gameIsOn = true; // játék állapotát rögzítő bool (true, ha megy
-									// a játék)
+		/**
+		 * Signals if the game is on. 
+		 */
+		boolean gameIsOn = true; 
+
+		/**
+		 * Signals if someone already won. 
+		 */
 		boolean gameHasWon = false;
+
+		/**
+		 * Signals if the map is already loaded. 
+		 */
 		boolean mapLoaded = false;
-		int counter = 1; // számláló (vonat generálásához) és a map
-		final String inputFileName; // ha parancssori indítás esetén a
-									// parancsokat tartalmazó txt file
-		final String outputFileName; // kimenetet tartalmazó file
-		List<String> commands = new ArrayList<>(); // parancsokat tartalmazó
-													// lista
-		//////////////////////////////////////////////////////////
+
+		/**
+		 * Counter for trains. 
+		 */
+		int counter = 1; 
+
+		/**
+		 * String containing the input file name
+		 * if it is provided.
+		 */
+		final String inputFileName; 
+
+		/**
+		 * String containing the output file name
+		 * if it is provided.
+		 */
+		final String outputFileName; 
+		List<String> commands = new ArrayList<>();
+
+		Scene.InitScene(game);
+		mapLoaded = true;
 
 		// Control input/output method
 		if (args.length != 0) { // if args is not empty, we check the two
@@ -55,6 +87,11 @@ public class Application {
 
 				// Load commands from file into a String array
 				String path = System.getProperty("user.dir");
+
+				// If running with args should work as stated in docs, leave this in
+				// this clips the last dir from the path (aka the \src dir, since the test isn't at \src\test )
+				path = path.substring(0, path.lastIndexOf("\\"));
+
 				commands = Files.readAllLines(Paths.get(path + "\\test\\" + inputFileName), StandardCharsets.UTF_8);
 
 				// Create output file
@@ -97,7 +134,17 @@ public class Application {
 		String[] inputArray;
 		int command_counter = 0;
 
-		// main cycle
+		int round = 0;
+		while(true){
+			if(Scene.mapLoaded) {
+				game.generateTrain(round, false);
+				game.moveTrains(1);
+				round++;
+			}
+			Thread.sleep(500);
+		}
+
+		/*
 		while (true) {
 
 			// Processing the commands
@@ -122,6 +169,7 @@ public class Application {
 					if (command_counter < commands.size()) {
 						command = commands.get(command_counter);
 						inputArray = command.split(" ");
+
 						if (inputArray[0].equals("") || inputArray.length > 2) {
 							System.out.println(
 									"Format must be: \"command param(opt)\". See \"Help\" for list of commands.");
@@ -308,6 +356,7 @@ public class Application {
 					System.out.println("    Step number_of_steps                    Must be between 1 and 500");
 					System.out.println("    SetSwitch switch_name                   Change the direction of a switch");
 					System.out.println("    StationState station_name               List data of given station");
+					System.out.println("    ListTrains               				List the trains in the game");
 					System.out.println(
 							"    ListEngine engine_name                  List all information about an engine");
 					System.out.println(
@@ -315,6 +364,7 @@ public class Application {
 					System.out.println("    SetTunnel tunnel_name                   Set tunnel position activity");
 					System.out.println(
 							"    SetRandom                               Set the random generations of cars, stations, etc. Editable before loading the map!");
+					System.out.println("    Exit               						Exit the program");
 					System.out.println("-------------------------------");
 					break;
 
@@ -327,5 +377,6 @@ public class Application {
 				e.printStackTrace();
 			}
 		}
+*/
 	}
 }
