@@ -50,6 +50,7 @@ public class Draw_Car implements Drawable {
     
 	@Override
 	public void drawElement(Graphics2D g) {
+		if (this.myCar.actPos != null) {
 	    int x = (int)pos.getX();
 	    int y = (int)(pos.getY());
 	    if (myCar.getColor() == Color.GREEN)
@@ -64,7 +65,7 @@ public class Draw_Car implements Drawable {
 	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y+1)
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1))
 	    { //függőleges téglalap
-	    	g.fillRect( x*64+17+15-8, y*64+32-18, 64, 30);
+	    	g.fillRect( x*64+17+15-8, y*64+32-18, 16, 37);
 	        
 	    }
 	    //eszakkelet
@@ -117,8 +118,9 @@ public class Draw_Car implements Drawable {
 	    }
 	    
 	    else {
-	    	g.fillRect(x*64+32-18, y*64+17+15-8, 64, 30); //vízszintes téglalap
+	    	g.fillRect(x*64+32-18, y*64+17+15-8, 37, 16); //vízszintes téglalap
 	    }
+		}
 	}
 
 	/**
