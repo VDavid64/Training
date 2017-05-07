@@ -43,6 +43,11 @@ public class Draw_CrossRail implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
+    	int x = (int)pos.getX();
+ 	    int y = (int)(pos.getY());
+    	g.fillRect(64*x+17, 64*y, 30, 64); //függőleges
+    	g.fillRect(x*64,y*64+17, 64, 30); // vízszintes
+    	
 
     }
 
