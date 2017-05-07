@@ -24,19 +24,22 @@ public class Draw_Rail implements Drawable {
      */
     private Rail myRail;
     
-    private boolean vertical;
+	/**
+	 * vertical whether rail is vertical
+	 */
+	public boolean vertical;
 
     /**
      * Constructor of Draw_Rail class. Sets myRail,name and pos attributes.
      * @param r
      * 			Rail object what need to draw.
      */
-    public Draw_Rail(Rail r, int x, int y, boolean v){
-    	pos = new Point(x,y);
+    public Draw_Rail(Rail r){
+    	pos = r.pos;
     	//pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
     	myRail = r;
     	name = r.name;
-    	vertical = v;
+    	vertical = r.vertical;
     }
 	/* 
 	 * Overridden drawing function. Draws a Rail.

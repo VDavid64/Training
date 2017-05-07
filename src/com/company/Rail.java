@@ -1,5 +1,8 @@
 package com.company;
 
+import java.awt.Point;
+import java.awt.geom.Point2D;
+
 /**
  * Represents rail.
  * 
@@ -8,6 +11,16 @@ package com.company;
  */
 public class Rail {
 
+	/**
+	 * vertical whether rail is vertical
+	 */
+	public boolean vertical;
+	
+    /**
+     * Position of rail.
+     */
+    public Point2D pos;
+	
 	/**
 	 * Next rail object. 
 	 */
@@ -45,11 +58,13 @@ public class Rail {
      * @param name
      * 				Name of object.
      */
-    public Rail(Rail r1, Rail r2, String name) {
+    public Rail(Rail r1, Rail r2, String name, int x, int y, boolean v) {
         isTunnelUnderRail = false;
         nextRail = r1;
         prevRail = r2;
         this.name = name;
+        pos = new Point(x,y);
+        vertical = v;
     }
 
     /**
@@ -69,7 +84,7 @@ public class Rail {
 	 *         null, there is a derailing.
 	 */         
     public Rail getNextRail(Rail prev, Train_Element t) {
-        if (prev == prevRail)
+        if (prev == prevRail || prevRail == null)
             return nextRail;
         else
             return prevRail;

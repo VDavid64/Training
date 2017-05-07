@@ -253,15 +253,15 @@ public class Map {
                 Node nNode = elementList.item(i);
                 Element eElement = (Element) nNode;
                 if (eElement.getAttribute("type").equals("rail")) {
-                    Rail rail = new Rail(null, null, eElement.getAttribute("name"));
-                    rails.add(rail);
                     int x = Integer.valueOf(eElement.getAttribute("x"));
                     int y = Integer.valueOf(eElement.getAttribute("y"));
                     boolean vertical = false;
                     if (eElement.getAttribute("vertical").equals("y")){
                     	vertical = true;
                     }
-                    Scene.addDrawable(new Draw_Rail(rail,x,y,vertical));
+                    Rail rail = new Rail(null, null, eElement.getAttribute("name"),x,y, vertical);
+                    rails.add(rail);
+                    Scene.addDrawable(new Draw_Rail(rail));
                     if (eElement.getAttribute("name").equals("startpos"))
                         startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {
@@ -448,7 +448,7 @@ public class Map {
 
         // sínek példányosítása
         for (int i = 0; i < length; i++) {
-            Rail r = new Rail(null, null, "tunnelRail_" + i);
+            Rail r = new Rail(null, null, "tunnelRail_" + i,0,0,true); //0,0 csak próba,ezeket majd át kell írni
             tunnel.add(r);
         }
 
