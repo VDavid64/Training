@@ -232,13 +232,12 @@
         <connection name="rail_50" type="rail" prevRail="station_4" nextRail="rail_51"/>
         <connection name="rail_51" type="rail" prevRail="rail_50" nextRail="rail_52"/>
         <connection name="rail_52" type="rail" prevRail="rail_51" nextRail="rail_53"/>
-        <connection name="rail_53" type="rail" prevRail="rail_52" nextRail="rail_54"/>
-        <connection name="rail_54" type="rail" prevRail="rail_53" nextRail="crossrail_1"/>
+        <connection name="rail_53" type="rail" prevRail="rail_52" nextRail="crossrail_1"/>
 
         <!-- Crossrail here -->
 
-        <connection name="rail_55" type="rail" prevRail="crossrail_1" nextRail="rail_56"/>
-        <connection name="rail_56" type="rail" prevRail="rail_55" nextRail="switch_4"/>
+        <connection name="rail_54" type="rail" prevRail="crossrail_1" nextRail="rail_55"/>
+        <connection name="rail_55" type="rail" prevRail="rail_54" nextRail="switch_4"/>
         <!-- The section's connecting switch_2 and switch_4
          starting from switch_2 connections end -->
     </connections>
