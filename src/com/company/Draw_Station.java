@@ -31,7 +31,7 @@ public class Draw_Station implements Drawable {
      */
     public Draw_Station(Station s){
     	myStation = s;
-		pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+		pos = s.pos;
 		name = s.name;
 		
     }
@@ -54,6 +54,7 @@ public class Draw_Station implements Drawable {
 	    int x = (int)pos.getX();
 	    int y = (int)(pos.getY());
 	    g.setColor(java.awt.Color.black);
+	    if (myStation.nextRail != null && myStation.prevRail != null){
 	    if ((myStation.nextRail.pos.getX() == x && myStation.nextRail.pos.getY() == y+1)
 	    		&& (myStation.prevRail.pos.getX() == x && myStation.prevRail.pos.getY() == y-1)
 	    		||
@@ -110,7 +111,7 @@ public class Draw_Station implements Drawable {
 	    	g.fillRect(x*64+32-6,y*64+17-12, 12, 12);
 	    	g.drawString(((Integer)myStation.getPassenger()).toString(), x*64+32-6,y*64+17-12);
 	    }
- 	    
+	    }
  	}
 
 	/**

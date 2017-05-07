@@ -82,6 +82,7 @@ public class Draw_Rail implements Drawable {
 	    			int y1Points[] = {y*64+0, y*64+0, y*64+12, y*64+17+30, y*64+17+30, y*64+17};
 	    			g.fillPolygon(x1Points, y1Points, 6);
 	    		}
+	    //delkelet
 	    else if ((myRail.nextRail.pos.getX() == x+1 && myRail.nextRail.pos.getY() == y)
     		&& (myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y+1)
     		||

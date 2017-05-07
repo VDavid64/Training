@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.Point;
+
 /**
  * Represents station.
  * 

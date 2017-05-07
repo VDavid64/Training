@@ -4,7 +4,7 @@
 
         <!-- Main loop on map with the first starting position -->
         <element name="startpos" type="rail" x="0" y="8" vertical="n"/>
-        <element name="station_1" type="station" x="1" y="8"/>
+        <element name="rail_1" type="rail" x="1" y="8"/>
         <element name="rail_2" type="rail" x="2" y="8"/>
         <element name="rail_3" type="rail" x="3" y="8"/>
         <element name="rail_4" type="rail" x="3" y="7"/>
@@ -20,9 +20,9 @@
 
     <connections>
         <!-- Main loop connections and the first startpos -->
-        <connection name="startpos" type="rail" prevRail="null" nextRail="station_1"/>
-        <connection name="station_1" type="station" prevRail="startpos" nextRail="rail_2" color="YELLOW" />
-        <connection name="rail_2" type="rail" prevRail="station_1" nextRail="rail_3"/>
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
         <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
         <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="rail_5"/>
         <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="rail_6"/>

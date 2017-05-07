@@ -77,9 +77,8 @@ public class Draw_Car implements Drawable {
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1))
 	    		{
 	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(-135, 64*x+64, 64*y+17+30-10);
-	        g.rotate(-90, x*54+32, y*64+32);
-	        g.draw(rect2);
+	        g.rotate(3.14*3/4, 64*x+64, 64*y+17+30-10);
+	        g.rotate(-3.14/2, x*64+32, y*64+32);
 	        g.fill(rect2);
 	    		}
 	    //ESZAKNYUGAT
@@ -89,8 +88,8 @@ public class Draw_Car implements Drawable {
 	    		(myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1)){
 	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(-135, 64*x+64, 64*y+17+30-10);
-	        g.draw(rect2);
+	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
+	        g.rotate(Math.toRadians(270), x*64+32, y*64+32);
 	        g.fill(rect2);
 	    		}
 	    //delkelet
@@ -100,22 +99,19 @@ public class Draw_Car implements Drawable {
     		(myRail.prevRail.pos.getX() == x+1 && myRail.prevRail.pos.getY() == y)
     		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)){
 	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(-135, 64*x+64, 64*y+17+30-10);
-	        g.rotate(180, x*54+32, y*64+32);
-	        g.draw(rect2);
+	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
 	        g.fill(rect2);
 	    }
 	    //DELNYUGAT
-	    else if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1)
+	    else if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 	    		&& (myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		||
 	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
 	    		&& (myRail.nextRail.pos.getX() == x-1 && myRail.nextRail.pos.getY() == y)){
-	    			Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	    	        g.rotate(-135, 64*x+64, 64*y+17+30-10);
-	    	        g.rotate(90, x*54+32, y*64+32);
-	    	        g.draw(rect2);
-	    	        g.fill(rect2);
+	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
+	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
+	        g.rotate(Math.toRadians(90), x*64+32, y*64+32);
+	        g.fill(rect2);
 	    }
 	    
 	    else {
