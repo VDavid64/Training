@@ -255,7 +255,13 @@ public class Map {
                 if (eElement.getAttribute("type").equals("rail")) {
                     Rail rail = new Rail(null, null, eElement.getAttribute("name"));
                     rails.add(rail);
-                    Scene.addDrawable(new Draw_Rail(rail));
+                    int x = Integer.valueOf(eElement.getAttribute("x"));
+                    int y = Integer.valueOf(eElement.getAttribute("y"));
+                    boolean vertical = false;
+                    if (eElement.getAttribute("vertical").equals("y")){
+                    	vertical = true;
+                    }
+                    Scene.addDrawable(new Draw_Rail(rail,x,y,vertical));
                     if (eElement.getAttribute("name").equals("startpos"))
                         startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {

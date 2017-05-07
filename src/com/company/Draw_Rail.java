@@ -23,16 +23,20 @@ public class Draw_Rail implements Drawable {
      * Rail object what need to draw.
      */
     private Rail myRail;
+    
+    private boolean vertical;
 
     /**
      * Constructor of Draw_Rail class. Sets myRail,name and pos attributes.
      * @param r
      * 			Rail object what need to draw.
      */
-    public Draw_Rail(Rail r){
-    	pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+    public Draw_Rail(Rail r, int x, int y, boolean v){
+    	pos = new Point(x,y);
+    	//pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
     	myRail = r;
     	name = r.name;
+    	vertical = v;
     }
 	/* 
 	 * Overridden drawing function. Draws a Rail.
@@ -41,10 +45,15 @@ public class Draw_Rail implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
-//	    int x = (int)pos.getX();
-//	    int y = (int)(pos.getY());
-//	    g.setColor(java.awt.Color.green);
-//	    g.fillRect(x,y, 5, 20);
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    g.setColor(java.awt.Color.black);
+	    if (this.vertical == true){ //függőleges téglalap
+	    	g.fillRect(x,y, 10, 40);
+	    }
+	    else {
+	    	g.fillRect(x,y, 40, 10); //vízszintes téglalap
+	    }
 	}
 
 	/**
