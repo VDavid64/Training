@@ -59,6 +59,7 @@ public class Draw_Car implements Drawable {
 		    g.setColor(java.awt.Color.red);
 	    if (myCar.getColor() == Color.YELLOW)
 		    g.setColor(java.awt.Color.yellow);
+	    if (myRail.nextRail != null && myRail.prevRail != null){
 	    if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 	    		&& (myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
 	    		||
@@ -120,6 +121,7 @@ public class Draw_Car implements Drawable {
 	    else {
 	    	g.fillRect(x*64+32-18, y*64+17+15-8, 37, 16); //vízszintes téglalap
 	    }
+		}
 		}
 	}
 
