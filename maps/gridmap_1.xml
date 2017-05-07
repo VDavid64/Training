@@ -3,7 +3,7 @@
     <mapElements>
 
         <!-- Main loop on map with the first starting position -->
-        <element name="startpos" type="rail" x="0" y="15"/>
+        <element name="startpos" type="rail" x="0" y="15" vertical="n" />
         <element name="rail_1" type="rail" x="1" y="15"/>
         <element name="rail_2" type="rail" x="2" y="15"/>
 
