@@ -50,7 +50,7 @@ public class Draw_Engine implements Drawable {
 		if (this.myEngine.actPos != null) {
 			int x = (int) pos.getX();
 			int y = (int) (pos.getY());
-			g.setColor(java.awt.Color.red);
+			g.setColor(java.awt.Color.darkGray);
 			if (this.myEngine.actPos.vertical == true) {
 				g.fillRect(x, y, 10, 40);
 			} else {

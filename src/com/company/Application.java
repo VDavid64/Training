@@ -141,7 +141,7 @@ public class Application {
 				game.moveTrains(1);
 				round++;
 			}
-			Thread.sleep(200);
+			Thread.sleep(500);
 		}
 
 		/*

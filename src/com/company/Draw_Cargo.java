@@ -30,7 +30,10 @@ public class Draw_Cargo implements Drawable {
      * 			Cargo object what need to draw.
      */
     public Draw_Cargo(Cargo c){
-        pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+		if (c.actPos != null) {
+			pos = new Point((int) c.actPos.pos.getX(), (int) c.actPos.pos.getY());
+		} else
+			pos = null;
         myCargo = c;
         name = c.name;
     }
@@ -42,10 +45,16 @@ public class Draw_Cargo implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
-//    	int x = (int)pos.getX();
-//  	    int y = (int)(pos.getY());
-//  	    g.setColor(java.awt.Color.GRAY);
-//  	    g.fillRect(x,y, 40, 20);
+    	if (this.myCargo.actPos != null) {
+			int x = (int) pos.getX();
+			int y = (int) (pos.getY());
+			g.setColor(java.awt.Color.gray);
+			if (this.myCargo.actPos.vertical == true) {
+				g.fillRect(x, y, 10, 40);
+			} else {
+				g.fillRect(x, y, 40, 10);
+			}
+		}
     }
 
 	/**
