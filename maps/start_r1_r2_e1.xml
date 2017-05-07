@@ -3,9 +3,16 @@
     <mapElements>
 
         <!-- Main loop on map with the first starting position -->
-        <element name="startpos" type="rail" x="0" y="15" vertical="n"/>
-        <element name="rail_1" type="rail" x="1" y="15"/>
-        <element name="rail_2" type="rail" x="2" y="15"/>
+        <element name="startpos" type="rail" x="0" y="8" vertical="n"/>
+        <element name="station_1" type="station" x="1" y="8"/>
+        <element name="rail_2" type="rail" x="2" y="8"/>
+        <element name="rail_3" type="rail" x="3" y="8"/>
+        <element name="rail_4" type="rail" x="3" y="7"/>
+        <element name="rail_5" type="rail" x="3" y="6"/>
+        <element name="rail_6" type="rail" x="2" y="6"/>
+        <element name="rail_7" type="rail" x="2" y="5"/>
+        <element name="rail_8" type="rail" x="2" y="4"/>
+        <element name="rail_9" type="rail" x="3" y="4"/>
 
         <!-- The section connecting switch_3 and switch_5
          starting from switch_3 joining into switch_5 -->
@@ -13,9 +20,16 @@
 
     <connections>
         <!-- Main loop connections and the first startpos -->
-        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
-        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
-        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="null"/>
+        <connection name="startpos" type="rail" prevRail="null" nextRail="station_1"/>
+        <connection name="station_1" type="station" prevRail="startpos" nextRail="rail_2" color="YELLOW" />
+        <connection name="rail_2" type="rail" prevRail="station_1" nextRail="rail_3"/>
+        <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
+        <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="rail_5"/>
+        <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="rail_6"/>
+        <connection name="rail_6" type="rail" prevRail="rail_5" nextRail="rail_7"/>
+        <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
+        <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="null"/>
 
        
         <!-- The section's connecting switch_2 and switch_4

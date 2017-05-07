@@ -72,13 +72,14 @@ public class Draw_Rail implements Drawable {
 	    			int y1Points[] = {y*64+0, y*64+0, y*64+17, y*64+17+30, y*64+17+30, y*64+12};
 	    			g.fillPolygon(x1Points, y1Points, 6);
 	    		}
+	    //ESZAKNYUGAT
 	    else if ((myRail.nextRail.pos.getX() == x-1 && myRail.nextRail.pos.getY() == y)
 	    		&& (myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
 	    		||
 	    		(myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1)){
 	    			int x1Points[] = {x*64+17, x*64+17+30, x*64+17+30, x*64+12, x*64+0, x*64+0};
-	    			int y1Points[] = {y*64+0, y*64+0, y*64+12, y*64+17+30, y*64+17+30, y*64+12};
+	    			int y1Points[] = {y*64+0, y*64+0, y*64+12, y*64+17+30, y*64+17+30, y*64+17};
 	    			g.fillPolygon(x1Points, y1Points, 6);
 	    		}
 	    else if ((myRail.nextRail.pos.getX() == x+1 && myRail.nextRail.pos.getY() == y)
@@ -88,18 +89,18 @@ public class Draw_Rail implements Drawable {
     		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)){
 	    			// draw GeneralPath (polygon)
 	    			int x1Points[] = {x*64+64-12, x*64+64, x*64+64, x*64+64-17, x*64+17, x*64+17};
-	    			int y1Points[] = {y*64+12, y*64+12, y*64+17+30, y*64+64, y*64+64, y*64+(64-12)};
+	    			int y1Points[] = {y*64+17, y*64+17, y*64+17+30, y*64+64, y*64+64, y*64+(64-12)};
 	    			g.fillPolygon(x1Points, y1Points, 6);
 	    		}
 	    		
-	    else if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1)
+	    else if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 	    		&& (myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		||
-	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
+	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y+1)
 	    		&& (myRail.nextRail.pos.getX() == x-1 && myRail.nextRail.pos.getY() == y)){
 	    			// draw GeneralPath (polygon)
 	    			int x1Points[] = {x*64+0, x*64+12, x*64+17+30, x*64+17+30, x*64+17, x*64+0};
-	    			int y1Points[] = {y*64+12, y*64+12, y*64+17+30, y*64+64, y*64+64, y*64+(64-12)};
+	    			int y1Points[] = {y*64+17, y*64+17, y*64+(64-12), y*64+64, y*64+64, y*64+(64-17)};
 	    			g.fillPolygon(x1Points, y1Points, 6);
 	    }
 	    
