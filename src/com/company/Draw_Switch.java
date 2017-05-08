@@ -31,7 +31,7 @@ public class Draw_Switch implements Drawable {
      */
     public Draw_Switch(Switch s){
     	mySwitch = s;
-        pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+        pos = s.pos;
         name = s.name;
     }
 
@@ -42,6 +42,7 @@ public class Draw_Switch implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
+<<<<<<< HEAD
     	 int x = (int)pos.getX();
  	    int y = (int)(pos.getY());
  	    g.setColor(java.awt.Color.magenta);
@@ -98,6 +99,13 @@ public class Draw_Switch implements Drawable {
  	    else {
  	    	g.fillRect(x*64,y*64+17, 64, 30); //vízszintes téglalap
  	    }
+=======
+    	//csak a beolvasás kipróbáláshoz
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    g.setColor(java.awt.Color.green);
+	    g.fillRect(x,y, 10, 40);
+>>>>>>> refs/remotes/origin/master
     }
 
 	/**

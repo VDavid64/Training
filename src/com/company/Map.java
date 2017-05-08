@@ -252,33 +252,34 @@ public class Map {
             for (int i = 0; i < elementList.getLength(); i++) {
                 Node nNode = elementList.item(i);
                 Element eElement = (Element) nNode;
+                int x = Integer.valueOf(eElement.getAttribute("x"));
+                int y = Integer.valueOf(eElement.getAttribute("y"));
+                String color = eElement.getAttribute("color");
+                boolean vertical = false;
+                if (eElement.getAttribute("vertical").equals("y")){
+                	vertical = true;
+                }
                 if (eElement.getAttribute("type").equals("rail")) {
-                    int x = Integer.valueOf(eElement.getAttribute("x"));
-                    int y = Integer.valueOf(eElement.getAttribute("y"));
-                    boolean vertical = false;
-                    if (eElement.getAttribute("vertical").equals("y")){
-                    	vertical = true;
-                    }
                     Rail rail = new Rail(null, null, eElement.getAttribute("name"),x,y, vertical);
                     rails.add(rail);
                     Scene.addDrawable(new Draw_Rail(rail));
                     if (eElement.getAttribute("name").equals("startpos"))
                         startPosition = rail;
                 } else if (eElement.getAttribute("type").equals("switch")) {
-                    Switch sw = new Switch(null, null, null, eElement.getAttribute("name"));
+                    Switch sw = new Switch(null, null, null, eElement.getAttribute("name"),x,y);
                     rails.add(sw);
                     Scene.addDrawable(new Draw_Switch(sw));
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
-                    Tunnel tunnel = new Tunnel(eElement.getAttribute("name"));
+                    Tunnel tunnel = new Tunnel(eElement.getAttribute("name"),x,y);
                     rails.add(tunnel);
                     Scene.addDrawable(new Draw_Tunnel(tunnel));
                     tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
-                    CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
+                    CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"),x,y);
                     rails.add(crossRail);
                     Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
-                    Station station = new Station(eElement.getAttribute("name"));
+                    Station station = new Station(eElement.getAttribute("name"),x,y,vertical, color );
                     rails.add(station);
                     Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
@@ -296,8 +297,11 @@ public class Map {
 
                 // sínekre és állomásokra és alagútszájra
                 if (eElement.getAttribute("type").equals("rail") || eElement.getAttribute("type").equals("station") || eElement.getAttribute("type").equals("tunnel")) {
-                    if (!eElement.getAttribute("nextRail").equals("null"))
+                    if (!eElement.getAttribute("nextRail").equals("null")){
+                        System.out.println(eElement.getAttribute("name"));
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setNextRail(rails.get(getIndexByName(eElement.getAttribute("nextRail"))));
+
+                    }
                     if (!eElement.getAttribute("prevRail").equals("null"))
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setPrevRail(rails.get(getIndexByName(eElement.getAttribute("prevRail"))));
                     if (eElement.hasAttribute("color"))

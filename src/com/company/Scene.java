@@ -28,7 +28,7 @@ public class Scene extends JComponent {
 	/**
 	 * Final static integer value of Window's height. It's value is 600.
 	 */
-	private final static int HEIGHT = 700;
+	private final static int HEIGHT = 600;
 	/**
 	 * Arraylist of Drawable objects. Objects need to draw.
 	 */
@@ -68,44 +68,67 @@ public class Scene extends JComponent {
 		f.setJMenuBar(menuBar);
 		f.getContentPane().add(newScene);
 
-		exit.addMenuListener(new MenuListener() {
+		exit.addMouseListener(new MouseListener() {
 			@Override
-			public void menuSelected(MenuEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				System.exit(0);
 			}
 
 			@Override
-			public void menuCanceled(MenuEvent arg0) {
+			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
-			public void menuDeselected(MenuEvent arg0) {
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
 			}
 		});
-
-		start.addMenuListener(new MenuListener(){
-
+		
+		start.addMouseListener(new MouseListener() {
 			@Override
-			public void menuCanceled(MenuEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void menuDeselected(MenuEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void menuSelected(MenuEvent e) {
-				// TODO Auto-generated method stub
-				game.loadMap("start_r1_r2_e1");
+			public void mouseClicked(MouseEvent e) {
+				game.loadMap("gridmap_1"); 
+				//game.loadMap("gridmap_2");
 				mapLoaded = true;
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 

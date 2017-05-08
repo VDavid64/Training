@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.Point;
+
 /**
  * Class representing a cross-rail
  * (two rails crossing each other without a switch present).
@@ -20,12 +22,13 @@ public class CrossRail extends Rail {
      * @param r2_prevrail the previous rail in the other direction.
      * @param name the name of the cross-rail.
      */
-    public CrossRail(Rail r1_nextrail, Rail r1_prevrail, Rail r2_nextrail, Rail r2_prevrail, String name) {
+    public CrossRail(Rail r1_nextrail, Rail r1_prevrail, Rail r2_nextrail, Rail r2_prevrail, String name,int x, int y) {
         this.nextRail = r1_nextrail;
         this.prevRail = r1_prevrail;
         this.otherRailA = r2_nextrail;
         this.otherRailB = r2_prevrail;
         this.name = name;
+        this.pos = new Point(x,y);
     }
 
 

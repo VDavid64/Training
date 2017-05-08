@@ -31,7 +31,7 @@ public class Draw_Tunnel implements Drawable {
      */
     public Draw_Tunnel(Tunnel t){
     	myTunnel = t;
-        pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+        pos = t.pos;
         name = t.name;
     }
 	/* 
@@ -41,6 +41,7 @@ public class Draw_Tunnel implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
+<<<<<<< HEAD
     	  int x = (int)pos.getX();
   	    int y = (int)(pos.getY());
   	    g.setColor(java.awt.Color.black);
@@ -119,6 +120,18 @@ public class Draw_Tunnel implements Drawable {
   	    }
   	}
         
+=======
+    	//csak a beolvasás kipróbáláshoz
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    g.setColor(java.awt.Color.blue);
+	    g.fillRect(x,y, 10, 40);
+//    	if(myTunnel.isActive()) {
+//            // rajz ha true
+//        } else {
+//            //ha false
+//        }
+>>>>>>> refs/remotes/origin/master
 
     }
 

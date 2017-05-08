@@ -1,7 +1,6 @@
 package com.company;
 
 import java.awt.*;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -24,6 +23,7 @@ public class Draw_Station implements Drawable {
      * Station object what need to draw.
      */
     private Station myStation;
+
     /**
      * Constructor of Draw_Station class. Sets myStation,name and pos attributes.
      * @param s
