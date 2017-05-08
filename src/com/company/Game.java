@@ -112,8 +112,17 @@ public class Game {
 
 		@Override
 		public void actionPerformed(java.awt.event.ActionEvent e) {
-			try{ step(round);
-			round++;}
+			try{ 
+				boolean result = step(round);
+				if (result){
+					((Timer)e.getSource()).stop();
+					JOptionPane.showMessageDialog(new JFrame(),
+							"You lost!",
+							"Game over!",
+							JOptionPane.ERROR_MESSAGE);
+				}
+			
+				round++;}
 			catch(NullPointerException ex)
 			{
 				((Timer)e.getSource()).stop();
