@@ -102,8 +102,8 @@ public class Scene extends JComponent {
 		start.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				game.loadMap("gridmap_1"); 
-				//game.loadMap("gridmap_2");
+//				game.loadMap("gridmap_1");
+				game.loadMap("gridmap_2");
 				mapLoaded = true;
 			}
 
