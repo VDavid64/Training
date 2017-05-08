@@ -21,7 +21,11 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 	public static int mapLoaded = 0;
 	public JMenuItem start;
 	public Scene scene;
-	
+
+	/**
+	 * Implements the mouse click on Start menu item
+	 * @param e as an ActionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("START")){
@@ -48,6 +52,10 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 		
 	}
 
+	/**
+	 * Implements the mouse click on Start menu item
+	 * @param arg0 as a MenuEvent
+	 */
 	@Override
 	public void menuSelected(MenuEvent arg0) {
 		// TODO Auto-generated method stub
@@ -61,6 +69,10 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 		
 	}
 
+	/**
+	 * The mouse click event handling in the gameboard
+	 * @param e as a MouseEvent
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		int x = e.getX();

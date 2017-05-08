@@ -207,7 +207,6 @@ public class Scene extends JComponent {
 		repaint();
 	}
 
-	// TODO: fv ami visszaadja a klikkelt objektum nevét
 	/**
 	 * Getter of clicked element's name.
 	 * 

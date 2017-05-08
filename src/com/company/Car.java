@@ -143,7 +143,7 @@ public class Car extends Train_Element {
         this.refreshDrawable();
     }
 
-    /* 
+    /**
      * Refreshes drawable list. Replaces the element at the specified position in objects list with the specified Draw_Car element.
      */
     public void refreshDrawable() {
