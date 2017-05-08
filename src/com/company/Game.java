@@ -1,11 +1,15 @@
 package com.company;
 
+import java.awt.event.ActionListener;
+
 //import com.sun.deploy.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.swing.Timer;
 
 /**
  * Represents the game control. Responsible for moving, generating, emptying and deleting trains, loading map, checking crash and winning.
@@ -97,6 +101,27 @@ public class Game {
      * @param random
      * 				Activity of random.
      */
+    
+    int round = 0;
+    
+    public Timer timer = new Timer(500, new TimerListener());
+    
+    private class TimerListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(java.awt.event.ActionEvent e) {
+			Application.gameIsOn = step(round);
+			round++;
+		}
+	}
+    
+    
+    public boolean step(int round) throws NullPointerException{
+    	generateTrain(round, false);
+    	moveTrains(1);
+    	return crashDetection();
+    }
+    
     public void generateTrain(int round, boolean random) {
 
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)

@@ -112,6 +112,7 @@ public class Scene extends JComponent {
 				game.loadMap("gridmap_1");
 				mapLoaded ++;
 				start.setText("Restart");
+				game.timer.start();
 				
 			}
 
