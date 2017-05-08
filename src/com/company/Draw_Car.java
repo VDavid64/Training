@@ -50,7 +50,7 @@ public class Draw_Car implements Drawable {
     
 	@Override
 	public void drawElement(Graphics2D g) {
-		if (!myCar.isVisible) return;
+		//if (!myCar.isVisible) return;
 		if (this.myCar.actPos != null) {
 	    int x = (int)pos.getX();
 	    int y = (int)(pos.getY());

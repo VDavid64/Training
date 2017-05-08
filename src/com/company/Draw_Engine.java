@@ -51,7 +51,7 @@ public class Draw_Engine implements Drawable {
 	 */
 	@Override
 	public void drawElement(Graphics2D g) {
-		if (!myEngine.isVisible) return;
+		//if (!myEngine.isVisible) return;
 		if (this.myEngine.actPos != null) {
 		    int x = (int)pos.getX();
 		    int y = (int)(pos.getY());
