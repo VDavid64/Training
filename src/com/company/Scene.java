@@ -41,7 +41,9 @@ public class Scene extends JComponent {
 	/**
 	 * mapLoaded whether map is loaded.
 	 */
-	public static boolean mapLoaded;
+	public static int mapLoaded = 0;
+	
+	public static JFrame f;
 
 	/**
 	 * Initialization of Scene. Create JFrame, JMenubar, JMenus, sets texts,
@@ -51,9 +53,8 @@ public class Scene extends JComponent {
 	 *            Game object what need a window.
 	 */
 	public static void InitScene(Game game) {
-		mapLoaded = false;
 		Scene newScene = new Scene();
-		JFrame f = new JFrame();
+		f = new JFrame();
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.setSize(WIDTH, HEIGHT);
 		f.setResizable(false);
@@ -105,8 +106,15 @@ public class Scene extends JComponent {
 		start.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				if (mapLoaded%2 == 1){
+					f.dispose();
+					Scene.InitScene(new Game());
+		
+				}
 				game.loadMap("gridmap_1");
-				mapLoaded = true;
+				mapLoaded ++;
+				start.setText("Restart");
+				
 			}
 
 			@Override
