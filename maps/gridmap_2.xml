@@ -176,7 +176,7 @@
 
         <connection name="station_1" type="station" prevRail="rail_14" nextRail="rail_15" color="GREEN"/>
 
-        <connection name="rail_15" type="rail" prevRail="rail_14" nextRail="rail_16"/>
+        <connection name="rail_15" type="rail" prevRail="station_1" nextRail="rail_16"/>
         <connection name="rail_16" type="rail" prevRail="rail_15" nextRail="switch_3"/>
 
         <connection name="switch_3" type="switch" prevRail="rail_16" nextRail="rail_17" thirdRail="rail_39"/>
