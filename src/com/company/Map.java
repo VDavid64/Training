@@ -278,11 +278,18 @@ public class Map {
                     rails.add(crossRail);
                     Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
-                    Station station = new Station(eElement.getAttribute("name"));
+                    int x = Integer.valueOf(eElement.getAttribute("x"));
+                    int y = Integer.valueOf(eElement.getAttribute("y"));
+                    String color = eElement.getAttribute("color");
+                    boolean vertical = false;
+                    if (eElement.getAttribute("vertical").equals("y")){
+                    	vertical = true;
+                    Station station = new Station(eElement.getAttribute("name"),x,y,vertical, color );
                     rails.add(station);
                     Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
                 }
+            }
             }
 
 

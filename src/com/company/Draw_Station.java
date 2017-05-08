@@ -31,7 +31,7 @@ public class Draw_Station implements Drawable {
      */
     public Draw_Station(Station s){
     	myStation = s;
-		pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+		pos = s.pos;
 		name = s.name;
     }
     
@@ -42,13 +42,11 @@ public class Draw_Station implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
-//	    int x = (int)pos.getX();
-//	    int y = (int)(pos.getY());
-//	    g.setColor(java.awt.Color.black);
-//	    g.fillRect(x,y, 40, 10);
-//	    java.awt.Color color = java.awt.Color.getColor(myStation.getColor().toString());
-//	    g.setColor(color);
-//	    g.fillRect(x,y-15, 40, 10);
+    	//csak a beolvasás kipróbáláshoz
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    g.setColor(java.awt.Color.green);
+	    g.fillRect(x,y, 10, 40);
     }
 
 	/**

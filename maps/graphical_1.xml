@@ -25,7 +25,7 @@
         <element name="rail_17" type="rail" x="100" y="120" vertical="n"/>
         <element name="rail_18" type="rail" x="60" y="120" vertical="n"/>
         <element name="rail_19" type="rail" x="20" y="120" vertical="n"/>
-        <element name="rail_20" type="rail" x="10" y="120" vertical="y"/>
+        <element name="station_1" type="station" x="10" y="120" vertical="y"/>
         <element name="rail_21" type="rail" x="10" y="160" vertical="y"/>
 
 
@@ -53,9 +53,9 @@
         <connection name="rail_16" type="rail" prevRail="rail_15" nextRail="rail_17"/>
         <connection name="rail_17" type="rail" prevRail="rail_16" nextRail="rail_18"/>
         <connection name="rail_18" type="rail" prevRail="rail_17" nextRail="rail_19"/>
-        <connection name="rail_19" type="rail" prevRail="rail_18" nextRail="rail_20"/>
-        <connection name="rail_20" type="rail" prevRail="rail_19" nextRail="rail_21"/>
-        <connection name="rail_21" type="rail" prevRail="rail_20" nextRail="startpos"/>
+        <connection name="rail_19" type="rail" prevRail="rail_18" nextRail="station_1"/>
+        <connection name="station_1" type="station" prevRail="rail_19" nextRail="rail_21" color="GREEN"/>
+        <connection name="rail_21" type="rail" prevRail="station_1" nextRail="startpos"/>
 
         <!-- A connection elemek szerkezete:
         Rail esetén:
