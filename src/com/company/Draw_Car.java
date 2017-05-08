@@ -76,10 +76,11 @@ public class Draw_Car implements Drawable {
 	    		(myRail.prevRail.pos.getX() == x+1 && myRail.prevRail.pos.getY() == y)
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1))
 	    		{
-	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(3.14*3/4, 64*x+64, 64*y+17+30-10);
-	        g.rotate(-3.14/2, x*64+32, y*64+32);
-	        g.fill(rect2);
+	    	Graphics2D copy = (Graphics2D) g.create();
+	    	Rectangle rect2 = new Rectangle(64*x+17+20, 64*y, 37, 16);     
+	        copy.rotate(Math.toRadians(45), 64*x+17+20, 64*y);
+	        copy.fill(rect2);
+	        copy.dispose();
 	    		}
 	    //ESZAKNYUGAT
 	    else if ((myRail.nextRail.pos.getX() == x-1 && myRail.nextRail.pos.getY() == y)
@@ -87,10 +88,11 @@ public class Draw_Car implements Drawable {
 	    		||
 	    		(myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y-1)){
-	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
-	        g.rotate(Math.toRadians(270), x*64+32, y*64+32);
-	        g.fill(rect2);
+	    	Graphics2D copy = (Graphics2D) g.create();
+	    	Rectangle rect2 = new Rectangle(64*x, 64*y+17+10, 37, 16);     
+	        copy.rotate(Math.toRadians(-45), 64*x, 64*y+17+10);
+	        copy.fill(rect2);
+	        copy.dispose();
 	    		}
 	    //delkelet
 	    else if ((myRail.nextRail.pos.getX() == x+1 && myRail.nextRail.pos.getY() == y)
@@ -98,20 +100,23 @@ public class Draw_Car implements Drawable {
     		||
     		(myRail.prevRail.pos.getX() == x+1 && myRail.prevRail.pos.getY() == y)
     		&& (myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)){
+	    	Graphics2D copy = (Graphics2D) g.create();
 	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
-	        g.fill(rect2);
+	        copy.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
+	        copy.fill(rect2);
+	        copy.dispose();
 	    }
 	    //DELNYUGAT
 	    else if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 	    		&& (myRail.prevRail.pos.getX() == x-1 && myRail.prevRail.pos.getY() == y)
 	    		||
-	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
+	    		(myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y+1)
 	    		&& (myRail.nextRail.pos.getX() == x-1 && myRail.nextRail.pos.getY() == y)){
-	    	Rectangle rect2 = new Rectangle(64*x+64, 64*y+17+30-10, 37, 16);     
-	        g.rotate(Math.toRadians(135), 64*x+64, 64*y+17+30-10);
-	        g.rotate(Math.toRadians(90), x*64+32, y*64+32);
-	        g.fill(rect2);
+	    	Graphics2D copy = (Graphics2D) g.create();
+	    	Rectangle rect2 = new Rectangle(64*x, 64*y+17+30-10, 16, 37);     
+	        copy.rotate(Math.toRadians(-45), 64*x, 64*y+17+30-10);
+	        copy.fill(rect2);
+	        copy.dispose();
 	    }
 	    
 	    else {
