@@ -213,7 +213,7 @@
         <connection name="rail_34" type="rail" prevRail="rail_33" nextRail="rail_35"/>
         <connection name="rail_35" type="rail" prevRail="rail_34" nextRail="switch_7"/>
         <connection name="switch_7" type="switch" prevRail="rail_35" nextRail="rail_37" thirdRail="rail_68"/>
-        <connection name="rail_37" type="rail" prevRail="rail_36" nextRail="rail_38"/>
+        <connection name="rail_37" type="rail" prevRail="switch_7" nextRail="rail_38"/>
         <connection name="rail_38" type="rail" prevRail="rail_37" nextRail="switch_1"/>
         <!-- Main loop connections end -->
 
@@ -241,9 +241,9 @@
         <!-- The section's connecting switch_2 and switch_4
          starting from switch_2 connections -->
         <connection name="rail_46" type="rail" prevRail="switch_2" nextRail="rail_47"/>
-        <connection name="rail_47" type="rail" prevRail="rail_46" nextRail="rail_48"/>
+        <connection name="rail_47" type="rail" prevRail="rail_46" nextRail="switch_6"/>
         <connection name="switch_6" type="switch" prevRail="rail_47" nextRail="rail_49" thirdRail="rail_56"/>
-        <connection name="rail_49" type="rail" prevRail="rail_48" nextRail="station_4"/>
+        <connection name="rail_49" type="rail" prevRail="switch_6" nextRail="station_4"/>
 
         <connection name="station_4" type="station" prevRail="rail_49" nextRail="rail_50" color="RED"/>
 
