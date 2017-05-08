@@ -98,26 +98,36 @@ public class Scene extends JComponent {
 				
 			}
 		});
-
-		start.addMenuListener(new MenuListener(){
-
+		
+		start.addMouseListener(new MouseListener() {
 			@Override
-			public void menuCanceled(MenuEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void menuDeselected(MenuEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void menuSelected(MenuEvent e) {
-				// TODO Auto-generated method stub
+			public void mouseClicked(MouseEvent e) {
 				game.loadMap("graphical_1");
 				mapLoaded = true;
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 
