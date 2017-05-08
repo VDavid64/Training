@@ -25,11 +25,6 @@ public class Draw_Rail implements Drawable {
      */
     private Rail myRail;
     
-	/**
-	 * vertical whether rail is vertical
-	 */
-	public boolean vertical;
-
     /**
      * Constructor of Draw_Rail class. Sets myRail,name and pos attributes.
      * @param r
@@ -40,7 +35,6 @@ public class Draw_Rail implements Drawable {
     	//pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
     	myRail = r;
     	name = r.name;
-    	vertical = r.vertical;
     }
 	/* 
 	 * Overridden drawing function. Draws a Rail.

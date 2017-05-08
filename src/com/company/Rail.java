@@ -10,11 +10,6 @@ import java.awt.geom.Point2D;
  *
  */
 public class Rail {
-
-	/**
-	 * vertical whether rail is vertical
-	 */
-	public boolean vertical;
 	
     /**
      * Position of rail.
@@ -58,13 +53,12 @@ public class Rail {
      * @param name
      * 				Name of object.
      */
-    public Rail(Rail r1, Rail r2, String name, int x, int y, boolean v) {
+    public Rail(Rail r1, Rail r2, String name, int x, int y) {
         isTunnelUnderRail = false;
         nextRail = r1;
         prevRail = r2;
         this.name = name;
         pos = new Point(x,y);
-        vertical = v;
     }
 
     /**

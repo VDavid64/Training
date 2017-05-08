@@ -255,12 +255,8 @@ public class Map {
                 int x = Integer.valueOf(eElement.getAttribute("x"));
                 int y = Integer.valueOf(eElement.getAttribute("y"));
                 String color = eElement.getAttribute("color");
-                boolean vertical = false;
-                if (eElement.getAttribute("vertical").equals("y")){
-                	vertical = true;
-                }
                 if (eElement.getAttribute("type").equals("rail")) {
-                    Rail rail = new Rail(null, null, eElement.getAttribute("name"),x,y, vertical);
+                    Rail rail = new Rail(null, null, eElement.getAttribute("name"),x,y);
                     rails.add(rail);
                     Scene.addDrawable(new Draw_Rail(rail));
                     if (eElement.getAttribute("name").equals("startpos"))
@@ -279,7 +275,7 @@ public class Map {
                     rails.add(crossRail);
                     Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
-                    Station station = new Station(eElement.getAttribute("name"),x,y,vertical, color );
+                    Station station = new Station(eElement.getAttribute("name"),x,y, color );
                     rails.add(station);
                     Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
@@ -452,7 +448,7 @@ public class Map {
 
         // sínek példányosítása
         for (int i = 0; i < length; i++) {
-            Rail r = new Rail(null, null, "tunnelRail_" + i,0,0,true); //0,0 csak próba,ezeket majd át kell írni
+            Rail r = new Rail(null, null, "tunnelRail_" + i,0,0); //0,0 csak próba,ezeket majd át kell írni
             tunnel.add(r);
         }
 

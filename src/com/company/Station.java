@@ -23,10 +23,9 @@ public class Station extends Rail {
 	 * Constructs station and sets a color, sets name which was given in
 	 * parameter, sets number of passengers random between 0 and 3
 	 */
-	public Station(String name, int x, int y, boolean v, String s) {
+	public Station(String name, int x, int y, String s) {
 		this.name = name;
 		this.pos = new Point(x, y);
-		this.vertical = v;
 		passenger = (int) (Math.random() * (4));
 		if (s == "GREEN")
 			color = Color.GREEN;

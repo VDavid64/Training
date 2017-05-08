@@ -49,11 +49,7 @@ public class Draw_Cargo implements Drawable {
 			int x = (int) pos.getX();
 			int y = (int) (pos.getY());
 			g.setColor(java.awt.Color.gray);
-			if (this.myCargo.actPos.vertical == true) {
 				g.fillRect(x, y, 10, 40);
-			} else {
-				g.fillRect(x, y, 40, 10);
-			}
 		}
     }
 
