@@ -67,7 +67,7 @@ public class Draw_Tunnel implements Drawable {
    	    			g.setColor(java.awt.Color.black);
    	    			g.fillPolygon(x1Points, y1Points, 6);
    	    			g.setColor(myTunnel.isActive() ? java.awt.Color.blue : java.awt.Color.orange);
-   	    			g.fillOval(x*64+32+16-10, y*64+32-16-10, 26, 26);
+   	    			g.fillOval(x*64+32+16-13, y*64+32-16-13, 26, 26);
    	    		}
    	    //ESZAKNYUGAT
    	    else if ((myTunnel.nextRail.pos.getX() == x-1 && myTunnel.nextRail.pos.getY() == y)
@@ -80,7 +80,7 @@ public class Draw_Tunnel implements Drawable {
    	    			g.setColor(java.awt.Color.black);
    	    			g.fillPolygon(x1Points, y1Points, 6);
    	    			g.setColor(myTunnel.isActive() ? java.awt.Color.blue : java.awt.Color.orange);
-   	    			g.fillOval(x*64+32+16-10, y*64+32-16-10, 26, 26);
+   	    			g.fillOval(x*64+32+16-13, y*64+32-16-13, 26, 26);
    	    		}
    	    //delkelet
    	    else if ((myTunnel.nextRail.pos.getX() == x+1 && myTunnel.nextRail.pos.getY() == y)
