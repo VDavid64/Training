@@ -29,7 +29,7 @@ public class Scene extends JComponent {
 	/**
 	 * Final static integer value of Window's height. It's value is 1000.
 	 */
-	private final static int HEIGHT = 1080;
+	private final static int HEIGHT = 720;
 	/**
 	 * Arraylist of Drawable objects. Objects need to draw.
 	 */
@@ -44,6 +44,8 @@ public class Scene extends JComponent {
 	public static int mapLoaded = 0;
 	
 	public static JFrame f;
+	
+	public static Controller controller = new Controller();
 
 	/**
 	 * Initialization of Scene. Create JFrame, JMenubar, JMenus, sets texts,
@@ -53,6 +55,7 @@ public class Scene extends JComponent {
 	 *            Game object what need a window.
 	 */
 	public static void InitScene(Game game) {
+		controller.game = game;
 		Scene newScene = new Scene();
 		f = new JFrame();
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -102,8 +105,11 @@ public class Scene extends JComponent {
 
 			}
 		});
-
-		start.addMouseListener(new MouseListener() {
+		
+		start.addMenuListener(controller);
+		controller.start = start;
+		
+	/*	start.addActionistener(new ActionListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (mapLoaded%2 == 1){
@@ -140,7 +146,7 @@ public class Scene extends JComponent {
 
 			}
 		});
-
+/*
 		newScene.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -171,7 +177,7 @@ public class Scene extends JComponent {
 			@Override
 			public void mouseExited(MouseEvent e) {
 			}
-		});
+		});*/
 
 		f.setVisible(true);
 	}
@@ -224,7 +230,7 @@ public class Scene extends JComponent {
 	 *            the graphics context to use for painting
 	 */
 	public void drawAll(Graphics g) {
-		((Graphics2D)g).scale(0.7, 0.7);
+		((Graphics2D)g).scale(0.65, 0.65);
 		for (Drawable d : objects) {
 
 			d.drawElement((Graphics2D) g);

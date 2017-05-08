@@ -1,58 +1,54 @@
 package com.company;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.JMenu;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
 /**
  * Controls user interactions(clicks). Implements MouseListener interface.
  * @author i_did_iit team
  *
  */
-public class Controller implements MouseListener{
+public class Controller implements ActionListener, MenuListener{
 	int x,y;
-
-	/* 
-	 * Overridden function. Invoked when the mouse button has been clicked (pressed and released) on a component.
-	 */
+	public Game game;
+	public static int mapLoaded = 0;
+	public JMenu start;
+	
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		x = arg0.getX();
-		y = arg0.getY();
+	public void actionPerformed(ActionEvent e) {
+		
+		
 	}
 
-	/* 
-	 * Overridden function. Invoked when the mouse enters a component.
-	 */
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void menuCanceled(MenuEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* 
-	 * Overridden function. Invoked when the mouse exits a component.
-	 */
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void menuDeselected(MenuEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* 
-	 * Overridden function. Invoked when a mouse button has been pressed on a component.
-	 */
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void menuSelected(MenuEvent arg0) {
 		// TODO Auto-generated method stub
+		if (mapLoaded%2 == 1){
+			Scene.f.dispose();
+		}
+		game.loadMap("gridmap_1");
+		mapLoaded ++;
+		start.setText("Restart");
+		game.timer.start();
 		
 	}
 
-	/* 
-	 * Overridden function. Invoked when a mouse button has been released on a component.
-	 */
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 }
