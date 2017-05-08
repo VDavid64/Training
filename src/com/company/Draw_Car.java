@@ -23,6 +23,7 @@ public class Draw_Car implements Drawable {
      * Car object what need to draw.
      */
     private Car myCar;
+    private Rail myRail;
 
     
     /**
@@ -37,6 +38,7 @@ public class Draw_Car implements Drawable {
 			pos = null;
     	myCar = c;
     	name = c.name;
+    	myRail = c.actPos;
     }
 
 	/* 
