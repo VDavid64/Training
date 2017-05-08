@@ -42,11 +42,66 @@ public class Draw_Switch implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
-    	//csak a beolvasás kipróbáláshoz
-	    int x = (int)pos.getX();
+    	int x = (int)pos.getX();
 	    int y = (int)(pos.getY());
-	    g.setColor(java.awt.Color.green);
-	    g.fillRect(x,y, 10, 40);
+	    g.setColor(java.awt.Color.magenta);
+	    if (mySwitch.nextRail != null && mySwitch.prevRail != null){
+	    if ((mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y+1)
+	    		&& (mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y-1)
+	    		||
+	    		(mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y+1)
+	    		&& (mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y-1))
+	    { //függőleges téglalap
+	    	g.fillRect(64*x+17, 64*y, 30, 64);
+	    }
+	    else if ((mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x+1 && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y)
+	    		&& (mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y-1)
+	    		||
+	    		(mySwitch.prevRail.pos.getX() == x+1 && mySwitch.prevRail.pos.getY() == y)
+	    		&& (mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y-1))
+	    		{
+	    			// draw GeneralPath (polygon)
+	    			int x1Points[] = {x*64+17, x*64+17+30, x*64+64, x*64+64, x*64+64-12, x*64+17};
+	    			int y1Points[] = {y*64+0, y*64+0, y*64+17, y*64+17+30, y*64+17+30, y*64+12};
+	    			g.fillPolygon(x1Points, y1Points, 6);
+	    		}
+	    //ESZAKNYUGAT
+	    else if ((mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x-1 && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y)
+	    		&& (mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y-1)
+	    		||
+	    		(mySwitch.prevRail.pos.getX() == x-1 && mySwitch.prevRail.pos.getY() == y)
+	    		&& (mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y-1)){
+	    			int x1Points[] = {x*64+17, x*64+17+30, x*64+17+30, x*64+12, x*64+0, x*64+0};
+	    			int y1Points[] = {y*64+0, y*64+0, y*64+12, y*64+17+30, y*64+17+30, y*64+17};
+	    			g.fillPolygon(x1Points, y1Points, 6);
+	    		}
+	    //delkelet
+	    else if ((mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x+1 && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y)
+    		&& (mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y+1)
+    		||
+    		(mySwitch.prevRail.pos.getX() == x+1 && mySwitch.prevRail.pos.getY() == y)
+    		&& (mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y+1)){
+	    			// draw GeneralPath (polygon)
+	    			int x1Points[] = {x*64+64-12, x*64+64, x*64+64, x*64+64-17, x*64+17, x*64+17};
+	    			int y1Points[] = {y*64+17, y*64+17, y*64+17+30, y*64+64, y*64+64, y*64+(64-12)};
+	    			g.fillPolygon(x1Points, y1Points, 6);
+	    		}
+	    		
+	    else if ((mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y+1)
+	    		&& (mySwitch.prevRail.pos.getX() == x-1 && mySwitch.prevRail.pos.getY() == y)
+	    		||
+	    		(mySwitch.prevRail.pos.getX() == x && mySwitch.prevRail.pos.getY() == y+1)
+	    		&& (mySwitch.getNextRail(mySwitch.prevRail, null).pos.getX() == x-1 && mySwitch.getNextRail(mySwitch.prevRail, null).pos.getY() == y)){
+	    			// draw GeneralPath (polygon)
+	    			int x1Points[] = {x*64+0, x*64+12, x*64+17+30, x*64+17+30, x*64+17, x*64+0};
+	    			int y1Points[] = {y*64+17, y*64+17, y*64+(64-12), y*64+64, y*64+64, y*64+(64-17)};
+	    			g.fillPolygon(x1Points, y1Points, 6);
+	    }
+	    
+	    else {
+	    	g.fillRect(x*64,y*64+17, 64, 30); //vízszintes téglalap
+	    }
+	}
     }
 
 	/**
