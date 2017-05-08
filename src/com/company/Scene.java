@@ -16,11 +16,12 @@ import javax.swing.event.MenuListener;
 
 /**
  * Responsible for visualization. Extends from JComponent class.
+ * 
  * @author i_did_iit team
  *
  */
 public class Scene extends JComponent {
-	
+
 	/**
 	 * Final static integer value of Window's width. It's value is 1000.
 	 */
@@ -43,11 +44,13 @@ public class Scene extends JComponent {
 	public static boolean mapLoaded;
 
 	/**
-	 * Initialization of Scene. Create JFrame, JMenubar, JMenus, sets texts, background color, etc.
+	 * Initialization of Scene. Create JFrame, JMenubar, JMenus, sets texts,
+	 * background color, etc.
+	 * 
 	 * @param game
-	 * 				Game object what need a window.
+	 *            Game object what need a window.
 	 */
-	public static void InitScene(Game game){
+	public static void InitScene(Game game) {
 		mapLoaded = false;
 		Scene newScene = new Scene();
 		JFrame f = new JFrame();
@@ -77,58 +80,57 @@ public class Scene extends JComponent {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
 		start.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-//				game.loadMap("gridmap_1");
-				game.loadMap("gridmap_2");
+				game.loadMap("gridmap_1");
 				mapLoaded = true;
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
@@ -138,7 +140,7 @@ public class Scene extends JComponent {
 				int x = e.getX();
 				int y = e.getY();
 
-				//csak teszt
+				// csak teszt
 				text = "X: " + x + " Y: " + y;
 
 				String clickedElementName = getClickedElement();
@@ -148,26 +150,31 @@ public class Scene extends JComponent {
 			}
 
 			@Override
-			public void mousePressed(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {
+			}
 
 			@Override
-			public void mouseReleased(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {
+			}
 
 			@Override
-			public void mouseEntered(MouseEvent e) {}
+			public void mouseEntered(MouseEvent e) {
+			}
 
 			@Override
-			public void mouseExited(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {
+			}
 		});
 
 		f.setVisible(true);
 	}
 
-	/* 
-	 * Overridden function. Calls the UI delegate's paint method, if the UI delegate is non-null.
-	 * Set font, color and draw string. Calls drawAll, revalidate and repaint functions.
-	 *  @param e 
-	 *  		the Graphics context in which to paint
+	/*
+	 * Overridden function. Calls the UI delegate's paint method, if the UI
+	 * delegate is non-null. Set font, color and draw string. Calls drawAll,
+	 * revalidate and repaint functions.
+	 * 
+	 * @param e the Graphics context in which to paint
 	 */
 	@Override
 	public void paintComponent(Graphics e) {
@@ -183,11 +190,11 @@ public class Scene extends JComponent {
 		repaint();
 	}
 
-	//TODO: fv ami visszaadja a klikkelt objektum nevét
+	// TODO: fv ami visszaadja a klikkelt objektum nevét
 	/**
 	 * Getter of clicked element's name.
-	 * @return
-	 * 			Name of clicked element.
+	 * 
+	 * @return Name of clicked element.
 	 */
 	public static String getClickedElement() {
 		return "";
@@ -195,20 +202,22 @@ public class Scene extends JComponent {
 
 	/**
 	 * Adds Drawable object to objects arraylist.
+	 * 
 	 * @param obj
-	 * 				Drawable object what need to add.
+	 *            Drawable object what need to add.
 	 */
-	public static void addDrawable(Drawable obj){
+	public static void addDrawable(Drawable obj) {
 		objects.add(obj);
 	}
 
 	/**
 	 * Paints all components of objects.
+	 * 
 	 * @param g
-	 * 			 the graphics context to use for painting
+	 *            the graphics context to use for painting
 	 */
 	public void drawAll(Graphics g) {
-		for(Drawable d : objects){
+		for (Drawable d : objects) {
 			d.drawElement((Graphics2D) g);
 		}
 	}
