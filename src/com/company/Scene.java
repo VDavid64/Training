@@ -108,8 +108,6 @@ public class Scene extends JComponent {
 			public void mouseClicked(MouseEvent e) {
 				if (mapLoaded%2 == 1){
 					f.dispose();
-					Scene.InitScene(new Game());
-		
 				}
 				game.loadMap("gridmap_1");
 				mapLoaded ++;

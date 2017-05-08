@@ -54,6 +54,15 @@ public class Application {
 				game.moveTrains(1);
 				round++;
 			}
+			if(Scene.mapLoaded%2==0 && Scene.mapLoaded>0) {
+				round=0;
+				counter = 1;
+				game=new Game();
+				Scene.InitScene(game);
+				game.loadMap("gridmap_1");
+				Scene.mapLoaded = 1;
+				Scene.f.getJMenuBar().getMenu(1).setText("Restart");
+			}
 			Thread.sleep(500);
 				
 		}
