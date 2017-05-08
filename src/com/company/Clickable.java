@@ -3,9 +3,15 @@ package com.company;
 import java.awt.*;
 
 /**
- * Created by Bandan on 5/8/2017.
+ * Interface containing the methods of a clickable element.
  */
 public interface Clickable {
+    /**
+     * Fucntion which returns the FrameTile
+     */
     public DoubleRectangle getFrameTile();
+    /**
+     * Fucntion which returns the Name
+     */
     public String getName();
 }
