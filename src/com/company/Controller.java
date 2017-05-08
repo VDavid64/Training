@@ -63,17 +63,15 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-	/*	int x = e.getX();
+		int x = e.getX();
 		int y = e.getY();
 
-		// csak teszt
-		Scene.text = "X: " + x + " Y: " + y;
-
-		String clickedElementName = getClickedElement();
-		game.getMap().onMouseClickedEvent(clickedElementName);
-		newScene.revalidate();
-		newScene.repaint();*/
-		
+		String clickedElementName = Scene.getClickedElement(x, y);
+		if(!clickedElementName.equals("")) {
+			game.getMap().onMouseClickedEvent(clickedElementName);
+			scene.revalidate();
+			scene.repaint();
+		}
 	}
 
 	@Override

@@ -264,11 +264,15 @@ public class Map {
                 } else if (eElement.getAttribute("type").equals("switch")) {
                     Switch sw = new Switch(null, null, null, eElement.getAttribute("name"),x,y);
                     rails.add(sw);
-                    Scene.addDrawable(new Draw_Switch(sw));
+                    Draw_Switch dsw = new Draw_Switch(sw);
+                    Scene.addDrawable(dsw);
+                    Scene.clickables.add(dsw);
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
                     Tunnel tunnel = new Tunnel(eElement.getAttribute("name"),x,y);
                     rails.add(tunnel);
-                    Scene.addDrawable(new Draw_Tunnel(tunnel));
+                    Draw_Tunnel dt = new Draw_Tunnel(tunnel);
+                    Scene.addDrawable(dt);
+                    Scene.clickables.add(dt);
                     tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
                     CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"),x,y);

@@ -44,6 +44,8 @@ public class Scene extends JComponent {
 	public static int mapLoaded = 0;
 	
 	public static JFrame f;
+
+	public static ArrayList<Clickable> clickables = new ArrayList<Clickable>();
 	
 	public static Controller controller = new Controller();
 
@@ -62,7 +64,7 @@ public class Scene extends JComponent {
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.setSize(WIDTH, HEIGHT);
 		f.setResizable(false);
-
+		newScene.addMouseListener(controller);
 		f.setTitle("I like trains");
 		JMenuBar menuBar = new JMenuBar();
 		JMenuItem exit = new JMenuItem("Exit");
@@ -211,7 +213,13 @@ public class Scene extends JComponent {
 	 * 
 	 * @return Name of clicked element.
 	 */
-	public static String getClickedElement() {
+	public static String getClickedElement(int x, int y) {
+		for (Clickable c : clickables){
+			System.out.println(c.getFrameTile().getX() + "   " + c.getFrameTile().getY() );
+			if((c.getFrameTile().contains(x, y))) {
+				return c.getName();
+			}
+		}
 		return "";
 	}
 

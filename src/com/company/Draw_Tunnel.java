@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author i_did_iit team
  *
  */
-public class Draw_Tunnel implements Drawable {
+public class Draw_Tunnel implements Drawable, Clickable {
 
     /**
      * Position of shape what need to draw.
@@ -23,6 +23,8 @@ public class Draw_Tunnel implements Drawable {
      * Tunnel object what need to draw.
      */
     private Tunnel myTunnel;
+
+    private DoubleRectangle frameTile;
     
     /**
      * Constructor of Draw_Tunnel class. Sets myTunnel,name and pos attributes.
@@ -33,7 +35,11 @@ public class Draw_Tunnel implements Drawable {
     	myTunnel = t;
         pos = t.pos;
         name = t.name;
+		frameTile = new DoubleRectangle( pos.getX()*64*0.65, pos.getY()*64*0.65, 64*0.65, 64*0.65);
     }
+
+	public DoubleRectangle getFrameTile(){ return frameTile; }
+
 	/* 
 	 * Overridden drawing function. Draws a Tunnel point.
 	 * @param g

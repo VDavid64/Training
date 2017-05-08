@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author i_did_iit team
  *
  */
-public class Draw_Switch implements Drawable {
+public class Draw_Switch implements Drawable, Clickable {
 
     /**
      * Position of shape what need to draw.
@@ -23,6 +23,8 @@ public class Draw_Switch implements Drawable {
      * Switch object what need to draw.
      */
     private Switch mySwitch;
+
+    private DoubleRectangle frameTile;
     
     /**
      * Constructor of Draw_Switch class. Sets mySwitch,name and pos attributes.
@@ -33,7 +35,10 @@ public class Draw_Switch implements Drawable {
     	mySwitch = s;
         pos = s.pos;
         name = s.name;
+        frameTile = new DoubleRectangle(pos.getX()*64*0.65, pos.getY()*64*0.65, 64*0.65, 64*0.65);
     }
+
+    public DoubleRectangle getFrameTile(){ return frameTile; }
 
 	/* 
 	 * Overridden drawing function. Draws a Switch.

@@ -24,6 +24,7 @@ public class Draw_Rail implements Drawable {
      * Rail object what need to draw.
      */
     private Rail myRail;
+
     
     /**
      * Constructor of Draw_Rail class. Sets myRail,name and pos attributes.
