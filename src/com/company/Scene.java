@@ -103,6 +103,7 @@ public class Scene extends JComponent {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				game.loadMap("gridmap_1");
+				//game.loadMap("gridmap_2");
 				mapLoaded = true;
 			}
 
