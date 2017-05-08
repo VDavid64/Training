@@ -224,8 +224,11 @@ public class Scene extends JComponent {
 	 *            the graphics context to use for painting
 	 */
 	public void drawAll(Graphics g) {
+		((Graphics2D)g).scale(0.7, 0.7);
 		for (Drawable d : objects) {
+
 			d.drawElement((Graphics2D) g);
+			
 		}
 	}
 }

@@ -45,7 +45,7 @@ public class Car extends Train_Element {
     	this.color = Color.valueOf(colorName);
     	
         this.name = "car_"+ i;
-        this.isEmpty = false;
+        this.isEmpty = true;
         this.roundLastEmpty = 0;
 
         System.out.format(" %s ", color);
@@ -70,7 +70,7 @@ public class Car extends Train_Element {
     public Car(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
         this.name = "car_"+counter;
         this.color = Color.valueOf(trainElements.get(counter));
-        this.isEmpty = false;
+        this.isEmpty = true;
         this.roundLastEmpty = 0;
 
         counter++;
@@ -128,13 +128,14 @@ public class Car extends Train_Element {
 
         // Felszállás:
         //      Ha üres a kocsi, azonosak a színek és van utas az állomáson
-        if (this.isEmpty() && actPos.getColor() == this.color && actPos.getPassenger() > 0 ) {
-            this.setEmpty(false);
+        if (actPos != null && actPos.getColor() != null){
+        if (this.isEmpty && actPos.getColor().equals(this.color) && actPos.getPassenger() > 0 ) {
+            isEmpty = false;
             actPos.setPassenger();
             System.out.println("    <Passengers got on the train: " + this.getActPos().name + ", "+ this.name + " >");                     // Kiírás sak debug célra, majd törölni kell
             roundLastEmpty = counter;
         }
-
+        }
         // ha van még kocsi, és az előző körben ez a kocsi már
         // a pályán volt, akkor léptetjük a következőt is
         if (nextTrainElement != null && prevPos != null)
