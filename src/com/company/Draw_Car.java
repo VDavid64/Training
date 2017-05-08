@@ -53,11 +53,15 @@ public class Draw_Car implements Drawable {
 	    int x = (int)pos.getX();
 	    int y = (int)(pos.getY());
 	    if (myCar.getColor() == Color.GREEN)
-	    g.setColor(java.awt.Color.green);
+	    g.setColor(myCar.isEmpty? java.awt.Color.green: java.awt.Color.green.darker());
 	    if (myCar.getColor() == Color.RED)
-		    g.setColor(java.awt.Color.red);
+	    	g.setColor(myCar.isEmpty? java.awt.Color.red: java.awt.Color.red.darker());
 	    if (myCar.getColor() == Color.YELLOW)
-		    g.setColor(java.awt.Color.yellow);
+	    	g.setColor(myCar.isEmpty? java.awt.Color.yellow: java.awt.Color.yellow.darker());
+	    
+	    
+	
+	    
 	    if (myRail.nextRail != null && myRail.prevRail != null){
 	    if ((myRail.nextRail.pos.getX() == x && myRail.nextRail.pos.getY() == y+1)
 	    		&& (myRail.prevRail.pos.getX() == x && myRail.prevRail.pos.getY() == y-1)
