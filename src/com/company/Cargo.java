@@ -61,6 +61,9 @@ public class Cargo extends Train_Element {
         Scene.addDrawable(new Draw_Cargo(this));
     }
 
+    /* 
+     * Refreshes drawable list. Replaces the element at the specified position in objects list with the specified Draw_Cargo element.
+     */
     public void refreshDrawable() {
         for(Drawable d : Scene.objects) {
             if(d.getName().equals(this.name)) {

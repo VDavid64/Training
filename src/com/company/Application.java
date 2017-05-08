@@ -14,46 +14,44 @@ import javax.swing.Timer;
 
 import javafx.event.ActionEvent;
 
+/**
+ * Responsible for the whole Application. Contains main function.
+ * @author i_did_iit team
+ *
+ */
 public class Application {
+	/**
+	 * Timer.
+	 */
 	static public Timer timer;
+	/**
+	 * Game object to play.
+	 */
 	static private Game game;
 	
+	/**
+	 * gameIsOn whether game is on. Default value is true.
+	 */
 	static boolean gameIsOn = true; 
 	
 	/**
 	 * Main function.
-	 * @param args Program arguments.
+	 * @param args
+	 * 				Program arguments.
 	 * @throws InterruptedException
+	 * @throws NullPointerException
 	 */
-	
-	
-	
 	public static void main(String[] args) throws InterruptedException, NullPointerException {
-
-		
-		/**
-		 * Creating a new game.
-		 */
+		//Creating a new game.
 		game = new Game(); 
 
-		/**
-		 * Signals if the game is on. 
-		 */
-
-
-		/**
-		 * Signals if someone already won. 
-		 */
+		// Signals if player already won. 		 
 		boolean gameHasWon = false;
 
-		/**
-		 * Signals if the map is already loaded. 
-		 */
+		// Signals if the map is already loaded. 
 		boolean mapLoaded = false;
 
-		/**
-		 * Counter for trains. 
-		 */
+		// Counter for trains. 		 
 		int counter = 1; 
 
 		Scene.InitScene(game);
