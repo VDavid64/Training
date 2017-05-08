@@ -182,7 +182,7 @@
         <connection name="rail_27" type="rail" prevRail="rail_26" nextRail="rail_28"/>
         <connection name="rail_28" type="rail" prevRail="rail_27" nextRail="rail_29"/>
         <connection name="rail_29" type="rail" prevRail="rail_28" nextRail="rail_30"/>
-        <connection name="rail_30" type="rail" prevRail="rail_29" nextRail="rail_switch_5"/>
+        <connection name="rail_30" type="rail" prevRail="rail_29" nextRail="switch_5"/>
 
         <connection name="switch_5" type="switch" prevRail="rail_30" nextRail="rail_31" thirdRail="rail_45"/>
 
