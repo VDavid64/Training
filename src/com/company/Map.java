@@ -279,14 +279,11 @@ public class Map {
                     rails.add(crossRail);
                     Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {
-                    if (eElement.getAttribute("vertical").equals("y")){
-                    	vertical = true;
                     Station station = new Station(eElement.getAttribute("name"),x,y,vertical, color );
                     rails.add(station);
                     Scene.addDrawable(new Draw_Station(station));
                     stations.add(station);
                 }
-            }
             }
 
 
@@ -300,8 +297,11 @@ public class Map {
 
                 // sínekre és állomásokra és alagútszájra
                 if (eElement.getAttribute("type").equals("rail") || eElement.getAttribute("type").equals("station") || eElement.getAttribute("type").equals("tunnel")) {
-                    if (!eElement.getAttribute("nextRail").equals("null"))
+                    if (!eElement.getAttribute("nextRail").equals("null")){
+                        System.out.println(eElement.getAttribute("name"));
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setNextRail(rails.get(getIndexByName(eElement.getAttribute("nextRail"))));
+
+                    }
                     if (!eElement.getAttribute("prevRail").equals("null"))
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setPrevRail(rails.get(getIndexByName(eElement.getAttribute("prevRail"))));
                     if (eElement.hasAttribute("color"))
