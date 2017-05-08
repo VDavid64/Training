@@ -270,12 +270,12 @@ public class Map {
                     rails.add(sw);
                     Scene.addDrawable(new Draw_Switch(sw));
                 } else if (eElement.getAttribute("type").equals("tunnel")) {
-                    Tunnel tunnel = new Tunnel(eElement.getAttribute("name"));
+                    Tunnel tunnel = new Tunnel(eElement.getAttribute("name"),x,y);
                     rails.add(tunnel);
                     Scene.addDrawable(new Draw_Tunnel(tunnel));
                     tunnelPositions.add(tunnel);
                 } else if (eElement.getAttribute("type").equals("crossRail")) {
-                    CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"));
+                    CrossRail crossRail = new CrossRail(null, null, null, null, eElement.getAttribute("name"),x,y);
                     rails.add(crossRail);
                     Scene.addDrawable(new Draw_CrossRail(crossRail));
                 } else if (eElement.getAttribute("type").equals("station")) {

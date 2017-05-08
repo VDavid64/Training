@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.Point;
+
 /**
  * Represents tunnel point.
  * 
@@ -34,10 +36,11 @@ public class Tunnel extends Rail {
      * @param name
      * 				Name of object.
      */
-    public Tunnel(String name) {
+    public Tunnel(String name,int x, int y) {
         this.name = name;
         this.tunnelRail = null;
         this.isActive = false;
+        this.pos = new Point(x,y);
     }
 
     /**

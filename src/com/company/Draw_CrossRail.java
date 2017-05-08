@@ -31,7 +31,7 @@ public class Draw_CrossRail implements Drawable {
      */
     public Draw_CrossRail(CrossRail c){
 
-        pos = new Point(ThreadLocalRandom.current().nextInt(0, 1000 + 1),ThreadLocalRandom.current().nextInt(0, 600 + 1)); //csak proba
+        pos = c.pos;
         myCrossRail = c;
         name = c.name;
     }
@@ -43,7 +43,11 @@ public class Draw_CrossRail implements Drawable {
 	 */
     @Override
     public void drawElement(Graphics2D g) {
-
+    	//csak a beolvasás kipróbáláshoz
+	    int x = (int)pos.getX();
+	    int y = (int)(pos.getY());
+	    g.setColor(java.awt.Color.red);
+	    g.fillRect(x,y, 10, 40);
     }
 
 	/**
