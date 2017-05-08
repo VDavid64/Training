@@ -40,6 +40,8 @@ public class Rail {
      * occupied when there is a train element on rail. DEfault value is false.
      */
     protected boolean occupied = false;
+    
+    public Boolean vertical = null;
 
 
     
