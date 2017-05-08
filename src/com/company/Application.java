@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -15,7 +16,7 @@ public class Application {
 	 * @param args Program arguments.
 	 * @throws InterruptedException
 	 */
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, NullPointerException {
 
 		/**
 		 * Creating a new game.
@@ -46,25 +47,36 @@ public class Application {
 		mapLoaded = true;
 
 		
+		try {
+			int round = 0;
+			while (true) {
+				if (Scene.mapLoaded % 2 == 1) {
+					game.generateTrain(round, false);
+					game.moveTrains(1);
+					round++;
+					if (game.crashDetection()) {
+						gameIsOn = false;
+					}
+				}
+				if (Scene.mapLoaded % 2 == 0 && Scene.mapLoaded > 0) {
+					round = 0;
+					counter = 1;
+					game = new Game();
+					Scene.InitScene(game);
+					game.loadMap("gridmap_1");
+					Scene.mapLoaded = 1;
+					Scene.f.getJMenuBar().getMenu(1).setText("Restart");
+				}
+				Thread.sleep(500);
 
-		int round = 0;
-		while(true){
-			if(Scene.mapLoaded%2==1) {
-				game.generateTrain(round, false);
-				game.moveTrains(1);
-				round++;
 			}
-			if(Scene.mapLoaded%2==0 && Scene.mapLoaded>0) {
-				round=0;
-				counter = 1;
-				game=new Game();
-				Scene.InitScene(game);
-				game.loadMap("gridmap_1");
-				Scene.mapLoaded = 1;
-				Scene.f.getJMenuBar().getMenu(1).setText("Restart");
-			}
-			Thread.sleep(500);
-				
 		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					"You lost!.",
+					"Game over!",
+					JOptionPane.ERROR_MESSAGE);		}
 	}
+
 }
