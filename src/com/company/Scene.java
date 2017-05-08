@@ -37,7 +37,7 @@ public class Scene extends JComponent {
 	/**
 	 * Text for visualization of clicked point.
 	 */
-	private static String text = "X:  " + " Y:  ";
+	public static String text = "X:  " + " Y:  ";
 	/**
 	 * mapLoaded whether map is loaded.
 	 */
@@ -57,6 +57,7 @@ public class Scene extends JComponent {
 	public static void InitScene(Game game) {
 		controller.game = game;
 		Scene newScene = new Scene();
+		controller.scene = newScene;
 		f = new JFrame();
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.setSize(WIDTH, HEIGHT);
@@ -64,8 +65,8 @@ public class Scene extends JComponent {
 
 		f.setTitle("I like trains");
 		JMenuBar menuBar = new JMenuBar();
-		JMenu exit = new JMenu("Exit");
-		JMenu start = new JMenu("Start");
+		JMenuItem exit = new JMenuItem("Exit");
+		JMenuItem start = new JMenuItem("Start");
 
 		menuBar.add(exit);
 		menuBar.add(start);
@@ -106,7 +107,8 @@ public class Scene extends JComponent {
 			}
 		});
 		
-		start.addMenuListener(controller);
+		start.addActionListener(controller);
+		start.setActionCommand("START");
 		controller.start = start;
 		
 	/*	start.addActionistener(new ActionListener() {
