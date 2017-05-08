@@ -107,9 +107,10 @@ public class Draw_Station implements Drawable {
 	    	g.setColor(java.awt.Color.red);
 	    if (myStation.getColor() == Color.YELLOW)
 	    	g.setColor(java.awt.Color.yellow);
-	    g.fillRect(x*64+32-6,y*64+32-12, 24, 24);
+	    g.fillRect(x*64+32-12,y*64+32-12, 24, 24);
 	    g.setColor(java.awt.Color.black);
-    	g.drawString(((Integer)myStation.getPassenger()).toString(), x*64+32-3,y*64+32);
+	    g.setFont(new Font("Arial", Font.BOLD, 22)); 
+    	g.drawString(((Integer)myStation.getPassenger()).toString(), x*64+32-9,y*64+32+9);
     }
 
 	/**
