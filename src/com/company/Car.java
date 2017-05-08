@@ -67,8 +67,8 @@ public class Car extends Train_Element {
      * @param trainElements a hashmap containing the train elements, read from XML.
      * @param counter the number of the train car.
      */
-    public Car(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
-        this.name = "car_"+counter;
+    public Car(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter, String parentEngine) {
+        this.name = parentEngine + "car_"+counter;
         this.color = Color.valueOf(trainElements.get(counter));
         this.isEmpty = true;
         this.roundLastEmpty = 0;
@@ -83,12 +83,12 @@ public class Car extends Train_Element {
 
         // ha kocsit kell generálni:
         else if (numberOfTrainElement > 1 && !trainElements.get(counter).equals("")) {
-            nextTrainElement = new Car(numberOfTrainElement-1, trainElements, counter);
+            nextTrainElement = new Car(numberOfTrainElement-1, trainElements, counter, parentEngine);
         }
 
         // ha teherkocsit:
         else {
-            nextTrainElement = new Cargo(numberOfTrainElement-1, trainElements, counter);
+            nextTrainElement = new Cargo(numberOfTrainElement-1, trainElements, counter, parentEngine);
         }
         Scene.addDrawable(new Draw_Car(this));
     }

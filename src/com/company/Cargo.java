@@ -36,8 +36,8 @@ public class Cargo extends Train_Element {
      * @param trainElements        the number of the train cars yet to be generated.
      * @param counter              the number of the cargo car.
      */
-    public Cargo(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter) {
-        this.name = "cargo_" + counter;
+    public Cargo(int numberOfTrainElement, HashMap<Integer, String> trainElements, int counter, String parentEngine) {
+        this.name = parentEngine + "cargo_" + counter;
         this.isEmpty = false;
 
         counter++;
@@ -50,12 +50,12 @@ public class Cargo extends Train_Element {
 
         // ha kocsit kell generálni:
         else if (numberOfTrainElement > 1 && !trainElements.get(counter).equals("")) {
-            nextTrainElement = new Car(numberOfTrainElement - 1, trainElements, counter);
+            nextTrainElement = new Car(numberOfTrainElement - 1, trainElements, counter, parentEngine);
         }
 
         // ha teherkocsit:
         else {
-            nextTrainElement = new Cargo(numberOfTrainElement - 1, trainElements, counter);
+            nextTrainElement = new Cargo(numberOfTrainElement - 1, trainElements, counter, parentEngine);
         }
 
         Scene.addDrawable(new Draw_Cargo(this));

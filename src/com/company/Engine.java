@@ -36,9 +36,9 @@ public class Engine extends Train_Element {
 
         // ha kocsit kell példányosítanunk
         if (!trainElements.get(1).equals(""))
-            nextTrainElement = new Car(numberOfTrainElement, trainElements, 1);
+            nextTrainElement = new Car(numberOfTrainElement, trainElements, 1, name);
         else
-            nextTrainElement = new Cargo(numberOfTrainElement, trainElements, 1);
+            nextTrainElement = new Cargo(numberOfTrainElement, trainElements, 1, name);
     }
 
     /**
