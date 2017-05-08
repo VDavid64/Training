@@ -24,6 +24,7 @@ public class Draw_Engine implements Drawable {
 	 * Engine object what need to draw.
 	 */
 	private Engine myEngine;
+	private Rail myRail;
 
 	/**
 	 * Constructor of Draw_Engine class. Sets myEngine,name and pos attributes.
@@ -38,6 +39,7 @@ public class Draw_Engine implements Drawable {
 			pos = null;
 		myEngine = e;
 		name = e.name;
+		myRail = e.actPos;
 	}
 
 	/*
