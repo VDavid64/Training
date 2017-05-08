@@ -68,20 +68,32 @@ public class Scene extends JComponent {
 		f.setJMenuBar(menuBar);
 		f.getContentPane().add(newScene);
 
-		exit.addMenuListener(new MenuListener() {
+		exit.addMouseListener(new MouseListener() {
 			@Override
-			public void menuSelected(MenuEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				System.exit(0);
 			}
 
 			@Override
-			public void menuCanceled(MenuEvent arg0) {
+			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
-			public void menuDeselected(MenuEvent arg0) {
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				
 			}
