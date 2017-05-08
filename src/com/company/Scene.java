@@ -29,7 +29,7 @@ public class Scene extends JComponent {
 	/**
 	 * Final static integer value of Window's height. It's value is 1000.
 	 */
-	private final static int HEIGHT = 1080;
+	private final static int HEIGHT = 720;
 	/**
 	 * Arraylist of Drawable objects. Objects need to draw.
 	 */
