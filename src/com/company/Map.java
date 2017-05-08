@@ -302,6 +302,8 @@ public class Map {
                         rails.get(getIndexByName(eElement.getAttribute("name"))).setPrevRail(rails.get(getIndexByName(eElement.getAttribute("prevRail"))));
                     if (eElement.hasAttribute("color"))
                     	rails.get(getIndexByName(eElement.getAttribute("name"))).setColor(eElement.getAttribute("color"));
+                    if (eElement.hasAttribute("vertical"))
+                    	(rails.get(getIndexByName(eElement.getAttribute("name")))).vertical = eElement.getAttribute("vertical").equals("y");
                 }
 
                 // kereszteződő sínekre
