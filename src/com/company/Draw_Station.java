@@ -99,10 +99,17 @@ public class Draw_Station implements Drawable {
 	    
 	    else {
 	    	g.fillRect(x*64,y*64+17, 64, 30); //vízszintes téglalap
-	    	g.fillRect(x*64+32-6,y*64+17-12, 12, 12);
-	    	g.drawString(((Integer)myStation.getPassenger()).toString(), x*64+32-6,y*64+17-12);
 	    }
 	    }
+	    if (myStation.getColor() == Color.GREEN)
+	    	g.setColor(java.awt.Color.green);
+	    if (myStation.getColor() == Color.RED)
+	    	g.setColor(java.awt.Color.red);
+	    if (myStation.getColor() == Color.YELLOW)
+	    	g.setColor(java.awt.Color.yellow);
+	    g.fillRect(x*64+32-6,y*64+17-12, 12, 12);
+	    g.setColor(java.awt.Color.black);
+    	g.drawString(((Integer)myStation.getPassenger()).toString(), x*64+32-6,y*64+17);
     }
 
 	/**
