@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -110,8 +112,15 @@ public class Game {
 
 		@Override
 		public void actionPerformed(java.awt.event.ActionEvent e) {
-			Application.gameIsOn = step(round);
-			round++;
+			try{ step(round);
+			round++;}
+			catch(NullPointerException ex)
+			{
+				((Timer)e.getSource()).stop();
+				JOptionPane.showMessageDialog(new JFrame(),
+						"You lost!",
+						"Game over!",
+						JOptionPane.ERROR_MESSAGE);		}
 		}
 	}
     

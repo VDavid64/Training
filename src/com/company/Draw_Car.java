@@ -121,7 +121,6 @@ public class Draw_Car implements Drawable {
 	    else {
 	    	g.fillRect(x*64+32-18, y*64+17+15-8, 37, 16); //vízszintes téglalap
 	    }
-	    System.out.println(name + "DRAWN");
 		}
 		}
 	}
