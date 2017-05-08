@@ -176,7 +176,7 @@
 
         <connection name="station_1" type="station" prevRail="rail_14" nextRail="rail_15" color="GREEN"/>
 
-        <connection name="rail_15" type="rail" prevRail="station_1" nextRail="rail_16"/>
+        <connection name="rail_15" type="rail" prevRail="rail_14" nextRail="rail_16"/>
         <connection name="rail_16" type="rail" prevRail="rail_15" nextRail="switch_3"/>
 
         <connection name="switch_3" type="switch" prevRail="rail_16" nextRail="rail_17" thirdRail="rail_39"/>
@@ -211,7 +211,7 @@
 
         <connection name="rail_33" type="rail" prevRail="station_3" nextRail="rail_34"/>
         <connection name="rail_34" type="rail" prevRail="rail_33" nextRail="rail_35"/>
-        <connection name="rail_35" type="rail" prevRail="rail_34" nextRail="rail_36"/>
+        <connection name="rail_35" type="rail" prevRail="rail_34" nextRail="switch_7"/>
         <connection name="switch_7" type="switch" prevRail="rail_35" nextRail="rail_37" thirdRail="rail_68"/>
         <connection name="rail_37" type="rail" prevRail="rail_36" nextRail="rail_38"/>
         <connection name="rail_38" type="rail" prevRail="rail_37" nextRail="switch_1"/>
