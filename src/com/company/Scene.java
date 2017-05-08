@@ -240,11 +240,14 @@ public class Scene extends JComponent {
 	 *            the graphics context to use for painting
 	 */
 	public void drawAll(Graphics g) {
+		
 		((Graphics2D)g).scale(0.65, 0.65);
 		for (Drawable d : objects) {
 
 			d.drawElement((Graphics2D) g);
 			
 		}
+		g.setColor(this.getBackground());
+		g.fillRect(0*64+32-18, 0*64+17+15-8, 37, 16);
 	}
 }
