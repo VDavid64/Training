@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.Point;
+
 /**
  * Represents switch between rails. It has two possible positions.
  *
@@ -24,12 +26,13 @@ public class Switch extends Rail {
 	 * Sets object's name which was  given in parameter. 
 	 * Sets nextRail, prevRail and otherRail values what were given in parameters.
 	 */
-    public Switch(Rail r1, Rail r2, Rail r3, String name) {
+    public Switch(Rail r1, Rail r2, Rail r3, String name,int x, int y) {
         dir = true;
         nextRail = r1;
         prevRail = r2;
         otherRail = r3;
         this.name = name;
+        this.pos = new Point(x,y);
     }
 
 
