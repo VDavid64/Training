@@ -103,7 +103,7 @@ public class Draw_Rail implements Drawable {
 	    	g.fillRect(x*64,y*64+17, 64, 30); //vízszintes téglalap
 	    }
 	}
-	    else {if (myRail.vertical) g.fillRect(64*x+17, 64*y, 30, 64);
+	    else {if (myRail.vertical != null && myRail.vertical) g.fillRect(64*x+17, 64*y, 30, 64);
 	    else g.fillRect(x*64,y*64+17, 64, 30); //vízszintes téglalap
 	    	}
 	    }
