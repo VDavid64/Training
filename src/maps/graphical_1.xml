@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<testMapName>
+
+    <!-- Graphical 1  -->
+    <mapElements>
+
+        <!-- The name of the first element must be "startpos" (position for generating trains) -->
+        <element name="startpos" type="rail" x="10" y="200" vertical="y" />
+        <element name="rail_1" type="rail" x="10" y="240" vertical="y"/>
+        <element name="rail_2" type="rail" x="10" y="280" vertical="y"/>
+        <element name="rail_3" type="rail" x="10" y="320" vertical="y"/>
+        <element name="rail_4" type="rail" x="20" y="350" vertical="n"/>
+        <element name="rail_5" type="rail" x="60" y="350" vertical="n"/>
+        <element name="rail_6" type="rail" x="100" y="350" vertical="n"/>
+        <element name="rail_7" type="rail" x="140" y="350" vertical="n"/>
+        <element name="rail_8" type="rail" x="180" y="350" vertical="n"/>
+        <element name="rail_9" type="rail" x="220" y="320" vertical="y"/>
+        <element name="rail_10" type="rail" x="220" y="280" vertical="y"/>
+        <element name="rail_11" type="rail" x="220" y="240" vertical="y"/>
+        <element name="rail_12" type="rail" x="220" y="200" vertical="y"/>
+        <element name="rail_13" type="rail" x="220" y="160" vertical="y"/>
+        <element name="rail_14" type="rail" x="220" y="120" vertical="y"/>
+        <element name="rail_15" type="rail" x="180" y="120" vertical="n"/>
+        <element name="rail_16" type="rail" x="140" y="120" vertical="n"/>
+        <element name="rail_17" type="rail" x="100" y="120" vertical="n"/>
+        <element name="rail_18" type="rail" x="60" y="120" vertical="n"/>
+        <element name="rail_19" type="rail" x="20" y="120" vertical="n"/>
+        <element name="station_1" type="station" x="10" y="120" vertical="y"/>
+        <element name="rail_21" type="rail" x="10" y="160" vertical="y"/>
+
+
+    </mapElements>
+
+    <!-- Összeköttetések beállítása -->
+    <connections>
+
+        <connection name="startpos" type="rail" prevRail="null" nextRail="rail_1"/>
+        <connection name="rail_1" type="rail" prevRail="startpos" nextRail="rail_2"/>
+        <connection name="rail_2" type="rail" prevRail="rail_1" nextRail="rail_3"/>
+        <connection name="rail_3" type="rail" prevRail="rail_2" nextRail="rail_4"/>
+        <connection name="rail_4" type="rail" prevRail="rail_3" nextRail="rail_5"/>
+        <connection name="rail_5" type="rail" prevRail="rail_4" nextRail="rail_6"/>
+        <connection name="rail_6" type="rail" prevRail="rail_5" nextRail="rail_7"/>
+        <connection name="rail_7" type="rail" prevRail="rail_6" nextRail="rail_8"/>
+        <connection name="rail_8" type="rail" prevRail="rail_7" nextRail="rail_9"/>
+        <connection name="rail_9" type="rail" prevRail="rail_8" nextRail="rail_10"/>
+        <connection name="rail_10" type="rail" prevRail="rail_9" nextRail="rail_11"/>
+        <connection name="rail_11" type="rail" prevRail="rail_10" nextRail="rail_12"/>
+        <connection name="rail_12" type="rail" prevRail="rail_11" nextRail="rail_13"/>
+        <connection name="rail_13" type="rail" prevRail="rail_12" nextRail="rail_14"/>
+        <connection name="rail_14" type="rail" prevRail="rail_13" nextRail="rail_15"/>
+        <connection name="rail_15" type="rail" prevRail="rail_14" nextRail="rail_16"/>
+        <connection name="rail_16" type="rail" prevRail="rail_15" nextRail="rail_17"/>
+        <connection name="rail_17" type="rail" prevRail="rail_16" nextRail="rail_18"/>
+        <connection name="rail_18" type="rail" prevRail="rail_17" nextRail="rail_19"/>
+        <connection name="rail_19" type="rail" prevRail="rail_18" nextRail="station_1"/>
+        <connection name="station_1" type="station" prevRail="rail_19" nextRail="rail_21" color="GREEN" />
+        <connection name="rail_21" type="rail" prevRail="station_1" nextRail="startpos"/>
+
+        <!-- A connection elemek szerkezete:
+        Rail esetén:
+        <connection name="rail_neve" type="rail" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        CrossRail esetén:
+        <connection name="crossrail_neve" type="crossrail" prevRail="előző rail neve" nextRail="következő rail neve" otherprevRail="előző rail neve" othernextRail="következő rail neve"/>
+
+        Állomás:
+        <connection name="station_neve" type="station" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        Alagútszáj:
+        <connection name="tunnel_neve" type="tunnel" prevRail="előző rail neve" nextRail="következő rail neve"/>
+
+        Váltó:
+        <connection name="váltó_neve" type="switch" prevRail="előző rail neve" nextRail="következő rail neve" thirdRail="harmadik rail neve"/>
+
+        -->
+    </connections>
+
+    <engines>
+        <engine name="engine_1" startRound="1" length="4">
+            <trainElement_1>YELLOW</trainElement_1>
+            <trainElement_2>RED</trainElement_2>
+            <trainElement_3></trainElement_3>
+            <trainElement_4>GREEN</trainElement_4>
+        </engine>
+
+
+    </engines>
+
+</testMapName>
