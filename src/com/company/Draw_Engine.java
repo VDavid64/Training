@@ -24,6 +24,9 @@ public class Draw_Engine implements Drawable {
 	 * Engine object what need to draw.
 	 */
 	private Engine myEngine;
+    /**
+     * Rail object where to draw
+     */
 	private Rail myRail;
 
 	/**

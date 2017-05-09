@@ -24,6 +24,9 @@ public class Draw_Tunnel implements Drawable, Clickable {
      */
     private Tunnel myTunnel;
 
+    /**
+     * Frame tile
+     */
     private DoubleRectangle frameTile;
     
     /**

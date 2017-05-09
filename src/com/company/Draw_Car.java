@@ -23,6 +23,9 @@ public class Draw_Car implements Drawable {
      * Car object what need to draw.
      */
     private Car myCar;
+    /**
+     * Rail object where to draw
+     */
     private Rail myRail;
 
     

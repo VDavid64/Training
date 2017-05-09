@@ -26,6 +26,9 @@ public class Draw_Cargo implements Drawable {
      */
     private Cargo myCargo;
 
+    /**
+     * Rail object where to draw
+     */
     private Rail myRail;
     
     /**

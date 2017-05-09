@@ -24,6 +24,9 @@ public class Draw_Switch implements Drawable, Clickable {
      */
     private Switch mySwitch;
 
+    /**
+     * Frame tile
+     */
     private DoubleRectangle frameTile;
     
     /**
@@ -38,6 +41,11 @@ public class Draw_Switch implements Drawable, Clickable {
         frameTile = new DoubleRectangle(pos.getX()*64*0.65, pos.getY()*64*0.65, 64*0.65, 64*0.65);
     }
 
+	/**
+	 * Getter of frame tile.
+	 * @return
+	 * 			Frame tile.
+	 */
     public DoubleRectangle getFrameTile(){ return frameTile; }
 
 	/* 
