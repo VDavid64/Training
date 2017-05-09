@@ -7,15 +7,24 @@ import java.awt.geom.Rectangle2D;
  */
 public class DoubleRectangle extends Rectangle2D {
     /**
-     * Coordinates
+     * X Coordinate
      */
     double _x;
+    /**
+     * Y Coordinate
+     */
     double _y;
+    /**
+     * width
+     */
     double _w;
+    /**
+     * X height
+     */
     double _h;
 
     /**
-     * Setting the coordinates, which are the following
+     * Setting the coordinates, width, height which are the following
      * @param x
      * @param y
      * @param w
