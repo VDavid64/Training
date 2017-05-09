@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.Timer;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
@@ -29,8 +30,17 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("START")){
-			if (mapLoaded%2 == 1){
+			if (mapLoaded > 1){
+				game.deleteTrains();
+				game.timer.stop();
 				Scene.f.dispose();
+				game = new Game();
+				game.round = 0;
+				Scene.InitScene(game);
+				game.loadMap("gridmap_1");
+				Scene.mapLoaded = 1;
+				game.timer.start();
+				start.setText("Restart");
 			}
 			game.loadMap("gridmap_1");
 			mapLoaded ++;
