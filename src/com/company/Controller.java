@@ -50,12 +50,18 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 		
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void menuCanceled(MenuEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void menuDeselected(MenuEvent arg0) {
 		// TODO Auto-generated method stub
@@ -96,24 +102,36 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 		}
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* 
+	 *Auto-generated method, not used.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
