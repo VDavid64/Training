@@ -105,6 +105,7 @@ public class Game {
      */
     
     int round = 0;
+    public boolean won;
     
     public Timer timer = new Timer(500, new TimerListener());
     
@@ -118,6 +119,13 @@ public class Game {
 					((Timer)e.getSource()).stop();
 					JOptionPane.showMessageDialog(new JFrame(),
 							"You lost!",
+							"Game over!",
+							JOptionPane.ERROR_MESSAGE);
+				}
+				if (won){
+					((Timer)e.getSource()).stop();
+					JOptionPane.showMessageDialog(new JFrame(),
+							"You win!",
 							"Game over!",
 							JOptionPane.ERROR_MESSAGE);
 				}
@@ -137,6 +145,7 @@ public class Game {
     public boolean step(int round) throws NullPointerException{
     	generateTrain(round, false);
     	moveTrains(1);
+    	won = isWon();
     	return crashDetection();
     }
     
