@@ -50,7 +50,7 @@ public class Game {
      * Default construstor of Game class. Set isLastGame true.
      */
     public Game() {
-        isLastGame = true;
+        isLastGame = false;
     }
 
 
@@ -138,13 +138,20 @@ public class Game {
 							"You lost!",
 							"Game over!",
 							JOptionPane.ERROR_MESSAGE);
+							isLastGame=false;
 				}
-				if (won){
+				if (won && isLastGame){
 					((Timer)e.getSource()).stop();
 					JOptionPane.showMessageDialog(new JFrame(),
 							"You win!",
 							"Game over!",
 							JOptionPane.ERROR_MESSAGE);
+				}
+				
+				if (won && !isLastGame){
+					Controller.newMap();
+					won = false;
+					isLastGame=true;
 				}
 			
 				round++;}

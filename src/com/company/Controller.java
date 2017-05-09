@@ -18,11 +18,25 @@ import javax.swing.event.MenuListener;
  */
 public class Controller implements MouseListener, ActionListener, MenuListener{
 	int x,y;
-	public Game game;
+	public static Game game;
 	public static int mapLoaded = 0;
-	public JMenuItem start;
+	public static JMenuItem start;
 	public Scene scene;
 
+	
+	
+	public static void newMap(){
+		game.deleteTrains();
+		game.timer.stop();
+		Scene.f.dispose();
+		game = new Game();
+		game.round = 0;
+		Scene.InitScene(game);
+		game.loadMap("gridmap_2");
+		Scene.mapLoaded = 1;
+		game.timer.start();
+		start.setText("Restart");
+	}
 	/**
 	 * Implements the mouse click on Start menu item
 	 * @param e as an ActionEvent
@@ -30,7 +44,7 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("START")){
-			if (mapLoaded > 1){
+			if (mapLoaded > 0){
 				game.deleteTrains();
 				game.timer.stop();
 				Scene.f.dispose();
@@ -42,6 +56,7 @@ public class Controller implements MouseListener, ActionListener, MenuListener{
 				game.timer.start();
 				start.setText("Restart");
 			}
+			if(mapLoaded==0)
 			game.loadMap("gridmap_1");
 			mapLoaded ++;
 			start.setText("Restart");
