@@ -34,19 +34,25 @@ public class Scene extends JComponent {
 	 * Arraylist of Drawable objects. Objects need to draw.
 	 */
 	public static ArrayList<Drawable> objects = new ArrayList<Drawable>();
-	/**
-	 * Text for visualization of clicked point.
-	 */
-	public static String text = "X:  " + " Y:  ";
+
 	/**
 	 * mapLoaded whether map is loaded.
 	 */
 	public static int mapLoaded = 0;
 	
+	/**
+	 * JFrame
+	 */
 	public static JFrame f;
 
+	/**
+	 * Arraylist of clickable objects.
+	 */
 	public static ArrayList<Clickable> clickables = new ArrayList<Clickable>();
 	
+	/**
+	 * Controller
+	 */
 	public static Controller controller = new Controller();
 
 	/**
@@ -188,7 +194,7 @@ public class Scene extends JComponent {
 
 	/*
 	 * Overridden function. Calls the UI delegate's paint method, if the UI
-	 * delegate is non-null. Set font, color and draw string. Calls drawAll,
+	 * delegate is non-null. Calls drawAll,
 	 * revalidate and repaint functions.
 	 * 
 	 * @param e the Graphics context in which to paint
@@ -196,12 +202,6 @@ public class Scene extends JComponent {
 	@Override
 	public void paintComponent(Graphics e) {
 		super.paintComponent(e);
-
-		// teszt-text bal alulra
-		e.setFont(new Font("TimesRoman", Font.BOLD, 14));
-		e.setColor(Color.black);
-		e.drawString(text, 0, 540);
-
 		drawAll(e);
 		revalidate();
 		repaint();
