@@ -41,6 +41,9 @@ public class Rail {
      */
     protected boolean occupied = false;
     
+    /**
+     * true whether Rail is vertical
+     */
     public Boolean vertical = null;
 
 
@@ -166,5 +169,8 @@ public class Rail {
      */
     public void setTunnelRail(Rail r, String d) {}
 
+    /**
+     * Refreshes drawable list. .
+     */
     public void refreshDrawable(){}
 }

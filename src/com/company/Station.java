@@ -77,6 +77,9 @@ public class Station extends Rail {
 		this.refreshDrawable();
 	}
 
+    /**
+     * Refreshes drawable list. Replaces the element at the specified position in objects list with the specified Draw_Car element.
+     */
 	@Override
 	public void refreshDrawable() {
 		for (Drawable d : Scene.objects) {

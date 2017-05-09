@@ -146,6 +146,9 @@ public class Map {
 
     Scene mainscene;
 
+    /**
+     * Default constructor of Map class.
+     */
     public Map() {
         isActiveTunnel = false;
         isDerailing = false;

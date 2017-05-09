@@ -167,5 +167,8 @@ public abstract class Train_Element {
         return null;
     }
 
+    /**
+     * Abstract method of drawable refreshing. 
+     */
     public abstract void refreshDrawable();
 }

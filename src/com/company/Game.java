@@ -104,13 +104,30 @@ public class Game {
      * 				Activity of random.
      */
     
+    /**
+     * number of rounds
+     */
     int round = 0;
+    /**
+     * won whether game is won
+     */
     public boolean won;
     
+    /**
+     * Timer
+     */
     public Timer timer = new Timer(500, new TimerListener());
     
+    /**
+     * TimerListener class. Implements ActionListener interface.
+     * @author i_did_iit
+     *
+     */
     private class TimerListener implements ActionListener{
 
+		/*
+		 * Overridden actinPerformed function.
+		 */
 		@Override
 		public void actionPerformed(java.awt.event.ActionEvent e) {
 			try{ 
@@ -142,6 +159,14 @@ public class Game {
 	}
     
     
+    /**
+     * Step method. 
+     * @param round
+     * 				Number of round.
+     * @return 
+     * 			Value of crash detection.
+     * @throws NullPointerException
+     */
     public boolean step(int round) throws NullPointerException{
     	generateTrain(round, false);
     	moveTrains(1);
@@ -149,6 +174,13 @@ public class Game {
     	return crashDetection();
     }
     
+    /**
+     * Generates trains.
+     * @param round
+     * 				Number of round.
+     * @param random
+     * 				Randomness.
+     */
     public void generateTrain(int round, boolean random) {
 
         // Törölhető, ha úgy döntünk felesleges (pálya széléről lehajtanánk amúgy)
@@ -286,6 +318,11 @@ public class Game {
         return !isNotDuplicateRail;
     }
 
+    /**
+     * Getter of game's map.
+     * @return
+     * 			Map of game
+     */
     public Map getMap(){ return this.map; }
 
     /**
